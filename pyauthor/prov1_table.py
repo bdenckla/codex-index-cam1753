@@ -117,7 +117,8 @@ TABLE = [
         "what-is-weird": "רביע is on ה not ר",
         "mam": "אֲ֝דַבְּרָ֗ה",
         "comment": "",
-        "highlight": 4,
+        "highlight-bhla": 5,
+        "highlight-mam": 4,
     },
     {
         "bhla-i": 13,
@@ -217,7 +218,8 @@ TABLE = [
         "what-is-weird": "סילוק is on 2nd ר not ת",
         "mam": "מְרֵרָתִֽי׃",
         "comment": "",
-        "highlight": 3,
+        "highlight-bhla": 3,
+        "highlight-mam": 4,
     },
     {
         "bhla-i": 23,
@@ -287,7 +289,7 @@ TABLE = [
         "what-is-weird": "אתנח and ∅ not מונח and קמץ־אתנח",
         "mam": "עִמּ֣וֹ וּשְׁלָ֑ם",
         "comment": "Typical sloppy re-inking. Perhaps some super-faint remains of the אתנח under ל can be seen. Various dots not mentioned are, based on consensus expectations, either generously transcribed despite having only super-faint remains or generously ignored despite being fairly clear.",
-        "highlight": 2,
+        "highlight": [2, 6],
     },
     {
         "bhla-i": 30,

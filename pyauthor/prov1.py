@@ -18,7 +18,7 @@ def gen_html_file(tdm_ch):
 
 
 def _highlight(record, key):
-    zbhls = _zb_highlights(record)  # zero-based highlights
+    zbhls = _zb_highlights(record, key)  # zero-based highlights
     rk = record[key]
     clusters = re.findall(r"[א-ת][^א-ת]*", rk)
     jc = "".join(clusters)

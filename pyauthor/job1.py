@@ -4,11 +4,11 @@ import re
 from pycmn.my_utils import sl_map
 from py import my_html
 from pyauthor.util import author
-from pyauthor.prov1_table import TABLE
+from pyauthor.job1_table import TABLE
 
 
-def anchor(provn_dir="."):
-    anc = my_html.anchor_h("document", f"{provn_dir}/{_FNAME}")
+def anchor(jobn_dir="."):
+    anc = my_html.anchor_h("document", f"{jobn_dir}/{_FNAME}")
     return author.std_anchor(anc, _H1_CONTENTS)
 
 
@@ -72,11 +72,11 @@ def _make_row(record):
     )
 
 
-_TITLE = "Proverbs Document 1"
-_H1_CONTENTS = "Proverbs (משלי) Document 1"
-_FNAME = "prov1.html"
+_TITLE = "Book of Job Document 1"
+_H1_CONTENTS = "Book of Job (ספר איוב) Document 1"
+_FNAME = "job1.html"
 _CONT_PARA_01 = [
-    "Here is a table expanding upon the entries for Proverbs",
+    "Here is a table expanding upon the entries for the book of Job",
     " in BHL Appendix A.",
 ]
 _CONT_TABLE_1A_ROWS = sl_map(_make_row, TABLE)

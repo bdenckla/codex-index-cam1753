@@ -20,6 +20,8 @@ RECORDS = [
         "mam": "אֱל֣וֹהַּ",
         "comment": "",
         "highlight": 4,
+        "lcloc": {'page': '398A', 'line': -2, 'column': 1},
+        "img": "0409.png",
     },
     {
         "bhla-i": 3,
@@ -30,6 +32,8 @@ RECORDS = [
         "mam": "מֵאֱל֣וֹהַּ",
         "comment": "",
         "highlight": 5,
+        "lcloc": {'page': '398A', 'line': 10, 'column': 2},
+        "img": "0417.png",
     },
     {
         "bhla-i": 4,
@@ -40,6 +44,8 @@ RECORDS = [
         "mam": "וְכִימֵ֖י",
         "comment": "",
         "highlight": 4,
+        "lcloc": {'page': '399A', 'line': 4, 'column': 1},
+        "img": "0701.png",
     },
     {
         "bhla-i": 5,
@@ -50,6 +56,8 @@ RECORDS = [
         "mam": "יַעֲלֶֽה׃",
         "comment": "",
         "highlight": 3,
+        "lcloc": {'page': '399A', 'line': 14, 'column': 1},
+        "img": "0709.png",
     },
     {
         "bhla-i": 6,
@@ -60,6 +68,8 @@ RECORDS = [
         "mam": "וְשִׁ֖חַרְתַּ֣נִי",
         "comment": "",
         "highlight": 3,
+        "lcloc": {'page': '399A', 'line': 3, 'column': 2},
+        "img": "0721.png",
     },
     {
         "bhla-i": 7,
@@ -70,6 +80,8 @@ RECORDS = [
         "mam": "וַיֹּאמַֽר׃",
         "comment": "",
         "highlight": 2,
+        "lcloc": {'page': '399A', 'line': 5, 'column': 1, 'including-blank-lines': 1},
+        "img": "0801.png",
     },
     {
         "bhla-i": 8,

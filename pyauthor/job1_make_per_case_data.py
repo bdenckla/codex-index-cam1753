@@ -45,6 +45,33 @@ def _maybe_img(record):
     return []
 
 
+def _maybe_sp_ibl(lcloc):
+    if ibl := lcloc.get("including-blank-lines"):
+        return f" (including {ibl} blank line{'s' if ibl != 1 else ''})"
+    return ""
+
+
+def _maybe_sp_cfb(line):
+    if line < 0:
+        return -line, " (counting from bottom of page)"
+    return line, ""
+
+
+def _maybe_sep_lcloc(record, sep):
+    if lcloc := record.get("lcloc"):
+        page = lcloc["page"]
+        line = lcloc["line"]
+        column = lcloc["column"]
+        abs_line, m_sp_cfb = _maybe_sp_cfb(line)
+        m_sp_ibl = _maybe_sp_ibl(lcloc)
+        return [
+            sep,
+            _lc_full_page_anc(page),
+            f" (line {abs_line}{m_sp_cfb}{m_sp_ibl}, col. {column})",
+        ]
+    return []
+
+
 def _make_details(record):
     sep = " \N{EM DASH} "
     cv = record["cv"]
@@ -53,14 +80,7 @@ def _make_details(record):
     cnvm = "c" + cv.replace(":", "v")
     mwd_href = f"https://bdenckla.github.io/MAM-with-doc/D3-Job.html#{cnvm}"
     mwd_anc = my_html.anchor_h("MwD", mwd_href)
-    dpe = [uxlc_anc, sep, mwd_anc]
-    if lcloc := record.get("lcloc"):
-        page = lcloc["page"]
-        line = lcloc["line"]
-        column = lcloc["column"]
-        dpe.append(sep)
-        dpe.append(_lc_full_page_anc(page))
-        dpe.append(f" (line {line}, col. {column})")
+    dpe = [uxlc_anc, sep, mwd_anc, *_maybe_sep_lcloc(record, sep)]
     if comment := record["comment"]:
         dpe.append(sep)
         dpe.append(comment)

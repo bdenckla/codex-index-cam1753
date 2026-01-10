@@ -8,6 +8,8 @@ RECORDS = [
         "mam": "שָׁ֔מָּה",
         "comment": "",
         "highlight": 2,
+        "lcloc": {'page': '397B', 'line': 1, 'column': 1},
+        "img": "0121.png",
     },
     {
         "bhla-i": 2,

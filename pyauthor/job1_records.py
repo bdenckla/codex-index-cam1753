@@ -11,17 +11,17 @@ def _correctly_ignores(what):
     return "".join(out_parts)
 
 
-_MAQAF_WITH_MAHPAKH_COMMENT = [
+_COMMENT_1604 = [
     "Though it is not relevant to the point at hand, which is the presence of a מקף,",
     " note that in the LC, the shape we take to be מחפך is touching the bottom of the ל (lamed).",
 ]
 
-_BROWN_DOT_COMMENT = [
+_COMMENT_2125 = [
     "The dot is suspiciously brown rather than black,",
     " making me wonder whether the ו was pointed at all.",
 ]
 
-_REINKED_SLOPPY_COMMENT = [
+_COMMENT_2221 = [
     "BHL Appendix A fails to note the anomalous non-pointing of the ל in the next word, ושלם.",
     " Nonethless I have included ושלם above.",
     " The letters of both words are re-inked, and as usual, the re-inking is sloppy.",
@@ -32,24 +32,24 @@ _REINKED_SLOPPY_COMMENT = [
     " It is (charitably) not transcribed by BHL, presumably based on consensus expectations.",
 ]
 
-_SEGOL_THIRD_DOT_COMMENT = [
+_COMMENT_2421 = [
     "Perhaps there is some super-faint evidence of a third dot that would make a סגול,",
     " but this could be just wishful thinking.",
     " Note that there is a third dot above the two clearer dots,",
     " but I take that to be part of the ע that did not flake off like its neighboring ink did.",
 ]
 
-_MAQAF_MISSING_COMMENT = [
+_COMMENT_2702 = [
     "Perhaps there is some super-faint evidence of a מקף that was ignored during re-inking.",
     " By the way, the evidence for the דחי on the א of the next word is super-faint.",
 ]
 
-_LAMED_ASCENDER_COMMENT = [
+_COMMENT_2919 = [
     "Probably the ascender of the ל on the line below",
     f" {_QUOTE_FORCED} the סילוק to be early.",
 ]
 
-_NOT_INK_GERESH_COMMENT = [
+_COMMENT_3629 = [
     "The color image strongly suggests that the mark in question is not ink.",
     " A געיה right next to סילוק like that would be extraordinary, BTW,",
     " though I feel no appeal to expectations is needed to dismiss this possible געיה.",
@@ -330,7 +330,7 @@ RECORDS = [
         "bhla": "ל֤וּ־",
         "what-is-weird": "מקף is present",
         "mam": "ל֤וּ_",
-        "comment": "".join(_MAQAF_WITH_MAHPAKH_COMMENT),
+        "comment": "".join(_COMMENT_1604),
         "highlight": 2,
         "lcloc": {"page": "401B", "column": 2, "line": 3},
         "img": "1604.png",
@@ -420,7 +420,7 @@ RECORDS = [
         "bhla": "וִלֹֽא־",
         "what-is-weird": "ו has חיריק not שווא",
         "mam": "וְלֹֽא־",
-        "comment": "".join(_BROWN_DOT_COMMENT),
+        "comment": "".join(_COMMENT_2125),
         "highlight": 1,
         "lcloc": {"page": "403A", "column": 2, "line": 13},
         "img": "2125.png",
@@ -433,7 +433,7 @@ RECORDS = [
         "bhla": "עִמּ֑וֹ וּשְׁלם",
         "what-is-weird": "אתנח and ∅ not מונח and קמץ־אתנח?",
         "mam": "עִמּ֣וֹ וּשְׁלָ֑ם",
-        "comment": "".join(_REINKED_SLOPPY_COMMENT),
+        "comment": "".join(_COMMENT_2221),
         "highlight": [2, 6],
         "lcloc": {"page": "403B", "column": 1, "line": -6},
         "img": "2221.png",
@@ -459,7 +459,7 @@ RECORDS = [
         "bhla": "רֹעֵ֣ה",
         "what-is-weird": "ע may have צירה not סגול",
         "mam": "רֹעֶ֣ה",
-        "comment": "".join(_SEGOL_THIRD_DOT_COMMENT),
+        "comment": "".join(_COMMENT_2421),
         "highlight": 2,
         "lcloc": {"page": "404A", "column": 2, "line": -2},
         "img": "2421.png",
@@ -472,7 +472,7 @@ RECORDS = [
         "bhla": "חַי_",
         "what-is-weird": "מקף is missing",
         "mam": "חַי־",
-        "comment": "".join(_MAQAF_MISSING_COMMENT),
+        "comment": "".join(_COMMENT_2702),
         "highlight": 2,
         "lcloc": {"page": "404A", "column": 2, "line": -2},
         "img": "2702.png",
@@ -511,7 +511,7 @@ RECORDS = [
         "bhla": "בִּקְצִירֽ͏ִי׃",
         "what-is-weird": "סילוק precedes חיריק",
         "mam": "בִּקְצִירִֽי׃",
-        "comment": "".join(_LAMED_ASCENDER_COMMENT),
+        "comment": "".join(_COMMENT_2919),
         "highlight": 5,
         "lcloc": {"page": "405A", "column": 1, "line": -4},
         "img": "2919.png",
@@ -614,7 +614,7 @@ RECORDS = [
         "bhla": "סֻכָּֽתֽוֹ׃",
         "what-is-weird": "כ has געיה",
         "mam": "סֻכָּתֽוֹ׃",
-        "comment": "".join(_NOT_INK_GERESH_COMMENT),
+        "comment": "".join(_COMMENT_3629),
         "highlight": 2,
         "lcloc": {"page": "407B", "column": 1, "line": -5},
         "img": "3629.png",

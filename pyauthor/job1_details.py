@@ -1,12 +1,11 @@
 """ Exports gen_html_file and anchor """
 
-from pyauthor.job1_common import here_is, the_row
+from pyauthor.job1_common import intro
 from pycmn.my_utils import sl_map
 from py import my_html
 from pyauthor.util import author
 from pyauthor.job1_records import RECORDS
 from pyauthor.job1_make_per_case_data import make_per_case_data
-from pyauthor.job1_make_per_case_data import make_example_row
 
 
 def anchor(jobn_dir="."):
@@ -26,9 +25,7 @@ _PER_CASE_DATA = sl_map(make_per_case_data, RECORDS)
 _DETAILS = [pcd["details"] for pcd in _PER_CASE_DATA]
 _CBODY = [
     author.heading_level_1(_H1_CONTENTS),
-    author.para(here_is("further expanding")),
-    author.para(the_row("The header of each")),
-    author.table_c(make_example_row()),
+    *intro("further expanding", "The header of each"),
     my_html.horizontal_rule(),
     *_DETAILS,
 ]

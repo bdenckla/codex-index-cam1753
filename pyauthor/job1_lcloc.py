@@ -32,5 +32,5 @@ def _maybe_sp_ibl(lcloc):
 
 def _maybe_sp_cfb(line):
     if line < 0:
-        return -line, " (counting from bottom of page)"
+        return line, f" ({-line} counting from bottom of column)"
     return line, ""

@@ -358,6 +358,8 @@ RECORDS = [
         "mam": "אֹ֭מֶר",
         "comment": "The מלא/חסר spelling difference is not important to us here.",
         "highlight": 1,
+        "lcloc": {'page': '403B', 'column': 2, 'line': 2},
+        "img": "2228.png",
     },
     {
         "bhla-i": 31,
@@ -366,8 +368,10 @@ RECORDS = [
         "bhla": "רֹעֵ֣ה",
         "what-is-weird": "ע may have צירה not סגול",
         "mam": "רֹעֶ֣ה",
-        "comment": "",
+        "comment": "Perhaps there is some super-faint evidence of a third dot that would make a סגול, but this could be just wishful thinking.",
         "highlight": 2,
+        "lcloc": {'page': '404A', 'column': 2, 'line': -2},
+        "img": "2421.png",
     },
     {
         "bhla-i": 32,
@@ -376,8 +380,10 @@ RECORDS = [
         "bhla": "חַי_",
         "what-is-weird": "מקף is missing",
         "mam": "חַי־",
-        "comment": "",
+        "comment": "Perhaps there is some super-faint evidence of a מקף that was ignored during re-inking. By they way, the evidence for the דחי on א is super-faint.",
         "highlight": 2,
+        "lcloc": {'page': '404A', 'column': 2, 'line': -2},
+        "img": "2702.png",
     },
     {
         "bhla-i": 33,
@@ -388,6 +394,8 @@ RECORDS = [
         "mam": "הִדְרִיכ֥וּהוּ",
         "comment": "The מלא/חסר spelling difference is not important to us here.",
         "highlight": 3,
+        "lcloc": {'page': '404B', 'column': 2, 'line': 5},
+        "img": "2808.png",
     },
     {
         "bhla-i": 34,
@@ -398,6 +406,8 @@ RECORDS = [
         "mam": "וְעַ֥יִן",
         "comment": "",
         "highlight": 3,
+        "lcloc": {'page': '405A', 'column': 1, 'line': -12},
+        "img": "2911.png",
     },
     {
         "bhla-i": 35,
@@ -406,8 +416,10 @@ RECORDS = [
         "bhla": "בִּקְצִירֽ͏ִי׃",
         "what-is-weird": "סילוק precedes חיריק",
         "mam": "בִּקְצִירִֽי׃",
-        "comment": "",
+        "comment": "Probably the ascender of the ל on the line below “forced” the סילוק to be early.",
         "highlight": 5,
+        "lcloc": {'page': '405A', 'column': 1, 'line': -4},
+        "img": "2919.png",
     },
     {
         "bhla-i": 36,
@@ -418,6 +430,8 @@ RECORDS = [
         "mam": "רַגְלִֽי׃",
         "comment": "",
         "highlight": 3,
+        "lcloc": {'page': '405B', 'column': 1, 'line': -9, 'including-blank-lines': 1},
+        "img": "3105.png",
     },
     {
         "bhla-i": 37,
@@ -428,6 +442,8 @@ RECORDS = [
         "mam": "מֽאֿוּם׃",
         "comment": "",
         "highlight": [1, 3],
+        "lcloc": {'page': '405B', 'column': 1, 'line': -6, 'including-blank-lines': 1},
+        "img": "3107.png",
     },
     {
         "bhla-i": 38,
@@ -439,6 +455,8 @@ RECORDS = [
         "comment": "",
         "highlight-bhla": 2,
         "highlight-mam": 3,
+        "lcloc": {'page': '405B', 'column': 2, 'line': -3},
+        "img": "3133.png",
     },
     {
         "bhla-i": 39,
@@ -449,6 +467,8 @@ RECORDS = [
         "mam": "יְשִׁישִׁ֑ים",
         "comment": "",
         "highlight": 4,
+        "lcloc": {'page': '406A', 'column': 1, 'line': -6},
+        "img": "3206.png",
     },
     {
         "bhla-i": 40,

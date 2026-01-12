@@ -1,3 +1,12 @@
+# https://tanach.us/Tanach.xml?Job17:6
+# μL has וְתֹ֖פֶתּ, whose דגש in ת is contrary to consensus.
+# UXLC does not reflect this, i.e. it has וְתֹ֖פֶת.
+# Dotan does not note this in BHL Appendix A.
+# BHQ does reflect this, and notes it.
+# https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F402A.jpg
+# column 1 line 7
+
+
 _QUOTE_FORCED = "“forced”"
 
 
@@ -13,7 +22,7 @@ def _correctly_ignores(what):
 
 _COMMENT_1604 = [
     "Though it is not relevant to the point at hand, which is the presence of a מקף,",
-    " note that in the LC, the shape we take to be מחפך is touching the bottom of the ל (lamed).",
+    " note that in μL, the shape we take to be מחפך is touching the bottom of the ל (lamed).",
 ]
 
 _COMMENT_2125 = [
@@ -74,7 +83,7 @@ _COMMENT_3913 = [
 ]
 
 _BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
-    "This is one of seven similar cases in Job the LC.",
+    "This is one of seven similar cases in Job in μL.",
 ]
 _BHQ_COMMENT_0409 = [
     *_BHQ_COMMENT_CMN_0409_AND_SIMILAR,
@@ -88,7 +97,7 @@ _BHQ_COMMENT_LIKE_0409 = [
     " 4:9 discusses the matter at greater length.",
 ]
 _BHQ_COMMENT_0417 = [
-    "This is one of seven similar cases in the LC. This is the only one of these seven not noted by BHQ.",
+    "This is one of seven similar cases in Job in μL. This is the only one of these seven not noted by BHQ.",
     " 4:9 discusses the matter at greater length.",
 ]
 _BHQ_COMMENT_1106 = _BHQ_COMMENT_LIKE_0409
@@ -124,8 +133,11 @@ _BHQ_COMMENT_1804 = [
     " It also silently ignores the possible intepretation of that ink as a געיה.",
     " I.e. other than the prepositive דחי accent,",
     " BHQ supplies only the (full) פתח that is the consensus expectation here.",
-    " BHQ does so silently, i.e. with no note.",
-    " BHQ does note the דגש on the מ, which goes against the consensus expectation.",
+    " BHQ does so silently, i.e. with no note about the pointing of ה.",
+    " BHQ does note that the דגש on the מ in μL disagrees with μA and μY.",
+    " BHQ misses the געיה in μA.",
+    " This געיה is irrelevant to BHQ’s point here, which is only about the דגש.",
+    " Still, it is sloppy to have missed it."
 ]
 
 _BHQ_COMMENT_1806 = [
@@ -512,7 +524,8 @@ RECORDS = [
         "lc-img": "1804.png",
         "bhq-comment": "".join(_BHQ_COMMENT_1804),
         "aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
-        "aleppo-img": "Aleppo-1894.png",
+        "aleppo-img": "Aleppo-1804.png",
+        "bhq": "הַ֭לְמַּעַנְךָ",
     },
     {
         "bhla-i": 25,

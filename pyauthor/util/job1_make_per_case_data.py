@@ -50,6 +50,12 @@ def _img(img):
     return my_html.img({"src": f"img/{img}"})
 
 
+def _maybe_aleppo_img(mai):
+    if mai is None:
+        return []
+    return [my_html.para("Aleppo:"), _img(mai)]
+
+
 def _maybe_bhq(bhq):
     if bhq is None:
         return []
@@ -80,5 +86,6 @@ def _make_details(record):
         *_maybe_bhq(record.get("bhq")),
         my_html.para(dpe),
         _img(record["lc-img"]),
+        *_maybe_aleppo_img(record.get("aleppo-img")),
         my_html.horizontal_rule(),
     ]

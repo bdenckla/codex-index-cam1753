@@ -68,7 +68,7 @@ def _make_details(record):
     cnvm = "c" + cv.replace(":", "v")
     mwd_href = f"https://bdenckla.github.io/MAM-with-doc/D3-Job.html#{cnvm}"
     mwd_anc = my_html.anchor_h("MwD", mwd_href)
-    dpe = [uxlc_anc, sep, mwd_anc, sep, *lcloc(record.get("lcloc"))]
+    dpe = [uxlc_anc, sep, mwd_anc, sep, *lcloc(record.get("lc-loc"))]
     if comment := record["comment"]:
         dpe.append(sep)
         dpe.append(comment)
@@ -79,6 +79,6 @@ def _make_details(record):
         author.table_c(_make_row(record)),
         *_maybe_bhq(record.get("bhq")),
         my_html.para(dpe),
-        _img(record["img"]),
+        _img(record["lc-img"]),
         my_html.horizontal_rule(),
     ]

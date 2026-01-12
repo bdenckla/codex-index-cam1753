@@ -78,9 +78,10 @@ _BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
 ]
 _BHQ_COMMENT_0409 = [
     *_BHQ_COMMENT_CMN_0409_AND_SIMILAR,
-    " Six of these seven, including this one, are noted by BHQ."
-    " They have a short note in the bottom-of-page critical apparatus",
-    " and a longer note in the section “Commentary on the Critical Apparatus.”"
+    " Six of these seven, including this one, are noted in the entry for 4:9 in the BHQ"
+    " section “Commentary on the Critical Apparatus.”",
+    " Some but not all of the seven, including this one,",
+    " have a short note in the bottom-of-page critical apparatus as well.",
 ]
 _BHQ_COMMENT_LIKE_0409 = [
     *_BHQ_COMMENT_CMN_0409_AND_SIMILAR,

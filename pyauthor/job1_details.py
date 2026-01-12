@@ -1,11 +1,11 @@
 """ Exports gen_html_file and anchor """
 
-from pyauthor.job1_common import intro
+from pyauthor.util.job1_common import intro
 from pycmn.my_utils import sl_map
 from py import my_html
 from pyauthor.util import author
-from pyauthor.job1_records import RECORDS
-from pyauthor.job1_make_per_case_data import make_per_case_data
+from pyauthor.util.job1_records import RECORDS
+from pyauthor.util.job1_make_per_case_data import make_per_case_data
 
 
 def anchor(jobn_dir="."):

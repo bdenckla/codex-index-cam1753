@@ -27,9 +27,6 @@
 # 42:13 בָנֽוֹת׃ ML (err) | בָּנֽוֹת׃ MA MY (dagesh)
 
 
-_QUOTE_FORCED = "“forced”"
-
-
 def _correctly_ignores(what, adjective=""):
     adj = f" {adjective}" if adjective else ""
     out_parts = [
@@ -77,7 +74,7 @@ _COMMENT_2702 = [
 
 _COMMENT_2919 = [
     "Probably the ascender of the ל on the line below",
-    f" {_QUOTE_FORCED} the סילוק to be early.",
+    f" “forced” the סילוק to be early.",
 ]
 
 _COMMENT_3629 = [

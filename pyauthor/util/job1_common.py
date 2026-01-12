@@ -17,7 +17,7 @@ def _here_is(expanding, jda=None):
         " in BHL Appendix A.",
     ]
     if jda is not None:
-        jdae = [" For more details, see the ", jda, "."]
+        jdae = [" For more details, see the ", jda]
         return out + jdae
     return out
 

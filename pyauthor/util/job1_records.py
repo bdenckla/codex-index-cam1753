@@ -155,10 +155,14 @@ _BHQ_COMMENT_2125 = [
 _BHQ_COMMENT_2221 = [
     "BHQ transcribes these words as shown above.",
     " I.e. BHQ transcribes עמו as BHL does, and BHQ transcribes ושלם as I do.",
-    " As is its habit, BHQ does all this silently,",
-    " i.e. without any acknowledgement of",
-    " uncertainties in transcription or",
-    " departures from consensus expectations.",
+    " BHQ notes that whereas the ל of ושלם is unpointed in μL,",
+    " that ל has קמץ and אתנח in μA and μY.",
+    " BHQ fails to note that, relatedly, the אתנח it transcribes on עמו",
+    " disagrees with μA and μY.",
+    " In summary, BHL only notes a מונח vs אתנח issue on עמו and",
+    " BHQ only notes a lack of קמץ־אתנח on ושלם.",
+    " Therefore both not only miss some issues",
+    " but also miss the relationship between the אתנח issues.",
 ]
 
 _BHQ_COMMENT_2228 = [
@@ -564,7 +568,7 @@ RECORDS = [
         "highlight": 1,
         "lc-loc": {"page": "402B", "column": 1, "line": 8},
         "lc-img": "1916.png",
-        "bhq-comment": "BHQ silently supplies the possible דגש.",
+        "bhq-comment": "BHQ notes that the דגש on the ק in μL disagrees with μA and μY.",
     },
     {
         "bhla-i": 28,
@@ -591,6 +595,8 @@ RECORDS = [
         "lc-loc": {"page": "403B", "column": 1, "line": -6},
         "lc-img": "2221.png",
         "bhq-comment": "".join(_BHQ_COMMENT_2221),
+        "aleppo-page-url": "https://www.mgketer.org/mikra/29/22/1/mg/106",
+        "aleppo-img": "Aleppo-2221.png",
     },
     {
         "bhla-i": 30,

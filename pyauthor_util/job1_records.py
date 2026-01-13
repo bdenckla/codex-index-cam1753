@@ -6,11 +6,11 @@
 # https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F402A.jpg
 # column 1 line 7
 #
-# 01:21 יָצָ֜תִי MA MY | יצתי ML(ket) | יָצָ֜אתִי ML(qere) (differ-orth) 
-# 02:07 ְעַ֥ד MA MY | עד Mket | וְעַד Mqere 
+# 01:21 יָצָ֜תִי MA MY | יצתי ML(ket) | יָצָ֜אתִי ML(qere) (differ-orth)
+# 02:07 ְעַ֥ד MA MY | עד Mket | וְעַד Mqere
 # 02:08 לְהִתְגָּרֵ֖ר ML (err) | לְהִתְגָּרֵ֖ד MA MY (resh/dalet)
-# 05:12 תּוּשִׁיָּֽה׃ ML (differ-orth) | תֻּשִׁיָּֽה׃ MA MY 
-# 06:21 לֹ֑א MA MY (T) | לא ML(ket) | ל֑וֹ ML(qere) (err-lex) 
+# 05:12 תּוּשִׁיָּֽה׃ ML (differ-orth) | תֻּשִׁיָּֽה׃ MA MY
+# 06:21 לֹ֑א MA MY (T) | לא ML(ket) | ל֑וֹ ML(qere) (err-lex)
 # 10:22 עֵיפָ֨תָה ML (differ-orth) | עֵפָ֨תָה MA MY
 # 14:05 חֻקָּ֥ו MA | חקו ML(ket) MY(ket) | חֻקָּיו ML(qere) MY(qere) (differ-orth)
 # 15:31 בַּשָּׁ֣ו MA MY | בשו ML(ket) | בַּשָּׁ֣יו ML(qere) (differ-orth)

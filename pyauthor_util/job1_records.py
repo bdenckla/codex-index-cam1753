@@ -1,3 +1,33 @@
+# Da-at Miqra 1:19 ויפל Aleppo dagesh in י, Leningrad not so much.
+# Da-at Miqra 3:4 ממעל Aleppo פתח Leningrad קמץ.
+# Da-at Miqra 3:7 תבוא Aleppo, תבא Leningrad.
+# Da-at Miqra 3:8 אררי Aleppo חטף פתח Leningrad simple שווא.
+# Da-at Miqra 3:15 Aleppo חטף פתח Leningrad simple שווא.
+# Da-at Miqra 3:16 Aleppo חטף פתח Leningrad simple שווא.
+# Da-at Miqra 3:21 Aleppo חטף פתח Leningrad simple שווא.
+# Da-at Miqra 5:8 Aleppo has dagesh in tsadi. Leningrad does not.
+# Da-at Miqra 5:12 xaser/plene yod spelling split (noted by BHQ)
+# Da-at Miqra 5:14 varika
+# Da-at Miqra 5:20 ברעב Aleppo has געיה under bet. Leningrad does not.
+# Da-at Miqra 5:23 Aleppo has dagesh in lamed. Leningrad maybe does not.
+# Da-at Miqra 5:24 Aleppo has full revia mugrash. Leningrad lacks the revia.
+# Da-at Miqra 6:10 Aleppo has maqaf. Leningrad does not.
+# Da-at Miqra 6:17 Aleppo has munuax. Leningrad has dexi.
+# Da-at Miqra 6:20 k/q difference (noted by BHQ)
+# Da-at Miqra 6:27 געיה location difference
+# Da-at Miqra 6:29 xaser/plene vav spelling split
+# Da-at Miqra
+# Da-at Miqra
+# Da-at Miqra
+# Da-at Miqra
+# Da-at Miqra
+# Da-at Miqra
+# Da-at Miqra
+
+
+
+###################################################################
+
 # Below "All good" means:
 #    As expected, BHL body matches ML above and BHLA has no entry for this.
 #    As expected, UXLC matches ML above.
@@ -5,9 +35,15 @@
 
 # 01:21 יָצָ֜תִי MA MY | יצתי ML(ket) | יָצָ֜אתִי ML(qere) (differ-orth)
 # All good.
+# Surprisingly, not noted in Da-at Miqra.
 
 # 02:07 ְעַ֥ד MA MY | עד Mket | וְעַד Mqere
-# XXX I am not sure what BHQ is getting at here: perhaps the k/q is notated one way in MA & MY and another way in ML?
+# I am not sure what BHQ is getting at here. Is BHQ just trying to explicitly say that MA & MY agree with ML?
+# https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F397B.jpg
+# LC column 1 line -9 including 1 blank line
+# AC column 2 line 7
+# docs\jobn\img\0207.png
+# docs\jobn\img\Aleppo-0207.png
 
 # 02:08 לְהִתְגָּרֵ֖ר ML (err) | לְהִתְגָּרֵ֖ד MA MY (resh/dalet)
 # Come on, the letter in question (the last) has a רפה and even has a little serif that might make it ד.
@@ -15,26 +51,32 @@
 # UXLC ends in ד.
 # MAM ends in ד.
 # https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F397B.jpg
-# column 1 line -6 including 1 blank line
+# column 1 line -8 including 1 blank line
 # docs\jobn\img\0208.png
 
 # 05:12 תּוּשִׁיָּֽה׃ ML (differ-orth) | תֻּשִׁיָּֽה׃ MA MY
 # All good except MAM has a געיה under the תּ, which is not supported by the image of Aleppo, and which I have suggested that Avi remove.
+# As expected, noted in Da-at Miqra.
 
 # 06:21 לֹ֑א MA MY (T) | לא ML(ket) | ל֑וֹ ML(qere) (err-lex)
 # All good.
+# As expected, noted in Da-at Miqra.
 
 # 10:22 עֵיפָ֨תָה ML (differ-orth) | עֵפָ֨תָה MA MY
 # All good.
+# As expected, noted in Da-at Miqra.
 
 # 14:05 חֻקָּ֥ו MA | חקו ML(ket) MY(ket) | חֻקָּיו ML(qere) MY(qere) (differ-orth)
 # All good.
+# Surprisingly, not noted in Da-at Miqra.
 
 # 15:31 בַּשָּׁ֣ו MA MY | בשו ML(ket) | בַּשָּׁ֣יו ML(qere) (differ-orth)
 # All good.
+# As expected, noted in Da-at Miqra, although only in a footnote (footnote 24).
 
 # 16:13 יַחְמ֑וֹל ML (err) | יַחְמֹ֑ל MA MY (xaser/malei)
 # All good.
+# As expected, noted in Da-at Miqra.
 
 # 17:06 וְתֹ֖פֶתּ ML (err) | וְתֹ֖פֶת MA MY ○ וְתֹ֖פֶתּ (dagesh) (see above)
 # As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
@@ -52,10 +94,13 @@
 # column 1 line 13
 # docs\jobn\img\1711.png
 
-# 18:09 בְּעָקֵ֣ב ML (err) | בְּעָקֵ֣ב MA MY (dagesh in ע (not present in Accordance))
+# 18:09 בְּעָּקֵ֣ב ML (err) | בְּעָקֵ֣ב MA MY (dagesh in ע in ML (not present in Accordance))
 # As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
 # Unexpectedly, UXLC matches MA/MY above.
 # As expected, MAM matches MA above.
+# https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F402A.jpg
+# column 2 line 2
+# docs\jobn\img\1809.png
 
 # 18:15 מִבְּלִיל֑וֹ ML MY | מִבְּלִי־ל֑וֹ MA (differ-orth)
 # BHL body has a simple word here, which is expected if we think ML has that, i.e. if we think ML is as above.
@@ -63,6 +108,7 @@
 # UXLC has a compound word here, disagreeing with ML above but agreeing with MAM regarding the contents of μL.
 # MAM matches MY above, i.e. has a simple word here, and MAM notes that it is explicitly going against MA here.
 # BHQ claims that ML has a simple word, not a compound word, but MAM says the opposite.
+# Da-at Miqra says both MA and ML have a simple word here.
 
 # 22:30 וְ֝נִּמְלַ֗ט ML (err) | וְ֝נִמְלַ֗ט MA MY (dagesh)
 # As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
@@ -76,11 +122,14 @@
 
 # 26:03 וְ֝תוּשִׁיָּ֗ה ML (differ-orth) | וְ֝תֻשִׁיָּ֗ה MA MY(qere)
 # All good.
+# As expected, noted in Da-at Miqra.
 
-# 36:12 כִּבְלִי־ ML (err) | בִּבְלִ־ MA MY(qere) (bet/kaf)
+# 36:12 כִּבְלִי־ ML (err) | בִּבְלִ־ MA MY(qere) (bet/kaf & ∅/י (∅/yod))
+# Plus, maybe MY has k/q but neither MA nor ML does?
 # BHL body has bet and BHLA has no entry.
 # UXLC has kaf.
 # MAM has bet.
+# As expected, the bet/kaf issue is noted in Da-at Miqra.
 
 # 38:17 צַלְמָּ֣וֶת ML (err) | צַלְמָ֣וֶת MA MY (dagesh)
 # BHL body has no dagesh and BHLA has no entry.

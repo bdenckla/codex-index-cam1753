@@ -49,7 +49,7 @@ _CPARA12 = [
     " the other two problems listed above remain, albeit to a lesser degree.",
 ]
 _CPARA13 = [
-    "As I continued my search for better editions, I found editions that do much better.",
+    "As I continued my search for better editions, I found editions that do better than $BHQ.",
     #
     " This made me even more disappointed with $BHQ, in retrospect.",
     #
@@ -66,11 +66,11 @@ _C_LIST_ITEMS_AFTER_PARA13 = [
 _CPARA14 = [
     "The first volume of $BHQ (Megilloth) came out in 2004.",
     #
-    " The חמש מגילות volume of דעת מקרא came long before, in 1990.",
+    " All but a few volumes of דעת מקרא came long before that.",
     #
     " Even Dotan’s $BHL was available in plenty of time to be used in all volumes of $BHQ.",
     #
-    " Before his death, Dotan was even a consultant for $BHQ.",
+    " Before he died, Dotan was even a consultant for $BHQ.",
     #
     " What’s more, his $BHL is even used as a source in at least some volumes of $BHQ.",
     #
@@ -90,8 +90,8 @@ _C_LIST_ITEMS_AFTER_PARA15 = [
     "the meaning of the text",
 ]
 _CPARA16 = [
-    "For all I know, these parts of $BHQ are of the highest quality, and improve greatly on $BHS.",
-    " But these parts are not my concern.",
+    "For all I know, those parts of $BHQ are of high quality.",
+    " But those parts are not my concern.",
 ]
 _CPARA17 = [
     "Having criticized $BHQ in general terms,",

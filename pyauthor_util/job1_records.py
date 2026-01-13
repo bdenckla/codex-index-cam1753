@@ -7,19 +7,19 @@
 # All good.
 
 # 02:07 ְעַ֥ד MA MY | עד Mket | וְעַד Mqere
-# I am not sure what BHQ is getting at here: perhaps the k/q is notated one way in MA & MY and another way in ML?
+# XXX I am not sure what BHQ is getting at here: perhaps the k/q is notated one way in MA & MY and another way in ML?
 
 # 02:08 לְהִתְגָּרֵ֖ר ML (err) | לְהִתְגָּרֵ֖ד MA MY (resh/dalet)
 # Come on, the letter in question (the last) has a רפה and even has a little serif that might make it ד.
 # BHL body ends in ד, and BHLA has no entry for this.
 # UXLC ends in ד.
 # MAM ends in ד.
-#
-# docs\jobn\img\0208-col-1-line-neg-6-incl-1-blank.png
-
+# https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F397B.jpg
+# column 1 line -6 including 1 blank line
+# docs\jobn\img\0208.png
 
 # 05:12 תּוּשִׁיָּֽה׃ ML (differ-orth) | תֻּשִׁיָּֽה׃ MA MY
-# All good except MAM has a געיה under the תּ.
+# All good except MAM has a געיה under the תּ, which is not supported by the image of Aleppo, and which I have suggested that Avi remove.
 
 # 06:21 לֹ֑א MA MY (T) | לא ML(ket) | ל֑וֹ ML(qere) (err-lex)
 # All good.
@@ -38,21 +38,59 @@
 
 # 17:06 וְתֹ֖פֶתּ ML (err) | וְתֹ֖פֶת MA MY ○ וְתֹ֖פֶתּ (dagesh) (see above)
 # As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
-# Unexpectedly, UXLC matches MA/MY above. https://tanach.us/Tanach.xml?Job17:6
+# Unexpectedly, UXLC matches MA/MY above.
 # As expected, MAM matches MA above.
-#
 # https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F402A.jpg
 # column 1 line 7
+# docs\jobn\img\1706.png
 
 # 17:11 לְבָבִּֽי׃ ML (err) | לְבָבִֽי׃ MA MY (dagesh)
-# 18:09 בְּעָקֵ֣ב ML (err) | בְּעָקֵ֣ב MA MY (?)
+# As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
+# Unexpectedly, UXLC matches MA/MY above.
+# As expected, MAM matches MA above.
+# https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F402A.jpg
+# column 1 line 13
+# docs\jobn\img\1711.png
+
+# 18:09 בְּעָקֵ֣ב ML (err) | בְּעָקֵ֣ב MA MY (dagesh in ע (not present in Accordance))
+# As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
+# Unexpectedly, UXLC matches MA/MY above.
+# As expected, MAM matches MA above.
+
 # 18:15 מִבְּלִיל֑וֹ ML MY | מִבְּלִי־ל֑וֹ MA (differ-orth)
+# BHL body has a simple word here, which is expected if we think ML has that, i.e. if we think ML is as above.
+# BHLA has no entry for this, which is expected if we think a simple word is either the consensus, or there is no consensus on this issue.
+# UXLC has a compound word here, disagreeing with ML above but agreeing with MAM regarding the contents of μL.
+# MAM matches MY above, i.e. has a simple word here, and MAM notes that it is explicitly going against MA here.
+# BHQ claims that ML has a simple word, not a compound word, but MAM says the opposite.
+
 # 22:30 וְ֝נִּמְלַ֗ט ML (err) | וְ֝נִמְלַ֗ט MA MY (dagesh)
+# As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
+# Unexpectedly, UXLC matches MA/MY above.
+# As expected, MAM matches MA above.
+
 # 24:16 יָ֥דְּעוּ ML (err) | יָ֥דְעוּ MA MY (dagesh)
+# As expected, BHL body matches MA/MY above but unexpectedly, BHLA has no entry for this.
+# Unexpectedly, UXLC matches MA/MY above.
+# As expected, MAM matches MA above.
+
 # 26:03 וְ֝תוּשִׁיָּ֗ה ML (differ-orth) | וְ֝תֻשִׁיָּ֗ה MA MY(qere)
+# All good.
+
 # 36:12 כִּבְלִי־ ML (err) | בִּבְלִ־ MA MY(qere) (bet/kaf)
+# BHL body has bet and BHLA has no entry.
+# UXLC has kaf.
+# MAM has bet.
+
 # 38:17 צַלְמָּ֣וֶת ML (err) | צַלְמָ֣וֶת MA MY (dagesh)
+# BHL body has no dagesh and BHLA has no entry.
+# UXLC has no dagesh.
+# MAM has no dagesh.
+
 # 42:13 בָנֽוֹת׃ ML (err) | בָּנֽוֹת׃ MA MY (dagesh)
+# BHL body has dagesh and BHLA has no entry.
+# UXLC has dagesh.
+# MAM has dagesh.
 
 
 def _correctly_ignores(what, adjective=""):

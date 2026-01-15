@@ -9,7 +9,13 @@ from pycmn.my_utils import sl_map
 
 
 def make_ov_and_de_for_all_records():
+    ids = sl_map(_row_id, RECORDS)
+    assert _unique(ids)
     return sl_map(_make_ov_and_de_for_one_record, RECORDS)
+
+
+def _unique(seq):
+    return len(set(seq)) == len(seq)
 
 
 def _make_ov_and_de_for_one_record(record):

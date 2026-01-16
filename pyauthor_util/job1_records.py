@@ -195,6 +195,8 @@
 from pyauthor_util import author
 from py import my_html
 
+_CAM1753_PAGE_URL_BASE = "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page"
+
 
 def _correctly_ignores(what, adjective=""):
     adj = f" {adjective}" if adjective else ""
@@ -261,7 +263,6 @@ _COMMENT_3913 = [
     " (It is fairly clear that a masorah circle is present.)",
     " Note that the vertical line above the ר is a סילוק from the line above.",
 ]
-
 _BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
     "This is one of seven similar cases in Job in μL.",
 ]
@@ -293,22 +294,18 @@ _BHQ_COMMENT_0914_AND_0930 = [
     "$BHQ silently supplies the סילוק that is the consensus expectation,",
     " despite little or no evidence for it in μL.",
 ]
-
 _BHQ_COMMENT_4125 = [
     "$BHQ silently supplies the סילוק that is the consensus expectation,",
     " despite no evidence for it in μL.",
 ]
-
 _BHQ_COMMENT_1203 = [
     "$BHQ silently supplies the מקף that is the consensus expectation,",
     " despite no evidence for it in μL.",
 ]
-
 _BHQ_COMMENT_2702 = [
     "$BHQ silently supplies the מקף that is the consensus expectation,",
     " despite little or no evidence for it in μL.",
 ]
-
 _BHQ_COMMENT_1804 = [
     "$BHQ silently ignores the possible שווא part of the possible חטף פתח.",
     " It also silently ignores the possible intepretation of that ink as a געיה.",
@@ -320,19 +317,16 @@ _BHQ_COMMENT_1804 = [
     " This געיה is irrelevant to $BHQ’s point here, which is only about the דגש.",
     " Still, it is sloppy to have missed it.",
 ]
-
 _BHQ_COMMENT_1806 = [
     "$BHQ positions the mark ambiguously.",
     " The mark is a little to the right of center.",
     " So it is not centered, as one would expect a טרחא to be,",
     " but neither is it as far to the right as דחי normally is in $BHQ.",
 ]
-
 _BHQ_COMMENT_2125 = [
     "$BHQ silently supplies the שווא that is the consensus expectation,",
     " despite little or no evidence for it in μL.",
 ]
-
 _BHQ_COMMENT_2221 = [
     "$BHQ transcribes these words as shown above.",
     " I.e. $BHQ transcribes עמו as BHL does, and $BHQ transcribes ושלם as I do.",
@@ -355,18 +349,15 @@ _BHQ_COMMENT_2228 = [
     " Though this placement is odd,",
     " this makes it clear that a טרחא was intended rather than a דחי.",
 ]
-
 _BHQ_COMMENT_2421 = [
     "$BHQ silently supplies the סגול that is the consensus expectation.",
     " I.e. despite little or no evidence for it in μL,",
     " $BHQ silently infers a third dot centered below the two clearer dots.",
 ]
-
 _BHQ_COMMENT_2808_AND_2911 = [
     "$BHQ silently supplies the חיריק that is the consensus expectation,",
     " despite no evidence for it in μL.",
 ]
-
 _BHQ_COMMENT_3107 = [
     "$BHQ reflects neither μL nor the consensus expectation here.",
     " It reflects μL except it places the סילוק under the א.",
@@ -379,12 +370,10 @@ _BHQ_COMMENT_3107 = [
     " a סילוק under its letter (א)!",
     " $BHQ notes that here μL disagrees with μA and μY, which have the consensus pointing.",
 ]
-
 _BHQ_COMMENT_CMN_3105_3206 = [
     "$BHQ silently supplies the marks in the vowel-then-accent order that is",
     " the consensus expectation, in clear contradiction of μL here.",
 ]
-
 _BHQ_COMMENT_3105 = [
     *_BHQ_COMMENT_CMN_3105_3206,
     " 32:6 is similar.",
@@ -396,12 +385,10 @@ _BHQ_COMMENT_3105 = [
     " Nonetheless, since $BHQ still aspires to get these orderings right,",
     " it is fair for me to point out when it fails to do so.",
 ]
-
 _BHQ_COMMENT_3206 = [
     *_BHQ_COMMENT_CMN_3105_3206,
     "31:5 is similar and discusses the matter at greater length.",
 ]
-
 _BHQ_COMMENT_1604 = [
     "Though it is not relevant to the point at hand,",
     " note that $BHQ continues to fail to distinguish",
@@ -411,7 +398,8 @@ _BHQ_COMMENT_MISSED_BY_DO_AND_BR = [
     "$BHQ catches this, whereas this is not noted in either $BHL_A or Da-at Miqra."
 ]
 _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE = [
-    "$BHQ catches this possibility, whereas this is not noted in either $BHL_A or Da-at Miqra.",
+    "$BHQ catches this possibility,",
+    " whereas this is not noted in either $BHL_A or Da-at Miqra.",
     " It could be that Dotan and Breuer did not catch this,",
     " or it could be that they caught it",
     " but considered to be too slight a possibility to note it.",
@@ -490,20 +478,7 @@ _RECORD_MBB_2416 = {
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
     "uxlc-needs-fix": True,
 }
-_RECORD_MBDO_3612 = {
-    "cv": "36:12",
-    "lc": "כִּבְלִי־",
-    "what-is-weird": "כ not ב",
-    "mam": "בִּבְלִי־",
-    "comment": [
-        "Although my focus is pointing rather than spelling,",
-        " I am interested in a spelling difference like this,",
-        " since it is not just a חסר vs מלא difference.",
-    ],
-    "highlight": 1,
-    "lc-loc": {"page": "407B", "column": 1, "line": 4},
-    "lc-img": "3612.png",
-    "bhq-comment": [
+_BHQ_COMMENT_3612 = [
         "$BHQ catches this, whereas this is not noted in $BHL_A.",
         " It could be that Dotan did not catch this,",
         " or it could be that he caught it",
@@ -517,12 +492,28 @@ _RECORD_MBDO_3612 = {
         " In addition to the typo, for some reason $BHQ reports this word as being the קרי",
         [" of μY, i.e. M", my_html.sup("Y(qere)")],
         [" rather than just M", my_html.sup("Y"), "."],
-        " I see no “Masora dot pair” (μY’s equivalent of a masorah circle) on this word in μY.",
+        " I see no “Masora dot pair”",
+        " (μY’s equivalent of a masorah circle)",
+        " on this word in μY.",
         " Nor do I see any קרי note in the margin.",
+    ]
+_RECORD_MBDO_3612 = {
+    "cv": "36:12",
+    "lc": "כִּבְלִי־",
+    "what-is-weird": "כ not ב",
+    "mam": "בִּבְלִי־",
+    "comment": [
+        "Although my focus is pointing rather than spelling,",
+        " I am interested in a spelling difference like this,",
+        " since it is not just a חסר vs מלא difference.",
     ],
+    "highlight": 1,
+    "lc-loc": {"page": "407B", "column": 1, "line": 4},
+    "lc-img": "3612.png",
+    "bhq-comment": _BHQ_COMMENT_3612,
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "aleppo-img": "Aleppo-3612.png",
-    "cam1753-page-url": "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page/n87/mode/1up",
+    "cam1753-page-url": f"{_CAM1753_PAGE_URL_BASE}/n87/mode/1up",
     "cam1753-img": "Cam1753-3612.png",
     "uxlc-needs-fix": "UXLC has kaf (as it should) but should note the divergence from consensus",
 }
@@ -565,7 +556,6 @@ _RECORD_0121 = {
         " which have the consensus pointing.",
     ],
 }
-
 _RECORD_0409 = {
     "bhla-i": 2,
     "cv": "4:9",
@@ -578,7 +568,6 @@ _RECORD_0409 = {
     "lc-img": "0409.png",
     "bhq-comment": _BHQ_COMMENT_0409,
 }
-
 _RECORD_0417 = {
     "bhla-i": 3,
     "cv": "4:17",
@@ -591,7 +580,6 @@ _RECORD_0417 = {
     "lc-img": "0417.png",
     "bhq-comment": _BHQ_COMMENT_0417,
 }
-
 _RECORD_0701 = {
     "bhla-i": 4,
     "cv": "7:1",
@@ -604,7 +592,6 @@ _RECORD_0701 = {
     "lc-img": "0701.png",
     "bhq-comment": "$BHQ silently ignores the possible רביע.",
 }
-
 _RECORD_0709 = {
     "bhla-i": 5,
     "cv": "7:9",
@@ -616,7 +603,6 @@ _RECORD_0709 = {
     "lc-loc": {"page": "399A", "column": 1, "line": 14},
     "lc-img": "0709.png",
 }
-
 _RECORD_0721 = {
     "bhla-i": 6,
     "cv": "7:21",
@@ -628,7 +614,6 @@ _RECORD_0721 = {
     "lc-loc": {"page": "399A", "column": 2, "line": 3},
     "lc-img": "0721.png",
 }
-
 _RECORD_0801 = {
     "bhla-i": 7,
     "cv": "8:1",
@@ -641,7 +626,6 @@ _RECORD_0801 = {
     "lc-img": "0801.png",
     "bhq-comment": _BHQ_COMMENT_0801,
 }
-
 _RECORD_0807 = {
     "bhla-i": 8,
     "cv": "8:7",
@@ -654,7 +638,6 @@ _RECORD_0807 = {
     "lc-img": "0807.png",
     "bhq-comment": "$BHQ silently ignores the possible שורוק dot.",
 }
-
 _RECORD_0914 = {
     "bhla-i": 9,
     "cv": "9:14",
@@ -668,7 +651,6 @@ _RECORD_0914 = {
     "lc-img": "0914.png",
     "bhq-comment": _BHQ_COMMENT_0914_AND_0930,
 }
-
 _RECORD_0930 = {
     "bhla-i": 10,
     "cv": "9:30",
@@ -682,7 +664,6 @@ _RECORD_0930 = {
     "lc-img": "0930.png",
     "bhq-comment": _BHQ_COMMENT_0914_AND_0930,
 }
-
 _RECORD_0935 = {
     "bhla-i": 11,
     "cv": "9:35",
@@ -694,7 +675,6 @@ _RECORD_0935 = {
     "lc-loc": {"page": "399B", "column": 2, "line": -8},
     "lc-img": "0935.png",
 }
-
 _RECORD_1001 = {
     "bhla-i": 12,
     "cv": "10:1",
@@ -707,7 +687,6 @@ _RECORD_1001 = {
     "lc-loc": {"page": "399B", "column": 2, "line": -6},
     "lc-img": "1001.png",
 }
-
 _RECORD_1015 = {
     "bhla-i": 13,
     "cv": "10:15",
@@ -719,7 +698,6 @@ _RECORD_1015 = {
     "lc-loc": {"page": "400A", "column": 1, "line": 14},
     "lc-img": "1015.png",
 }
-
 _RECORD_1103 = {
     "bhla-i": 14,
     "cv": "11:3",
@@ -731,7 +709,6 @@ _RECORD_1103 = {
     "lc-loc": {"page": "400A", "column": 1, "line": -1},
     "lc-img": "1103.png",
 }
-
 _RECORD_1106 = {
     "bhla-i": 15,
     "cv": "11:6",
@@ -744,7 +721,6 @@ _RECORD_1106 = {
     "lc-img": "1106.png",
     "bhq-comment": _BHQ_COMMENT_1106,
 }
-
 _RECORD_1107 = {
     "bhla-i": 16,
     "cv": "11:7",
@@ -757,7 +733,6 @@ _RECORD_1107 = {
     "lc-img": "1107.png",
     "bhq-comment": _BHQ_COMMENT_1107,
 }
-
 _RECORD_1203 = {
     "bhla-i": 17,
     "cv": "12:3",
@@ -770,7 +745,6 @@ _RECORD_1203 = {
     "lc-img": "1203.png",
     "bhq-comment": _BHQ_COMMENT_1203,
 }
-
 _RECORD_1409 = {
     "bhla-i": 18,
     "cv": "14:9",
@@ -783,7 +757,6 @@ _RECORD_1409 = {
     "lc-img": "1409.png",
     "bhq-comment": "$BHQ silently ignores the possible דגש.",
 }
-
 _RECORD_1508 = {
     "bhla-i": 19,
     "cv": "15:8",
@@ -796,7 +769,6 @@ _RECORD_1508 = {
     "lc-img": "1508.png",
     "bhq-comment": _BHQ_COMMENT_1508,
 }
-
 _RECORD_1534 = {
     "bhla-i": 20,
     "cv": "15:34",
@@ -809,7 +781,6 @@ _RECORD_1534 = {
     "lc-img": "1534.png",
     "bhq-comment": "$BHQ silently ignores the possible מרכא.",
 }
-
 _RECORD_1604 = {
     "bhla-i": 21,
     "cv": "16:4",
@@ -822,7 +793,6 @@ _RECORD_1604 = {
     "lc-img": "1604.png",
     "bhq-comment": _BHQ_COMMENT_1604,
 }
-
 _RECORD_1613 = {
     "bhla-i": 22,
     "cv": "16:13",
@@ -835,7 +805,6 @@ _RECORD_1613 = {
     "lc-loc": {"page": "401B", "column": 2, "line": -10},
     "lc-img": "1613.png",
 }
-
 _RECORD_1620 = {
     "bhla-i": 23,
     "cv": "16:20",
@@ -848,7 +817,6 @@ _RECORD_1620 = {
     "lc-img": "1620.png",
     "bhq-comment": _BHQ_COMMENT_1620,
 }
-
 _RECORD_1804 = {
     "bhla-i": 24,
     "cv": "18:4",
@@ -864,7 +832,6 @@ _RECORD_1804 = {
     "aleppo-img": "Aleppo-1804.png",
     "bhq": "הַ֭לְמַּעַנְךָ",
 }
-
 _RECORD_1806 = {
     "bhla-i": 25,
     "cv": "18:6",
@@ -877,7 +844,6 @@ _RECORD_1806 = {
     "lc-img": "1806.png",
     "bhq-comment": _BHQ_COMMENT_1806,
 }
-
 _RECORD_1905 = {
     "bhla-i": 26,
     "cv": "19:5",
@@ -894,7 +860,6 @@ _RECORD_1905 = {
     "lc-img": "1905.png",
     "bhq-comment": "$BHQ silently lets the faint possible דגש “win” over the clear רפה in μL.",
 }
-
 _RECORD_1916 = {
     "bhla-i": 27,
     "cv": "19:16",
@@ -908,7 +873,6 @@ _RECORD_1916 = {
     "lc-img": "1916.png",
     "bhq-comment": "$BHQ notes that the דגש on the ק in μL disagrees with μA and μY.",
 }
-
 _RECORD_2125 = {
     "bhla-i": 28,
     "cv": "21:25",
@@ -921,7 +885,6 @@ _RECORD_2125 = {
     "lc-img": "2125.png",
     "bhq-comment": _BHQ_COMMENT_2125,
 }
-
 _RECORD_2221 = {
     "bhla-i": 29,
     "cv": "22:21",
@@ -936,11 +899,10 @@ _RECORD_2221 = {
     "bhq-comment": _BHQ_COMMENT_2221,
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/22/1/mg/106",
     "aleppo-img": "Aleppo-2221.png",
-    "cam1753-page-url": "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page/n83/mode/1up",
+    "cam1753-page-url": f"{_CAM1753_PAGE_URL_BASE}/n83/mode/1up",
     "cam1753-img": "Cam1753-2221.png",
     "cam1753-img-intro": _CAM1753_IMG_INTRO_2221,
 }
-
 _RECORD_2228 = {
     "bhla-i": 30,
     "cv": "22:28",
@@ -953,7 +915,6 @@ _RECORD_2228 = {
     "lc-img": "2228.png",
     "bhq-comment": _BHQ_COMMENT_2228,
 }
-
 _RECORD_2421 = {
     "bhla-i": 31,
     "cv": "24:21",
@@ -967,7 +928,6 @@ _RECORD_2421 = {
     "lc-img": "2421.png",
     "bhq-comment": _BHQ_COMMENT_2421,
 }
-
 _RECORD_2702 = {
     "bhla-i": 32,
     "cv": "27:2",
@@ -980,7 +940,6 @@ _RECORD_2702 = {
     "lc-img": "2702.png",
     "bhq-comment": _BHQ_COMMENT_2702,
 }
-
 _RECORD_2808 = {
     "bhla-i": 33,
     "cv": "28:8",
@@ -993,7 +952,6 @@ _RECORD_2808 = {
     "lc-img": "2808.png",
     "bhq-comment": _BHQ_COMMENT_2808_AND_2911,
 }
-
 _RECORD_2911 = {
     "bhla-i": 34,
     "cv": "29:11",
@@ -1006,7 +964,6 @@ _RECORD_2911 = {
     "lc-img": "2911.png",
     "bhq-comment": _BHQ_COMMENT_2808_AND_2911,
 }
-
 _RECORD_2919 = {
     "bhla-i": 35,
     "cv": "29:19",
@@ -1018,7 +975,6 @@ _RECORD_2919 = {
     "lc-loc": {"page": "405A", "column": 1, "line": -4},
     "lc-img": "2919.png",
 }
-
 _RECORD_3105 = {
     "bhla-i": 36,
     "cv": "31:5",
@@ -1031,7 +987,6 @@ _RECORD_3105 = {
     "lc-img": "3105.png",
     "bhq-comment": _BHQ_COMMENT_3105,
 }
-
 _RECORD_3107 = {
     "bhla-i": 37,
     "cv": "31:7",
@@ -1045,7 +1000,6 @@ _RECORD_3107 = {
     "bhq-comment": _BHQ_COMMENT_3107,
     "bhq": "מֻאֽוּם׃",
 }
-
 _RECORD_3133 = {
     "bhla-i": 38,
     "cv": "31:33",
@@ -1058,7 +1012,6 @@ _RECORD_3133 = {
     "lc-loc": {"page": "405B", "column": 2, "line": -3},
     "lc-img": "3133.png",
 }
-
 _RECORD_3206 = {
     "bhla-i": 39,
     "cv": "32:6",
@@ -1071,7 +1024,6 @@ _RECORD_3206 = {
     "lc-img": "3206.png",
     "bhq-comment": _BHQ_COMMENT_3206,
 }
-
 _RECORD_3312 = {
     "bhla-i": 40,
     "cv": "33:12",
@@ -1084,7 +1036,6 @@ _RECORD_3312 = {
     "lc-img": "3312.png",
     "bhq-comment": _BHQ_COMMENT_3312,
 }
-
 _RECORD_3330 = {
     "bhla-i": 41,
     "cv": "33:30",
@@ -1101,7 +1052,6 @@ _RECORD_3330 = {
         " which have the consensus pointing.",
     ],
 }
-
 _RECORD_3419 = {
     "bhla-i": 42,
     "cv": "34:19",
@@ -1114,7 +1064,6 @@ _RECORD_3419 = {
     "lc-img": "3419.png",
     "bhq-comment": _correctly_ignores("דגש"),
 }
-
 _RECORD_3629 = {
     "bhla-i": 43,
     "cv": "36:29",
@@ -1127,7 +1076,6 @@ _RECORD_3629 = {
     "lc-img": "3629.png",
     "bhq-comment": _correctly_ignores("געיה", "large"),
 }
-
 _RECORD_3706 = {
     "bhla-i": 44,
     "cv": "37:6",
@@ -1139,7 +1087,6 @@ _RECORD_3706 = {
     "lc-loc": {"page": "407B", "column": 2, "line": 7},
     "lc-img": "3706.png",
 }
-
 _RECORD_3812 = {
     "bhla-i": 45,
     "cv": "38:12",
@@ -1155,7 +1102,6 @@ _RECORD_3812 = {
         " which have the consensus pointing.",
     ],
 }
-
 _RECORD_3902 = {
     "bhla-i": 46,
     "cv": "39:2",
@@ -1168,7 +1114,6 @@ _RECORD_3902 = {
     "lc-img": "3902.png",
     "bhq-comment": "$BHQ silently supplies the רביע that is the consensus expectation.",
 }
-
 _RECORD_3906 = {
     "bhla-i": 47,
     "cv": "39:6",
@@ -1181,7 +1126,6 @@ _RECORD_3906 = {
     "lc-loc": {"page": "408B", "column": 1, "line": 3},
     "lc-img": "3906.png",
 }
-
 _RECORD_3913 = {
     "bhla-i": 48,
     "cv": "39:13",
@@ -1198,7 +1142,6 @@ _RECORD_3913 = {
         " into a רביע on ר and a masorah circle on ב.",
     ],
 }
-
 _RECORD_3920 = {
     "bhla-i": 49,
     "cv": "39:20",
@@ -1210,7 +1153,6 @@ _RECORD_3920 = {
     "lc-loc": {"page": "408B", "column": 1, "line": -10},
     "lc-img": "3920.png",
 }
-
 _RECORD_4010 = {
     "bhla-i": 50,
     "cv": "40:10",
@@ -1223,7 +1165,6 @@ _RECORD_4010 = {
     "lc-loc": {"page": "408B", "column": 2, "line": -11},
     "lc-img": "4010.png",
 }
-
 _RECORD_4026 = {
     "bhla-i": 51,
     "cv": "40:26",
@@ -1236,7 +1177,6 @@ _RECORD_4026 = {
     "lc-loc": {"page": "409A", "column": 1, "line": 8},
     "lc-img": "4026.png",
 }
-
 _RECORD_4125 = {
     "bhla-i": 52,
     "cv": "41:25",

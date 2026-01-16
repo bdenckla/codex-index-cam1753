@@ -95,11 +95,11 @@ def _maybe_img(record, mi_args):
     if maybe_img_path is None:
         return []
     if maybe_img_intro := record.get(iikey):
-        intro = f" ({maybe_img_intro})"
+        intro = [" (", maybe_img_intro, ")"]
     else:
-        intro = ""
-    cpara = f"{ms_name}{intro}:"
-    return [my_html.para(cpara), _img(maybe_img_path)]
+        intro = []
+    cpara = [ms_name, *intro, ":"]
+    return [author.para(cpara), _img(maybe_img_path)]
 
 
 def _maybe_bhq(bhq):

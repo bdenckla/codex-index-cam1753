@@ -414,10 +414,13 @@ _BHQ_COMMENT_1604 = [
     " note that $BHQ continues to fail to distinguish",
     " between גלגל and אתנח הפוך.",
 ]
-_BHQ_COMMENT_MISSED_BY_DO_AND_BR = (
+_BHQ_COMMENT_MISSED_BY_DO_AND_BR = [
     "$BHQ catches this, whereas this was missed by $BHL_A and Da-at Miqra."
-)
-_BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE = "$BHQ catches this possibility, whereas this was either missed by $BHL_A and Da-at Miqra, or considered to be too slight a possibility to mention."
+]
+_BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE = [
+    "$BHQ catches this possibility, whereas this was either missed by $BHL_A and Da-at Miqra,",
+    " or considered to be too slight a possibility to mention."
+]
 RECORD_1076 = {
     "cv": "17:6",
     "lc": "וְתֹ֖פֶתּ",
@@ -427,7 +430,7 @@ RECORD_1076 = {
     "highlight": 4,
     "lc-loc": {"page": "402A", "column": 1, "line": 7},
     "lc-img": "1706.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
     "uxlc-needs-fix": True,
 }
 RECORD_1711 = {
@@ -439,7 +442,7 @@ RECORD_1711 = {
     "highlight": 3,
     "lc-loc": {"page": "402A", "column": 1, "line": 13},
     "lc-img": "1711.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
     "uxlc-needs-fix": True,
 }
 RECORD_1809 = {
@@ -452,7 +455,7 @@ RECORD_1809 = {
     "highlight": 2,
     "lc-loc": {"page": "402A", "column": 2, "line": 2},
     "lc-img": "1809.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
     "uxlc-needs-fix": True,
 }
 RECORD_2230 = {
@@ -465,7 +468,7 @@ RECORD_2230 = {
     "highlight": 2,
     "lc-loc": {"page": "403B", "column": 2, "line": 4},
     "lc-img": "2230.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
     "uxlc-needs-fix": True,
 }
 RECORD_2416 = {
@@ -478,7 +481,7 @@ RECORD_2416 = {
     "highlight": 2,
     "lc-loc": {"page": "404A", "column": 1, "line": -12},
     "lc-img": "2416.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
     "uxlc-needs-fix": True,
 }
 RECORD_3817 = {
@@ -490,7 +493,7 @@ RECORD_3817 = {
     "highlight": 3,
     "lc-loc": {"page": "408A", "column": 1, "line": -5},
     "lc-img": "3817.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
     "uxlc-needs-fix": True,
 }
 RECORD_4213 = {
@@ -502,7 +505,7 @@ RECORD_4213 = {
     "highlight": 1,
     "lc-loc": {"page": "409B", "column": 1, "line": -9, "including-blank-lines": 1},
     "lc-img": "4213.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_MISSED_BY_DO_AND_BR),
+    "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
     "uxlc-needs-fix": True,
 }
 _RECORD_0121 = {
@@ -591,7 +594,7 @@ _RECORD_0801 = {
     "highlight": 2,
     "lc-loc": {"page": "399A", "column": 2, "line": 5, "including-blank-lines": 1},
     "lc-img": "0801.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_0801),
+    "bhq-comment": _BHQ_COMMENT_0801,
 }
 
 _RECORD_0807 = {
@@ -618,7 +621,7 @@ _RECORD_0914 = {
     "highlight": 2,
     "lc-loc": {"page": "399B", "column": 1, "line": 22, "including-blank-lines": 1},
     "lc-img": "0914.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_0914_AND_0930),
+    "bhq-comment": _BHQ_COMMENT_0914_AND_0930,
 }
 
 _RECORD_0930 = {
@@ -632,7 +635,7 @@ _RECORD_0930 = {
     "highlight": 2,
     "lc-loc": {"page": "399B", "column": 2, "line": 15},
     "lc-img": "0930.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_0914_AND_0930),
+    "bhq-comment": _BHQ_COMMENT_0914_AND_0930,
 }
 
 _RECORD_0935 = {
@@ -694,7 +697,7 @@ _RECORD_1106 = {
     "highlight": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": 5},
     "lc-img": "1106.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1106),
+    "bhq-comment": _BHQ_COMMENT_1106,
 }
 
 _RECORD_1107 = {
@@ -707,7 +710,7 @@ _RECORD_1107 = {
     "highlight": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": 6},
     "lc-img": "1107.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1107),
+    "bhq-comment": _BHQ_COMMENT_1107,
 }
 
 _RECORD_1203 = {
@@ -720,7 +723,7 @@ _RECORD_1203 = {
     "highlight": 3,
     "lc-loc": {"page": "400A", "column": 2, "line": -1},
     "lc-img": "1203.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1203),
+    "bhq-comment": _BHQ_COMMENT_1203,
 }
 
 _RECORD_1409 = {
@@ -746,7 +749,7 @@ _RECORD_1508 = {
     "highlight": 4,
     "lc-loc": {"page": "401A", "column": 2, "line": -7},
     "lc-img": "1508.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1508),
+    "bhq-comment": _BHQ_COMMENT_1508,
 }
 
 _RECORD_1534 = {
@@ -768,11 +771,11 @@ _RECORD_1604 = {
     "lc": "ל֤וּ־",
     "what-is-weird": "מקף is present",
     "mam": "ל֤וּ_",
-    "comment": "".join(_COMMENT_1604),
+    "comment": _COMMENT_1604,
     "highlight": 2,
     "lc-loc": {"page": "401B", "column": 2, "line": 3},
     "lc-img": "1604.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1604),
+    "bhq-comment": _BHQ_COMMENT_1604,
 }
 
 _RECORD_1613 = {
@@ -798,7 +801,7 @@ _RECORD_1620 = {
     "highlight": 4,
     "lc-loc": {"page": "401B", "column": 2, "line": -2},
     "lc-img": "1620.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1620),
+    "bhq-comment": _BHQ_COMMENT_1620,
 }
 
 _RECORD_1804 = {
@@ -811,7 +814,7 @@ _RECORD_1804 = {
     "highlight": 1,
     "lc-loc": {"page": "402A", "column": 1, "line": -4},
     "lc-img": "1804.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1804),
+    "bhq-comment": _BHQ_COMMENT_1804,
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
     "aleppo-img": "Aleppo-1804.png",
     "bhq": "הַ֭לְמַּעַנְךָ",
@@ -827,7 +830,7 @@ _RECORD_1806 = {
     "highlight": 1,
     "lc-loc": {"page": "402A", "column": 1, "line": -2},
     "lc-img": "1806.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_1806),
+    "bhq-comment": _BHQ_COMMENT_1806,
 }
 
 _RECORD_1905 = {
@@ -864,11 +867,11 @@ _RECORD_2125 = {
     "lc": "וִלֹֽא־",
     "what-is-weird": "ו has חיריק not שווא",
     "mam": "וְלֹֽא־",
-    "comment": "".join(_COMMENT_2125),
+    "comment": _COMMENT_2125,
     "highlight": 1,
     "lc-loc": {"page": "403A", "column": 2, "line": 13},
     "lc-img": "2125.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2125),
+    "bhq-comment": _BHQ_COMMENT_2125,
 }
 
 _RECORD_2221 = {
@@ -878,16 +881,16 @@ _RECORD_2221 = {
     "lc": "עִמּ֑וֹ וּשְׁלם",
     "what-is-weird": "אתנח and ∅ not מונח and קמץ־אתנח?",
     "mam": "עִמּ֣וֹ וּשְׁלָ֑ם",
-    "comment": "".join(_COMMENT_2221),
+    "comment": _COMMENT_2221,
     "highlight": [2, 6],
     "lc-loc": {"page": "403B", "column": 1, "line": -6},
     "lc-img": "2221.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2221),
+    "bhq-comment": _BHQ_COMMENT_2221,
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/22/1/mg/106",
     "aleppo-img": "Aleppo-2221.png",
     "cam1753-page-url": "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page/n83/mode/1up",
     "cam1753-img": "Cam1753-2221.png",
-    "cam1753-img-intro": "".join(_CAM1753_IMG_INTRO_2221),
+    "cam1753-img-intro": _CAM1753_IMG_INTRO_2221,
 }
 
 _RECORD_2228 = {
@@ -900,7 +903,7 @@ _RECORD_2228 = {
     "highlight": 1,
     "lc-loc": {"page": "403B", "column": 2, "line": 2},
     "lc-img": "2228.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2228),
+    "bhq-comment": _BHQ_COMMENT_2228,
 }
 
 _RECORD_2421 = {
@@ -910,11 +913,11 @@ _RECORD_2421 = {
     "lc": "רֹעֵ֣ה",
     "what-is-weird": "ע may have צירה not סגול",
     "mam": "רֹעֶ֣ה",
-    "comment": "".join(_COMMENT_2421),
+    "comment": _COMMENT_2421,
     "highlight": 2,
     "lc-loc": {"page": "404A", "column": 2, "line": -2},
     "lc-img": "2421.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2421),
+    "bhq-comment": _BHQ_COMMENT_2421,
 }
 
 _RECORD_2702 = {
@@ -923,11 +926,11 @@ _RECORD_2702 = {
     "lc": "חַי_",
     "what-is-weird": "מקף is missing",
     "mam": "חַי־",
-    "comment": "".join(_COMMENT_2702),
+    "comment": _COMMENT_2702,
     "highlight": 2,
     "lc-loc": {"page": "404A", "column": 2, "line": -2},
     "lc-img": "2702.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2702),
+    "bhq-comment": _BHQ_COMMENT_2702,
 }
 
 _RECORD_2808 = {
@@ -940,7 +943,7 @@ _RECORD_2808 = {
     "highlight": 3,
     "lc-loc": {"page": "404B", "column": 2, "line": 5},
     "lc-img": "2808.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2808_AND_2911),
+    "bhq-comment": _BHQ_COMMENT_2808_AND_2911,
 }
 
 _RECORD_2911 = {
@@ -953,7 +956,7 @@ _RECORD_2911 = {
     "highlight": 3,
     "lc-loc": {"page": "405A", "column": 1, "line": -12},
     "lc-img": "2911.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_2808_AND_2911),
+    "bhq-comment": _BHQ_COMMENT_2808_AND_2911,
 }
 
 _RECORD_2919 = {
@@ -962,7 +965,7 @@ _RECORD_2919 = {
     "lc": "בִּקְצִירֽ͏ִי׃",
     "what-is-weird": "סילוק precedes חיריק",
     "mam": "בִּקְצִירִֽי׃",
-    "comment": "".join(_COMMENT_2919),
+    "comment": _COMMENT_2919,
     "highlight": 5,
     "lc-loc": {"page": "405A", "column": 1, "line": -4},
     "lc-img": "2919.png",
@@ -978,7 +981,7 @@ _RECORD_3105 = {
     "highlight": 3,
     "lc-loc": {"page": "405B", "column": 1, "line": -9, "including-blank-lines": 1},
     "lc-img": "3105.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_3105),
+    "bhq-comment": _BHQ_COMMENT_3105,
 }
 
 _RECORD_3107 = {
@@ -991,7 +994,7 @@ _RECORD_3107 = {
     "highlight": [1, 3],
     "lc-loc": {"page": "405B", "column": 1, "line": -6, "including-blank-lines": 1},
     "lc-img": "3107.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_3107),
+    "bhq-comment": _BHQ_COMMENT_3107,
     "bhq": "מֻאֽוּם׃",
 }
 
@@ -1018,7 +1021,7 @@ _RECORD_3206 = {
     "highlight": 4,
     "lc-loc": {"page": "406A", "column": 1, "line": -6},
     "lc-img": "3206.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_3206),
+    "bhq-comment": _BHQ_COMMENT_3206,
 }
 
 _RECORD_3312 = {
@@ -1031,7 +1034,7 @@ _RECORD_3312 = {
     "highlight": 4,
     "lc-loc": {"page": "406B", "column": 1, "line": 2},
     "lc-img": "3312.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_3312),
+    "bhq-comment": _BHQ_COMMENT_3312,
 }
 
 _RECORD_3330 = {
@@ -1058,7 +1061,7 @@ _RECORD_3419 = {
     "highlight": 1,
     "lc-loc": {"page": "406B", "column": 2, "line": -2},
     "lc-img": "3419.png",
-    "bhq-comment": "".join(_correctly_ignores("דגש")),
+    "bhq-comment": _correctly_ignores("דגש"),
 }
 
 _RECORD_3629 = {
@@ -1067,7 +1070,7 @@ _RECORD_3629 = {
     "lc": "סֻכָּֽתֽוֹ׃",
     "what-is-weird": "כ has געיה",
     "mam": "סֻכָּתֽוֹ׃",
-    "comment": "".join(_COMMENT_3629),
+    "comment": _COMMENT_3629,
     "highlight": 2,
     "lc-loc": {"page": "407B", "column": 1, "line": -5},
     "lc-img": "3629.png",
@@ -1105,7 +1108,7 @@ _RECORD_3902 = {
     "lc": "וְ֝יָדַעְתָּ֜",
     "what-is-weird": "גרש not רביע",
     "mam": "וְ֝יָדַעְתָּ֗",
-    "comment": "".join(_COMMENT_3902),
+    "comment": _COMMENT_3902,
     "highlight": 5,
     "lc-loc": {"page": "408A", "column": 2, "line": -3},
     "lc-img": "3902.png",
@@ -1132,7 +1135,7 @@ _RECORD_3913 = {
     "lc": "אֶ֝בְרָה",
     "what-is-weird": "רביע מגרש may lack רביע",
     "mam": "אֶ֝בְרָ֗ה",
-    "comment": "".join(_COMMENT_3913),
+    "comment": _COMMENT_3913,
     "highlight": 3,
     "lc-loc": {"page": "408B", "column": 1, "line": 11},
     "lc-img": "3913.png",
@@ -1187,7 +1190,7 @@ _RECORD_4125 = {
     "highlight": 5,
     "lc-loc": {"page": "409A", "column": 2, "line": 14},
     "lc-img": "4125.png",
-    "bhq-comment": "".join(_BHQ_COMMENT_4125),
+    "bhq-comment": _BHQ_COMMENT_4125,
 }
 
 RECORDS = [

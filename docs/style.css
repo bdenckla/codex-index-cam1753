@@ -38,5 +38,6 @@ p.center { text-align: center; }
 p.center-and-spaced { text-align: center; word-spacing: 1.5em; }
 img.width10em { width: 10em; }
 img.width5em { width: 5em; }
+img.maxwidth50pc { max-width: 50%; }
 th, td { padding-right: 0.4em; padding-left: 0.4em; }
 img { max-width: 100%; }

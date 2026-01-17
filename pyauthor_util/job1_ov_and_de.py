@@ -72,7 +72,7 @@ def _row_id(record):
 
 
 def _img(img):
-    return my_html.img({"src": f"img/{img}"})
+    return author.para_for_img(img, "maxwidth50pc")
 
 
 _MI_ARGS = {

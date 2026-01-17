@@ -9,8 +9,6 @@
 # Da-at Miqra 3:15 varika
 # Da-at Miqra 3:16 varika
 # Da-at Miqra 3:21 varika
-# Da-at Miqra 4:9 אלוה mapiq; noted by BHQ
-# Da-at Miqra 4:17 מאלוה mapiq; noted by Dotan but not by BHQ, not even in 4:9 note
 # Da-at Miqra 5:8 Aleppo dagesh in tsadi
 # Da-at Miqra 5:12 xaser/malei; noted by BHQ
 # Da-at Miqra 5:14 varika
@@ -214,10 +212,10 @@ def _correctly_ignores(what, adjective=""):
 
 
 _BHQ_COMMENT_MISSED_BY_DO_AND_BR = [
-    "$BHQ catches this, whereas this is not noted in either $BHL_A or Da-at Miqra."
+    "$BHQ notes this, whereas this is not noted in either $BHL_A or Da-at Miqra."
 ]
 _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE = [
-    "$BHQ catches this possibility,",
+    "$BHQ notes this possibility,",
     " whereas this is not noted in either $BHL_A or Da-at Miqra.",
     " It could be that Dotan and Breuer did not catch this,",
     " or it could be that they caught it",
@@ -236,7 +234,7 @@ _RECORD_MBB_1076 = {
     "lc-loc": {"page": "402A", "column": 1, "line": 7},
     "lc-img": "1706.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _RECORD_MBB_1711 = {
@@ -249,7 +247,7 @@ _RECORD_MBB_1711 = {
     "lc-loc": {"page": "402A", "column": 1, "line": 13},
     "lc-img": "1711.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _RECORD_MBB_1809 = {
@@ -267,7 +265,7 @@ _RECORD_MBB_1809 = {
     "lc-loc": {"page": "402A", "column": 2, "line": 2},
     "lc-img": "1809.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _RECORD_MBB_2230 = {
@@ -281,7 +279,7 @@ _RECORD_MBB_2230 = {
     "lc-loc": {"page": "403B", "column": 2, "line": 4},
     "lc-img": "2230.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _RECORD_MBB_2416 = {
@@ -299,11 +297,11 @@ _RECORD_MBB_2416 = {
     "lc-loc": {"page": "404A", "column": 1, "line": -12},
     "lc-img": "2416.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR_POSSIBLE,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _BHQ_COMMENT_3612 = [
-    "$BHQ catches this, whereas this is not noted in $BHL_A.",
+    "$BHQ notes this, whereas this is not noted in $BHL_A.",
     " It could be that Dotan did not catch this,",
     " or it could be that he caught it",
     " but considered to be too slight a possibility to note it.",
@@ -335,7 +333,7 @@ _RECORD_MBDO_3612 = {
     "lc-loc": {"page": "407B", "column": 1, "line": 4},
     "lc-img": "3612.png",
     "bhq-comment": _BHQ_COMMENT_3612,
-    "bhq-performance": "mbdo",
+    "noted-by": "BHQ-xBHL-DM",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "aleppo-img": "Aleppo-3612.png",
     "cam1753-page-url": f"{_CAM1753_PAGE_URL_BASE}/n87/mode/1up",
@@ -352,7 +350,7 @@ _RECORD_MBB_3817 = {
     "lc-loc": {"page": "408A", "column": 1, "line": -5},
     "lc-img": "3817.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _RECORD_MBB_4213 = {
@@ -365,7 +363,7 @@ _RECORD_MBB_4213 = {
     "lc-loc": {"page": "409B", "column": 1, "line": -9, "including-blank-lines": 1},
     "lc-img": "4213.png",
     "bhq-comment": _BHQ_COMMENT_MISSED_BY_DO_AND_BR,
-    "bhq-performance": "mbb",
+    "noted-by": "BHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }
 _RECORD_0121 = {
@@ -382,6 +380,7 @@ _RECORD_0121 = {
         "$BHQ notes that here μL disagrees with μA and μY,",
         " which have the consensus pointing.",
     ],
+    "noted-by": "BHQ-BHL-DM",
 }
 _BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
     "This is one of seven similar cases in Job in μL.",
@@ -408,11 +407,12 @@ _RECORD_0409 = {
     "lc-loc": {"page": "398A", "column": 1, "line": -2},
     "lc-img": "0409.png",
     "bhq-comment": _BHQ_COMMENT_0409,
+    "noted-by": "BHQ-BHL-DM",
 }
 _BHQ_COMMENT_0417 = [
     "This is one of seven similar cases in Job in μL.",
     " This is the only one of these seven not noted by $BHQ.",
-    " 4:9 discusses the matter at greater length.",
+    " For more details, see my entry on 4:9.",
 ]
 _RECORD_0417 = {
     "bhla-i": 3,
@@ -425,6 +425,7 @@ _RECORD_0417 = {
     "lc-loc": {"page": "398A", "column": 2, "line": 10},
     "lc-img": "0417.png",
     "bhq-comment": _BHQ_COMMENT_0417,
+    "noted-by": "xBHQ-BHL-DM",
 }
 _RECORD_0701 = {
     "bhla-i": 4,
@@ -437,6 +438,7 @@ _RECORD_0701 = {
     "lc-loc": {"page": "399A", "column": 1, "line": 4},
     "lc-img": "0701.png",
     "bhq-comment": "$BHQ silently ignores the possible רביע.",
+    "noted-by": "xBHQ-BHL-xDM",
 }
 _RECORD_0709 = {
     "bhla-i": 5,
@@ -695,8 +697,8 @@ _BHQ_COMMENT_1804 = [
     " $BHQ does so silently, i.e. with no note about the pointing of ה.",
     " $BHQ does note that the דגש on the מ in μL disagrees with μA and μY.",
     " $BHQ misses the געיה in μA.",
-    " This געיה is irrelevant to $BHQ’s point here, which is only about the דגש.",
-    " Still, it is sloppy to have missed it.",
+    " This געיה is irrelevant to $BHQ’s point here, which is about the דגש.",
+    " Still, it would have been nice if $BHQ had transcribed the געיה.",
 ]
 _RECORD_1804 = {
     "bhla-i": 24,
@@ -1264,8 +1266,8 @@ RECORDS = [
 ]
 
 
-def _get_perf(record):
-    return record.get("bhq-performance")
+def _noted_by(record):
+    return record.get("noted-by")
 
 
-RECORDS_BY_PERF = my_groupby(RECORDS, _get_perf)
+RECORDS_BY_PERF = my_groupby(RECORDS, _noted_by)

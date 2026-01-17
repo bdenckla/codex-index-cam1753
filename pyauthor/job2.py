@@ -64,8 +64,8 @@ _CPARA13 = [
     " The editions most relevant to $BHQ are the following two:",
 ]
 _C_LIST13 = [
-    f"דעת מקרא (Breuer et al., {num_range(1970, 2003)})",
-    "$BHL (Dotan, 2001)",
+    f"The דעת מקרא series, particularly the volumes with sections called “הנוסח ומקורותיו” (Breuer et al., {num_range(1970, 2003)})",
+    "Biblia Hebraica Leningradensia ($BHL) (Dotan, 2001)",
 ]
 _CPARA14 = [
     "The first volume of $BHQ (Megilloth) came out in 2004.",
@@ -99,25 +99,25 @@ _CPARA16 = [
     #
     " But those parts are not my concern.",
 ]
-_RECORDS_MISSED_BY_BOTH = RECORDS_BY_PERF.get("mbb") or []
-_RECORDS_MISSED_BY_DO = RECORDS_BY_PERF.get("mbdo") or []
+_RECORDS_ONLY_NOTED_IN_BHQ = RECORDS_BY_PERF.get("BHQ-xBHL-xDM") or []
+_RECORDS_ONLY_NOTED_IN_BHQ_AND_DM = RECORDS_BY_PERF.get("BHQ-xBHL-DM") or []
 _CPARA17 = [
     "Having criticized $BHQ in general terms,",
     " I will now review the specifics of the $BHQ Book of Job.",
     #
     " As of now, it is the latest volume of $BHQ to be published.",
     #
-    " First, the good news: the Job volume of $BHQ catches",
-    [" ", str(len(_RECORDS_MISSED_BY_BOTH))],
+    " First, the good news: the Job volume of $BHQ notes",
+    [" ", str(len(_RECORDS_ONLY_NOTED_IN_BHQ))],
     " quirks in μL that were not noted in either $BHL Appendix A or דעת מקרא.",
     " They are as follows:",
 ]
 _CPARA18 = [
-    "The Job volume of $BHQ also catches",
+    "The Job volume of $BHQ also notes",
     " one quirk in μL that, while noted in דעת מקרא,",
     " was not noted in $BHL Appendix A:",
 ]
-assert len(_RECORDS_MISSED_BY_DO) == 1
+assert len(_RECORDS_ONLY_NOTED_IN_BHQ_AND_DM) == 1
 
 
 def make_mini_table(records):
@@ -135,8 +135,8 @@ _CBODY = [
     author.para_ul(_CPARA15, _C_LIST15),
     author.para(_CPARA16),
     author.para(_CPARA17),
-    make_mini_table(_RECORDS_MISSED_BY_BOTH),
+    make_mini_table(_RECORDS_ONLY_NOTED_IN_BHQ),
     *intro("intro-job2"),
     author.para(_CPARA18),
-    make_mini_table(_RECORDS_MISSED_BY_DO),
+    make_mini_table(_RECORDS_ONLY_NOTED_IN_BHQ_AND_DM),
 ]

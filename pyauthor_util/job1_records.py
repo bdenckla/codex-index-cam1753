@@ -30,7 +30,6 @@
 # Da-at Miqra 11:6 אלוה mapiq; noted by BHQ
 # Da-at Miqra 11:7 אלוה mapiq; noted by BHQ, but only in 4:9 note
 # Da-at Miqra 11:13 xaser/malei
-# Da-at Miqra 12:3 maqaf; noted by Dotan
 # Da-at Miqra 12:6 varika
 # Da-at Miqra 12:9 Aleppo has full revia mugrash. Leningrad lacks the revia.
 # Da-at Miqra 12:25 varika
@@ -42,12 +41,10 @@
 # Da-at Miqra 16:6 dagesh
 # Da-at Miqra 16:9 xaser/malei
 # Da-at Miqra 16:13 xaser/malei: יחמל vs יחמול; noted by BHQ
-# Da-at Miqra 16:13 סילוק location; noted by Dotan
 # Da-at Miqra 16:19 xaser/malei
 # Da-at Miqra 16:20 אלוה mapiq; noted by BHQ, but only in 4:9 note
 # Da-at Miqra 17:3 Aleppo קמץ Leningrad פתח (opposite of 3:4)
 # Da-at Miqra 17:6 xaser/malei: והציגני A malei vs והצגני L xaser
-# Da-at Miqra 18:4 patax vs xataf patax; noted by Dotan
 # Da-at Miqra 19:16 geresh muqdam location
 # Da-at Miqra 20:1 געיה location (ה vs נ)
 # Da-at Miqra 20:12 xaser/malei
@@ -64,7 +61,6 @@
 # Da-at Miqra 24:4 xaser/malei
 # Da-at Miqra 24:13 maqaf
 # Da-at Miqra 24:18 Aleppo has full revia mugrash. Leningrad lacks the revia.
-# Da-at Miqra 24:21 segol/tsere; noted by Dotan
 # Da-at Miqra 26:3 xaser/malei; noted by BHQ
 # Da-at Miqra 26:13 xaser/malei
 # Da-at Miqra 27:7 varika
@@ -73,17 +69,14 @@
 # Da-at Miqra 29:3 Aleppo has full revia mugrash. Leningrad lacks the revia.
 # Da-at Miqra 30:22 varika
 # Da-at Miqra 31:2 legarmeh (or is it paseq)
-# Da-at Miqra 31:7 shuruq; noted by Dotan
 # Da-at Miqra 31:20 varika
 # Da-at Miqra 31:20 Aleppo has full revia mugrash. Leningrad lacks the revia.
-# Da-at Miqra 31:33 סילוק location; noted by Dotan
 # Da-at Miqra 32:11 something about legarmeh?
 # Da-at Miqra 32:12 מרכא vs געיה? How would you tell?
 # Da-at Miqra 33:12 מפיק in אלוה; noted by BHQ but only in 4:9 note
 # Da-at Miqra 33:21 xaser/malei
 # Da-at Miqra 33:22 varika
 # Da-at Miqra 33:28 Aleppo has full revia mugrash. Leningrad lacks the revia.
-# Da-at Miqra 33:30 סילוק location; noted by Dotan
 # Da-at Miqra 34:5 munax vs dexi
 # Da-at Miqra 34:33 xataf something vs patax
 # Da-at Miqra 34:33 dagesh in lamed
@@ -93,28 +86,24 @@
 # Da-at Miqra 35:7 dagesh
 # Da-at Miqra 36:10 xaser/malei
 # Da-at Miqra 36:10 oleh location
-# Da-at Miqra 36:12 bet/kaf; noted by BHQ but, unexpectedly, not by Dotan
+# Da-at Miqra 36:12 bet/kaf; noted by BHQ but, unexpectedly, not by BHL
 # Da-at Miqra 36:21 there's some question about what L has so maybe it doesn't agree with A
 # Da-at Miqra 36:24 varika
 # Da-at Miqra 37:8 xaser/malei
 # Da-at Miqra 37:15 xaser/malei
-# Da-at Miqra 38:12 xataf patax vs sheva; noted by Dotan
 # Da-at Miqra 38:20 Aleppo has full revia mugrash. Leningrad lacks the revia.
 # Da-at Miqra 38:22 xaser/malei
 # Da-at Miqra 38:29 Aleppo has full revia mugrash. Leningrad lacks the revia.
 # Da-at Miqra 38:31 varika
 # Da-at Miqra 38:25 varika
-# Da-at Miqra 39:6 סילוק location; noted by Dotan
 # Da-at Miqra 39:7 xaser/malei
 # Da-at Miqra 39:15 dagesh in tav
-# Da-at Miqra 39:20 xataf patax vs simple שווא; noted by Dotan
 # Da-at Miqra 39:25 Aleppo has full revia mugrash. Leningrad lacks the revia.
 # Da-at Miqra 40:16 xaser/malei
 # Da-at Miqra 40:18 xaser/malei
 # Da-at Miqra 40:19 Aleppo has full revia mugrash. Leningrad lacks the revia.
 # Da-at Miqra 40:26 xaser/malei (instance 1 of 2)
 # Da-at Miqra 40:26 xaser/malei (instance 2 of 2)
-# Da-at Miqra 40:26 סילוק location; noted by Dotan
 # Da-at Miqra 40:31 varika
 # Da-at Miqra 41:8 xaser/malei
 # Da-at Miqra 42:10 varika
@@ -561,6 +550,7 @@ _RECORD_1015 = {
     "highlight": 3,
     "lc-loc": {"page": "400A", "column": 1, "line": 14},
     "lc-img": "1015.png",
+    "noted-by": "tBHQ-BHL-xDM",
 }
 _RECORD_1103 = {
     "bhla-i": 14,
@@ -572,8 +562,8 @@ _RECORD_1103 = {
     "highlight": 6,
     "lc-loc": {"page": "400A", "column": 1, "line": -1},
     "lc-img": "1103.png",
+    "noted-by": "tBHQ-BHL-xDM",
 }
-_BHQ_COMMENT_1106 = _BHQ_COMMENT_LIKE_0409
 _RECORD_1106 = {
     "bhla-i": 15,
     "cv": "11:6",
@@ -584,9 +574,12 @@ _RECORD_1106 = {
     "highlight": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": 5},
     "lc-img": "1106.png",
-    "bhq-comment": _BHQ_COMMENT_1106,
+    "bhq-comment": _BHQ_COMMENT_LIKE_0409,
+    "noted-by": "BHQ-BHL-DM",
+    # Above, note BHQ-... not tBHQ-...
+    # I.e. note that BHQ not only transcribes this right,
+    # but also notes it in the (bottom-of-page) critical apparatus.
 }
-_BHQ_COMMENT_1107 = _BHQ_COMMENT_LIKE_0409
 _RECORD_1107 = {
     "bhla-i": 16,
     "cv": "11:7",
@@ -597,7 +590,8 @@ _RECORD_1107 = {
     "highlight": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": 6},
     "lc-img": "1107.png",
-    "bhq-comment": _BHQ_COMMENT_1107,
+    "bhq-comment": _BHQ_COMMENT_LIKE_0409,
+    "noted-by": "tBHQ-BHL-DM",
 }
 _BHQ_COMMENT_1203 = [
     "$BHQ silently supplies the מקף that is the consensus expectation,",
@@ -614,6 +608,7 @@ _RECORD_1203 = {
     "lc-loc": {"page": "400A", "column": 2, "line": -1},
     "lc-img": "1203.png",
     "bhq-comment": _BHQ_COMMENT_1203,
+    "noted-by": "xBHQ-BHL-DM",
 }
 _RECORD_1409 = {
     "bhla-i": 18,
@@ -626,8 +621,8 @@ _RECORD_1409 = {
     "lc-loc": {"page": "401A", "column": 1, "line": -9},
     "lc-img": "1409.png",
     "bhq-comment": "$BHQ silently ignores the possible דגש.",
+    "noted-by": "xBHQ-BHL-xDM",
 }
-_BHQ_COMMENT_1508 = _BHQ_COMMENT_LIKE_0409
 _RECORD_1508 = {
     "bhla-i": 19,
     "cv": "15:8",
@@ -638,7 +633,7 @@ _RECORD_1508 = {
     "highlight": 4,
     "lc-loc": {"page": "401A", "column": 2, "line": -7},
     "lc-img": "1508.png",
-    "bhq-comment": _BHQ_COMMENT_1508,
+    "bhq-comment": _BHQ_COMMENT_LIKE_0409,
 }
 _COMMENT_1604 = [
     "Though it is not relevant to the point at hand, which is the presence of a מקף,",
@@ -684,8 +679,8 @@ _RECORD_1613 = {
     "highlight-mam": 4,
     "lc-loc": {"page": "401B", "column": 2, "line": -10},
     "lc-img": "1613.png",
+    "noted-by": "tBHQ-BHL-DM",
 }
-_BHQ_COMMENT_1620 = _BHQ_COMMENT_LIKE_0409
 _RECORD_1620 = {
     "bhla-i": 23,
     "cv": "16:20",
@@ -696,33 +691,54 @@ _RECORD_1620 = {
     "highlight": 4,
     "lc-loc": {"page": "401B", "column": 2, "line": -2},
     "lc-img": "1620.png",
-    "bhq-comment": _BHQ_COMMENT_1620,
+    "bhq-comment": _BHQ_COMMENT_LIKE_0409,
+    "noted-by": "tBHQ-BHL-DM",
 }
-_BHQ_COMMENT_1804 = [
+_BHQ_COMMENT_1804_A = [
     "$BHQ silently ignores the possible שווא part of the possible חטף פתח.",
     " It also silently ignores the possible intepretation of that ink as a געיה.",
     " I.e. other than the prepositive דחי accent,",
     " $BHQ supplies only the (full) פתח that is the consensus expectation here.",
     " $BHQ does so silently, i.e. with no note about the pointing of ה.",
-    " $BHQ does note that the דגש on the מ in μL disagrees with μA and μY.",
+]
+_RECORD_1804_A = {
+    "bhla-i": 24,
+    "cv": "18:4",
+    "n_of_m_for_this_word": (1, 2),  # this is record 1 of 2 for this word
+    "lc": "הֲ֭לְמַּעַנְךָ",
+    "what-is-weird": "פתח on ה is חטף.",
+    "mam": "הַֽ֭לְמַעַנְךָ",
+    "comment": [
+        "The quirk that מ has דגש is discussed in a separate entry of mine.",
+        " The געיה difference is not important to us here."
+    ],
+    "highlight": 1,
+    "lc-loc": {"page": "402A", "column": 1, "line": -4},
+    "lc-img": "1804.png",
+    "bhq-comment": _BHQ_COMMENT_1804_A,
+    "aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
+    "aleppo-img": "Aleppo-1804.png",
+    "bhq": "הַ֭לְמַּעַנְךָ",
+    "noted-by": "xBHQ-BHL-DM",
+}
+_BHQ_COMMENT_1804_B = [
+    "$BHQ notes that the דגש on the מ in μL disagrees with μA and μY.",
     " $BHQ misses the געיה in μA.",
     " This געיה is irrelevant to $BHQ’s point here, which is about the דגש.",
     " Still, it would have been nice if $BHQ had transcribed the געיה.",
 ]
-_RECORD_1804 = {
-    "bhla-i": 24,
-    "cv": "18:4",
-    "lc": "הֲ֭לְמַּעַנְךָ",
-    "what-is-weird": "פתח on ה is חטף and מ has דגש.",
+_RECORD_1804_B = {
+    **_RECORD_1804_A,
+    "n_of_m_for_this_word": (2, 2),  # this is record 2 of 2 for this word
+    "what-is-weird": "מ has דגש.",
     "mam": "הַֽ֭לְמַעַנְךָ",
-    "comment": "The געיה difference is not important to us here.",
-    "highlight": 1,
-    "lc-loc": {"page": "402A", "column": 1, "line": -4},
-    "lc-img": "1804.png",
-    "bhq-comment": _BHQ_COMMENT_1804,
-    "aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
-    "aleppo-img": "Aleppo-1804.png",
-    "bhq": "הַ֭לְמַּעַנְךָ",
+    "comment": [
+        "The quirk that פתח on ה is חטף is discussed in a separate entry of mine.",
+        " The געיה difference is not important to us here."
+    ],
+    "highlight": 3,
+    "bhq-comment": _BHQ_COMMENT_1804_B,
+    "noted-by": "BHQ-BHL-DM",
 }
 _BHQ_COMMENT_1806 = [
     "$BHQ positions the mark ambiguously.",
@@ -880,6 +896,7 @@ _RECORD_2421 = {
     "lc-loc": {"page": "404A", "column": 2, "line": -2},
     "lc-img": "2421.png",
     "bhq-comment": _BHQ_COMMENT_2421,
+    "noted-by": "xBHQ-BHL-DM",
 }
 _BHQ_COMMENT_2702 = [
     "$BHQ silently supplies the מקף that is the consensus expectation,",
@@ -939,6 +956,7 @@ _RECORD_2919 = {
     "highlight": 5,
     "lc-loc": {"page": "405A", "column": 1, "line": -4},
     "lc-img": "2919.png",
+    "noted-by": "tBHQ-BHL-xDM",
 }
 _BHQ_COMMENT_CMN_3105_3206 = [
     "$BHQ silently supplies the marks in the vowel-then-accent order that is",
@@ -966,6 +984,7 @@ _RECORD_3105 = {
     "lc-loc": {"page": "405B", "column": 1, "line": -9, "including-blank-lines": 1},
     "lc-img": "3105.png",
     "bhq-comment": _BHQ_COMMENT_3105,
+    "noted-by": "tBHQ-BHL-xDM",
 }
 _BHQ_COMMENT_3107 = [
     "$BHQ reflects neither μL nor the consensus expectation here.",
@@ -991,6 +1010,7 @@ _RECORD_3107 = {
     "lc-img": "3107.png",
     "bhq-comment": _BHQ_COMMENT_3107,
     "bhq": "מֻאֽוּם׃",
+    "noted-by": "xBHQ-BHL-DM",
 }
 _RECORD_3133 = {
     "bhla-i": 38,
@@ -1003,6 +1023,7 @@ _RECORD_3133 = {
     "highlight-mam": 3,
     "lc-loc": {"page": "405B", "column": 2, "line": -3},
     "lc-img": "3133.png",
+    "noted-by": "tBHQ-BHL-DM",
 }
 _BHQ_COMMENT_3206 = [
     *_BHQ_COMMENT_CMN_3105_3206,
@@ -1020,7 +1041,6 @@ _RECORD_3206 = {
     "lc-img": "3206.png",
     "bhq-comment": _BHQ_COMMENT_3206,
 }
-_BHQ_COMMENT_3312 = _BHQ_COMMENT_LIKE_0409
 _RECORD_3312 = {
     "bhla-i": 40,
     "cv": "33:12",
@@ -1031,7 +1051,7 @@ _RECORD_3312 = {
     "highlight": 4,
     "lc-loc": {"page": "406B", "column": 1, "line": 2},
     "lc-img": "3312.png",
-    "bhq-comment": _BHQ_COMMENT_3312,
+    "bhq-comment": _BHQ_COMMENT_LIKE_0409,
 }
 _RECORD_3330 = {
     "bhla-i": 41,
@@ -1048,6 +1068,7 @@ _RECORD_3330 = {
         "$BHQ notes that here μL disagrees with μA and μY,",
         " which have the consensus pointing.",
     ],
+    "noted-by": "BHQ-BHL-DM",
 }
 _RECORD_3419 = {
     "bhla-i": 42,
@@ -1103,6 +1124,7 @@ _RECORD_3812 = {
         "$BHQ notes that here μL disagrees with μA and μY,",
         " which have the consensus pointing.",
     ],
+    "noted-by": "BHQ-BHL-DM",
 }
 _COMMENT_3902 = [
     "The mark in question is very heavy,",
@@ -1137,6 +1159,7 @@ _RECORD_3906 = {
     "highlight-mam": 3,
     "lc-loc": {"page": "408B", "column": 1, "line": 3},
     "lc-img": "3906.png",
+    "noted-by": "tBHQ-BHL-DM",
 }
 _COMMENT_3913 = [
     "A more charitable interpretation of the image is that the רביע is present",
@@ -1170,6 +1193,7 @@ _RECORD_3920 = {
     "highlight": 1,
     "lc-loc": {"page": "408B", "column": 1, "line": -10},
     "lc-img": "3920.png",
+    "noted-by": "tBHQ-BHL-DM",
 }
 _RECORD_4010 = {
     "bhla-i": 50,
@@ -1194,6 +1218,7 @@ _RECORD_4026 = {
     "highlight-mam": 3,
     "lc-loc": {"page": "409A", "column": 1, "line": 8},
     "lc-img": "4026.png",
+    "noted-by": "tBHQ-BHL-DM",
 }
 _BHQ_COMMENT_4125 = [
     "$BHQ silently supplies the סילוק that is the consensus expectation,",
@@ -1243,7 +1268,8 @@ RECORDS = [
     _RECORD_1604,
     _RECORD_1613,
     _RECORD_1620,
-    _RECORD_1804,
+    _RECORD_1804_A,
+    _RECORD_1804_B,
     _RECORD_1806,
     _RECORD_1905,
     _RECORD_1916,

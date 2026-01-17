@@ -67,8 +67,10 @@ def make_overview_row(record):
 
 
 def _row_id(record):
-    nn_v_mm = record["cv"].replace(":", "v")
-    return f"row-{nn_v_mm}"
+    cn_v_vn = record["cv"].replace(":", "v")  # E.g. 1:2 becomes 1v2
+    ftw = record.get("n_of_m_for_this_word")
+    ftw_str = f"-{ftw[0]}of{ftw[1]}ftw" if ftw else ""  # E.g. -1of2ftw
+    return f"row-{cn_v_vn}{ftw_str}"
 
 
 def _img(img):
@@ -113,12 +115,6 @@ _DEFAULT_BHQ_COMMENT = "$BHQ agrees with μL here, but $BHQ makes no note of μL
 _SEP = " \N{EM DASH} "
 
 
-def _maybe_sep_lc_is_from_bhla(record):
-    if record.get("bhla-i"):
-        return [_SEP, "μL is from $BHL_A."]
-    return []
-
-
 def _maybe_sep_comment(record):
     if comment := record.get("comment"):
         return [_SEP, comment]
@@ -145,7 +141,6 @@ def _make_details_row(record):
         *lcloc(record.get("lc-loc")),
         *_maybe_sep_comment(record),
         *_sep_bhq_comment(record),
-        *_maybe_sep_lc_is_from_bhla(record),
     ]
     return [
         author.table_c(make_overview_row(record)),

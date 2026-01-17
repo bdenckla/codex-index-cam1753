@@ -212,22 +212,6 @@ def _correctly_ignores(what, adjective=""):
     return "".join(out_parts)
 
 
-_BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
-    "This is one of seven similar cases in Job in μL.",
-]
-_BHQ_COMMENT_LIKE_0409 = [
-    *_BHQ_COMMENT_CMN_0409_AND_SIMILAR,
-    " 4:9 discusses the matter at greater length.",
-]
-_CAM1753_IMG_INTRO_2221 = [
-    "note that instead of a masorah circle, μY uses a pair of above-dots",
-    " as a “callout” for a Masorah parva note;",
-    " hence the pair of above-dots above ל in ושלם.",
-]
-_BHQ_COMMENT_CMN_3105_3206 = [
-    "$BHQ silently supplies the marks in the vowel-then-accent order that is",
-    " the consensus expectation, in clear contradiction of μL here.",
-]
 _BHQ_COMMENT_MISSED_BY_DO_AND_BR = [
     "$BHQ catches this, whereas this is not noted in either $BHL_A or Da-at Miqra."
 ]
@@ -390,6 +374,13 @@ _RECORD_0121 = {
         " which have the consensus pointing.",
     ],
 }
+_BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
+    "This is one of seven similar cases in Job in μL.",
+]
+_BHQ_COMMENT_LIKE_0409 = [
+    *_BHQ_COMMENT_CMN_0409_AND_SIMILAR,
+    " 4:9 discusses the matter at greater length.",
+]
 _BHQ_COMMENT_0409 = [
     *_BHQ_COMMENT_CMN_0409_AND_SIMILAR,
     " Six of these seven, including this one, are noted in the entry for 4:9 in the $BHQ"
@@ -802,6 +793,11 @@ _BHQ_COMMENT_2221 = [
     " Therefore both editions not only miss some issues",
     " but also miss the relationship between the אתנח issues.",
 ]
+_CAM1753_IMG_INTRO_2221 = [
+    "note that instead of a masorah circle, μY uses a pair of above-dots",
+    " as a “callout” for a Masorah parva note;",
+    " hence the pair of above-dots above ל in ושלם.",
+]
 _RECORD_2221 = {
     "bhla-i": 29,
     "cv": "22:21",
@@ -924,6 +920,10 @@ _RECORD_2919 = {
     "lc-loc": {"page": "405A", "column": 1, "line": -4},
     "lc-img": "2919.png",
 }
+_BHQ_COMMENT_CMN_3105_3206 = [
+    "$BHQ silently supplies the marks in the vowel-then-accent order that is",
+    " the consensus expectation, in clear contradiction of μL here.",
+]
 _BHQ_COMMENT_3105 = [
     *_BHQ_COMMENT_CMN_3105_3206,
     " 32:6 is similar.",

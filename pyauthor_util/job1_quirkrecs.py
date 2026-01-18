@@ -1298,7 +1298,7 @@ _RECORD_4125 = {
     "bhq-comment": _BHQ_COMMENT_4125,
     "noted-by": "xBHQ-BHL-xDM",
 }
-RECORDS = [
+QUIRKRECS = [
     _RECORD_MBB_1706,
     _RECORD_MBB_1711,
     _RECORD_MBB_1809,
@@ -1363,8 +1363,8 @@ RECORDS = [
 ]
 
 
-def _noted_by(record):
-    return record.get("noted-by")
+def _noted_by(quirkrec):
+    return quirkrec.get("noted-by")
 
 
-RECORDS_BY_PERF = my_groupby(RECORDS, _noted_by)
+QUIRKRECS_BY_PERF = my_groupby(QUIRKRECS, _noted_by)

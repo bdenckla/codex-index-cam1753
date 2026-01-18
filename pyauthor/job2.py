@@ -5,7 +5,7 @@ from pyauthor.common import D2_TITLE
 from pyauthor.common import D2_H1_CONTENTS
 from pyauthor.common import D2_FNAME
 from py import my_html
-from pyauthor_util.job1_records import RECORDS_BY_PERF
+from pyauthor_util.job1_quirkrecs import QUIRKRECS_BY_PERF
 from pyauthor_util.job1_ov_and_de import make_overview_row
 from pyauthor_util.job1_common import intro
 
@@ -104,11 +104,16 @@ _CPARA16 = [
     #
     " But those parts are not my concern.",
 ]
-_RECORDS_ONLY_NOTED_IN_BHQ = RECORDS_BY_PERF.get("BHQ-xBHL-xDM") or []
-_RECORDS_NOTED_IN_BHQ_AND_ELSEWHERE = [
-    *(RECORDS_BY_PERF.get("BHQ-xBHL-DM") or []),
-    *(RECORDS_BY_PERF.get("BHQ-BHL-xDM") or []),
-    *(RECORDS_BY_PERF.get("BHQ-BHL-DM") or []),
+_QUIRKS_ONLY_NOTED_IN_BHQ = QUIRKRECS_BY_PERF.get("BHQ-xBHL-xDM") or []
+_QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE = [
+    *(QUIRKRECS_BY_PERF.get("BHQ-xBHL-DM") or []),
+    *(QUIRKRECS_BY_PERF.get("BHQ-BHL-xDM") or []),
+    *(QUIRKRECS_BY_PERF.get("BHQ-BHL-DM") or []),
+]
+_QUIRKS_NOT_TRANSCRIBED_IN_BHQ = [
+    *(QUIRKRECS_BY_PERF.get("xBHQ-xBHL-DM") or []),
+    *(QUIRKRECS_BY_PERF.get("xBHQ-BHL-xDM") or []),
+    *(QUIRKRECS_BY_PERF.get("xBHQ-BHL-DM") or []),
 ]
 _CPARA17 = [
     "Having criticized $BHQ in general terms,",
@@ -117,19 +122,26 @@ _CPARA17 = [
     " As of now, it is the latest volume of $BHQ to be published.",
     #
     " First, the good news: the Job volume of $BHQ notes",
-    [" ", str(len(_RECORDS_ONLY_NOTED_IN_BHQ))],
+    [" ", str(len(_QUIRKS_ONLY_NOTED_IN_BHQ))],
     " quirks in μL that were not noted in either $BHL Appendix A or דעת מקרא.",
     " They are as follows:",
 ]
 _CPARA18 = [
     "It is also good news that the Job volume of $BHQ notes",
-    [" ", str(len(_RECORDS_NOTED_IN_BHQ_AND_ELSEWHERE))],
+    [" ", str(len(_QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE))],
     " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
+]
+_CPARA19 = [
+    "Now for some bad news: the Job volume of $BHQ fails to transcribe",
+    [" ", str(len(_QUIRKS_NOT_TRANSCRIBED_IN_BHQ))],
+    " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
+    " And, either by coincidence or editorial policy,",
+    " $BHQ never notes a quirk it does not transcribe."
 ]
 
 
-def _table_of_records(records):
-    rows = [make_overview_row(record) for record in records]
+def _table_of_quirks(quirkrecs):
+    rows = [make_overview_row(rec) for rec in quirkrecs]
     return author.table_c(rows)
 
 
@@ -143,8 +155,10 @@ _CBODY = [
     author.para_ul(_CPARA15, _C_LIST15),
     author.para(_CPARA16),
     author.para(_CPARA17),
-    _table_of_records(_RECORDS_ONLY_NOTED_IN_BHQ),
+    _table_of_quirks(_QUIRKS_ONLY_NOTED_IN_BHQ),
     *intro("intro-job2"),
     author.para(_CPARA18),
-    _table_of_records(_RECORDS_NOTED_IN_BHQ_AND_ELSEWHERE),
+    _table_of_quirks(_QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE),
+    author.para(_CPARA19),
+    _table_of_quirks(_QUIRKS_NOT_TRANSCRIBED_IN_BHQ),
 ]

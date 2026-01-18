@@ -4,9 +4,9 @@ import re
 from py import my_html
 
 
-def highlight(record, key):
-    zbhls = _zb_highlights(record, key)  # zero-based highlights
-    rk = record[key]
+def highlight(quirkrec, key):
+    zbhls = _zb_highlights(quirkrec, key)  # zero-based highlights
+    rk = quirkrec[key]
     clusters = re.findall(r"[א-ת][^א-ת]*", rk)
     jc = "".join(clusters)
     assert jc == rk
@@ -29,9 +29,9 @@ _RK_HL_SPECIFIC = {
 }
 
 
-def _zb_highlights(record, key):
-    hl_both = record.get("highlight")
-    hl_spec = record.get(_RK_HL_SPECIFIC[key])
+def _zb_highlights(quirkrec, key):
+    hl_both = quirkrec.get("highlight")
+    hl_spec = quirkrec.get(_RK_HL_SPECIFIC[key])
     assert (hl_both is None) or (hl_spec is None)
     hl = hl_both or hl_spec
     if isinstance(hl, int):

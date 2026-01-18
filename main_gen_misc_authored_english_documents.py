@@ -6,7 +6,7 @@ from pyauthor import job1_overview
 from pyauthor import job1_details
 from pyauthor import job2
 from pyauthor.common import d2_anchor
-from pyauthor_util.job1_ov_and_de import make_ov_and_de_for_all_records
+from pyauthor_util.job1_ov_and_de import make_ov_and_de_for_all_quirkrecs
 
 
 def write_index_dot_html(css_hrefs, out_path):
@@ -24,7 +24,7 @@ def main():
     #
     tdm_ch = jobn_rel_top, css_href
     #
-    ov_and_de = make_ov_and_de_for_all_records()
+    ov_and_de = make_ov_and_de_for_all_quirkrecs()
     job1_overview.gen_html_file(tdm_ch, ov_and_de)
     job1_details.gen_html_file(tdm_ch, ov_and_de)
     job2.gen_html_file(tdm_ch)

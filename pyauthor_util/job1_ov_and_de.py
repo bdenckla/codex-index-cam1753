@@ -1,29 +1,18 @@
-""" Exports make_ov_and_de_for_all_records, make_example_row """
+""" Exports make_ov_and_de_for_all_quirkrecs, make_example_row """
 
 from py import my_html
 from pyauthor.common import D1D_FNAME
 from pyauthor_util import author
 from pyauthor_util.job1_highlight import highlight, color
 from pyauthor_util.job1_lcloc import lcloc
-from pyauthor_util.job1_records import RECORDS
+from pyauthor_util.job1_quirkrecs import QUIRKRECS
 from pycmn.my_utils import sl_map
 
 
-def make_ov_and_de_for_all_records():
-    ids = sl_map(_row_id, RECORDS)
+def make_ov_and_de_for_all_quirkrecs():
+    ids = sl_map(_row_id, QUIRKRECS)
     assert _unique(ids)
-    return sl_map(_make_ov_and_de_for_one_record, RECORDS)
-
-
-def _unique(seq):
-    return len(set(seq)) == len(seq)
-
-
-def _make_ov_and_de_for_one_record(record):
-    return {
-        "od-overview": make_overview_row(record),
-        "od-details": _make_details_row(record),
-    }
+    return sl_map(_make_ov_and_de_for_one_record, QUIRKRECS)
 
 
 def make_example_row():
@@ -38,6 +27,17 @@ def make_example_row():
             my_html.table_datum("how μL differs from consensus"),
         ]
     )
+
+
+def _unique(seq):
+    return len(set(seq)) == len(seq)
+
+
+def _make_ov_and_de_for_one_record(record):
+    return {
+        "od-overview": make_overview_row(record),
+        "od-details": _make_details_row(record),
+    }
 
 
 def _lc_and_mam(record):

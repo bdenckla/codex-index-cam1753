@@ -5,14 +5,13 @@ from pyauthor.common import D1D_FNAME
 from pyauthor_util import author
 from pyauthor_util.job1_highlight import highlight, color
 from pyauthor_util.job1_lcloc import lcloc
-from pyauthor_util.job1_quirkrecs import QUIRKRECS
 from pycmn.my_utils import sl_map
 
 
-def make_ov_and_de_for_all_quirkrecs():
-    ids = sl_map(row_id, QUIRKRECS)
+def make_ov_and_de_for_all_quirkrecs(quirkrecs):
+    ids = sl_map(row_id, quirkrecs)
     assert _unique(ids)
-    ovdes = sl_map(_make_ov_and_de_for_one_record, QUIRKRECS)
+    ovdes = sl_map(_make_ov_and_de_for_one_record, quirkrecs)
     return dict(zip(ids, ovdes))
 
 
@@ -131,8 +130,8 @@ def _make_details_row(record):
     cv = record["cv"]
     uxlc_href = f"https://tanach.us/Tanach.xml?Job{cv}"
     uxlc_anc = my_html.anchor_h("UXLC", uxlc_href)
-    cnvm = "c" + cv.replace(":", "v")
-    mwd_href = f"https://bdenckla.github.io/MAM-with-doc/D3-Job.html#{cnvm}"
+    cn_v_vn = "c" + cv.replace(":", "v")
+    mwd_href = f"https://bdenckla.github.io/MAM-with-doc/D3-Job.html#{cn_v_vn}"
     mwd_anc = my_html.anchor_h("MwD", mwd_href)
     dpe = [
         uxlc_anc,

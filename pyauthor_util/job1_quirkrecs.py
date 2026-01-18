@@ -179,7 +179,6 @@
 
 from pyauthor_util import author
 from py import my_html
-from pycmn.my_utils import my_groupby
 
 _CAM1753_PAGE_URL_BASE = (
     "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page"
@@ -1361,10 +1360,3 @@ QUIRKRECS = [
     _RECORD_4026,
     _RECORD_4125,
 ]
-
-
-def _noted_by(quirkrec):
-    return quirkrec.get("noted-by")
-
-
-QUIRKRECS_BY_PERF = my_groupby(QUIRKRECS, _noted_by)

@@ -1,21 +1,34 @@
 """ Exports gen_html_file and anchor """
 
+from py import my_html
+from pycmn.my_utils import my_groupby
 from pyauthor_util import author
 from pyauthor.common import D2_TITLE
 from pyauthor.common import D2_H1_CONTENTS
 from pyauthor.common import D2_FNAME
-from py import my_html
-from pyauthor_util.job1_quirkrecs import QUIRKRECS_BY_PERF
 from pyauthor_util.job1_ov_and_de import row_id
 from pyauthor_util.job1_common import intro
 
 
-def gen_html_file(tdm_ch, ov_and_de):
+def gen_html_file(tdm_ch, ov_and_de, quirkrecs):
     author.assert_stem_eq(__file__, D2_FNAME)
-    author.help_gen_html_file(tdm_ch, D2_FNAME, D2_TITLE, _make_cbody(ov_and_de))
+    cbody = _make_cbody(ov_and_de, quirkrecs)
+    author.help_gen_html_file(tdm_ch, D2_FNAME, D2_TITLE, cbody)
 
 
-def _make_cbody(ov_and_de):
+def _make_cbody(ov_and_de, quirkrecs):
+    QUIRKRECS_BY_PERF = my_groupby(quirkrecs, _noted_by)
+    _QUIRKS_ONLY_NOTED_IN_BHQ = QUIRKRECS_BY_PERF.get("BHQ-xBHL-xDM") or []
+    _QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE = [
+        *(QUIRKRECS_BY_PERF.get("BHQ-xBHL-DM") or []),
+        *(QUIRKRECS_BY_PERF.get("BHQ-BHL-xDM") or []),
+        *(QUIRKRECS_BY_PERF.get("BHQ-BHL-DM") or []),
+    ]
+    _QUIRKS_NOT_TRANSCRIBED_IN_BHQ = [
+        *(QUIRKRECS_BY_PERF.get("xBHQ-xBHL-DM") or []),
+        *(QUIRKRECS_BY_PERF.get("xBHQ-BHL-xDM") or []),
+        *(QUIRKRECS_BY_PERF.get("xBHQ-BHL-DM") or []),
+    ]
     cbody = [
         author.heading_level_1(D2_H1_CONTENTS),
         author.para_ol(_CPARA10, _C_LIST10),
@@ -25,15 +38,19 @@ def _make_cbody(ov_and_de):
         author.para(_CPARA14),
         author.para_ul(_CPARA15, _C_LIST15),
         author.para(_CPARA16),
-        author.para(_CPARA17),
+        author.para(cpara17(len(_QUIRKS_ONLY_NOTED_IN_BHQ))),
         _table_of_quirks(ov_and_de, _QUIRKS_ONLY_NOTED_IN_BHQ),
         *intro("intro-job2"),
-        author.para(_CPARA18),
+        author.para(cpara18(len(_QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE))),
         _table_of_quirks(ov_and_de, _QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE),
-        author.para(_CPARA19),
+        author.para(cpara19(len(_QUIRKS_NOT_TRANSCRIBED_IN_BHQ))),
         _table_of_quirks(ov_and_de, _QUIRKS_NOT_TRANSCRIBED_IN_BHQ),
     ]
     return cbody
+
+
+def _noted_by(quirkrec):
+    return quirkrec.get("noted-by")
 
 
 def _table_of_quirks(ov_and_de, quirkrecs):
@@ -135,36 +152,25 @@ _CPARA16 = [
     #
     " But those parts are not my concern.",
 ]
-_QUIRKS_ONLY_NOTED_IN_BHQ = QUIRKRECS_BY_PERF.get("BHQ-xBHL-xDM") or []
-_QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE = [
-    *(QUIRKRECS_BY_PERF.get("BHQ-xBHL-DM") or []),
-    *(QUIRKRECS_BY_PERF.get("BHQ-BHL-xDM") or []),
-    *(QUIRKRECS_BY_PERF.get("BHQ-BHL-DM") or []),
-]
-_QUIRKS_NOT_TRANSCRIBED_IN_BHQ = [
-    *(QUIRKRECS_BY_PERF.get("xBHQ-xBHL-DM") or []),
-    *(QUIRKRECS_BY_PERF.get("xBHQ-BHL-xDM") or []),
-    *(QUIRKRECS_BY_PERF.get("xBHQ-BHL-DM") or []),
-]
-_CPARA17 = [
-    "Having criticized $BHQ in general terms,",
-    " I will now review the specifics of the $BHQ Book of Job.",
-    #
-    " As of now, it is the latest volume of $BHQ to be published.",
-    #
-    " First, the good news: the Job volume of $BHQ notes",
-    [" ", str(len(_QUIRKS_ONLY_NOTED_IN_BHQ))],
-    " quirks in μL that were not noted in either $BHL Appendix A or דעת מקרא.",
-    " They are as follows:",
-]
-_CPARA18 = [
-    "It is also good news that the Job volume of $BHQ notes",
-    [" ", str(len(_QUIRKS_NOTED_IN_BHQ_AND_ELSEWHERE))],
-    " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
-]
-_CPARA19 = [
-    "Now for some bad news: the Job volume of $BHQ fails to transcribe",
-    [" ", str(len(_QUIRKS_NOT_TRANSCRIBED_IN_BHQ))],
+def cpara17(the_len):
+    return [
+        "Having criticized $BHQ in general terms,",
+        " I will now review the specifics of the $BHQ Book of Job.",
+        #
+        " As of now, it is the latest volume of $BHQ to be published.",
+        #
+        f" First, the good news: the Job volume of $BHQ notes {str(the_len)}",
+        " quirks in μL that were not noted in either $BHL Appendix A or דעת מקרא.",
+        " They are as follows:",
+    ]
+def cpara18(the_len):
+    return [
+        f"It is also good news that the Job volume of $BHQ notes {str(the_len)}",
+        " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
+    ]
+def cpara19(the_len):
+    return [
+    f"Now for some bad news: the Job volume of $BHQ fails to transcribe {str(the_len)}",
     " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
     " And, either by coincidence or editorial policy,",
     " $BHQ never notes a quirk it does not transcribe."

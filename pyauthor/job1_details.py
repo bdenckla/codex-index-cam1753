@@ -10,7 +10,8 @@ from pyauthor_util import author
 
 def gen_html_file(tdm_ch, ov_and_de):
     author.assert_stem_eq(__file__, D1D_FNAME)
-    author.help_gen_html_file(tdm_ch, D1D_FNAME, D1D_TITLE, _make_cbody(ov_and_de))
+    cbody = _make_cbody(ov_and_de)
+    author.help_gen_html_file(tdm_ch, D1D_FNAME, D1D_TITLE, cbody)
 
 
 def _make_cbody(ov_and_de):

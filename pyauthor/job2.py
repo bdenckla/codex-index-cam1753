@@ -50,6 +50,7 @@ def _make_cbody(ov_and_de, quirkrecs):
         *intro("intro-job2"),
         _para_and_table(cpara18, ov_and_de, q_noted_in_bhq_and_elsewhere),
         _para_and_table(cpara19, ov_and_de, q_not_transcribed_in_bhq),
+        _para_and_table(cpara20, ov_and_de, q_tbnn_in_bhq),
     ]
     return cbody
 
@@ -164,6 +165,8 @@ _CPARA16 = [
     #
     " But those parts are not my concern.",
 ]
+
+
 def cpara17(the_len):
     return [
         "Having criticized $BHQ in general terms,",
@@ -177,6 +180,8 @@ def cpara17(the_len):
         " in either of those two other editions.",
         " Those contributions are as follows:",
     ]
+
+
 def cpara18(the_len):
     return [
         f"It is also good news that the Job volume of $BHQ notes {str(the_len)}",
@@ -185,10 +190,20 @@ def cpara18(the_len):
         " in one or both of those two other editions.",
         " Those reiterations are as follows:",
     ]
+
+
 def cpara19(the_len):
     return [
-    f"Now for some bad news: the Job volume of $BHQ fails to transcribe {str(the_len)}",
-    " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
-    " And, either by coincidence or editorial policy,",
-    " $BHQ never notes a quirk it does not transcribe."
-]
+        f"Now for some bad news: the Job volume of $BHQ fails to transcribe {str(the_len)}",
+        " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
+        " And, either by coincidence or editorial policy,",
+        " $BHQ never notes a quirk it does not transcribe.",
+    ]
+
+
+def cpara20(the_len):
+    return [
+        f"Now for some mixed news: the Job volume of $BHQ transcribes but does not note {str(the_len)}",
+        " quirks in μL that are noted in $BHL Appendix A and/or דעת מקרא.",
+        " Those transcriptions without notes are as follows:",
+    ]

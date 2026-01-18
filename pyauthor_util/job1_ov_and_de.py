@@ -45,7 +45,7 @@ def sort_key(record):
     ftw = record.get("n_of_m_for_this_word")
     ftw0 = ftw[0] if ftw else 1
     return *cv_as_toi, ftw0
-    
+
 
 def _unique(seq):
     return len(set(seq)) == len(seq)

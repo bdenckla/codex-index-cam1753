@@ -137,7 +137,7 @@ _CPARA13 = [
 ]
 _C_LIST13 = [
     [
-        "The דעת מקרא series,",
+        "The דעת מקרא (Da-at Miqra) series,",
         " particularly the volumes with sections called",
         f" “הנוסח ומקורותיו”",
         f" (Breuer et al., {_num_range(1970, 2003)})",
@@ -147,11 +147,11 @@ _C_LIST13 = [
 _CPARA14 = [
     "The first volume of $BHQ (Megilloth) came out in 2004.",
     #
-    " All but a few volumes of דעת מקרא came long before that.",
+    " All but a few volumes of דעת מקרא came out long before that.",
     #
     " Even Dotan’s $BHL was available in plenty of time to be used in all volumes of $BHQ.",
     #
-    " Before he died, Dotan was even a consultant for $BHQ.",
+    " Before he died, Dotan was even a consultant to the $BHQ project.",
     #
     " What’s more, his $BHL is sometimes used as a source in $BHQ.",
     #
@@ -204,9 +204,9 @@ def cpara18(the_len):
         " in one or both of those two other editions.",
         " While reiteration is not as valuable as new contributions,",
         " it is still valuable.",
-        " Indeed the central complaint of my review is that $BHQ",
+        " Indeed my main criticism of $BHQ Job is that it",
         " should have reiterated most or all of what can be found in those editions.",
-        " Those reiterations are as follows:",
+        " Those reiterations $BHQ did make are as follows:",
     ]
 
 

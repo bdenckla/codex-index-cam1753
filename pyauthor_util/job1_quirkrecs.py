@@ -268,6 +268,7 @@ _RECORD_1103 = {
     "lc-loc": {"page": "400A", "column": 1, "line": -1},
     "lc-img": "1103.png",
     "noted-by": "tBHQ-BHL-xDM",
+    "wlc-422-note": "]1",
 }
 _RECORD_1106 = {
     "bhla-i": 15,
@@ -537,6 +538,7 @@ _RECORD_1905 = {
     "noted-by": "xBHQ-BHL-xDM",
     # Above, I use xBHQ rather than tBHQ because BHQ only partially transcribes μL here,
     # having the דגש without the רפה that contradicts the דגש.
+    "wlc-422-note": "]1",  # Noted by WLC based on manuscript rather than BHS? If so, good job!
 }
 _RECORD_1916 = {
     "bhla-i": 27,
@@ -819,6 +821,7 @@ _RECORD_3107 = {
     "bhq-comment": _BHQ_COMMENT_3107,
     "bhq": "מֻאֽוּם׃",
     "noted-by": "xBHQ-BHL-DM",
+    "wlc-422-note": "]1",
 }
 _RECORD_3133 = {
     "bhla-i": 38,
@@ -962,6 +965,7 @@ _RECORD_3706 = {
     "lc-loc": {"page": "407B", "column": 2, "line": 7},
     "lc-img": "3706.png",
     "noted-by": "tBHQ-BHL-xDM",
+    "wlc-422-note": "]1",
 }
 _RECORD_3812 = {
     "bhla-i": 45,
@@ -1083,6 +1087,7 @@ _RECORD_4010 = {
     "lc-loc": {"page": "408B", "column": 2, "line": -11},
     "lc-img": "4010.png",
     "noted-by": "tBHQ-BHL-xDM",
+    "wlc-422-note": "]1",
 }
 _RECORD_4026 = {
     "bhla-i": 51,

@@ -252,11 +252,15 @@ def _cpara22():
     return [
         "I would not expect $BHQ to transcribe and/or note all the above quirks.",
         #
-        " For example I would expect the $BHQ editors",
+        " For example it would be reasonable for the $BHQ editors",
         " to find some of them unlikely to have been the scribe’s intention,",
         " finding them more likely to have been",
         " an ink-mark made accidentally,",
         " or a mark not made by ink at all.",
+        #
+        " It would also be reasonable for the $BHQ editors",
+        " to find some of them likely to have been the scribe’s intention,",
+        " but differing from μA and/or μY in ways too minor to note.",
     ]
 
 

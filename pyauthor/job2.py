@@ -28,13 +28,14 @@ def _make_cbody(ov_and_de, quirkrecs):
         author.para(_CPARA14),
         author.para_ul(_CPARA15, _C_LIST15),
         author.para(_CPARA16),
-        _para_and_table(cpara17, ov_and_de, groups[0]),
+        _para_and_table(_cpara17, ov_and_de, groups[0]),
         *intro("intro-job2"),
-        _para_and_table(cpara18, ov_and_de, groups[1]),
-        _para_and_table(cpara19, ov_and_de, groups[2]),
-        _para_and_table(cpara20, ov_and_de, groups[3]),
-        author.para_ul(_CPARA21, clist21(sl_map(len, groups))),
-        author.para(cpara22(len(groups[1]))),
+        _para_and_table(_cpara18, ov_and_de, groups[1]),
+        _para_and_table(_cpara19, ov_and_de, groups[2]),
+        _para_and_table(_cpara20, ov_and_de, groups[3]),
+        author.para_ul(_CPARA21, _clist21(sl_map(len, groups))),
+        author.para(_cpara22()),
+        author.para(_cpara23(len(groups[1]))),
     ]
     return cbody
 
@@ -181,7 +182,7 @@ _CPARA16 = [
 ]
 
 
-def cpara17(the_len):
+def _cpara17(the_len):
     return [
         "Having criticized $BHQ in general terms,",
         " I will now review the specifics of the $BHQ Book of Job.",
@@ -198,7 +199,7 @@ def cpara17(the_len):
     ]
 
 
-def cpara18(the_len):
+def _cpara18(the_len):
     return [
         f"It is also good news that the Job volume of $BHQ notes {str(the_len)}",
         " quirks in μL that are noted in $BHL_A and/or דעת מקרא.",
@@ -214,7 +215,7 @@ def cpara18(the_len):
     ]
 
 
-def cpara19(the_len):
+def _cpara19(the_len):
     return [
         f"Now for some bad news:",
         f" the Job volume of $BHQ fails to transcribe {str(the_len)}",
@@ -224,7 +225,7 @@ def cpara19(the_len):
     ]
 
 
-def cpara20(the_len):
+def _cpara20(the_len):
     return [
         f"Now for some mixed news:",
         f" the Job volume of $BHQ transcribes but does not note {str(the_len)}",
@@ -238,7 +239,7 @@ _CPARA21 = [
 ]
 
 
-def clist21(the_lens):
+def _clist21(the_lens):
     return [
         f"$BHQ contributes notes on {str(the_lens[0])} quirks not found in those sources.",
         f"$BHQ reiterates notes on {str(the_lens[1])} quirks found in those sources.",
@@ -247,9 +248,7 @@ def clist21(the_lens):
     ]
 
 
-def cpara22(the_len_of_the_2nd_group):
-    foo = the_len_of_the_2nd_group - 1
-    bar = the_len_of_the_2nd_group
+def _cpara22():
     return [
         "I would not expect $BHQ to transcribe and/or note all the above quirks.",
         #
@@ -258,8 +257,14 @@ def cpara22(the_len_of_the_2nd_group):
         " finding them more likely to have been",
         " an ink-mark made accidentally,",
         " or a mark not made by ink at all.",
-        #
-        " Nonetheless, the high quantity and high average quality",
+    ]
+
+
+def _cpara23(the_len_of_the_2nd_group):
+    foo = the_len_of_the_2nd_group - 1
+    bar = the_len_of_the_2nd_group
+    return [
+        "Nonetheless, the high quantity and high average quality",
         " of the quirks in the last two groups above",
         " strongly suggest that $BHQ’s editors",
         " were either unaware of or uninterested in $BHL_A and דעת מקרא.",

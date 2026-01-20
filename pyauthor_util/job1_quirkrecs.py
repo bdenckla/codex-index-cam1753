@@ -198,6 +198,7 @@ _RECORD_0906 = {
     "lc-img": "0906.png",
     "noted-by": "tBHQ-xBHL-xDM",
     "wlc-422-note": "]1",
+    "wlc-422-credit": "This quirk was brought to my attention by the WLC note on its word.",
 }
 _BHQ_COMMENT_0914_AND_0930 = [
     "$BHQ silently supplies the סילוק that is the consensus expectation,",
@@ -321,6 +322,7 @@ _RECORD_1113 = {
     "lc-img": "1113.png",
     "noted-by": "tBHQ-xBHL-xDM",
     "wlc-422-note": "]1",
+    "wlc-422-credit": "This quirk was brought to my attention by the WLC note on its word.",
     "noted-by-mam": True,
     "noted-by-uxlc": True,
 }
@@ -345,6 +347,7 @@ _RECORD_1216 = {
     "lc-loc": {"page": "400B", "column": 1, "line": 11},
     "lc-img": "1216.png",
     "noted-by": "tBHQ-xBHL-xDM",
+    "wlc-422-credit": "This quirk was brought to my attention by the WLC note on its word.",
     "wlc-422-note": "]1",
 }
 _BHQ_COMMENT_1203 = [
@@ -737,6 +740,8 @@ _RECORD_2230_A = {
     ],
     # XXX add Aleppo image and update comments accordingly
     "noted-by": "tBHQ-xBHL-xDM",
+    "wlc-422-note": "]1",
+    "wlc-422-credit": "This quirk was brought to my attention by the WLC note on its word.",
     "uxlc-needs-fix": "add t-note (transcription uncertain)",
 }
 _RECORD_2230_B = {
@@ -1031,6 +1036,7 @@ _RECORD_3612 = {
     "lc-img": "3612.png",
     "bhq-comment": _BHQ_COMMENT_3612,
     "noted-by": "BHQ-xBHL-DM",
+    "wlc-422-note": "]1",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "aleppo-img": "Aleppo-3612.png",
     "cam1753-page-url": f"{_CAM1753_PAGE_URL_BASE}/n87/mode/1up",

@@ -208,11 +208,11 @@ _CPARA17B = [
     #
     " (The one that is not new is the one regarding 22:21 ושלם.)"
     #
-    " I find some of these contributions far-fetched, i.e. unlikely to have been",
+    " I find some of these proposed transcriptions far-fetched, i.e. unlikely to have been",
     " the scribe’s intention.",
     #
     " Nonetheless, I consider even those ones to be valuable contributions",
-    " to the discussion.",
+    " to the documentation of μL.",
 ]
 
 

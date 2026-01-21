@@ -20,7 +20,7 @@ def make_ov_and_de_for_all_quirkrecs(quirkrecs):
 
 
 def make_example_row():
-    hlc = color("μL", "lc")
+    hlc = color("μL-proposed", "lc")
     hmam = color("consensus", "mam")
     lc_and_mam = [hlc, my_html.line_break(), hmam]
     return my_html.table_row(
@@ -28,7 +28,7 @@ def make_example_row():
             my_html.table_datum("#"),
             my_html.table_datum(lc_and_mam),
             my_html.table_datum("c:v"),
-            my_html.table_datum("how μL differs from consensus"),
+            my_html.table_datum("how μL-proposed differs from consensus"),
         ]
     )
 

@@ -38,7 +38,7 @@ def _where():
         author.unordered_list(
             [
                 "# (hash sign) (number sign) is a link to more details on this quirk",
-                "μL is the contents of the Leningrad Codex (or a good guess of it)",
+                "μL-proposed is a proposed transcription of the Leningrad Codex",
                 "consensus is the Masoretic consensus reading (or a good guess of it)",
                 "c:v is the chapter and verse of the book of Job",
             ]

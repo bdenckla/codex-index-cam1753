@@ -28,7 +28,6 @@ def _make_cbody(ov_and_de, quirkrecs):
         author.para_ul(_CPARA14, _CLIST14),
         author.para_ul(_CPARA15, _CLIST15),
         author.para(_CPARA16),
-        author.para(_CPARA16),
         _para_and_table(_cpara17a, ov_and_de, groups[0]),
         *intro("intro-job2"),
         author.para(_CPARA17B),
@@ -132,19 +131,20 @@ _CPARA12 = [
     " the other two problems listed above remain, albeit to a lesser degree.",
 ]
 _CPARA13 = [
-    "I continued my search for better editions, and I was fortunate to find some.",
+    "I continued my search for better editions, and I found some.",
     #
-    " This made me even more disappointed with $BHQ, in retrospect.",
+    " This made me even more disappointed with $BHQ.",
     #
-    " $BHQ seems to exist in a bubble:",
-    " while it occasionally does better than $BHS,",
-    " its editors ignore (or are unaware of) relevant work done in other editions.",
+    " It seems to exist in a bubble:",
+    " its editors seem to be",
+    " unaware of or uninterested in",
+    " relevant work done in other editions.",
     #
     " I can see why something like a fresh transcription of μL was beyond the scope of $BHQ.",
     #
-    " But I can’t see why $BHQ would neglect the work already done in other editions.",
+    " But I can’t see why $BHQ would ignore the work already done in other editions,",
     #
-    " The editions most relevant to $BHQ are the following:",
+    " in particular the following:",
 ]
 _CLIST13 = [
     [
@@ -174,7 +174,7 @@ _CLIST14 = [
         " was not used (or was not thoroughly used) in $BHQ.",
     ],
     [
-        "WLC has had various releases over its decades, some predating even $BHQ Megilloth."
+        "WLC has had various releases over its decades, many predating $BHQ Megilloth."
     ],
 ]
 _CPARA15 = [
@@ -200,9 +200,9 @@ _CPARA16 = [
 def _cpara17a(the_len):
     return [
         "Having criticized $BHQ in general terms,",
-        " I will now review the specifics of the $BHQ Book of Job.",
+        " I will now review the specifics of the $BHQ Book of Job (2024).",
         #
-        " As of now, it is the latest volume of $BHQ to be published.",
+        " As of now (January 2026), it is the latest volume of $BHQ to be published.",
         #
         f" First, the good news: the Job volume of $BHQ notes {str(the_len)}",
         " quirks in μL that were not noted in any of the three editions listed above.",
@@ -292,9 +292,8 @@ def _cpara22():
         #
         " For example it would be reasonable for the $BHQ editors",
         " to find some of them unlikely to have been the scribe’s intention,",
-        " finding them more likely to have been",
-        " an ink-mark made accidentally,",
-        " or a mark not made by ink at all.",
+        " for example finding some of them more likely to have been",
+        " an ink-mark made accidentally, or a mark not made by ink at all.",
         #
         " It would also be reasonable for the $BHQ editors",
         " to find some of them likely to have been the scribe’s intention,",
@@ -308,8 +307,9 @@ def _cpara23(the_len_of_the_2nd_group):
     return [
         "Nonetheless, the high quantity and high average quality",
         " of the quirks in the last two groups above",
-        " strongly suggest that $BHQ’s editors",
-        " were either unaware of or uninterested in the other three editions.",
+        " strongly suggest that $BHQ’s editors were either",
+        " unaware of or uninterested in",
+        " the other three editions.",
         #
         " I.e. it is unlikely that these quirks were considered but rejected:",
         " it is more likely that they were simply not considered at all.",

@@ -47,11 +47,11 @@ def _correctly_ignores(what, cv, adjective=""):
 
 
 _BHQ_COMMENT_XBHL_XDM = [
-    "$BHQ noted this, whereas this is not noted in either $BHL_A or Da-at Miqra."
+    "$BHQ noted this, whereas this is not noted in either $BHL_A or דעת מקרא."
 ]
 _BHQ_COMMENT_XBHL_XDM_DUBIOUS = [
     "$BHQ noted this possibility,",
-    " whereas this is not noted in either $BHL_A or Da-at Miqra.",
+    " whereas this is not noted in either $BHL_A or דעת מקרא.",
     " It could be that Dotan and Breuer did not catch this,",
     " or it could be that they caught it",
     " but considered to be too slight a possibility to note it.",
@@ -339,7 +339,7 @@ _RECORD_1216 = {
         "$BHQ seems to transcribe the blob of ink as both",
         " a געיה on ת and a masorah circle on מוליך.",
         " $BHS did not have this געיה;",
-        " I wish $BHQ had left well enough alone."
+        " I wish $BHQ had left well enough alone.",
     ],
     "highlight": 2,
     "lc-loc": {"page": "400B", "column": 1, "line": 11},
@@ -1019,7 +1019,7 @@ _BHQ_COMMENT_3612 = [
     " It could be that Dotan did not catch this,",
     " or it could be that he caught it",
     " but considered to be too slight a possibility to note it.",
-    " It is noted in Da-at Miqra.",
+    " It is noted in דעת מקרא.",
     " Here $BHQ has a typo:",
     [" it has ", author.hbo("בִּבְלִ־"), " rather than ", author.hbo("בִּבְלִי־")],
     " in the word it reports for μA and μY.",

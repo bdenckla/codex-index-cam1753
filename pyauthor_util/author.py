@@ -358,6 +358,7 @@ _UNICODE_NAME_SC = {
 _ABBR_SC = {
     "$CD_ROM": "CD-ROM",
     "$BHS": "BHS",
+    "$WLC": "WLC",
     "$BHQ": "BHQ",
     "$BHL": "BHL",
     "$BHL_A": "BHL-A",

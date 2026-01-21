@@ -21,12 +21,12 @@ def _make_cbody(ov_and_de, quirkrecs):
     groups = _get_groups(quirkrecs)
     cbody = [
         author.heading_level_1(D2_H1_CONTENTS),
-        author.para_ol(_CPARA10, _C_LIST10),
+        author.para_ol(_CPARA10, _CLIST10),
         author.para(_CPARA11),
         author.para(_CPARA12),
-        author.para_ul(_CPARA13, _C_LIST13),
-        author.para(_CPARA14),
-        author.para_ul(_CPARA15, _C_LIST15),
+        author.para_ul(_CPARA13, _CLIST13),
+        author.para_ul(_CPARA14, _CLIST14),
+        author.para_ul(_CPARA15, _CLIST15),
         author.para(_CPARA16),
         author.para(_CPARA16),
         _para_and_table(_cpara17a, ov_and_de, groups[0]),
@@ -108,7 +108,7 @@ _CPARA10 = [
     " for the following reasons:",
 ]
 #
-_C_LIST10 = [
+_CLIST10 = [
     "It often fails to accurately transcribe μL (the Leningrad Codex).",
     #
     "It often fails to note where μL disagrees with other manuscripts.",
@@ -136,13 +136,17 @@ _CPARA13 = [
     #
     " This made me even more disappointed with $BHQ, in retrospect.",
     #
+    " $BHQ seems to exist in a bubble:",
+    " while it occasionally does better than $BHS,",
+    " its editors ignore (or are unaware of) relevant work done in other editions.",
+    #
     " I can see why something like a fresh transcription of μL was beyond the scope of $BHQ.",
     #
     " But I can’t see why $BHQ would neglect the work already done in other editions.",
     #
-    " The editions most relevant to $BHQ are the following two:",
+    " The editions most relevant to $BHQ are the following:",
 ]
-_C_LIST13 = [
+_CLIST13 = [
     [
         "The דעת מקרא (Da-at Miqra) series,",
         " particularly the volumes with sections called",
@@ -150,20 +154,28 @@ _C_LIST13 = [
         f" (Breuer et al., {_num_range(1970, 2003)})",
     ],
     ["Biblia Hebraica Leningradensia ($BHL) (Dotan, 2001)"],
+    ["The Westminster Leningrad Codex ($WLC) (electronic)"],
 ]
 _CPARA14 = [
     "The first volume of $BHQ (Megilloth) came out in 2004.",
     #
-    " All but a few volumes of דעת מקרא came out long before that.",
-    #
-    " Even Dotan’s $BHL was available in plenty of time to be used in all volumes of $BHQ.",
-    #
-    " Before he died, Dotan was even a consultant to the $BHQ project.",
-    #
-    " What’s more, his $BHL is sometimes used as a source in $BHQ.",
-    #
-    " So it is particularly puzzling that his $BHL, in particular its monumental Appendix A,"
-    " was not used (or was not thoroughly used) in $BHQ.",
+    " That means that all three of the above editions were available to the $BHQ editors.",
+]
+_CLIST14 = [
+    ["All volumes of דעת מקרא predate $BHQ Megilloth."],
+    [
+        "Dotan’s $BHL predates $BHQ Megilloth.",
+        #
+        " Before he died, Dotan was even a consultant to the $BHQ project.",
+        #
+        " What’s more, his $BHL is sometimes cited as a source in $BHQ.",
+        #
+        " So it is particularly puzzling that his $BHL, in particular its monumental Appendix A,"
+        " was not used (or was not thoroughly used) in $BHQ.",
+    ],
+    [
+        "WLC has had various releases over its decades, some predating even $BHQ Megilloth."
+    ],
 ]
 _CPARA15 = [
     "Although it may already be clear, I should explicitly state that",
@@ -172,7 +184,7 @@ _CPARA15 = [
     " Thus I am not concerned with",
     " the many parts of $BHQ that deal with the following:",
 ]
-_C_LIST15 = [
+_CLIST15 = [
     "sources in languages other than Hebrew",
     "non-Masoretic (e.g. unpointed) Hebrew sources",
     "Masorah magna and parva",
@@ -193,10 +205,10 @@ def _cpara17a(the_len):
         " As of now, it is the latest volume of $BHQ to be published.",
         #
         f" First, the good news: the Job volume of $BHQ notes {str(the_len)}",
-        " quirks in μL that were not noted in either $BHL_A ($BHL Appendix A) or דעת מקרא.",
+        " quirks in μL that were not noted in any of the three editions listed above.",
         #
         " I.e. these are places where $BHQ contributes something not available",
-        " in either of those two other editions.",
+        " in any of those other three editions.",
         #
         " The contributions of $BHQ are as follows:",
     ]
@@ -219,16 +231,22 @@ _CPARA17B = [
 
 def _cpara18(the_len):
     return [
-        f"It is also good news that the Job volume of $BHQ notes {str(the_len)}",
-        " quirks in μL that are noted in $BHL_A and/or דעת מקרא.",
+        ["It is also good news that the Job volume of $BHQ notes ", str(the_len)],
+        [" quirks in μL that ",my_html.bold("are")," noted"],
+        " in one or more of the other three editions.",
+        #
         " I.e. these are places where $BHQ reiterates something available",
-        " in one or both of those two other editions.",
+        " in one or more of the other three editions.",
+        #
         " While a reiteration is not as valuable as a new contribution,",
         " it is still valuable.",
+        #
         " Indeed my main criticism of $BHQ Job is that it",
         " should have reiterated most of what can be found in those editions.",
+        #
         " Unsurprisingly, all but one of the $BHQ reiterations",
         " are not new, i.e. they were already present in $BHS.",
+        #
         " (The one that is new is the one regarding 18:4 הלמענך.)",
         " The reiterations made by $BHQ are as follows:",
     ]
@@ -238,7 +256,7 @@ def _cpara19(the_len):
     return [
         f"Now for some bad news:",
         f" the Job volume of $BHQ fails to accurately transcribe {str(the_len)}",
-        f" quirks in μL that are noted in $BHL_A and/or דעת מקרא.",
+        f" quirks in μL that are noted in one or more of the other three editions.",
         f" In all but one of these cases, a note is also lacking.",
         f" (The one with a note is the one regarding 31:7 מאום,",
         f" although the note, too, is inaccurate.)",
@@ -249,22 +267,22 @@ def _cpara20(the_len):
     return [
         f"Now for some mixed news:",
         f" the Job volume of $BHQ accurately transcribes but does not note {str(the_len)}",
-        f" quirks in μL that are noted in $BHL_A and/or דעת מקרא.",
+        f" quirks in μL that are noted in one or more of the other three editions.",
         f" Those transcriptions without notes are as follows:",
     ]
 
 
 _CPARA21 = [
-    "In conclusion, compared to the μL quirks noted in $BHL_A and דעת מקרא:",
+    "In conclusion, compared to the μL quirks noted in the other three editions:",
 ]
 
 
 def _clist21(the_lens):
     return [
-        f"$BHQ contributes notes on {str(the_lens[0])} quirks not found in those sources.",
-        f"$BHQ reiterates notes on {str(the_lens[1])} quirks found in those sources.",
-        f"$BHQ fails to accurately transcribe {str(the_lens[2])} quirks found in those sources.",
-        f"$BHQ accurately transcribes but does not note {str(the_lens[3])} quirks found in those sources.",
+        f"$BHQ contributes notes on {str(the_lens[0])} quirks not found in those editions.",
+        f"$BHQ reiterates notes on {str(the_lens[1])} quirks found in those editions.",
+        f"$BHQ fails to accurately transcribe {str(the_lens[2])} quirks found in those editions.",
+        f"$BHQ accurately transcribes but does not note {str(the_lens[3])} quirks found in those editions.",
     ]
 
 
@@ -291,7 +309,7 @@ def _cpara23(the_len_of_the_2nd_group):
         "Nonetheless, the high quantity and high average quality",
         " of the quirks in the last two groups above",
         " strongly suggest that $BHQ’s editors",
-        " were either unaware of or uninterested in $BHL_A and דעת מקרא.",
+        " were either unaware of or uninterested in the other three editions.",
         #
         " I.e. it is unlikely that these quirks were considered but rejected:",
         " it is more likely that they were simply not considered at all.",
@@ -299,5 +317,5 @@ def _cpara23(the_len_of_the_2nd_group):
         f" This conclusion is strengthened by the fact that {foo} of the {bar}",
         " reiterations in the second group above were already present in $BHS.",
         f" I.e., the source of these {foo} reiterations is almost certainly $BHS,",
-        " not $BHL_A or דעת מקרא.",
+        " not one of the other three editions.",
     ]

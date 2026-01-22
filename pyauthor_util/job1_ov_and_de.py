@@ -9,6 +9,7 @@ from pyauthor.common import D1D_FNAME
 from pyauthor_util import author
 from pyauthor_util.job1_highlight import highlight, color
 from pyauthor_util.job1_lcloc import lcloc
+from pycmn import my_utils
 from pycmn.my_utils import sl_map
 
 
@@ -126,15 +127,15 @@ _DEFAULT_BHQ_COMMENT = "$BHQ agrees with μL here, but $BHQ makes no note of μL
 _SEP = " \N{EM DASH} "
 
 
-def _maybe_sep_comment(record):
+def _maybe_comment(record):
     if comment := record.get("comment"):
-        return [_SEP, comment]
+        return [comment]
     return []
 
 
-def _sep_bhq_comment(record):
+def _bhq_comment(record):
     bhq_comment = record.get("bhq-comment") or _DEFAULT_BHQ_COMMENT
-    return [_SEP, bhq_comment]
+    return [bhq_comment]
 
 
 def _make_details_row(record):
@@ -144,19 +145,18 @@ def _make_details_row(record):
     cn_v_vn = "c" + cv.replace(":", "v")
     mwd_href = f"https://bdenckla.github.io/MAM-with-doc/D3-Job.html#{cn_v_vn}"
     mwd_anc = my_html.anchor_h("MwD", mwd_href)
-    dpe = [
+    dpe1 = [
         uxlc_anc,
-        _SEP,
         mwd_anc,
-        _SEP,
-        *lcloc(record.get("lc-loc")),
-        *_maybe_sep_comment(record),
-        *_sep_bhq_comment(record),
+        lcloc(record.get("lc-loc")),
+        *_maybe_comment(record),
+        *_bhq_comment(record),
     ]
+    dpe2 = my_utils.intersperse(_SEP, dpe1)
     return [
         author.table_c(_make_overview_row(record)),
         *_maybe_bhq(record.get("bhq")),
-        author.para(dpe),
+        author.para(dpe2),
         _img(record["lc-img"]),
         *_maybe_img(record, "mi-args-aleppo"),
         *_maybe_img(record, "mi-args-cam1753"),

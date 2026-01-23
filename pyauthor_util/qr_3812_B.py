@@ -25,6 +25,7 @@ RECORD_3812_B = {
     "lc-img": "3812_B.png",
     "aleppo-img": "Aleppo-3812_B.png",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/38/1/mg/106",
+    "bhq-comment-is-long": True,
     "bhq-comment": [
         "$BHS does not catch this quirk in μL: it reflects the consensus rather than μL.",
         " $BHQ half-fixes the error in $BHS:",

@@ -22,6 +22,7 @@ RECORD_3107 = {
     "highlight": [1, 3],
     "lc-loc": {"page": "405B", "column": 1, "line": -6, "including-blank-lines": 1},
     "lc-img": "3107.png",
+    "bhq-comment-is-long": True,
     "bhq-comment": _BHQ_COMMENT_3107,
     "bhq": "מֻאֽוּם׃",
     "noted-by": "xBHQ-nBHL-nDM-nWLC",

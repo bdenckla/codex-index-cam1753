@@ -1,5 +1,84 @@
 from pyauthor_util import author
 from pyauthor_util.job1_ov_and_de import make_example_row
+from py import my_html
+
+CAM1753_PAGE_URL_BASE = (
+    "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page"
+)
+_SEE_3419 = [" See my entry on 34:19 for further discusion."]
+_CORR_IG_VARIANT = {
+    "34:19": [
+        " Since $BHQ does not note any uncertainty in its transcription here,",
+        " it is hard to distinguish whether $BHQ has ignored the mark in question",
+        " on purpose or by accident.",
+        " More broadly, $BHQ Job never notes",
+        " any uncertainty in its transcription of μL.",
+        " This may mislead many readers.",
+        " Despite the fact that high-resolution, color images of μL are now widely available,",
+        " many readers will not engage with those images enough to understand how often",
+        " there is great uncertainty in transcribing μL.",
+        " And, even if the reader understands that such uncertainty exists in general,",
+        " $BHQ should, in my opinion, indicate to the reader the specific places",
+        " where its transcription is particularly uncertain.",
+    ],
+    "36:29": _SEE_3419,
+    "17:4": _SEE_3419,
+}
+
+
+def suffix(contents):
+    new_cont = "\N{EN DASH}\N{HAIR SPACE}" + contents
+    return my_html.span(new_cont, {"dir": "rtl"})
+
+
+def correctly_ignores(what, cv, adjective=""):
+    adj = f" {adjective}" if adjective else ""
+    variant = _CORR_IG_VARIANT[cv]
+    out_parts = [
+        f"$BHQ has no {what} here.",
+        f" I happen to think that this is the best transcription of μL here,",
+        f" but I don’t know whether $BHQ arrived at this transcription",
+        f" on purpose or by accident.",
+        f" Did the editors of $BHQ consider, but ultimately decide against,",
+        f" the faint possible{adj} {what}?",
+        f" Or did they simply ignore μL entirely, supplying the consensus pointing,",
+        f" which has no {what}?",
+        *variant,
+    ]
+    return "".join(out_parts)
+
+
+BHQ_COMMENT_TBHQ_NELSWHERE = [
+    "$BHQ transcribes μL as shown above,",
+    " but $BHQ does not note that this transcription diverges from consensus."
+]
+BHQ_COMMENT_XELSEWHERE = [
+    "$BHQ notes this, whereas this is not noted in the other editions under consideration."
+]
+BHQ_COMMENT_XELSEWHERE_DUBIOUS = [
+    "$BHQ notes this possibility,",
+    " whereas this is not noted in the other editions under consideration.",
+    " It could be the editors of those other editions did not catch this,",
+    " or it could be that they caught it",
+    " but considered to be too slight a possibility to note it.",
+]
+BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
+    "This is one of seven similar cases in Job in μL.",
+    " All are correctly transcribed in $BHQ, i.e. transcribed without a מפיק.",
+    " Although all are correctly transcribed in $BHQ, they are noted to different extents in $BHQ.",
+]
+BHQ_COMMENT_LIKE_0409 = [
+    *BHQ_COMMENT_CMN_0409_AND_SIMILAR,
+    " 4:9 discusses the matter at greater length.",
+]
+BHQ_COMMENT_0409 = [
+    *BHQ_COMMENT_CMN_0409_AND_SIMILAR,
+    ' Six of these seven, including this one, are noted in the entry for 4:9 in the $BHQ',
+    ' section “Commentary on the Critical Apparatus.”',
+    " Only this one and 11:6",
+    " are noted in the bottom-of-page critical apparatus as well.",
+    " The one in 4:17 is not noted in any way in $BHQ.",
+]
 
 
 def intro(ov_or_de):

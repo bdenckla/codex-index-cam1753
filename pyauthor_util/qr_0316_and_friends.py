@@ -1,3 +1,5 @@
+from pyauthor_util import author
+from pyauthor_util.job1_common import num_range
 
 RECORD_0316 = {
     "cv": "3:16",
@@ -5,13 +7,17 @@ RECORD_0316 = {
     "what-is-weird": "יתוב not מהפך",
     "mam": "א֤וֹ",
     "comment": [
-        "foo",
+        "יתוב doesn’t make sense here because"
+        " this is in the poetic rather than prose section of Job",
+        [" ", author.paren(num_range("3:2", "42:6")), "."],
     ],
     "highlight": 1,
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
     "bhq-comment": [
-        "foo",
+        "$BHQ is the source of this (flawed) transcription.",
+        " I don’t think $BHQ is really proposing that μL has יתיב here.",
+        " This is more likely a typo (inherited from $BHS) than a deliberate choice.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
@@ -27,7 +33,7 @@ RECORD_0816 = {
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
     "bhq-comment": [
-        "foo",
+        "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
@@ -43,7 +49,7 @@ RECORD_1413 = {
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
     "bhq-comment": [
-        "foo",
+        "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
@@ -60,7 +66,7 @@ RECORD_1535 = {
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
     "bhq-comment": [
-        "foo",
+        "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
@@ -76,7 +82,7 @@ RECORD_2212 = {
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
     "bhq-comment": [
-        "foo",
+        "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
@@ -92,7 +98,7 @@ RECORD_3410 = {
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
     "bhq-comment": [
-        "foo",
+        "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
@@ -108,7 +114,7 @@ RECORD_3410 = {
 #     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
 #     "lc-img": ".png",
 #     "bhq-comment": [
-#         "foo",
+#         "$BHQ is the source of this (flawed) transcription.",
 #     ],
 #     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 # }

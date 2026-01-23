@@ -5,7 +5,8 @@ from pyauthor_util import author
 from pyauthor.common import D2_TITLE
 from pyauthor.common import D2_H1_CONTENTS
 from pyauthor.common import D2_FNAME
-from pyauthor_util.job1_ov_and_de import row_id, sort_key
+from pyauthor_util.job1_common import num_range
+from pyauthor_util.job1_ov_and_de import row_id
 from pyauthor_util.job1_common import intro
 from pycmn.my_utils import sl_map
 
@@ -127,10 +128,6 @@ def _overview(ov_and_de, quirkrec):
     return ov_and_de[the_row_id]["od-overview"]
 
 
-def _num_range(start, stop):
-    return f"{start}\N{THIN SPACE}\N{EN DASH}\N{THIN SPACE}{stop}"
-
-
 _CPARA10 = [
     "Like many students of Tanakh, I started out in the cult of $BHS.",
     #
@@ -185,7 +182,7 @@ _CLIST13 = [
         "The דעת מקרא (Da-at Miqra) series,",
         " particularly the volumes with sections called",
         f" “הנוסח ומקורותיו”",
-        f" (Breuer et al., {_num_range(1970, 2003)})",
+        f" (Breuer et al., {num_range(1970, 2003)})",
     ],
     ["Biblia Hebraica Leningradensia ($BHL) (Dotan, 2001)"],
     ["The Westminster Leningrad Codex ($WLC) (electronic)"],

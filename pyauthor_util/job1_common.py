@@ -141,3 +141,7 @@ BHQ_COMMENT_CMN_3105_3206 = [
     "$BHQ silently supplies the marks in the vowel-then-accent order that is",
     " the consensus expectation, in clear contradiction of μL here.",
 ]
+
+
+def num_range(start, stop):
+    return f"{start}\N{THIN SPACE}\N{EN DASH}\N{THIN SPACE}{stop}"

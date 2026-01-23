@@ -5,6 +5,12 @@
 
 from pyauthor_util import author
 from py import my_html
+from pyauthor_util.job1_common import (
+    CAM1753_PAGE_URL_BASE,
+    correctly_ignores,
+    BHQ_COMMENT_TBHQ_NELSEWHERE,
+    BHQ_COMMENT_CMN_0409_AND_SIMILAR,
+)
 from pyauthor_util.qr_0709 import RECORD_0709
 from pyauthor_util.qr_0721 import RECORD_0721
 from pyauthor_util.qr_0906 import RECORD_0906
@@ -35,12 +41,6 @@ from pyauthor_util.qr_3906 import RECORD_3906
 from pyauthor_util.qr_4010 import RECORD_4010
 from pyauthor_util.qr_4026 import RECORD_4026
 from pyauthor_util.qr_4213 import RECORD_4213
-from pyauthor_util.job1_common import (
-    CAM1753_PAGE_URL_BASE,
-    correctly_ignores,
-    BHQ_COMMENT_TBHQ_NELSEWHERE,
-    BHQ_COMMENT_CMN_0409_AND_SIMILAR,
-)
 from pyauthor_util.qr_0121 import RECORD_0121
 from pyauthor_util.qr_0629 import RECORD_0629
 from pyauthor_util.qr_0701 import RECORD_0701
@@ -55,28 +55,7 @@ from pyauthor_util.qr_2230_A import RECORD_2230_A
 from pyauthor_util.qr_2826 import RECORD_2826
 from pyauthor_util.qr_3330 import RECORD_3330
 from pyauthor_util.qr_3812_A import RECORD_3812_A
-BHQ_COMMENT_0409 = [
-    *BHQ_COMMENT_CMN_0409_AND_SIMILAR,
-    ' Six of these seven, including this one, are noted in the entry for 4:9 in the $BHQ',
-    ' section “Commentary on the Critical Apparatus.”',
-    " Only this one and 11:6",
-    " are noted in the bottom-of-page critical apparatus as well.",
-    " The one in 4:17 is not noted in any way in $BHQ.",
-]
-
-_RECORD_0409 = {
-    "bhla-i": 2,
-    "cv": "4:9",
-    "lc": "אֱל֣וֹהַ",
-    "what-is-weird": "ה has no מפיק",
-    "mam": "אֱל֣וֹהַּ",
-    "comment": "",
-    "highlight": 4,
-    "lc-loc": {"page": "398A", "column": 1, "line": -2},
-    "lc-img": "0409.png",
-    "bhq-comment": BHQ_COMMENT_0409,
-    "noted-by": "nBHQ-nBHL-nDM",
-}
+from pyauthor_util.qr_0409 import RECORD_0409
 _BHQ_COMMENT_0417 = [
     *BHQ_COMMENT_CMN_0409_AND_SIMILAR,
     " This is the only one of these seven not noted in any way in $BHQ.",
@@ -646,7 +625,7 @@ _RECORD_4125 = {
 }
 QUIRKRECS = [
     RECORD_0121,
-    _RECORD_0409,
+    RECORD_0409,
     _RECORD_0417,
     RECORD_0629,
     RECORD_0701,

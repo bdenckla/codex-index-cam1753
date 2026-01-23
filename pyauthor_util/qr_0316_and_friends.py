@@ -58,8 +58,12 @@ _COMMENT_1413 = [
     #
     " The word in question may be easier to understand",
     " if one considers it to be the first part of a two-part compound",
-    " where the מקף is, somewhat inexplicably, left implicit:",
-    [" ", author.hbo("תָּ֤שִֽׁית־לִ֖י"), "."],
+    [" with ", author.hbo("לִ֖י")],
+    " where the מקף is, somewhat inexplicably, left implicit.",
+    " If it were made explicit, the compound would be written as",
+    [" ", author.hbo("תָּ֤שִֽׁית־לִ֖י")],
+    " and indeed that is the way that word is written (albeit with the מקף colored gray)"
+    " in some editions of $MAM (מקרא על פי המסורה).",
     #
     " See Breuer CoS sections 11.66.rn1 and 11.79.",
     " (CoS = The Cantillation of Scripture; rn = Roman numeral.)",
@@ -77,7 +81,7 @@ RECORD_1413 = {
     "highlight": 2,
     "lc-loc": {"page": "40XY", "column": 0, "line": 0},
     "lc-img": ".png",
-    "bhq-comment-long": True,
+    "bhq-comment-is-long": True,
     "bhq-comment": [
         "$BHQ benefits from ignoring $WLC here,",
         " though $BHQ likely ignored $WLC as a whole",

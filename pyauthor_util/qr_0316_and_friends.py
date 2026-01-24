@@ -19,7 +19,7 @@ RECORD_0316 = {
         " I don’t think $BHQ is really proposing that μL has יתיב here.",
         " This is more likely a typo (inherited from $BHS) than a deliberate choice.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }
 RECORD_0816 = {
     "cv": "8:16",
@@ -43,7 +43,7 @@ RECORD_0816 = {
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }
 _COS_CMN = (
     "https://www.chorev.co.il/%D7%98%D7%A2%D7%9E%D7%99-%D7%94%D7%9E%D7%A7%D7%A8%D7%90"
@@ -132,7 +132,7 @@ RECORD_1535 = {
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }
 RECORD_2212 = {
     "cv": "22:12",
@@ -148,7 +148,7 @@ RECORD_2212 = {
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }
 RECORD_3410 = {
     "cv": "34:10",
@@ -164,7 +164,7 @@ RECORD_3410 = {
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }
 # RECORD_BLANK = {
 #     "cv": "foo",
@@ -180,5 +180,5 @@ RECORD_3410 = {
 #     "bhq-comment": [
 #         "$BHQ is the source of this (flawed) transcription.",
 #     ],
-#     "noted-by": "tBHQ-xBHL-xDM-zWLC",
+#     "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 # }

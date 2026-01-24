@@ -11,5 +11,5 @@ RECORD_0629 = {
     "lc-loc": {"page": "399A", "column": 1, "line": 2},
     "lc-img": "0629.png",
     "bhq-comment": "$BHQ is the source of this (flawed) transcription.",
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }

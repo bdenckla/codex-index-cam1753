@@ -58,7 +58,7 @@ def _bhq_and_others(quirkrec):
     assert bhq in ("nBHQ", "xBHQ", "tBHQ")
     assert bhl in ("nBHL", "xBHL")
     assert dm in ("nDM", "xDM")
-    assert wlc in ("nWLC", "xWLC", "zWLC")
+    assert wlc in ("nWLC", "xWLC", "zWLCmisc")
     others = bhl, dm, wlc
     return bhq, others
 
@@ -87,13 +87,13 @@ def _tbhq_and_ne(quirkrec):
 
 def _tbhq_and_zw(quirkrec):
     bhq, others = _bhq_and_others(quirkrec)
-    return bhq == "tBHQ" and others == ("xBHL", "xDM", "zWLC")
+    return bhq == "tBHQ" and others == ("xBHL", "xDM", "zWLCmisc")
 
 
 def _get_groups(quirkrecs):
     # nbhq, xbhq: noted (as a quirk) in BHQ, not noted (as a quirk) in BHQ
     # ne, xe: noted (as a quirk) elsewhere, not noted (as a quirk) elsewhere
-    # zw (zWLC): noted (as consensus) by WLC (combined with MAM):
+    # zw (zWLCmisc): noted (as consensus) by WLC (combined with MAM):
     #     flagged as a change in WLC relative to BHS, e.g. a bracket-c or bracket-v note.
     #     comparison with MAM revealed that it is a change back towards consensus,
     #     i.e. this is BHS/BHQ proposing a quirk that is not in μL
@@ -337,7 +337,7 @@ def _cpara24(the_len):
 
 
 _CPARA25 = [
-    "In conclusion, compared to the μL quirks noted in the other three editions:",
+    "In conclusion, by using the other three editions, we find the following about $BHQ:",
 ]
 
 

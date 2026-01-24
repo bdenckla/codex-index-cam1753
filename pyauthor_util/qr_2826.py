@@ -19,5 +19,5 @@ RECORD_2826 = {
     "lc-loc": {"page": "404B", "column": 2, "line": -1},
     "lc-img": "2826.png",
     "bhq-comment": _BHQ_COMMENT_2826,
-    "noted-by": "tBHQ-xBHL-xDM-zWLC",
+    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }

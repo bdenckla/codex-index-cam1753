@@ -88,7 +88,7 @@ def _pg_diff(pg_dict, lc_loc):
         pline = lcl
     fline = pline + 27 * (lc_loc["column"] - 1)
     flg = float(pg_dict["fline-guess"])
-    balm = 3  # biggest acceptable line mismatch
+    balm = 2  # biggest acceptable line mismatch
     if abs(flg - fline) > balm:
         return f"fline mismatch: pg_dict fline-guess {pg_dict['fline-guess']} vs lc_loc fline {fline}"
     return None

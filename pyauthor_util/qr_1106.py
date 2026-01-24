@@ -10,6 +10,7 @@ RECORD_1106 = {
     "comment": "",
     "highlight": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": 5},
+    "uxlc-position-within-verse": 11,
     "lc-img": "1106.png",
     "bhq-comment": BHQ_COMMENT_LIKE_0409,
     "noted-by": "nBHQ-nBHL-nDM",

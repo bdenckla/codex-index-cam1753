@@ -5,6 +5,12 @@ _BHQ_COMMENT_2228 = [
     " this makes it clear that a טרחא was intended by $BHQ rather than a דחי.",
     " Thus $BHQ somewhat-accurately transcribes the quirk in μL,",
     " but should have noted the quirk.",
+    #
+    " Perhaps even better would have been to (charitably) transcribe this as a דחי,",
+    " and note the quirk.",
+    " But it is not the editorial policy of $BHQ to make such notes:",
+    " although $BHQ is full of charitable transcriptions,",
+    " as far as I know it never notes its charity.",
 ]
 RECORD_2228 = {
     "bhla-i": 30,
@@ -19,6 +25,7 @@ RECORD_2228 = {
     "highlight": 1,
     "lc-loc": {"page": "403B", "column": 2, "line": 2},
     "lc-img": "2228.png",
+    "use-stretched-format": True,
     "bhq-comment": _BHQ_COMMENT_2228,
     "noted-by": "tBHQ-nBHL-xDM",
 }

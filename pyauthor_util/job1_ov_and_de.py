@@ -23,7 +23,7 @@ def make_ov_and_de(quirkrecs):
     assert _unique(ids)
     paths_dict = {
         "path_to_uxlc": "py_uxlc_loc/UXLC",
-        "path_to_lci_recs": "py_uxlc_loc/UXLC-misc/lci_recs.json"
+        "path_to_lci_recs": "py_uxlc_loc/UXLC-misc/lci_recs.json",
     }
     uxlc, pbi = my_uxlc_location.prep(paths_dict)
     ovdes = sl_map((_make_one_ov_and_de, uxlc, pbi), quirkrecs)
@@ -67,7 +67,10 @@ def _make_one_ov_and_de(uxlc, pbi, record):
     pg_dict = my_uxlc_location.page_and_guesses(uxlc, pbi, std_bcvp_quad)
     pg_diff = _pg_diff(pg_dict, record["lc-loc"])
     if pg_diff is not None:
-        print(pg_diff)
+        ri = row_id(record)
+        print(ri, pg_diff)
+        print(ri, pg_dict)
+        print(ri, record["lc-loc"])
     return {
         "od-overview": _make_overview_row(record),
         "od-details": _make_details_html(record),

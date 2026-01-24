@@ -34,6 +34,7 @@ def _prep():
     ov_and_de = make_ov_and_de(qrs)
     return qrs, ov_and_de
 
+
 def _write_index_dot_html(css_hrefs, out_path):
     write_ctx = my_html.WriteCtx("Job Documents", out_path, css_hrefs=css_hrefs)
     my_html.write_html_to_file(_CBODY, write_ctx)

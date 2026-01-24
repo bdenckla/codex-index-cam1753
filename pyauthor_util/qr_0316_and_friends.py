@@ -12,8 +12,8 @@ RECORD_0316 = {
         [" ", author.paren(num_range("3:2", "42:6")), "."],
     ],
     "highlight": 1,
-    "lc-loc": {"page": "40XY", "column": 0, "line": 0},
-    "lc-img": ".png",
+    "lc-loc": {"page": "398A", "column": 1, "line": 3},
+    "lc-img": "0316.png",
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
         " I don’t think $BHQ is really proposing that μL has יתיב here.",
@@ -38,15 +38,19 @@ RECORD_0816 = {
         " than as a question of דחי vs no mark at all.",
     ],
     "highlight": 1,
-    "lc-loc": {"page": "40XY", "column": 0, "line": 0},
-    "lc-img": ".png",
+    "lc-loc": {"page": "399A", "column": 2, "line": -4},
+    "lc-img": "0816.png",
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLC",
 }
-_COS_CMN = "https://www.chorev.co.il/%D7%98%D7%A2%D7%9E%D7%99-%D7%94%D7%9E%D7%A7%D7%A8%D7%90"
-_COS_ENG_REST = "%D7%91%D7%90%D7%A0%D7%92%D7%9C%D7%99%D7%AA-THE-CANTILLATION-OF-SCRIPTURE"
+_COS_CMN = (
+    "https://www.chorev.co.il/%D7%98%D7%A2%D7%9E%D7%99-%D7%94%D7%9E%D7%A7%D7%A8%D7%90"
+)
+_COS_ENG_REST = (
+    "%D7%91%D7%90%D7%A0%D7%92%D7%9C%D7%99%D7%AA-THE-CANTILLATION-OF-SCRIPTURE"
+)
 _COS_ENG_ANC = author.anc_h("translation", f"{_COS_CMN}-{_COS_ENG_REST}.htm")
 _COS_HEB_ANC = author.anc_h("original", f"{_COS_CMN}.htm")
 _FOI_H2 = "foi-sec-star-breuer-cos.html#intro-11.66.rn1"
@@ -65,18 +69,18 @@ _COMMENT_1413_PARA1 = [
     " if the מהפך is secondary, as it is here.",
 ]
 _COMMENT_1413_PARA2 = [
-    ["The word ",author.hbo("תָּ֤שִֽׁית")," may be easier to understand"],
+    ["The word ", author.hbo("תָּ֤שִֽׁית"), " may be easier to understand"],
     " if one considers it",
     [" and ", author.hbo("לִ֖י"), " (the next word)"],
     " to form a compound word"
     " whose the מקף is, somewhat inexplicably, left implicit.",
     " If the מקף were made explicit, the compound would be written as",
     [" ", author.hbo("תָּ֤שִֽׁית־לִ֖י")],
-    " and indeed that is the way that word is written (albeit with the מקף colored gray)"
-    " in some editions of ",_MAM_ANC," (מקרא על פי המסורה).",
+    " and indeed that is the way that word is written (albeit with the מקף colored gray)",
+    [" in some editions of ", _MAM_ANC, " (מקרא על פי המסורה)."],
     #
     " This and a handful of analogous cases are listed",
-    [" ",_FOI_ANC, ", with the implicit מקף represented as a tilde (~)."],
+    [" ", _FOI_ANC, ", with the implicit מקף represented as a tilde (~)."],
 ]
 _COMMENT_1413_PARA3 = [
     "See Breuer CoS sections 11.66.rn1 and 11.79.",
@@ -99,8 +103,8 @@ RECORD_1413 = {
     "comment-should-not-be-para-wrapped": True,
     "comment": _COMMENT_1413,
     "highlight": 2,
-    "lc-loc": {"page": "40XY", "column": 0, "line": 0},
-    "lc-img": ".png",
+    "lc-loc": {"page": "401A", "column": 1, "line": -3},
+    "lc-img": "1413.png",
     "use-stretched-format": True,
     "bhq-comment": [
         "$BHQ benefits from ignoring $WLC here,",
@@ -113,15 +117,18 @@ RECORD_1413 = {
 RECORD_1535 = {
     "cv": "15:35",
     "lc": "וְיָלֹ֣ד",
-    "what-is-weird": "מונח on ל not $yod (י)",
+    "lc-q": "(?)",
+    "what-is-weird": "מונח may be on ל not $yod (י)",
     "mam": "וְיָ֣לֹד",
     "comment": [
-        "foo",
+        "There is little evidence of a מונח in any location on this word.",
+        " There is a mark that looks like a פתח between the $yod (י) and the ל,",
+        " but that is grammatically implausible.",
     ],
     "highlight-lc": 3,
     "highlight-mam": 2,
-    "lc-loc": {"page": "40XY", "column": 0, "line": 0},
-    "lc-img": ".png",
+    "lc-loc": {"page": "401B", "column": 1, "line": -3},
+    "lc-img": "1535.png",
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
@@ -136,8 +143,8 @@ RECORD_2212 = {
         "foo",
     ],
     "highlight": 1,
-    "lc-loc": {"page": "40XY", "column": 0, "line": 0},
-    "lc-img": ".png",
+    "lc-loc": {"page": "403B", "column": 1, "line": 12},
+    "lc-img": "2212.png",
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
@@ -152,8 +159,8 @@ RECORD_3410 = {
         "foo",
     ],
     "highlight": 1,
-    "lc-loc": {"page": "40XY", "column": 0, "line": 0},
-    "lc-img": ".png",
+    "lc-loc": {"page": "406B", "column": 2, "line": 14},
+    "lc-img": "3410.png",
     "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],

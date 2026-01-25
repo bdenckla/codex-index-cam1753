@@ -1,5 +1,6 @@
 from pycmn import hebrew_accents as ha
 from pycmn.my_utils import sl_map
+from pyauthor_util.job1_ov_and_de import short_id
 
 _BASICS = [
     ("3:3", "י֭וֹם", ("397B", 2, 12)),
@@ -28,10 +29,10 @@ _BASICS = [
     ("37:19", "ה֭וֹדִיעֵנוּ", None),
     ("37:20", "ל֭וֹ", None),
     ("38:27", "שֹׁ֭אָה", None),
-    ("39:11", "בּ֭וֹ", None),
-    ("39:12", "בּ֭וֹ", None),
-    ("40:19", "ה֭וּא", None),
-    ("40:29", "בּ֭וֹ", None),
+    ("39:11", "בּ֭וֹ", ("408B", 1, 9)),
+    ("39:12", "בּ֭וֹ", ("408B", 1, 10)),
+    ("40:19", "ה֭וּא", ("408B", 2, 27)),
+    ("40:29", "בּ֭וֹ", ("409A", 1, 11)),
 ]
 
 _EXTRAS = {
@@ -48,7 +49,6 @@ def _one_basic_to_record(cv_and_wlc):
     cv_str, wlc, lcloc = cv_and_wlc
     page, column, line = lcloc or ("40XY", 0, 0)
     chnu, vrnu = tuple(int(part) for part in cv_str.split(":"))
-    img_basename = f"{chnu:02d}{vrnu:02d}"
     cvlc_rec = {
         "cv": cv_str,
         "lc": wlc.replace(ha.DEX, ha.TIP),
@@ -57,16 +57,15 @@ def _one_basic_to_record(cv_and_wlc):
         "comment": "",
         "highlight": 1,
         "lc-loc": {"page": page, "column": column, "line": line},
-        "lc-img": f"{img_basename}.png",
         "bhq-comment": [
             "$BHQ is the source of this (flawed) transcription.",
         ],
         "noted-by": "tBHQ-xBHL-xDM-zWLCdexi",
     }
     extras = _EXTRAS.get(cv_str)
-    if extras:
-        return {**cvlc_rec, **extras}
-    return cvlc_rec
+    record = {**cvlc_rec, **extras} if extras else cvlc_rec
+    img_basename = short_id(record)
+    return {**record, "lc-img": f"{img_basename}.png"}
 
 
 RECORDS_Z_WLC_DEXI = sl_map(_one_basic_to_record, _BASICS)

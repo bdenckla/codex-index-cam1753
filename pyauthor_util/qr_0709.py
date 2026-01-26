@@ -10,7 +10,6 @@ RECORD_0709 = {
     "comment": "",
     "highlight": 3,
     "lc-loc": {"page": "399A", "column": 1, "line": 14},
-    "lc-img": "0709.png",
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "noted-by": "tBHQ-nBHL-xDM",
 }

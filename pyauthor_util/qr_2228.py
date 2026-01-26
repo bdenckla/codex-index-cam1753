@@ -24,8 +24,7 @@ RECORD_2228 = {
     ],
     "highlight": 1,
     "lc-loc": {"page": "403B", "column": 2, "line": 2},
-    "lc-img": "2228.png",
-    "use-stretched-format": True,
+        "use-stretched-format": True,
     "bhq-comment": _BHQ_COMMENT_2228,
     "noted-by": "tBHQ-nBHL-xDM",
 }

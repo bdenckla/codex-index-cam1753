@@ -10,7 +10,6 @@ RECORD_3706 = {
     "comment": "",
     "highlight": 3,
     "lc-loc": {"page": "407B", "column": 2, "line": 7},
-    "lc-img": "3706.png",
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "noted-by": "tBHQ-nBHL-xDM-nWLC",
 }

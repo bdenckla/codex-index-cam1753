@@ -7,7 +7,6 @@ RECORD_0807 = {
     "comment": "The געיה difference is not important to us here.",
     "highlight": 1,
     "lc-loc": {"page": "399A", "column": 2, "line": 13, "including-blank-lines": 1},
-    "lc-img": "0807.png",
-    "bhq-comment": "$BHQ silently ignores the possible שורוק dot.",
+        "bhq-comment": "$BHQ silently ignores the possible שורוק dot.",
     "noted-by": "xBHQ-nBHL-xDM",
 }

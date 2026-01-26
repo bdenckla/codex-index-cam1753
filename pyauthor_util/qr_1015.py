@@ -10,7 +10,6 @@ RECORD_1015 = {
     "comment": "",
     "highlight": 3,
     "lc-loc": {"page": "400A", "column": 1, "line": 14},
-    "lc-img": "1015.png",
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "noted-by": "tBHQ-nBHL-xDM",
 }

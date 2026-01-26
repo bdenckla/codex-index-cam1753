@@ -20,7 +20,6 @@ RECORD_1905 = {
     ],
     "highlight": 4,
     "lc-loc": {"page": "402A", "column": 2, "line": -5},
-    "lc-img": "1905.png",
-    "bhq-comment": _BHQ_COMMENT_1905,
+        "bhq-comment": _BHQ_COMMENT_1905,
     "noted-by": "xBHQ-nBHL-xDM-nWLC",
 }

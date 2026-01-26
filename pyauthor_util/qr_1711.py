@@ -9,8 +9,7 @@ RECORD_1711 = {
     "comment": "",
     "highlight": 3,
     "lc-loc": {"page": "402A", "column": 1, "line": 13},
-    "lc-img": "1711.png",
-    "bhq-comment": BHQ_COMMENT_XELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_XELSEWHERE,
     "noted-by": "nBHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }

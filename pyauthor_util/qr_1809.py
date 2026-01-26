@@ -14,8 +14,7 @@ RECORD_1809 = {
     ],
     "highlight": 2,
     "lc-loc": {"page": "402A", "column": 2, "line": 2},
-    "lc-img": "1809.png",
-    "bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
+        "bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
     "noted-by": "nBHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }

@@ -17,8 +17,7 @@ RECORD_0816 = {
     ],
     "highlight": 1,
     "lc-loc": {"page": "399A", "column": 2, "line": -4},
-    "lc-img": "0816.png",
-    "bhq-comment": [
+        "bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
     "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",

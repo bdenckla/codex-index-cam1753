@@ -11,7 +11,6 @@ RECORD_0930 = {
     "comment": "",
     "highlight": 2,
     "lc-loc": {"page": "399B", "column": 2, "line": 15},
-    "lc-img": "0930.png",
-    "bhq-comment": BHQ_COMMENT_0914_AND_0930,
+        "bhq-comment": BHQ_COMMENT_0914_AND_0930,
     "noted-by": "xBHQ-nBHL-xDM",
 }

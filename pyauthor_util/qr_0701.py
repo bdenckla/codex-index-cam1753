@@ -7,7 +7,6 @@ RECORD_0701 = {
     "comment": "",
     "highlight": 4,
     "lc-loc": {"page": "399A", "column": 1, "line": 4},
-    "lc-img": "0701.png",
-    "bhq-comment": "$BHQ silently ignores the possible רביע.",
+        "bhq-comment": "$BHQ silently ignores the possible רביע.",
     "noted-by": "xBHQ-nBHL-xDM",
 }

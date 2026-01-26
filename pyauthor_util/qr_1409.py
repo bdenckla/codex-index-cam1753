@@ -7,7 +7,6 @@ RECORD_1409 = {
     "comment": "",
     "highlight": 3,
     "lc-loc": {"page": "401A", "column": 1, "line": -9},
-    "lc-img": "1409.png",
-    "bhq-comment": "$BHQ silently ignores the possible דגש.",
+        "bhq-comment": "$BHQ silently ignores the possible דגש.",
     "noted-by": "xBHQ-nBHL-xDM",
 }

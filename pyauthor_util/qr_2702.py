@@ -18,7 +18,6 @@ RECORD_2702 = {
     "comment": _COMMENT_2702,
     "highlight-mam": 3,
     "lc-loc": {"page": "404A", "column": 2, "line": -2},
-    "lc-img": "2702.png",
-    "bhq-comment": _BHQ_COMMENT_2702,
+        "bhq-comment": _BHQ_COMMENT_2702,
     "noted-by": "xBHQ-nBHL-nDM",
 }

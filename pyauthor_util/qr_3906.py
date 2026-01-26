@@ -11,7 +11,6 @@ RECORD_3906 = {
     "highlight-lc": 2,
     "highlight-mam": 3,
     "lc-loc": {"page": "408B", "column": 1, "line": 3},
-    "lc-img": "3906.png",
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "noted-by": "tBHQ-nBHL-nDM",
 }

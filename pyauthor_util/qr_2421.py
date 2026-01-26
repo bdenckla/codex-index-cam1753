@@ -19,7 +19,6 @@ RECORD_2421 = {
     "comment": _COMMENT_2421,
     "highlight": 2,
     "lc-loc": {"page": "404A", "column": 1, "line": -6},
-    "lc-img": "2421.png",
-    "bhq-comment": _BHQ_COMMENT_2421,
+        "bhq-comment": _BHQ_COMMENT_2421,
     "noted-by": "xBHQ-nBHL-nDM",
 }

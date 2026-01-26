@@ -14,8 +14,7 @@ RECORD_2416 = {
     ],
     "highlight": 2,
     "lc-loc": {"page": "404A", "column": 1, "line": -12},
-    "lc-img": "2416.png",
-    "bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
+        "bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
     "noted-by": "nBHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }

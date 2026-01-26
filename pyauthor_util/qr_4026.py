@@ -11,7 +11,6 @@ RECORD_4026 = {
     "highlight-lc": 1,
     "highlight-mam": 3,
     "lc-loc": {"page": "409A", "column": 1, "line": 8},
-    "lc-img": "4026.png",
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "noted-by": "tBHQ-nBHL-nDM",
 }

@@ -11,7 +11,6 @@ RECORD_1001 = {
     "highlight-lc": 5,
     "highlight-mam": 4,
     "lc-loc": {"page": "399B", "column": 2, "line": -6},
-    "lc-img": "1001.png",
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+        "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "noted-by": "tBHQ-nBHL-xDM",
 }

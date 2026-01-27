@@ -3,9 +3,9 @@
 import os.path
 from py import two_col_css_styles as tcstyles
 from py import my_html
-from pyauthor import job1_overview
-from pyauthor import job1_details
-from pyauthor import job2
+from pyauthor import job1_full_list_overview
+from pyauthor import job1_full_list_details
+from pyauthor import job2_main_article
 from pyauthor.common import d2_anchor
 from pyauthor_util.short_id_etc import lc_img
 from pyauthor_util.job1_quirkrecs import QUIRKRECS
@@ -23,9 +23,9 @@ def main():
     tdm_ch = jobn_rel_top, css_href
     #
     qrs, ov_and_de = _prep(jobn_rel_top)
-    job1_overview.gen_html_file(tdm_ch, ov_and_de)
-    job1_details.gen_html_file(tdm_ch, ov_and_de)
-    job2.gen_html_file(tdm_ch, ov_and_de, qrs)
+    job1_full_list_overview.gen_html_file(tdm_ch, ov_and_de)
+    job1_full_list_details.gen_html_file(tdm_ch, ov_and_de)
+    job2_main_article.gen_html_file(tdm_ch, ov_and_de, qrs)
     #
     _write_index_dot_html((css_href,), "docs/index.html")
 

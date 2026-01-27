@@ -4,6 +4,16 @@ from py import my_html
 from pyauthor_util import author
 
 
+D3_TITLE = "BHQ Job: Places where UXLC could have helped"
+D3_H1_CONTENTS = D3_TITLE
+D3_FNAME = "job3.html"
+
+
+def d3_anchor(jobn_dir="."):
+    anc = my_html.anchor_h("document", f"{jobn_dir}/{D3_FNAME}")
+    return author.std_anchor(anc, D3_H1_CONTENTS)
+
+
 D2_TITLE = "BHQ Job was made in a bubble"
 D2_H1_CONTENTS = D2_TITLE
 D2_FNAME = "job2.html"

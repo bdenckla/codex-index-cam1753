@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import RECORD_2221_CMN_AB, CAM1753_PAGE_URL_BASE
+from pyauthor_util.job_common import RECORD_2221_CMN_AB, CAM1753_PAGE_URL_BASE
 
 
 _COMMENT_2221_A = [

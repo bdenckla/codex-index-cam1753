@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import suffix
+from pyauthor_util.job_common import suffix
 
 
 _BHQ_COMMENT_2614 = [

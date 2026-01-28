@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import RECORD_2221_CMN_AB
+from pyauthor_util.job_common import RECORD_2221_CMN_AB
 
 
 _COMMENT_2221_B = [

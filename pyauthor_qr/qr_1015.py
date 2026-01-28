@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import BHQ_COMMENT_TBHQ_NELSEWHERE
+from pyauthor_util.job_common import BHQ_COMMENT_TBHQ_NELSEWHERE
 
 
 RECORD_1015 = {

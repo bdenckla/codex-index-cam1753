@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import BHQ_COMMENT_XELSEWHERE_DUBIOUS
+from pyauthor_util.job_common import BHQ_COMMENT_XELSEWHERE_DUBIOUS
 
 
 RECORD_2230_B = {

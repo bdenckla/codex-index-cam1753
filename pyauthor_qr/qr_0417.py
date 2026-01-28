@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import BHQ_COMMENT_CMN_0409_AND_SIMILAR
+from pyauthor_util.job_common import BHQ_COMMENT_CMN_0409_AND_SIMILAR
 
 
 _BHQ_COMMENT_0417 = [

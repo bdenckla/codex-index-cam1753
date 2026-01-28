@@ -1,6 +1,6 @@
 from py import my_html
 from pyauthor_util import author
-from pyauthor_util.job1_common import CAM1753_PAGE_URL_BASE
+from pyauthor_util.job_common import CAM1753_PAGE_URL_BASE
 
 
 _BHQ_COMMENT_3612 = [

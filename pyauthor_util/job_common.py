@@ -1,5 +1,5 @@
 from pyauthor_util import author
-from pyauthor_util.job1_ov_and_de import make_example_row
+from pyauthor_util.job_ov_and_de import make_example_row
 from py import my_html
 
 CAM1753_PAGE_URL_BASE = (

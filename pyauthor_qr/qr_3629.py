@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import correctly_ignores
+from pyauthor_util.job_common import correctly_ignores
 
 
 _COMMENT_3629 = [

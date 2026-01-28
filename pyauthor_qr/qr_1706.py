@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import BHQ_COMMENT_XELSEWHERE
+from pyauthor_util.job_common import BHQ_COMMENT_XELSEWHERE
 
 
 RECORD_1706 = {

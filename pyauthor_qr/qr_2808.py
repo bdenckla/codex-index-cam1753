@@ -1,4 +1,4 @@
-from pyauthor_util.job1_common import BHQ_COMMENT_2808_AND_2911
+from pyauthor_util.job_common import BHQ_COMMENT_2808_AND_2911
 
 
 RECORD_2808 = {

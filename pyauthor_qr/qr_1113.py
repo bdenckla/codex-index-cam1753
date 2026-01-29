@@ -10,6 +10,6 @@ RECORD_1113 = {
     "qr-lc-loc": {"page": "400A", "column": 2, "line": 13},
     "qr-bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
     "qr-noted-by": "tBHQ-xBHL-xDM-nWLC",
-    "noted-by-mam": True,
-    "noted-by-uxlc": True,
+    "qr-noted-by-mam": True,
+    "qr-noted-by-uxlc": True,
 }

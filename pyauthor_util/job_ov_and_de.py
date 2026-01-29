@@ -142,12 +142,12 @@ _MI_ARGS = {
     "mi-args-aleppo": [
         "μA (Aleppo)",
         "aleppo-img-intro",
-        "aleppo-img",
+        "qr-aleppo-img",
     ],
     "mi-args-cam1753": [
         "μY (Cambridge 1753)",
-        "cam1753-img-intro",
-        "cam1753-img",
+        "qr-cam1753-img-intro",
+        "qr-cam1753-img",
     ],
 }
 

@@ -25,5 +25,5 @@ RECORD_2230_A = {
     "qr-bhq-comment": _BHQ_COMMENT_2230_A,
     # XXX add Aleppo image and update comments accordingly
     "qr-noted-by": "tBHQ-xBHL-xDM-nWLC",
-    "uxlc-needs-fix": "add t-note (transcription uncertain)",
+    "qr-uxlc-needs-fix": "add t-note (transcription uncertain)",
 }

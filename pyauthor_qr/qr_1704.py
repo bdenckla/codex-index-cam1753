@@ -23,7 +23,7 @@ RECORD_1704 = {
     "qr-lc-loc": {"page": "402A", "column": 1, "line": 5},
     "qr-bhq-comment": correctly_ignores("דגש", "17:4"),
     "qr-noted-by": "xBHQ-xBHL-xDM-nWLC",
-    "uxlc-needs-fix": _UXLC_NEEDS_FIX,
+    "qr-uxlc-needs-fix": _UXLC_NEEDS_FIX,
     # This is a bracket-p note in WLC.
     # We take it to note a quirk because MAM reveals that WLC is diverging from consensus here.
     # (Normally we only take WLC to note a quirk in the case of bracket-1 notes.)

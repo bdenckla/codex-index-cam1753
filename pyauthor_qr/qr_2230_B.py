@@ -13,5 +13,5 @@ RECORD_2230_B = {
     "qr-lc-loc": {"page": "403B", "column": 2, "line": 4},
     "qr-bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
     "qr-noted-by": "nBHQ-xBHL-xDM",
-    "uxlc-needs-fix": True,
+    "qr-uxlc-needs-fix": True,
 }

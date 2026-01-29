@@ -10,6 +10,6 @@ RECORD_3820_UXLC = {
     "highlight": 1,
     "lc-loc": {"page": "408A", "column": 1, "line": 24},
     "bhq-comment": ["$BHQ is the source of this (flawed) transcription."],
-    "noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
+    "noted-by": "tBHQ-xBHL-xDM-xWLC-nUXLC",
     "uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-45",
 }

@@ -1,4 +1,5 @@
-def _bhq_and_others(quirkrec):
+def _bhq_and_t4o(quirkrec):
+    """t4o: the four others (BHL, DM, WLC, & UXLC)"""
     parts = quirkrec["noted-by"].split("-")
     bhq, bhl, dm = parts[0], parts[1], parts[2]
     wlc = "xWLC" if len(parts) <= 3 else parts[3]
@@ -7,9 +8,19 @@ def _bhq_and_others(quirkrec):
     assert bhl in ("nBHL", "xBHL")
     assert dm in ("nDM", "xDM")
     assert wlc in ("nWLC", "xWLC", "zWLCmisc", "zWLCdexi")
-    assert uxlc in ("xUXLC", "zUXLC")
-    others = bhl, dm, wlc, uxlc
-    return bhq, others
+    assert uxlc in ("nUXLC", "xUXLC", "zUXLC")
+    #
+    if wlc in ("zWLCmisc", "zWLCdexi"):
+        assert (bhq, bhl, dm, uxlc) == ("tBHQ", "xBHL", "xDM", "xUXLC")
+    #
+    the_4_others = bhl, dm, wlc, uxlc
+    return bhq, the_4_others
+
+
+def _bhq_and_t3o(quirkrec):
+    """t3o: the three others (BHL, DM, & WLC)"""
+    bhq, t4o = _bhq_and_t4o(quirkrec)
+    return bhq, t4o[:3]
 
 
 def _startswith_n(part):
@@ -17,8 +28,8 @@ def _startswith_n(part):
 
 
 def _foobhq_and_ne(foobhq, quirkrec):
-    bhq, others = _bhq_and_others(quirkrec)
-    return bhq == foobhq and any(_startswith_n(part) for part in others)
+    bhq, t3o = _bhq_and_t3o(quirkrec)
+    return bhq == foobhq and any(_startswith_n(part) for part in t3o)
 
 
 def _nbhq_and_ne(quirkrec):
@@ -34,13 +45,13 @@ def _tbhq_and_ne(quirkrec):
 
 
 def _tbhq_and_zwd(quirkrec):
-    bhq, others = _bhq_and_others(quirkrec)
-    return bhq == "tBHQ" and others[:3] == ("xBHL", "xDM", "zWLCdexi")
+    _bhq, t3o = _bhq_and_t3o(quirkrec)
+    return t3o[2] == "zWLCdexi"
 
 
 def _tbhq_and_zwm(quirkrec):
-    bhq, others = _bhq_and_others(quirkrec)
-    return bhq == "tBHQ" and others[:3] == ("xBHL", "xDM", "zWLCmisc")
+    _bhq, t3o = _bhq_and_t3o(quirkrec)
+    return t3o[2] == "zWLCmisc"
 
 
 def _startswith_x(part):
@@ -48,8 +59,8 @@ def _startswith_x(part):
 
 
 def _nbhq_and_xe(quirkrec):
-    bhq, others = _bhq_and_others(quirkrec)
-    return bhq == "nBHQ" and all(_startswith_x(part) for part in others)
+    bhq, t3o = _bhq_and_t3o(quirkrec)
+    return bhq == "nBHQ" and all(_startswith_x(part) for part in t3o)
 
 
 def get_qr_groups(quirkrecs):

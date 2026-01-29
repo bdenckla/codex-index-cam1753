@@ -10,7 +10,7 @@ RECORD_3206 = {
     "cv": "32:6",
     "lc": "יְשִׁישׁ֑͏ִים",
     "what-is-weird": "אתנח precedes חיריק",
-    "mam": "יְשִׁישִׁ֑ים",
+    "qr-consensus": "יְשִׁישִׁ֑ים",
     "highlight": 4,
     "lc-loc": {"page": "406A", "column": 1, "line": -6},
     "uxlc-position-within-verse": 11,

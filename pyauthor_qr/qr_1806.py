@@ -10,7 +10,7 @@ RECORD_1806 = {
     "cv": "18:6",
     "lc": "א֖וֹר",
     "what-is-weird": "טרחא not דחי",
-    "mam": "א֭וֹר",
+    "qr-consensus": "א֭וֹר",
     "comment": "The scribe of uL probably intended a דחי but placed it like a טרחא.",
     "highlight": 1,
     "lc-loc": {"page": "402A", "column": 1, "line": -2},

@@ -6,7 +6,7 @@ RECORD_1809 = {
     "lc": "בְּעָּקֵ֣ב",
     "lc-q": "(?)",
     "what-is-weird": "ע may have דגש",
-    "mam": "בְּעָקֵ֣ב",
+    "qr-consensus": "בְּעָקֵ֣ב",
     "comment": [
         "A דגש in a ע doesn’t make sense.",
         " But the dot is convincing,",

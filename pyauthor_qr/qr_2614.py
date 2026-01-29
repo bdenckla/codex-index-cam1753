@@ -24,7 +24,7 @@ RECORD_2614 = {
     "cv": "26:14",
     "lc": "גְּ֝בוּרוֹתָ֗יו",
     "what-is-weird": "חולם becomes מלא in קרי",
-    "mam": "גְּ֝בוּרֹתָ֗יו",
+    "qr-consensus": "גְּ֝בוּרֹתָ֗יו",
     "comment": _COMMENT_2614,
     "highlight-lc": 5,
     "lc-loc": {"page": "404A", "column": 2, "line": -5},

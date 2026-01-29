@@ -6,7 +6,7 @@ RECORD_2808 = {
     "cv": "28:8",
     "lc": "הִדְריכֻ֥הוּ",
     "what-is-weird": "ר lacks חיריק",
-    "mam": "הִדְרִיכ֥וּהוּ",
+    "qr-consensus": "הִדְרִיכ֥וּהוּ",
     "comment": "The מלא/חסר spelling difference is not important to us here.",
     "highlight": 3,
     "lc-loc": {"page": "404B", "column": 2, "line": 5},

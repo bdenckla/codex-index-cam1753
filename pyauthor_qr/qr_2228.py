@@ -17,7 +17,7 @@ RECORD_2228 = {
     "cv": "22:28",
     "lc": "א֖וֹמֶר",
     "what-is-weird": "טרחא not דחי",
-    "mam": "אֹ֭מֶר",
+    "qr-consensus": "אֹ֭מֶר",
     "comment": [
         "The scribe of uL probably intended a דחי but placed it like a טרחא.",
         "The מלא/חסר spelling difference is not important to us here.",

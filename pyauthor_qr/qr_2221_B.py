@@ -17,7 +17,7 @@ RECORD_2221_B = {
     "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "lc": "וּשְׁלם",
     "what-is-weird": "ל lacks קמץ־אתנח",
-    "mam": "וּשְׁלָ֑ם",
+    "qr-consensus": "וּשְׁלָ֑ם",
     "comment": _COMMENT_2221_B,
     "highlight": 3,
     "lc-loc": {"page": "403B", "column": 1, "line": -6},

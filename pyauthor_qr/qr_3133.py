@@ -6,7 +6,7 @@ RECORD_3133 = {
     "cv": "31:33",
     "lc": "עֲוֺֽנִי׃",
     "what-is-weird": "סילוק is on ו not נ",
-    "mam": "עֲוֺנִֽי׃",
+    "qr-consensus": "עֲוֺנִֽי׃",
     "highlight-lc": 2,
     "highlight-mam": 3,
     "lc-loc": {"page": "405B", "column": 2, "line": -3},

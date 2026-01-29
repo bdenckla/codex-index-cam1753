@@ -21,7 +21,7 @@ RECORD_3612 = {
     "cv": "36:12",
     "lc": "כִּבְלִי־",
     "what-is-weird": "כ not ב",
-    "mam": "בִּבְלִי־",
+    "qr-consensus": "בִּבְלִי־",
     "comment": [
         "Although my focus is pointing rather than spelling,",
         " I am interested in a spelling difference like this,",

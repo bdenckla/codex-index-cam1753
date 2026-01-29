@@ -4,7 +4,7 @@ RECORD_3812_A = {
     "n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
     "lc": "הְֽ֭מִיָּמֶיךָ",
     "what-is-weird": "simple שווא not חטף פתח",
-    "mam": "הֲֽ֭מִיָּמֶיךָ",
+    "qr-consensus": "הֲֽ֭מִיָּמֶיךָ",
     "comment": "39:20 is similar",
     "highlight": 1,
     "lc-loc": {"page": "408A", "column": 1, "line": -12},

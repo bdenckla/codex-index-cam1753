@@ -6,7 +6,7 @@ RECORD_0709 = {
     "cv": "7:9",
     "lc": "יַעֲלֽ͏ֶה׃",
     "what-is-weird": "סילוק precedes סגול",
-    "mam": "יַעֲלֶֽה׃",
+    "qr-consensus": "יַעֲלֶֽה׃",
     "highlight": 3,
     "lc-loc": {"page": "399A", "column": 1, "line": 14},
     "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,

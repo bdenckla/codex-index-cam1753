@@ -2,7 +2,7 @@ RECORD_0910_UXLC = {
     "cv": "9:10",
     "lc": "וְנִפְלָא֗וֹת",
     "what-is-weird": "Add geresh muqdam to initial vav. Add note 't'.",
-    "mam": "וְ֝נִפְלָא֗וֹת",
+    "qr-consensus": "וְ֝נִפְלָא֗וֹת",
     "comment": [
         "The geresh muqdam is very faint at the top left of the initial vav."
         " It appears to be doubled, possibly the outer edges of a single stroke.",

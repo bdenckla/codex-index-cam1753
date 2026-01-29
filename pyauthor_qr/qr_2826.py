@@ -13,7 +13,7 @@ RECORD_2826 = {
     "cv": "28:26",
     "lc": "בַּעֲשׂת֣וֹ",
     "what-is-weird": "ש lacks חולם dot",
-    "mam": "בַּעֲשֹׂת֣וֹ",
+    "qr-consensus": "בַּעֲשֹׂת֣וֹ",
     "comment": _COMMENT_2826,
     "highlight": 3,
     "lc-loc": {"page": "404B", "column": 2, "line": -1},

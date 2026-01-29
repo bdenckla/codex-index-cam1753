@@ -5,7 +5,7 @@ RECORD_1706 = {
     "cv": "17:6",
     "lc": "וְתֹ֖פֶתּ",
     "what-is-weird": "final ת has דגש",
-    "mam": "וְתֹ֖פֶת",
+    "qr-consensus": "וְתֹ֖פֶת",
     "comment": [
         "A דגש in a final ת doesn’t make sense",
         " without a קמץ or a שווא נח below.",

@@ -11,7 +11,7 @@ RECORD_3629 = {
     "cv": "36:29",
     "lc": "סֻכָּֽתֽוֹ׃",
     "what-is-weird": "כ has געיה",
-    "mam": "סֻכָּתֽוֹ׃",
+    "qr-consensus": "סֻכָּתֽוֹ׃",
     "comment": _COMMENT_3629,
     "highlight": 2,
     "lc-loc": {"page": "407B", "column": 1, "line": -5},

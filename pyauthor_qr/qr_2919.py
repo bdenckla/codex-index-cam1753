@@ -10,7 +10,7 @@ RECORD_2919 = {
     "cv": "29:19",
     "lc": "בִּקְצִירֽ͏ִי׃",
     "what-is-weird": "סילוק precedes חיריק",
-    "mam": "בִּקְצִירִֽי׃",
+    "qr-consensus": "בִּקְצִירִֽי׃",
     "comment": _COMMENT_2919,
     "highlight": 5,
     "lc-loc": {"page": "405A", "column": 1, "line": -4},

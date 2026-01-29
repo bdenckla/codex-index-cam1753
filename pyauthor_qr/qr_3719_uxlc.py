@@ -3,7 +3,7 @@ RECORD_3719_UXLC = {
     "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "lc": "לֹ֥א־",
     "what-is-weird": "Change merkha under lamed to meteg. Add note 'm'. Remove maqaf at end of word.",
-    "mam": "לֹֽא־",
+    "qr-consensus": "לֹֽא־",
     "comment": [
         "A maqaf may have been erased at the end of this word."
         " The erasure has “dented” the top of the nun.",

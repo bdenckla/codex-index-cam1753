@@ -7,7 +7,7 @@ RECORD_4125 = {
     "cv": "41:25",
     "lc": "לִבְלִי־חָת׃",
     "what-is-weird": "סילוק missing",
-    "mam": "לִבְלִי־חָֽת׃",
+    "qr-consensus": "לִבְלִי־חָֽת׃",
     "highlight": 6,
     "lc-loc": {"page": "409A", "column": 2, "line": 14},
     "bhq-comment": _BHQ_COMMENT_4125,

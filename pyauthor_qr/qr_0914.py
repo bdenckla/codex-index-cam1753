@@ -7,7 +7,7 @@ RECORD_0914 = {
     "lc-q": "(?)",
     "lc": "עִמּוֹ׃",
     "what-is-weird": "סילוק may be missing",
-    "mam": "עִמּֽוֹ׃",
+    "qr-consensus": "עִמּֽוֹ׃",
     "highlight": 2,
     "lc-loc": {"page": "399B", "column": 1, "line": 22, "including-blank-lines": 1},
     "bhq-comment": BHQ_COMMENT_0914_AND_0930,

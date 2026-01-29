@@ -7,7 +7,7 @@ RECORD_4010 = {
     "lc-q": "(?)",
     "lc": "גָֽא֣וֹן",
     "what-is-weird": "געיה may be present (on ג)",
-    "mam": "גָא֣וֹן",
+    "qr-consensus": "גָא֣וֹן",
     "comment": "The mark in question could easily be accidental.",
     "highlight": 1,
     "lc-loc": {"page": "408B", "column": 2, "line": -11},

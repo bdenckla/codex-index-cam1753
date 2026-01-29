@@ -6,7 +6,7 @@ RECORD_1508 = {
     "cv": "15:8",
     "lc": "אֱל֣וֹהַ",
     "what-is-weird": "ה lacks מפיק",
-    "mam": "אֱל֣וֹהַּ",
+    "qr-consensus": "אֱל֣וֹהַּ",
     "highlight": 4,
     "lc-loc": {"page": "401A", "column": 2, "line": -7},
     "bhq-comment": BHQ_COMMENT_LIKE_0409,

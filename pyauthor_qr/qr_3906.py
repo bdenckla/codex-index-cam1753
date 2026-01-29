@@ -6,7 +6,7 @@ RECORD_3906 = {
     "cv": "39:6",
     "lc": "מְלֵֽחָה׃",
     "what-is-weird": "סילוק is on ל not ח",
-    "mam": "מְלֵחָֽה׃",
+    "qr-consensus": "מְלֵחָֽה׃",
     "highlight-lc": 2,
     "highlight-mam": 3,
     "lc-loc": {"page": "408B", "column": 1, "line": 3},

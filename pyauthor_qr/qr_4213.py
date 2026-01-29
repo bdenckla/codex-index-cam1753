@@ -5,7 +5,7 @@ RECORD_4213 = {
     "cv": "42:13",
     "lc": "בָנֽוֹת׃",
     "what-is-weird": "ב lacks דגש",
-    "mam": "בָּנֽוֹת׃",
+    "qr-consensus": "בָּנֽוֹת׃",
     "highlight": 1,
     "lc-loc": {"page": "409B", "column": 1, "line": -9, "including-blank-lines": 1},
     "bhq-comment": BHQ_COMMENT_XELSEWHERE,

@@ -24,7 +24,7 @@ RECORD_3902 = {
     "cv": "39:2",
     "lc": "וְ֝יָדַעְתָּ֜",
     "what-is-weird": "גרש not רביע",
-    "mam": "וְ֝יָדַעְתָּ֗",
+    "qr-consensus": "וְ֝יָדַעְתָּ֗",
     "comment": _COMMENT_3902,
     "highlight": 5,
     "lc-loc": {"page": "408A", "column": 2, "line": -3},

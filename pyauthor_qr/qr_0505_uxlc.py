@@ -2,7 +2,7 @@ RECORD_0505_UXLC = {
     "cv": "5:5",
     "lc": "מִצִּנִּ֥ים",
     "what-is-weird": "Remove the dagesh from the tsadi.",
-    "mam": "מִצִנִּ֥ים",
+    "qr-consensus": "מִצִנִּ֥ים",
     "comment": [
         "No evidence for a dagesh in the tsadi is available.",
         "BHL has no dagesh in the tsadi. BHLA has no entry for this verse.",

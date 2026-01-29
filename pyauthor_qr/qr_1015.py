@@ -6,7 +6,7 @@ RECORD_1015 = {
     "cv": "10:15",
     "lc": "עָנְיֽ͏ִי׃",
     "what-is-weird": "סילוק precedes חיריק",
-    "mam": "עׇנְיִֽי׃",
+    "qr-consensus": "עׇנְיִֽי׃",
     "highlight": 3,
     "lc-loc": {"page": "400A", "column": 1, "line": 14},
     "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,

@@ -2,7 +2,7 @@ RECORD_2405_UXLC = {
     "cv": "24:5",
     "lc": "בַּֽמִּדְבָּ֗ר",
     "what-is-weird": "Change meteg under first bet to merkha.",
-    "mam": "בַּ֥מִּדְבָּ֗ר",
+    "qr-consensus": "בַּ֥מִּדְבָּ֗ר",
     "comment": [
         "The mark under the first bet has a distinct northeast-to-southwest inclination.",
         "BHL has a merkha under the first bet. BHLA has no entry for this verse.",

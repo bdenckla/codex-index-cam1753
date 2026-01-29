@@ -11,7 +11,7 @@ RECORD_2125 = {
     "cv": "21:25",
     "lc": "וִלֹֽא־",
     "what-is-weird": "חיריק not שווא",
-    "mam": "וְלֹֽא־",
+    "qr-consensus": "וְלֹֽא־",
     "comment": _COMMENT_2125,
     "highlight": 1,
     "lc-loc": {"page": "403A", "column": 2, "line": 13},

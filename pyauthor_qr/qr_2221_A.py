@@ -22,7 +22,7 @@ RECORD_2221_A = {
     "lc-q": "(?)",
     "lc": "עִמּ֑וֹ",
     "what-is-weird": "אתנח not מונח",
-    "mam": "עִמּ֣וֹ",
+    "qr-consensus": "עִמּ֣וֹ",
     "comment": _COMMENT_2221_A,
     "highlight": 2,
     "bhq-comment": _BHQ_COMMENT_2221_A,

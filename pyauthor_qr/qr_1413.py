@@ -54,7 +54,7 @@ RECORD_1413 = {
     "lc": "תָּ֤שִׁ֥ית",
     "lc-q": "(?)",
     "what-is-weird": "maybe מרכא not געיה",
-    "mam": "תָּ֤שִֽׁית",
+    "qr-consensus": "תָּ֤שִֽׁית",
     "comment-should-not-be-para-wrapped": True,
     "comment": _COMMENT_1413,
     "highlight": 2,

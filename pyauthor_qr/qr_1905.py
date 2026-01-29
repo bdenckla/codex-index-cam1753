@@ -13,7 +13,7 @@ RECORD_1905 = {
     "lc-q": "(?)",
     "lc": "חֶרְפָּתִּֽֿי",
     "what-is-weird": "דגש may fight with רפה",
-    "mam": "חֶרְפָּתִֽי׃",
+    "qr-consensus": "חֶרְפָּתִֽי׃",
     "comment": [
         "A דגש on a letter with רפה doesn’t make sense.",
         " The color image of μL reveals this דגש to be unlikely.",

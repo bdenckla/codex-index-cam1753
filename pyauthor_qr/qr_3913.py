@@ -10,7 +10,7 @@ RECORD_3913 = {
     "lc-q": "(?)",
     "lc": "אֶ֝בְרָה",
     "what-is-weird": "רביע מגרש may lack רביע",
-    "mam": "אֶ֝בְרָ֗ה",
+    "qr-consensus": "אֶ֝בְרָ֗ה",
     "comment": _COMMENT_3913,
     "highlight": 3,
     "lc-loc": {"page": "408B", "column": 1, "line": 11},

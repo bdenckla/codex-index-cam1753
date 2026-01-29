@@ -2,7 +2,7 @@ RECORD_3820_UXLC = {
     "cv": "38:20",
     "lc": "תָ֝בִ֗ין",
     "what-is-weird": "Remove the revia above the bet.",
-    "mam": "תָ֝בִין",
+    "qr-consensus": "תָ֝בִין",
     "comment": [
         "The only mark above the bet is a rafe which is not ordinarily transcribed here.",
         "BHL has no revia above the bet. BHLA has no entry for this verse.",

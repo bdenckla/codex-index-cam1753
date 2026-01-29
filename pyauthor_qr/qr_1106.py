@@ -6,7 +6,7 @@ RECORD_1106 = {
     "cv": "11:6",
     "lc": "אֱ֝ל֗וֹהַ",
     "what-is-weird": "ה lacks מפיק",
-    "mam": "אֱ֝ל֗וֹהַּ",
+    "qr-consensus": "אֱ֝ל֗וֹהַּ",
     "highlight": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": 5},
     "uxlc-position-within-verse": 11,

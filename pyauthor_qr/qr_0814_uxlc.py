@@ -2,7 +2,7 @@ RECORD_0814_UXLC = {
     "cv": "8:14",
     "lc": "עַ֝כָּבִ֗ישׁ",
     "what-is-weird": "Consider adding a transcription note 't' because revia over bet is obscured by a rafe.",
-    "mam": "עַ֝כָּבִ֗ישׁ",
+    "qr-consensus": "עַ֝כָּבִ֗ישׁ",
     "comment": [
         "The revia is visible in the left edge of the (untranscribed) rafe.",
         "BHL has a revia over the bet. BHLA has no entry for this verse.",

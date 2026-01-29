@@ -2,7 +2,7 @@ RECORD_2134_UXLC = {
     "cv": "21:34",
     "lc": "וּ֝תְשֽׁוּבֹתֵיכֶ֗ם",
     "what-is-weird": "Change meteg under shin to merkha.",
-    "mam": "וּ֝תְשׁ֥וּבֹתֵיכֶ֗ם",
+    "qr-consensus": "וּ֝תְשׁ֥וּבֹתֵיכֶ֗ם",
     "comment": [
         "The mark below the shin has the distinct northeast-to-southwest inclination of a merkha.",
         "BHL has a merkha under the shin. BHLA has no entry for this verse.",

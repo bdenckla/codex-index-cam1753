@@ -2,7 +2,7 @@ RECORD_1219_UXLC = {
     "cv": "12:19",
     "lc": "וְאֵֽתָנִ֣ים",
     "what-is-weird": "Change meteg under alef to tipeha.",
-    "mam": "וְאֵ֖תָנִ֣ים",
+    "qr-consensus": "וְאֵ֖תָנִ֣ים",
     "comment": [
         "The mark under the alef is clearly inclined northwest-to-southeast.",
         "BHL has a tipeha under the alef. BHLA has no entry for this verse.",

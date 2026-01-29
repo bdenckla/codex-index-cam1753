@@ -11,7 +11,7 @@ RECORD_0417 = {
     "cv": "4:17",
     "lc": "מֵאֱל֣וֹהַ",
     "what-is-weird": "ה lacks מפיק",
-    "mam": "מֵאֱל֣וֹהַּ",
+    "qr-consensus": "מֵאֱל֣וֹהַּ",
     "highlight": 5,
     "lc-loc": {"page": "398A", "column": 2, "line": 10},
     "bhq-comment": _BHQ_COMMENT_0417,

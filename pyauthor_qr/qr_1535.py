@@ -3,7 +3,7 @@ RECORD_1535 = {
     "lc": "וְיָלֹ֣ד",
     "lc-q": "(?)",
     "what-is-weird": "מונח may be on ל not $yod (י)",
-    "mam": "וְיָ֣לֹד",
+    "qr-consensus": "וְיָ֣לֹד",
     "comment": [
         "There is little evidence of a מונח in any location on this word.",
         " There is a mark that looks like a פתח between the $yod (י) and the ל,",

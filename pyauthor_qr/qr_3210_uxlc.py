@@ -2,7 +2,7 @@ RECORD_3210_UXLC = {
     "cv": "32:10",
     "lc": "דֵּעִ֣י",
     "what-is-weird": "Remove dagesh from dalet.",
-    "mam": "דֵעִ֣י",
+    "qr-consensus": "דֵעִ֣י",
     "comment": [
         "No sign of a dagesh is visible in the dalet.",
         "BHL has no dagesh in the dalet. BHLA has no entry for this verse.",

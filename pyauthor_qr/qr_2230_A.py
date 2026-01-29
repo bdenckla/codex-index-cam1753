@@ -12,7 +12,7 @@ RECORD_2230_A = {
     "lc": "יֽ͏ְמַלֵּ֥ט",
     "lc-q": "(?)",
     "what-is-weird": "$yod (י) may have געיה",
-    "mam": "יְמַלֵּ֥ט",
+    "qr-consensus": "יְמַלֵּ֥ט",
     "comment": [
         "The possible געיה is before שווא.",
         " There is another mark below those marks.",

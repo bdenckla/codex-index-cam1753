@@ -2,7 +2,7 @@ RECORD_2212 = {
     "cv": "22:12",
     "lc": "רֹ֭אשׁ",
     "what-is-weird": "דחי not טרחא",
-    "mam": "רֹ֖אשׁ",
+    "qr-consensus": "רֹ֖אשׁ",
     "comment": [
         "foo",
     ],

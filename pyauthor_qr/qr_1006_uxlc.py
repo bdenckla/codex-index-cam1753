@@ -2,7 +2,7 @@ RECORD_1006_UXLC = {
     "cv": "10:6",
     "lc": "וּ֭לְחַטָּאתִ֥י",
     "what-is-weird": "Change dehi under vav to meteg; change merkha under tav to meteg with an 'm' note.",
-    "mam": "וּֽלְחַטָּאתִֽי",
+    "qr-consensus": "וּֽלְחַטָּאתִֽי",
     "comment": [
         "The mark under the vav, currently transcribed as a dehi,"
         " is not sufficiently inclined to be taken as either a tipeha or dehi."

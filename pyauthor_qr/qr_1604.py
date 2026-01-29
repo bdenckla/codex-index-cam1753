@@ -12,7 +12,7 @@ RECORD_1604 = {
     "cv": "16:4",
     "lc": "ל֤וּ־",
     "what-is-weird": "מקף is present",
-    "mam": "ל֤וּ",
+    "qr-consensus": "ל֤וּ",
     "comment": _COMMENT_1604,
     "highlight-lc": 3,
     "lc-loc": {"page": "401B", "column": 2, "line": 3},

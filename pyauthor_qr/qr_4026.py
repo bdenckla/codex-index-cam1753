@@ -6,7 +6,7 @@ RECORD_4026 = {
     "cv": "40:26",
     "lc": "לֶֽחֱיוֹ׃",
     "what-is-weird": "סילוק on ל not $yod (י)",
-    "mam": "לֶחֱיֽוֹ׃",
+    "qr-consensus": "לֶחֱיֽוֹ׃",
     "highlight-lc": 1,
     "highlight-mam": 3,
     "lc-loc": {"page": "409A", "column": 1, "line": 8},

@@ -7,7 +7,7 @@ RECORD_3419 = {
     "n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
     "lc": "נִּכַּר־",
     "what-is-weird": "נ has דגש",
-    "mam": "נִכַּר־",
+    "qr-consensus": "נִכַּר־",
     "comment": [
         "The possible דגש is faint.",
         " The adjacent דגש (on כ) and other nearby marks are quite clear,",

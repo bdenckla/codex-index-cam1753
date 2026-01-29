@@ -6,7 +6,7 @@ RECORD_3920 = {
     "cv": "39:20",
     "lc": "הְֽ֭תַרְעִישֶׁנּוּ",
     "what-is-weird": "simple שווא not חטף פתח",
-    "mam": "הֲֽ֭תַרְעִישֶׁנּוּ",
+    "qr-consensus": "הֲֽ֭תַרְעִישֶׁנּוּ",
     "comment": "The situation with המימיך in 38:12 is similar.",
     "highlight": 1,
     "lc-loc": {"page": "408B", "column": 1, "line": -10},

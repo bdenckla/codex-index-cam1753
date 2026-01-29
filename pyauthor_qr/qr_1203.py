@@ -7,7 +7,7 @@ RECORD_1203 = {
     "cv": "12:3",
     "lc": "וְאֶת",
     "what-is-weird": "מקף is missing",
-    "mam": "וְאֶת־",
+    "qr-consensus": "וְאֶת־",
     "highlight-mam": 4,
     "lc-loc": {"page": "400A", "column": 2, "line": -1},
     "bhq-comment": _BHQ_COMMENT_1203,

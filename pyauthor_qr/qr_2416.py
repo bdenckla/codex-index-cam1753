@@ -6,7 +6,7 @@ RECORD_2416 = {
     "lc": "יָ֥דְּֿעוּ",
     "lc-q": "(?)",
     "what-is-weird": "דגש may fight with רפה",
-    "mam": "יָ֥דְעוּ",
+    "qr-consensus": "יָ֥דְעוּ",
     "comment": [
         "A דגש on a letter with רפה doesn’t make sense.",
         " The dot in question is suspiciously larger than nearby ones,",

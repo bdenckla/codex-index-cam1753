@@ -2,7 +2,7 @@ RECORD_3410 = {
     "cv": "34:10",
     "lc": "אַֽנֲשֵׁ֥י",
     "what-is-weird": "געיה not מרכא (on א)",
-    "mam": "אַ֥נֲשֵׁ֥י",
+    "qr-consensus": "אַ֥נֲשֵׁ֥י",
     "comment": [
         "foo",
     ],

@@ -6,7 +6,7 @@ RECORD_0316 = {
     "cv": "3:16",
     "lc": "א֚וֹ",
     "what-is-weird": "יתיב not מהפך",
-    "mam": "א֤וֹ",
+    "qr-consensus": "א֤וֹ",
     "comment": [
         "יתיב doesn’t make sense here because"
         " this is in the poetic rather than prose section of Job",

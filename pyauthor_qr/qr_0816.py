@@ -3,7 +3,7 @@ RECORD_0816 = {
     "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "lc": "יֹ֭נַקְתּ֥וֹ",
     "what-is-weird": "דחי not געיה",
-    "mam": "יֹֽנַקְתּ֥וֹ",
+    "qr-consensus": "יֹֽנַקְתּ֥וֹ",
     "comment": [
         "Above I have asserted that the consensus has געיה here,",
         " but this געיה, like most cases of געיה, is optional.",

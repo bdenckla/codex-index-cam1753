@@ -7,7 +7,7 @@ RECORD_2230_B = {
     "lc": "וְ֝נִּמְלַ֗ט",
     "lc-q": "(?)",
     "what-is-weird": "נ may have דגש",
-    "mam": "וְ֝נִמְלַ֗ט",
+    "qr-consensus": "וְ֝נִמְלַ֗ט",
     "comment": "The dot in question is suspiciously smaller than nearby ones.",
     "highlight": 2,
     "lc-loc": {"page": "403B", "column": 2, "line": 4},

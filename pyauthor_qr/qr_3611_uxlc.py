@@ -2,7 +2,7 @@ RECORD_3611_UXLC = {
     "cv": "36:11",
     "lc": "וְֽיַ֫עֲבֹ֥דוּ",
     "what-is-weird": "Move ole from over yod to over ayin.",
-    "mam": "וְֽיַעֲ֫בֹ֥דוּ",
+    "qr-consensus": "וְֽיַעֲ֫בֹ֥דוּ",
     "comment": [
         "The ole is clearly over the ayin.",
         "BHL has an ole over the ayin. BHLA has no entry for this verse.",

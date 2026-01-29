@@ -2,7 +2,7 @@ RECORD_1902_UXLC = {
     "cv": "19:2",
     "lc": "וּֽתְדַכְּאוּנַ֥נִי",
     "what-is-weird": "Remove sheva under the kaf.",
-    "mam": "וּֽתְדַכּאוּנַ֥נִי",
+    "qr-consensus": "וּֽתְדַכּאוּנַ֥נִי",
     "comment": [
         "An erasure under the kaf is apparent.",
         "BHL has no sheva under the kaf. BHLA has no entry for this verse.",

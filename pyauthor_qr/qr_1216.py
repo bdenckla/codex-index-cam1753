@@ -3,7 +3,7 @@ RECORD_1216 = {
     "lc": "וְתֽוּשִׁיָּ֑ה",
     "lc-q": "(?)",
     "what-is-weird": "ת may have געיה",
-    "mam": "וְתוּשִׁיָּ֑ה",
+    "qr-consensus": "וְתוּשִׁיָּ֑ה",
     "comment": [
         "There is a blob of ink below the ת.",
         " Most likely, this mark is a malformed masorah circle",

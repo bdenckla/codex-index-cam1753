@@ -14,7 +14,7 @@ RECORD_3812_B = {
     "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "lc": "יִדַּ֖עְתָּה הַשַּׁ֣חַר",
     "what-is-weird": "ה copied not moved in קרי",
-    "mam": "יִדַּ֖עְתָּ הַשַּׁ֣חַר",
+    "qr-consensus": "יִדַּ֖עְתָּ הַשַּׁ֣חַר",
     "comment": [
         "The consensus is that this is one of those כתיב/קרי cases",
         " where the word boundary shifts",

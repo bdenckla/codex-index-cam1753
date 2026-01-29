@@ -15,7 +15,7 @@ RECORD_2421 = {
     "lc-q": "(?)",
     "lc": "רֹעֵ֣ה",
     "what-is-weird": "maybe צירה not סגול",
-    "mam": "רֹעֶ֣ה",
+    "qr-consensus": "רֹעֶ֣ה",
     "comment": _COMMENT_2421,
     "highlight": 2,
     "lc-loc": {"page": "404A", "column": 1, "line": -6},

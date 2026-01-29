@@ -77,16 +77,16 @@ BHQ_COMMENT_0914_AND_0930 = [
     " despite little or no evidence for it in μL.",
 ]
 RECORD_1804_CMN_AB = {
-    "bhla-i": 24,
-    "cv": "18:4",
+    "qr-bhla-i": 24,
+    "qr-cv": "18:4",
     "qr-lc-proposed": "הֲ֭לְמַּעַנְךָ",
     "qr-consensus": "הַֽ֭לְמַעַנְךָ",
     "bhq": "הַ֭לְמַּעַנְךָ",
-    "lc-loc": {"page": "402A", "column": 1, "line": -4},
+    "qr-lc-loc": {"page": "402A", "column": 1, "line": -4},
 }
 RECORD_2221_CMN_AB = {
-    "cv": "22:21",
-    "lc-loc": {"page": "403B", "column": 1, "line": -6},
+    "qr-cv": "22:21",
+    "qr-lc-loc": {"page": "403B", "column": 1, "line": -6},
 }
 BHQ_COMMENT_2808_AND_2911 = [
     "$BHQ silently supplies the חיריק that is the consensus expectation,",

@@ -50,17 +50,17 @@ _COMMENT_3719 = [
 ]
 _EXTRAS = {
     "8:16": {
-        "n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
+        "qr-n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
     },
     "34:19": {
-        "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
+        "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     },
     "36:19": {
-        "comment": _COMMENT_3619,
+        "qr-comment": _COMMENT_3619,
     },
     "37:19": {
-        "n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
-        "comment": _COMMENT_3719,
+        "qr-n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
+        "qr-comment": _COMMENT_3719,
     },
 }
 
@@ -69,16 +69,16 @@ def _one_basic_to_record(cv_and_wlc):
     cv_str, wlc, lcloc = cv_and_wlc
     page, column, line = lcloc or ("40XY", 0, 0)
     cvlc_rec = {
-        "cv": cv_str,
+        "qr-cv": cv_str,
         "qr-lc-proposed": wlc.replace(ha.DEX, ha.TIP),
-        "what-is-weird": "טרחא not דחי",
+        "qr-what-is-weird": "טרחא not דחי",
         "qr-consensus": wlc,
-        "highlight": 1,
-        "lc-loc": {"page": page, "column": column, "line": line},
-        "bhq-comment": [
+        "qr-highlight": 1,
+        "qr-lc-loc": {"page": page, "column": column, "line": line},
+        "qr-bhq-comment": [
             "$BHQ is the source of this (flawed) transcription.",
         ],
-        "noted-by": "tBHQ-xBHL-xDM-zWLCdexi",
+        "qr-noted-by": "tBHQ-xBHL-xDM-zWLCdexi",
     }
     extras = _EXTRAS.get(cv_str)
     record = {**cvlc_rec, **extras} if extras else cvlc_rec

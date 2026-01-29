@@ -3,7 +3,7 @@ from pycmn.my_utils import dv_map
 
 def _bhq_and_t4o(quirkrec):
     """t4o: the four others (BHL, DM, WLC, & UXLC)"""
-    parts = quirkrec["noted-by"].split("-")
+    parts = quirkrec["qr-noted-by"].split("-")
     bhq, bhl, dm = parts[0], parts[1], parts[2]
     wlc = "xWLC" if len(parts) <= 3 else parts[3]
     uxlc = "xUXLC" if len(parts) <= 4 else parts[4]

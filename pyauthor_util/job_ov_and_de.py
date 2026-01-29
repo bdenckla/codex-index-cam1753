@@ -68,12 +68,12 @@ def _duplicates(seq):
 def _make_one_ov_and_de(uxlc, pbi, record):
     std_bcvp_quad = _std_bcvp_quad(record)
     pg_dict = my_uxlc_location.page_and_guesses(uxlc, pbi, std_bcvp_quad)
-    pg_diff = _pg_diff(pg_dict, record["lc-loc"])
+    pg_diff = _pg_diff(pg_dict, record["qr-lc-loc"])
     if pg_diff is not None:
         ri = row_id(record)
         print(ri, pg_diff)
         print(ri, pg_dict)
-        print(ri, record["lc-loc"])
+        print(ri, record["qr-lc-loc"])
     return {
         "od-overview": _make_overview_row(record),
         "od-details": _make_details_html(record),
@@ -98,8 +98,8 @@ def _pg_diff(pg_dict, lc_loc):
 
 
 def _std_bcvp_quad(record):
-    cn_colon_vn = record["cv"]
-    upwv = record.get("uxlc-position-within-verse")
+    cn_colon_vn = record["qr-cv"]
+    upwv = record.get("qr-uxlc-position-within-verse")
     pwv = upwv or 1  # use the position within verse if available, else 1
     bkid = py_uxlc_loc_tbn.BK_JOB
     chnu_str, vrnu_str = cn_colon_vn.split(":")
@@ -112,7 +112,7 @@ def _std_bcvp_quad(record):
 def _lc_and_mam(record):
     hlc = highlight(record, "qr-lc-proposed")
     hmam = highlight(record, "qr-consensus")
-    if lc_q := record.get("lc-q"):
+    if lc_q := record.get("qr-lc-q"):
         assert lc_q == "(?)"
         lc_and_q = [hlc, " (?)"]
     else:
@@ -127,8 +127,8 @@ def _make_overview_row(record):
     anc = my_html.anchor_h("#", f"{D1D_FNAME}#{the_row_id}")  # self-anchor
     tr_contents = [
         my_html.table_datum(_lc_and_mam(record), hbo_attrs),
-        my_html.table_datum([anc, " ", record["cv"]]),
-        author.table_datum(record["what-is-weird"]),
+        my_html.table_datum([anc, " ", record["qr-cv"]]),
+        author.table_datum(record["qr-what-is-weird"]),
     ]
     tr_attrs = {"id": the_row_id}
     return my_html.table_row(tr_contents, tr_attrs)
@@ -176,19 +176,19 @@ _SEP = " \N{EM DASH} "
 
 
 def _maybe_comment(record):
-    if comment := record.get("comment"):
+    if comment := record.get("qr-comment"):
         return [comment]
     return []
 
 
 def _maybe_bhqcom(record):
-    if bhqcom := record.get("bhq-comment"):
+    if bhqcom := record.get("qr-bhq-comment"):
         return [bhqcom]
     return []
 
 
 def _maybe_para_comment(record):
-    if comment := record.get("comment"):
+    if comment := record.get("qr-comment"):
         if record.get(_CSNBPR):
             return [comment]
         return [author.para(comment)]
@@ -196,7 +196,7 @@ def _maybe_para_comment(record):
 
 
 def _ancs(record):
-    cv = record["cv"]
+    cv = record["qr-cv"]
     uxlc_href = f"https://tanach.us/Tanach.xml?Job{cv}"
     uxlc_anc = my_html.anchor_h("U", uxlc_href)
     cn_v_vn = "c" + cv.replace(":", "v")
@@ -226,7 +226,7 @@ def _dpe_inline(record):
 def _dpe_stretched(record):
     return [
         *_maybe_para_comment(record),
-        author.para(record["bhq-comment"]),
+        author.para(record["qr-bhq-comment"]),
         _parasperse(_ancs_and_loc(record)),
     ]
 
@@ -240,7 +240,7 @@ def _ancs_and_loc(record):
     return [
         uxlc_anc,
         mwd_anc,
-        lcloc(record.get("lc-loc")),
+        lcloc(record.get("qr-lc-loc")),
     ]
 
 

@@ -3,13 +3,13 @@ _BHQ_COMMENT_4125 = [
     " despite no evidence for it in μL.",
 ]
 RECORD_4125 = {
-    "bhla-i": 52,
-    "cv": "41:25",
+    "qr-bhla-i": 52,
+    "qr-cv": "41:25",
     "qr-lc-proposed": "לִבְלִי־חָת׃",
-    "what-is-weird": "סילוק missing",
+    "qr-what-is-weird": "סילוק missing",
     "qr-consensus": "לִבְלִי־חָֽת׃",
-    "highlight": 6,
-    "lc-loc": {"page": "409A", "column": 2, "line": 14},
-    "bhq-comment": _BHQ_COMMENT_4125,
-    "noted-by": "xBHQ-nBHL-xDM",
+    "qr-highlight": 6,
+    "qr-lc-loc": {"page": "409A", "column": 2, "line": 14},
+    "qr-bhq-comment": _BHQ_COMMENT_4125,
+    "qr-noted-by": "xBHQ-nBHL-xDM",
 }

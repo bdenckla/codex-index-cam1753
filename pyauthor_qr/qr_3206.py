@@ -6,14 +6,14 @@ _BHQ_COMMENT_3206 = [
     "31:5 is similar and discusses the matter at greater length.",
 ]
 RECORD_3206 = {
-    "bhla-i": 39,
-    "cv": "32:6",
+    "qr-bhla-i": 39,
+    "qr-cv": "32:6",
     "qr-lc-proposed": "יְשִׁישׁ֑͏ִים",
-    "what-is-weird": "אתנח precedes חיריק",
+    "qr-what-is-weird": "אתנח precedes חיריק",
     "qr-consensus": "יְשִׁישִׁ֑ים",
-    "highlight": 4,
-    "lc-loc": {"page": "406A", "column": 1, "line": -6},
-    "uxlc-position-within-verse": 11,
-    "bhq-comment": _BHQ_COMMENT_3206,
-    "noted-by": "xBHQ-nBHL-xDM",
+    "qr-highlight": 4,
+    "qr-lc-loc": {"page": "406A", "column": 1, "line": -6},
+    "qr-uxlc-position-within-verse": 11,
+    "qr-bhq-comment": _BHQ_COMMENT_3206,
+    "qr-noted-by": "xBHQ-nBHL-xDM",
 }

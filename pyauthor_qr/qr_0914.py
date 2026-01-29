@@ -2,14 +2,14 @@ from pyauthor_util.job_common import BHQ_COMMENT_0914_AND_0930
 
 
 RECORD_0914 = {
-    "bhla-i": 9,
-    "cv": "9:14",
-    "lc-q": "(?)",
+    "qr-bhla-i": 9,
+    "qr-cv": "9:14",
+    "qr-lc-q": "(?)",
     "qr-lc-proposed": "עִמּוֹ׃",
-    "what-is-weird": "סילוק may be missing",
+    "qr-what-is-weird": "סילוק may be missing",
     "qr-consensus": "עִמּֽוֹ׃",
-    "highlight": 2,
-    "lc-loc": {"page": "399B", "column": 1, "line": 22, "including-blank-lines": 1},
-    "bhq-comment": BHQ_COMMENT_0914_AND_0930,
-    "noted-by": "xBHQ-nBHL-xDM",
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "399B", "column": 1, "line": 22, "including-blank-lines": 1},
+    "qr-bhq-comment": BHQ_COMMENT_0914_AND_0930,
+    "qr-noted-by": "xBHQ-nBHL-xDM",
 }

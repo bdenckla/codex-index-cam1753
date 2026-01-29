@@ -7,14 +7,14 @@ _BHQ_COMMENT_2125 = [
     " despite little or no evidence for it in μL.",
 ]
 RECORD_2125 = {
-    "bhla-i": 28,
-    "cv": "21:25",
+    "qr-bhla-i": 28,
+    "qr-cv": "21:25",
     "qr-lc-proposed": "וִלֹֽא־",
-    "what-is-weird": "חיריק not שווא",
+    "qr-what-is-weird": "חיריק not שווא",
     "qr-consensus": "וְלֹֽא־",
-    "comment": _COMMENT_2125,
-    "highlight": 1,
-    "lc-loc": {"page": "403A", "column": 2, "line": 13},
-    "bhq-comment": _BHQ_COMMENT_2125,
-    "noted-by": "xBHQ-nBHL-xDM",
+    "qr-comment": _COMMENT_2125,
+    "qr-highlight": 1,
+    "qr-lc-loc": {"page": "403A", "column": 2, "line": 13},
+    "qr-bhq-comment": _BHQ_COMMENT_2125,
+    "qr-noted-by": "xBHQ-nBHL-xDM",
 }

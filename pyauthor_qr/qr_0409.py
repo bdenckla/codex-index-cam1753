@@ -10,13 +10,13 @@ BHQ_COMMENT_0409 = [
 ]
 
 RECORD_0409 = {
-    "bhla-i": 2,
-    "cv": "4:9",
+    "qr-bhla-i": 2,
+    "qr-cv": "4:9",
     "qr-lc-proposed": "אֱל֣וֹהַ",
-    "what-is-weird": "ה lacks מפיק",
+    "qr-what-is-weird": "ה lacks מפיק",
     "qr-consensus": "אֱל֣וֹהַּ",
-    "highlight": 4,
-    "lc-loc": {"page": "398A", "column": 1, "line": -2},
-    "bhq-comment": BHQ_COMMENT_0409,
-    "noted-by": "nBHQ-nBHL-nDM",
+    "qr-highlight": 4,
+    "qr-lc-loc": {"page": "398A", "column": 1, "line": -2},
+    "qr-bhq-comment": BHQ_COMMENT_0409,
+    "qr-noted-by": "nBHQ-nBHL-nDM",
 }

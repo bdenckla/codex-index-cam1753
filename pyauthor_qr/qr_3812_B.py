@@ -10,12 +10,12 @@ _BHQ_COMMENT_3812_B = [
 ]
 
 RECORD_3812_B = {
-    "cv": "38:12",
-    "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
+    "qr-cv": "38:12",
+    "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-lc-proposed": "יִדַּ֖עְתָּה הַשַּׁ֣חַר",
-    "what-is-weird": "ה copied not moved in קרי",
+    "qr-what-is-weird": "ה copied not moved in קרי",
     "qr-consensus": "יִדַּ֖עְתָּ הַשַּׁ֣חַר",
-    "comment": [
+    "qr-comment": [
         "The consensus is that this is one of those כתיב/קרי cases",
         " where the word boundary shifts",
         " from being after a ה to before that ה.",
@@ -29,11 +29,11 @@ RECORD_3812_B = {
         [" μL can be though of as having ", my_html.bold("copied")],
         " the ה to the second word rather than moving it.",
     ],
-    "highlight-lc": 5,
-    "lc-loc": {"page": "408A", "column": 1, "line": -11},
+    "qr-highlight-lc": 5,
+    "qr-lc-loc": {"page": "408A", "column": 1, "line": -11},
     "aleppo-img": "Aleppo-3812_B.png",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/38/1/mg/106",
     "use-stretched-format": True,
-    "bhq-comment": _BHQ_COMMENT_3812_B,
-    "noted-by": "xBHQ-xBHL-xDM-nWLC",
+    "qr-bhq-comment": _BHQ_COMMENT_3812_B,
+    "qr-noted-by": "xBHQ-xBHL-xDM-nWLC",
 }

@@ -24,13 +24,13 @@ _RK_COLOR = {
     "qr-consensus": "green",
 }
 _RK_HL_SPECIFIC = {
-    "qr-lc-proposed": "highlight-lc",
-    "qr-consensus": "highlight-mam",
+    "qr-lc-proposed": "qr-highlight-lc",
+    "qr-consensus": "qr-highlight-mam",
 }
 
 
 def _zb_highlights(quirkrec, key):
-    hl_both = quirkrec.get("highlight")
+    hl_both = quirkrec.get("qr-highlight")
     hl_spec = quirkrec.get(_RK_HL_SPECIFIC[key])
     assert (hl_both is None) or (hl_spec is None)
     hl = hl_both or hl_spec

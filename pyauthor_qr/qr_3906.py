@@ -2,14 +2,14 @@ from pyauthor_util.job_common import BHQ_COMMENT_TBHQ_NELSEWHERE
 
 
 RECORD_3906 = {
-    "bhla-i": 47,
-    "cv": "39:6",
+    "qr-bhla-i": 47,
+    "qr-cv": "39:6",
     "qr-lc-proposed": "מְלֵֽחָה׃",
-    "what-is-weird": "סילוק is on ל not ח",
+    "qr-what-is-weird": "סילוק is on ל not ח",
     "qr-consensus": "מְלֵחָֽה׃",
-    "highlight-lc": 2,
-    "highlight-mam": 3,
-    "lc-loc": {"page": "408B", "column": 1, "line": 3},
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
-    "noted-by": "tBHQ-nBHL-nDM",
+    "qr-highlight-lc": 2,
+    "qr-highlight-mam": 3,
+    "qr-lc-loc": {"page": "408B", "column": 1, "line": 3},
+    "qr-bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+    "qr-noted-by": "tBHQ-nBHL-nDM",
 }

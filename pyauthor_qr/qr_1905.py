@@ -8,18 +8,18 @@ _BHQ_COMMENT_1905 = [
 ]
 
 RECORD_1905 = {
-    "bhla-i": 26,
-    "cv": "19:5",
-    "lc-q": "(?)",
+    "qr-bhla-i": 26,
+    "qr-cv": "19:5",
+    "qr-lc-q": "(?)",
     "qr-lc-proposed": "חֶרְפָּתִּֽֿי",
-    "what-is-weird": "דגש may fight with רפה",
+    "qr-what-is-weird": "דגש may fight with רפה",
     "qr-consensus": "חֶרְפָּתִֽי׃",
-    "comment": [
+    "qr-comment": [
         "A דגש on a letter with רפה doesn’t make sense.",
         " The color image of μL reveals this דגש to be unlikely.",
     ],
-    "highlight": 4,
-    "lc-loc": {"page": "402A", "column": 2, "line": -5},
-    "bhq-comment": _BHQ_COMMENT_1905,
-    "noted-by": "xBHQ-nBHL-xDM-nWLC",
+    "qr-highlight": 4,
+    "qr-lc-loc": {"page": "402A", "column": 2, "line": -5},
+    "qr-bhq-comment": _BHQ_COMMENT_1905,
+    "qr-noted-by": "xBHQ-nBHL-xDM-nWLC",
 }

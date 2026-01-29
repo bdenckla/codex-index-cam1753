@@ -14,13 +14,13 @@ _BHQ_COMMENT_2221_B = [
 ]
 RECORD_2221_B = {
     **RECORD_2221_CMN_AB,
-    "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
+    "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-lc-proposed": "וּשְׁלם",
-    "what-is-weird": "ל lacks קמץ־אתנח",
+    "qr-what-is-weird": "ל lacks קמץ־אתנח",
     "qr-consensus": "וּשְׁלָ֑ם",
-    "comment": _COMMENT_2221_B,
-    "highlight": 3,
-    "lc-loc": {"page": "403B", "column": 1, "line": -6},
-    "bhq-comment": _BHQ_COMMENT_2221_B,
-    "noted-by": "nBHQ-xBHL-xDM-nWLC",
+    "qr-comment": _COMMENT_2221_B,
+    "qr-highlight": 3,
+    "qr-lc-loc": {"page": "403B", "column": 1, "line": -6},
+    "qr-bhq-comment": _BHQ_COMMENT_2221_B,
+    "qr-noted-by": "nBHQ-xBHL-xDM-nWLC",
 }

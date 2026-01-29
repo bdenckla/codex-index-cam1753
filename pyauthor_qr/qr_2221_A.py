@@ -17,16 +17,16 @@ _CAM1753_IMG_INTRO_2221 = [
 ]
 RECORD_2221_A = {
     **RECORD_2221_CMN_AB,
-    "bhla-i": 29,
-    "n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
-    "lc-q": "(?)",
+    "qr-bhla-i": 29,
+    "qr-n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
+    "qr-lc-q": "(?)",
     "qr-lc-proposed": "עִמּ֑וֹ",
-    "what-is-weird": "אתנח not מונח",
+    "qr-what-is-weird": "אתנח not מונח",
     "qr-consensus": "עִמּ֣וֹ",
-    "comment": _COMMENT_2221_A,
-    "highlight": 2,
-    "bhq-comment": _BHQ_COMMENT_2221_A,
-    "noted-by": "tBHQ-nBHL-xDM-nWLC",
+    "qr-comment": _COMMENT_2221_A,
+    "qr-highlight": 2,
+    "qr-bhq-comment": _BHQ_COMMENT_2221_A,
+    "qr-noted-by": "tBHQ-nBHL-xDM-nWLC",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/22/1/mg/106",
     "aleppo-img": "Aleppo-2221.png",
     "cam1753-page-url": f"{CAM1753_PAGE_URL_BASE}/n83/mode/1up",

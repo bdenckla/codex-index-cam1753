@@ -7,14 +7,14 @@ _COMMENT_3629 = [
     " though no appeal to expectations is needed to dismiss this possible געיה.",
 ]
 RECORD_3629 = {
-    "bhla-i": 43,
-    "cv": "36:29",
+    "qr-bhla-i": 43,
+    "qr-cv": "36:29",
     "qr-lc-proposed": "סֻכָּֽתֽוֹ׃",
-    "what-is-weird": "כ has געיה",
+    "qr-what-is-weird": "כ has געיה",
     "qr-consensus": "סֻכָּתֽוֹ׃",
-    "comment": _COMMENT_3629,
-    "highlight": 2,
-    "lc-loc": {"page": "407B", "column": 1, "line": -5},
-    "bhq-comment": correctly_ignores("געיה", "36:29", "large"),
-    "noted-by": "tBHQ-nBHL-xDM",
+    "qr-comment": _COMMENT_3629,
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "407B", "column": 1, "line": -5},
+    "qr-bhq-comment": correctly_ignores("געיה", "36:29", "large"),
+    "qr-noted-by": "tBHQ-nBHL-xDM",
 }

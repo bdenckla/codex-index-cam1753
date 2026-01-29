@@ -1,19 +1,19 @@
 RECORD_1535 = {
-    "cv": "15:35",
+    "qr-cv": "15:35",
     "qr-lc-proposed": "וְיָלֹ֣ד",
-    "lc-q": "(?)",
-    "what-is-weird": "מונח may be on ל not $yod (י)",
+    "qr-lc-q": "(?)",
+    "qr-what-is-weird": "מונח may be on ל not $yod (י)",
     "qr-consensus": "וְיָ֣לֹד",
-    "comment": [
+    "qr-comment": [
         "There is little evidence of a מונח in any location on this word.",
         " There is a mark that looks like a פתח between the $yod (י) and the ל,",
         " but that is grammatically implausible.",
     ],
-    "highlight-lc": 3,
-    "highlight-mam": 2,
-    "lc-loc": {"page": "401B", "column": 1, "line": -3},
-    "bhq-comment": [
+    "qr-highlight-lc": 3,
+    "qr-highlight-mam": 2,
+    "qr-lc-loc": {"page": "401B", "column": 1, "line": -3},
+    "qr-bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
+    "qr-noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }

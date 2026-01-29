@@ -7,14 +7,14 @@ _BHQ_COMMENT_0121 = [
 ]
 
 RECORD_0121 = {
-    "bhla-i": 1,
-    "cv": "1:21",
+    "qr-bhla-i": 1,
+    "qr-cv": "1:21",
     "qr-lc-proposed": "שָׁ֔מָה",
-    "what-is-weird": "מ lacks דגש",
+    "qr-what-is-weird": "מ lacks דגש",
     "qr-consensus": "שָׁ֔מָּה",
-    "highlight": 2,
-    "lc-loc": {"page": "397B", "column": 1, "line": 1},
-    "uxlc-position-within-verse": 8,
-    "bhq-comment": _BHQ_COMMENT_0121,
-    "noted-by": "nBHQ-nBHL-nDM-nWLC",
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "397B", "column": 1, "line": 1},
+    "qr-uxlc-position-within-verse": 8,
+    "qr-bhq-comment": _BHQ_COMMENT_0121,
+    "qr-noted-by": "nBHQ-nBHL-nDM-nWLC",
 }

@@ -2,13 +2,13 @@ from pyauthor_util.job_common import BHQ_COMMENT_LIKE_0409
 
 
 RECORD_1508 = {
-    "bhla-i": 19,
-    "cv": "15:8",
+    "qr-bhla-i": 19,
+    "qr-cv": "15:8",
     "qr-lc-proposed": "אֱל֣וֹהַ",
-    "what-is-weird": "ה lacks מפיק",
+    "qr-what-is-weird": "ה lacks מפיק",
     "qr-consensus": "אֱל֣וֹהַּ",
-    "highlight": 4,
-    "lc-loc": {"page": "401A", "column": 2, "line": -7},
-    "bhq-comment": BHQ_COMMENT_LIKE_0409,
-    "noted-by": "tBHQ-nBHL-nDM",
+    "qr-highlight": 4,
+    "qr-lc-loc": {"page": "401A", "column": 2, "line": -7},
+    "qr-bhq-comment": BHQ_COMMENT_LIKE_0409,
+    "qr-noted-by": "tBHQ-nBHL-nDM",
 }

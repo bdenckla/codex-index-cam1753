@@ -8,14 +8,14 @@ _BHQ_COMMENT_1604 = [
     " between גלגל and אתנח הפוך.",
 ]
 RECORD_1604 = {
-    "bhla-i": 21,
-    "cv": "16:4",
+    "qr-bhla-i": 21,
+    "qr-cv": "16:4",
     "qr-lc-proposed": "ל֤וּ־",
-    "what-is-weird": "מקף is present",
+    "qr-what-is-weird": "מקף is present",
     "qr-consensus": "ל֤וּ",
-    "comment": _COMMENT_1604,
-    "highlight-lc": 3,
-    "lc-loc": {"page": "401B", "column": 2, "line": 3},
-    "bhq-comment": _BHQ_COMMENT_1604,
-    "noted-by": "tBHQ-nBHL-xDM",
+    "qr-comment": _COMMENT_1604,
+    "qr-highlight-lc": 3,
+    "qr-lc-loc": {"page": "401B", "column": 2, "line": 3},
+    "qr-bhq-comment": _BHQ_COMMENT_1604,
+    "qr-noted-by": "tBHQ-nBHL-xDM",
 }

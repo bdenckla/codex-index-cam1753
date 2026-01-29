@@ -7,13 +7,13 @@ _BHQ_COMMENT_0417 = [
     " For more details, see my entry on 4:9.",
 ]
 RECORD_0417 = {
-    "bhla-i": 3,
-    "cv": "4:17",
+    "qr-bhla-i": 3,
+    "qr-cv": "4:17",
     "qr-lc-proposed": "מֵאֱל֣וֹהַ",
-    "what-is-weird": "ה lacks מפיק",
+    "qr-what-is-weird": "ה lacks מפיק",
     "qr-consensus": "מֵאֱל֣וֹהַּ",
-    "highlight": 5,
-    "lc-loc": {"page": "398A", "column": 2, "line": 10},
-    "bhq-comment": _BHQ_COMMENT_0417,
-    "noted-by": "tBHQ-nBHL-nDM",
+    "qr-highlight": 5,
+    "qr-lc-loc": {"page": "398A", "column": 2, "line": 10},
+    "qr-bhq-comment": _BHQ_COMMENT_0417,
+    "qr-noted-by": "tBHQ-nBHL-nDM",
 }

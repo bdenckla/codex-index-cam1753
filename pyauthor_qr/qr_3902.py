@@ -20,17 +20,17 @@ _BHQ_COMMENT_3902 = [
     " its 1984 to 1997 changes.",
 ]
 RECORD_3902 = {
-    "bhla-i": 46,
-    "cv": "39:2",
+    "qr-bhla-i": 46,
+    "qr-cv": "39:2",
     "qr-lc-proposed": "וְ֝יָדַעְתָּ֜",
-    "what-is-weird": "גרש not רביע",
+    "qr-what-is-weird": "גרש not רביע",
     "qr-consensus": "וְ֝יָדַעְתָּ֗",
-    "comment": _COMMENT_3902,
-    "highlight": 5,
-    "lc-loc": {"page": "408A", "column": 2, "line": -3},
+    "qr-comment": _COMMENT_3902,
+    "qr-highlight": 5,
+    "qr-lc-loc": {"page": "408A", "column": 2, "line": -3},
     "use-stretched-format": True,
-    "bhq-comment": _BHQ_COMMENT_3902,
-    "noted-by": "xBHQ-nBHL-xDM",
+    "qr-bhq-comment": _BHQ_COMMENT_3902,
+    "qr-noted-by": "xBHQ-nBHL-xDM",
     # Perhaps I should have been charitable to BHQ and said tBHQ instead of xBHQ,
     # since BHQ’s transcription of רביע is somewhat reasonable if it were accompanied by a note.
     # But it is not accompanied by a note, and without a note, BHQ needs to make weird things in μL

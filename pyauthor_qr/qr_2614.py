@@ -21,16 +21,16 @@ _COMMENT_2614 = [
 ]
 
 RECORD_2614 = {
-    "cv": "26:14",
+    "qr-cv": "26:14",
     "qr-lc-proposed": "גְּ֝בוּרוֹתָ֗יו",
-    "what-is-weird": "חולם becomes מלא in קרי",
+    "qr-what-is-weird": "חולם becomes מלא in קרי",
     "qr-consensus": "גְּ֝בוּרֹתָ֗יו",
-    "comment": _COMMENT_2614,
-    "highlight-lc": 5,
-    "lc-loc": {"page": "404A", "column": 2, "line": -5},
+    "qr-comment": _COMMENT_2614,
+    "qr-highlight-lc": 5,
+    "qr-lc-loc": {"page": "404A", "column": 2, "line": -5},
     "aleppo-img": "Aleppo-2614.png",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/26/14/mg/106",
     "use-stretched-format": True,
-    "bhq-comment": _BHQ_COMMENT_2614,
-    "noted-by": "xBHQ-xBHL-xDM-nWLC",
+    "qr-bhq-comment": _BHQ_COMMENT_2614,
+    "qr-noted-by": "xBHQ-xBHL-xDM-nWLC",
 }

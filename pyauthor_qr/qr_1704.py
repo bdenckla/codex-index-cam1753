@@ -9,20 +9,20 @@ _UXLC_NEEDS_FIX = [
 ]
 
 RECORD_1704 = {
-    "cv": "17:4",
+    "qr-cv": "17:4",
     "qr-lc-proposed": "מִּשָּׂ֑כֶל",
-    "lc-q": "(?)",
-    "what-is-weird": "מ may have דגש",
+    "qr-lc-q": "(?)",
+    "qr-what-is-weird": "מ may have דגש",
     "qr-consensus": "מִשָּׂ֑כֶל",
-    "comment": [
+    "qr-comment": [
         "The color image of μL reveals this דגש to be unlikely.",
         " Surprisingly, $BHL includes this דגש in its body text",
         " rather than noting it in $BHL_A.",
     ],
-    "highlight": 1,
-    "lc-loc": {"page": "402A", "column": 1, "line": 5},
-    "bhq-comment": correctly_ignores("דגש", "17:4"),
-    "noted-by": "xBHQ-xBHL-xDM-nWLC",
+    "qr-highlight": 1,
+    "qr-lc-loc": {"page": "402A", "column": 1, "line": 5},
+    "qr-bhq-comment": correctly_ignores("דגש", "17:4"),
+    "qr-noted-by": "xBHQ-xBHL-xDM-nWLC",
     "uxlc-needs-fix": _UXLC_NEEDS_FIX,
     # This is a bracket-p note in WLC.
     # We take it to note a quirk because MAM reveals that WLC is diverging from consensus here.

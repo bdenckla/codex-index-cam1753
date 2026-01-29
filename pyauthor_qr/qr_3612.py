@@ -18,20 +18,20 @@ _BHQ_COMMENT_3612 = [
     " Nor do I see any קרי note in the margin.",
 ]
 RECORD_3612 = {
-    "cv": "36:12",
+    "qr-cv": "36:12",
     "qr-lc-proposed": "כִּבְלִי־",
-    "what-is-weird": "כ not ב",
+    "qr-what-is-weird": "כ not ב",
     "qr-consensus": "בִּבְלִי־",
-    "comment": [
+    "qr-comment": [
         "Although my focus is pointing rather than spelling,",
         " I am interested in a spelling difference like this,",
         " since it is not just a חסר vs מלא difference.",
     ],
-    "highlight": 1,
-    "lc-loc": {"page": "407B", "column": 1, "line": 4},
+    "qr-highlight": 1,
+    "qr-lc-loc": {"page": "407B", "column": 1, "line": 4},
     "use-stretched-format": True,
-    "bhq-comment": _BHQ_COMMENT_3612,
-    "noted-by": "nBHQ-xBHL-nDM-nWLC",
+    "qr-bhq-comment": _BHQ_COMMENT_3612,
+    "qr-noted-by": "nBHQ-xBHL-nDM-nWLC",
     "aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "aleppo-img": "Aleppo-3612.png",
     "cam1753-page-url": f"{CAM1753_PAGE_URL_BASE}/n87/mode/1up",

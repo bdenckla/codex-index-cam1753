@@ -13,14 +13,14 @@ _BHQ_COMMENT_3105 = [
     " it is fair for me to point out when it fails to do so.",
 ]
 RECORD_3105 = {
-    "bhla-i": 36,
-    "cv": "31:5",
+    "qr-bhla-i": 36,
+    "qr-cv": "31:5",
     "qr-lc-proposed": "רַגְלֽ͏ִי׃",
-    "what-is-weird": "סילוק precedes חיריק",
+    "qr-what-is-weird": "סילוק precedes חיריק",
     "qr-consensus": "רַגְלִֽי׃",
-    "highlight": 3,
-    "lc-loc": {"page": "405B", "column": 1, "line": -9, "including-blank-lines": 1},
-    "uxlc-position-within-verse": 8,
-    "bhq-comment": _BHQ_COMMENT_3105,
-    "noted-by": "xBHQ-nBHL-xDM",
+    "qr-highlight": 3,
+    "qr-lc-loc": {"page": "405B", "column": 1, "line": -9, "including-blank-lines": 1},
+    "qr-uxlc-position-within-verse": 8,
+    "qr-bhq-comment": _BHQ_COMMENT_3105,
+    "qr-noted-by": "xBHQ-nBHL-xDM",
 }

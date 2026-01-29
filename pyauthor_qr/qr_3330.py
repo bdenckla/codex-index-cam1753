@@ -1,16 +1,16 @@
 RECORD_3330 = {
-    "bhla-i": 41,
-    "cv": "33:30",
+    "qr-bhla-i": 41,
+    "qr-cv": "33:30",
     "qr-lc-proposed": "הַֽחַיִּים׃",
-    "what-is-weird": "סילוק is on syl. 1 not 3",
+    "qr-what-is-weird": "סילוק is on syl. 1 not 3",
     "qr-consensus": "הַחַיִּֽים׃",
-    "highlight-lc": 1,
-    "highlight-mam": 3,
-    "lc-loc": {"page": "406B", "column": 1, "line": -1},
-    "uxlc-position-within-verse": 7,
-    "bhq-comment": [
+    "qr-highlight-lc": 1,
+    "qr-highlight-mam": 3,
+    "qr-lc-loc": {"page": "406B", "column": 1, "line": -1},
+    "qr-uxlc-position-within-verse": 7,
+    "qr-bhq-comment": [
         "$BHQ notes that here μL disagrees with μA and μY,",
         " which have the consensus pointing.",
     ],
-    "noted-by": "nBHQ-nBHL-nDM",
+    "qr-noted-by": "nBHQ-nBHL-nDM",
 }

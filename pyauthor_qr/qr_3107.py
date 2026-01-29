@@ -13,17 +13,17 @@ _BHQ_COMMENT_3107 = [
     " which seems more likely a typo than a deliberate choice.",
 ]
 RECORD_3107 = {
-    "bhla-i": 37,
-    "cv": "31:7",
+    "qr-bhla-i": 37,
+    "qr-cv": "31:7",
     "qr-lc-proposed": "מֻאֿוּֽם׃",
-    "what-is-weird": "קבוץ and סילוק not סילוק and ∅",
+    "qr-what-is-weird": "קבוץ and סילוק not סילוק and ∅",
     "qr-consensus": "מֽאֿוּם׃",
-    "highlight": [1, 3],
-    "lc-loc": {"page": "405B", "column": 1, "line": -6, "including-blank-lines": 1},
+    "qr-highlight": [1, 3],
+    "qr-lc-loc": {"page": "405B", "column": 1, "line": -6, "including-blank-lines": 1},
     "use-stretched-format": True,
-    "bhq-comment": _BHQ_COMMENT_3107,
+    "qr-bhq-comment": _BHQ_COMMENT_3107,
     "bhq": "מֻאֽוּם׃",
-    "noted-by": "xBHQ-nBHL-nDM-nWLC",
+    "qr-noted-by": "xBHQ-nBHL-nDM-nWLC",
     # Above we consider this xBHQ because:
     #    Though it attempts to transcribe the quirk, it does so inaccurately.
     #    Though it notes the quirk, it does so inaccurately.

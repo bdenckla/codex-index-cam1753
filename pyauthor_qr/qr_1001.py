@@ -2,14 +2,14 @@ from pyauthor_util.job_common import BHQ_COMMENT_TBHQ_NELSEWHERE
 
 
 RECORD_1001 = {
-    "bhla-i": 12,
-    "cv": "10:1",
+    "qr-bhla-i": 12,
+    "qr-cv": "10:1",
     "qr-lc-proposed": "אֲ֝דַבְּרָה֗",
-    "what-is-weird": "רביע is on ה not ר",
+    "qr-what-is-weird": "רביע is on ה not ר",
     "qr-consensus": "אֲ֝דַבְּרָ֗ה",
-    "highlight-lc": 5,
-    "highlight-mam": 4,
-    "lc-loc": {"page": "399B", "column": 2, "line": -6},
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
-    "noted-by": "tBHQ-nBHL-xDM",
+    "qr-highlight-lc": 5,
+    "qr-highlight-mam": 4,
+    "qr-lc-loc": {"page": "399B", "column": 2, "line": -6},
+    "qr-bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+    "qr-noted-by": "tBHQ-nBHL-xDM",
 }

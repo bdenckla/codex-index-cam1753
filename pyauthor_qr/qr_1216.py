@@ -1,21 +1,21 @@
 RECORD_1216 = {
-    "cv": "12:16",
+    "qr-cv": "12:16",
     "qr-lc-proposed": "וְתֽוּשִׁיָּ֑ה",
-    "lc-q": "(?)",
-    "what-is-weird": "ת may have געיה",
+    "qr-lc-q": "(?)",
+    "qr-what-is-weird": "ת may have געיה",
     "qr-consensus": "וְתוּשִׁיָּ֑ה",
-    "comment": [
+    "qr-comment": [
         "There is a blob of ink below the ת.",
         " Most likely, this mark is a malformed masorah circle",
         " on the word מוליך on the line below.",
     ],
-    "bhq-comment": [
+    "qr-bhq-comment": [
         "$BHQ seems to transcribe the blob of ink as both",
         " a געיה on ת and a masorah circle on מוליך.",
         " $BHS did not have this געיה;",
         " I wish $BHQ had left well enough alone.",
     ],
-    "highlight": 2,
-    "lc-loc": {"page": "400B", "column": 1, "line": -11},
-    "noted-by": "tBHQ-xBHL-xDM-nWLC",
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "400B", "column": 1, "line": -11},
+    "qr-noted-by": "tBHQ-xBHL-xDM-nWLC",
 }

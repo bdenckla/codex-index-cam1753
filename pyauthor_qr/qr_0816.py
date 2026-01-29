@@ -1,10 +1,10 @@
 RECORD_0816 = {
-    "cv": "8:16",
-    "n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
+    "qr-cv": "8:16",
+    "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-lc-proposed": "יֹ֭נַקְתּ֥וֹ",
-    "what-is-weird": "דחי not געיה",
+    "qr-what-is-weird": "דחי not געיה",
     "qr-consensus": "יֹֽנַקְתּ֥וֹ",
-    "comment": [
+    "qr-comment": [
         "Above I have asserted that the consensus has געיה here,",
         " but this געיה, like most cases of געיה, is optional.",
         " Therefore, one could just as easily assert the consensus has no געיה.",
@@ -15,10 +15,10 @@ RECORD_0816 = {
         " In other words, it is better to frame this as a question of דחי vs געיה",
         " than as a question of דחי vs no mark at all.",
     ],
-    "highlight": 1,
-    "lc-loc": {"page": "399A", "column": 2, "line": -4},
-    "bhq-comment": [
+    "qr-highlight": 1,
+    "qr-lc-loc": {"page": "399A", "column": 2, "line": -4},
+    "qr-bhq-comment": [
         "$BHQ is the source of this (flawed) transcription.",
     ],
-    "noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
+    "qr-noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }

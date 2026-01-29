@@ -13,18 +13,18 @@ _BHQ_COMMENT_2228 = [
     " as far as I know it never notes its charity.",
 ]
 RECORD_2228 = {
-    "bhla-i": 30,
-    "cv": "22:28",
+    "qr-bhla-i": 30,
+    "qr-cv": "22:28",
     "qr-lc-proposed": "א֖וֹמֶר",
-    "what-is-weird": "טרחא not דחי",
+    "qr-what-is-weird": "טרחא not דחי",
     "qr-consensus": "אֹ֭מֶר",
-    "comment": [
+    "qr-comment": [
         "The scribe of uL probably intended a דחי but placed it like a טרחא.",
         "The מלא/חסר spelling difference is not important to us here.",
     ],
-    "highlight": 1,
-    "lc-loc": {"page": "403B", "column": 2, "line": 2},
+    "qr-highlight": 1,
+    "qr-lc-loc": {"page": "403B", "column": 2, "line": 2},
     "use-stretched-format": True,
-    "bhq-comment": _BHQ_COMMENT_2228,
-    "noted-by": "tBHQ-nBHL-xDM",
+    "qr-bhq-comment": _BHQ_COMMENT_2228,
+    "qr-noted-by": "tBHQ-nBHL-xDM",
 }

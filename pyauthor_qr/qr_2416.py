@@ -2,19 +2,19 @@ from pyauthor_util.job_common import BHQ_COMMENT_XELSEWHERE_DUBIOUS
 
 
 RECORD_2416 = {
-    "cv": "24:16",
+    "qr-cv": "24:16",
     "qr-lc-proposed": "יָ֥דְּֿעוּ",
-    "lc-q": "(?)",
-    "what-is-weird": "דגש may fight with רפה",
+    "qr-lc-q": "(?)",
+    "qr-what-is-weird": "דגש may fight with רפה",
     "qr-consensus": "יָ֥דְעוּ",
-    "comment": [
+    "qr-comment": [
         "A דגש on a letter with רפה doesn’t make sense.",
         " The dot in question is suspiciously larger than nearby ones,",
         " and looks different from them in other ways.",
     ],
-    "highlight": 2,
-    "lc-loc": {"page": "404A", "column": 1, "line": -12},
-    "bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
-    "noted-by": "nBHQ-xBHL-xDM",
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "404A", "column": 1, "line": -12},
+    "qr-bhq-comment": BHQ_COMMENT_XELSEWHERE_DUBIOUS,
+    "qr-noted-by": "nBHQ-xBHL-xDM",
     "uxlc-needs-fix": True,
 }

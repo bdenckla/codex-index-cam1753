@@ -50,21 +50,21 @@ _COMMENT_1413 = [
     author.para(_COMMENT_1413_PARA3),
 ]
 RECORD_1413 = {
-    "cv": "14:13",
+    "qr-cv": "14:13",
     "qr-lc-proposed": "תָּ֤שִׁ֥ית",
-    "lc-q": "(?)",
-    "what-is-weird": "maybe מרכא not געיה",
+    "qr-lc-q": "(?)",
+    "qr-what-is-weird": "maybe מרכא not געיה",
     "qr-consensus": "תָּ֤שִֽׁית",
     "comment-should-not-be-para-wrapped": True,
-    "comment": _COMMENT_1413,
-    "highlight": 2,
-    "lc-loc": {"page": "401A", "column": 1, "line": -3},
+    "qr-comment": _COMMENT_1413,
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "401A", "column": 1, "line": -3},
     "use-stretched-format": True,
-    "bhq-comment": [
+    "qr-bhq-comment": [
         "$BHQ benefits from ignoring $WLC here,",
         " though $BHQ likely ignored $WLC as a whole",
         " rather than considering and rejecting",
         " this particular change in $WLC relative to $BHS.",
     ],
-    "noted-by": "xBHQ-xBHL-xDM-nWLC",
+    "qr-noted-by": "xBHQ-xBHL-xDM-nWLC",
 }

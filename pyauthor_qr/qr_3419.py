@@ -2,20 +2,20 @@ from pyauthor_util.job_common import correctly_ignores
 
 
 RECORD_3419 = {
-    "bhla-i": 42,
-    "cv": "34:19",
-    "n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
+    "qr-bhla-i": 42,
+    "qr-cv": "34:19",
+    "qr-n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
     "qr-lc-proposed": "נִּכַּר־",
-    "what-is-weird": "נ has דגש",
+    "qr-what-is-weird": "נ has דגש",
     "qr-consensus": "נִכַּר־",
-    "comment": [
+    "qr-comment": [
         "The possible דגש is faint.",
         " The adjacent דגש (on כ) and other nearby marks are quite clear,",
         " casting suspicion on the legitimacy of this דגש.",
     ],
-    "highlight": 1,
-    "lc-loc": {"page": "406B", "column": 2, "line": -2},
-    "bhq-comment": correctly_ignores("דגש", "34:19"),
+    "qr-highlight": 1,
+    "qr-lc-loc": {"page": "406B", "column": 2, "line": -2},
+    "qr-bhq-comment": correctly_ignores("דגש", "34:19"),
     "use-stretched-format": True,
-    "noted-by": "xBHQ-nBHL-nDM",
+    "qr-noted-by": "xBHQ-nBHL-nDM",
 }

@@ -1,11 +1,11 @@
 RECORD_0801 = {
-    "bhla-i": 7,
-    "cv": "8:1",
+    "qr-bhla-i": 7,
+    "qr-cv": "8:1",
     "qr-lc-proposed": "וַיֹאמַֽר׃",
-    "what-is-weird": "$yod (י) lacks דגש",
+    "qr-what-is-weird": "$yod (י) lacks דגש",
     "qr-consensus": "וַיֹּאמַֽר׃",
-    "highlight": 2,
-    "lc-loc": {"page": "399A", "column": 2, "line": 5, "including-blank-lines": 1},
-    "bhq-comment": "This quirk is noted in $BHQ.",
-    "noted-by": "nBHQ-nBHL-xDM-nWLC",
+    "qr-highlight": 2,
+    "qr-lc-loc": {"page": "399A", "column": 2, "line": 5, "including-blank-lines": 1},
+    "qr-bhq-comment": "This quirk is noted in $BHQ.",
+    "qr-noted-by": "nBHQ-nBHL-xDM-nWLC",
 }

@@ -2,18 +2,18 @@ from pyauthor_util.job_common import BHQ_COMMENT_TBHQ_NELSEWHERE
 
 
 RECORD_0721 = {
-    "bhla-i": 6,
-    "cv": "7:21",
+    "qr-bhla-i": 6,
+    "qr-cv": "7:21",
     "qr-lc-proposed": "וְשִׁ֖חֲרְתַּ֣נִי",
-    "what-is-weird": "פתח on ח is חטף",
+    "qr-what-is-weird": "פתח on ח is חטף",
     "qr-consensus": "וְשִׁ֖חַרְתַּ֣נִי",
-    "comment": [
+    "qr-comment": [
         "It doesn’t make sense to have a חטף vowel (aka a חטף שווא)",
         " followed by a simple שווא.",
         " Yet, the manuscript image clearly shows this.",
     ],
-    "highlight": 3,
-    "lc-loc": {"page": "399A", "column": 2, "line": 3},
-    "bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
-    "noted-by": "tBHQ-nBHL-nDM",
+    "qr-highlight": 3,
+    "qr-lc-loc": {"page": "399A", "column": 2, "line": 3},
+    "qr-bhq-comment": BHQ_COMMENT_TBHQ_NELSEWHERE,
+    "qr-noted-by": "tBHQ-nBHL-nDM",
 }

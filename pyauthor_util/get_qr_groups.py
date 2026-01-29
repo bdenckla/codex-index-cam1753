@@ -1,3 +1,6 @@
+from pycmn.my_utils import dv_map
+
+
 def _bhq_and_t4o(quirkrec):
     """t4o: the four others (BHL, DM, WLC, & UXLC)"""
     parts = quirkrec["noted-by"].split("-")
@@ -73,6 +76,22 @@ def _tbhq_and_zu(quirkrec):
     return t4o[3] == "zUXLC"
 
 
+def _filter(quirkrecs, filter_fn):
+    return list(filter(filter_fn, quirkrecs))
+
+
+_FILTER_FNS = {
+    "nbhq_and_x3": _nbhq_and_x3,
+    "nbhq_and_n3": _nbhq_and_n3,
+    "xbhq_and_n3": _xbhq_and_n3,
+    "tbhq_and_n3": _tbhq_and_n3,
+    "tbhq_and_zwd": _tbhq_and_zwd,
+    "tbhq_and_zwm": _tbhq_and_zwm,
+    "tbhq_and_nu": _tbhq_and_nu,
+    "tbhq_and_zu": _tbhq_and_zu,
+}
+
+
 def get_qr_groups(quirkrecs):
     # nbhq: noted (as a quirk) in BHQ
     # xbhq: not noted (as a quirk) in BHQ
@@ -82,18 +101,5 @@ def get_qr_groups(quirkrecs):
     #     flagged as a change in WLC relative to BHS, e.g. a bracket-c or bracket-v note.
     #     comparison with MAM revealed that it is a change back towards consensus,
     #     i.e. this is BHS/BHQ proposing a quirk that is not in μL (according to WLC at least)
-    nbhq_and_x3 = list(filter(_nbhq_and_x3, quirkrecs))
-    nbhq_and_n3 = list(filter(_nbhq_and_n3, quirkrecs))
-    xbhq_and_n3 = list(filter(_xbhq_and_n3, quirkrecs))
-    tbhq_and_n3 = list(filter(_tbhq_and_n3, quirkrecs))
-    tbhq_and_zwm = list(filter(_tbhq_and_zwm, quirkrecs))
-    tbhq_and_zwd = list(filter(_tbhq_and_zwd, quirkrecs))
-    groups = {
-        "nbhq_and_x3": nbhq_and_x3,
-        "nbhq_and_n3": nbhq_and_n3,
-        "xbhq_and_n3": xbhq_and_n3,
-        "tbhq_and_n3": tbhq_and_n3,
-        "tbhq_and_zwd": tbhq_and_zwd,
-        "tbhq_and_zwm": tbhq_and_zwm,
-    }
+    groups = dv_map((_filter, quirkrecs), _FILTER_FNS)
     return groups

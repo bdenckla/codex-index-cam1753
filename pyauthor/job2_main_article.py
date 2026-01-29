@@ -16,6 +16,9 @@ def gen_html_file(tdm_ch, ov_and_de, qr_groups):
 
 
 def _make_cbody(ov_and_de, qr_groups):
+    the_lens = dv_map(len, qr_groups)
+    len_dexi = the_lens["tbhq_and_zwd"]
+    len_misc = the_lens["tbhq_and_zwm"]
     cbody = [
         author.heading_level_1(D2_H1_CONTENTS),
         author.para_ol(_CPARA10, _CLIST10),
@@ -34,10 +37,10 @@ def _make_cbody(ov_and_de, qr_groups):
         para_and_table(_cpara20, ov_and_de, qr_groups["tbhq_and_n3"]),
         author.para(_cpara22()),
         author.para(_cpara23(len(qr_groups["nbhq_and_n3"]))),
-        author.para(_cpara24a(len(qr_groups["tbhq_and_zwd"]), len(qr_groups["tbhq_and_zwm"]))),
+        author.para(_cpara24a(len_dexi, len_misc)),
         para_and_table(_cpara24b_dexi, ov_and_de, qr_groups["tbhq_and_zwd"]),
         para_and_table(_cpara24c_misc, ov_and_de, qr_groups["tbhq_and_zwm"]),
-        author.para_ul(_CPARA25, _clist25(dv_map(len, qr_groups))),
+        author.para_ul(_CPARA25, _clist25(the_lens)),
     ]
     return cbody
 
@@ -287,10 +290,10 @@ def _clist25(the_lens):
     len_dexi = the_lens["tbhq_and_zwd"]
     len_misc = the_lens["tbhq_and_zwm"]
     len_total = len_dexi + len_misc
-    a = str(the_lens['nbhq_and_x3'])
-    b = str(the_lens['nbhq_and_n3'])
-    c = str(the_lens['xbhq_and_n3'])
-    d = str(the_lens['tbhq_and_n3'])
+    a = str(the_lens["nbhq_and_x3"])
+    b = str(the_lens["nbhq_and_n3"])
+    c = str(the_lens["xbhq_and_n3"])
+    d = str(the_lens["tbhq_and_n3"])
     e = str(len_total)
     return [
         f"$BHQ contributes notes on {a} quirks not found in those editions.",

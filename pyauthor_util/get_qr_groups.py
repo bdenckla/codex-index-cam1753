@@ -90,16 +90,16 @@ _FILTER_FNS = {
     "tbhq_and_nu": _tbhq_and_nu,
     "tbhq_and_zu": _tbhq_and_zu,
 }
+# nbhq: noted (as a quirk) in BHQ
+# xbhq: not noted (as a quirk) in BHQ
+# n3, noted (as a quirk) in one of "the three"
+# x3: not noted (as a quirk) in one of "the three"
+# zw (zWLCmisc): noted (as consensus) by WLC (combined with MAM):
+#     flagged as a change in WLC relative to BHS, e.g. a bracket-c or bracket-v note.
+#     comparison with MAM revealed that it is a change back towards consensus,
+#     i.e. this is BHS/BHQ proposing a quirk that is not in μL (according to WLC at least)
 
 
 def get_qr_groups(quirkrecs):
-    # nbhq: noted (as a quirk) in BHQ
-    # xbhq: not noted (as a quirk) in BHQ
-    # n3, noted (as a quirk) in one of "the three"
-    # x3: not noted (as a quirk) in one of "the three"
-    # zw (zWLCmisc): noted (as consensus) by WLC (combined with MAM):
-    #     flagged as a change in WLC relative to BHS, e.g. a bracket-c or bracket-v note.
-    #     comparison with MAM revealed that it is a change back towards consensus,
-    #     i.e. this is BHS/BHQ proposing a quirk that is not in μL (according to WLC at least)
     groups = dv_map((_filter, quirkrecs), _FILTER_FNS)
     return groups

@@ -15,36 +15,23 @@ def gen_html_file(tdm_ch, ov_and_de, qr_groups):
 def _make_cbody(ov_and_de, qr_groups):
     cbody = [
         author.heading_level_1(D3_H1_CONTENTS),
-        para_and_table(_cpara18, ov_and_de, qr_groups["nbhq_and_n3"]),
+        para_and_table(_cpara_nu, ov_and_de, qr_groups["tbhq_and_nu"]),
+        para_and_table(_cpara_zu, ov_and_de, qr_groups["tbhq_and_zu"]),
     ]
     return cbody
 
 
-def _cpara18_part1(the_len):
+def _cpara_nu(the_len):
     return [
-        ["It is also good news that the Job volume of $BHQ notes ", str(the_len)],
-        [" quirks in μL that ", my_html.bold("are"), " noted"],
-        [" in one or more of the other three editions."],
+        ["$BHQ does not transcribe ", str(the_len)],
+        [" quirks in μL that are noted"],
+        [" in UXLC. They are as follows:"],
     ]
 
 
-_CPARA18_PART2 = [
-    " I.e. these are places where $BHQ reiterates something available",
-    " in one or more of the other three editions.",
-    #
-    " While a reiteration is not as valuable as a new contribution,",
-    " it is still valuable.",
-    #
-    " Indeed my main criticism of $BHQ Job is that it",
-    " should have reiterated most of what can be found in those other three editions.",
-    #
-    " Unsurprisingly, all but one of the $BHQ reiterations",
-    " are not new, i.e. they were already present in $BHS.",
-    #
-    " (The one that is new is the one regarding the דגש in the מ of הלמענך in 18:4.)",
-    " The reiterations made by $BHQ are as follows:",
-]
-
-
-def _cpara18(the_len):
-    return _cpara18_part1(the_len) + _CPARA18_PART2
+def _cpara_zu(the_len):
+    return [
+        ["$BHQ transcribes but does not note ", str(the_len)],
+        [" quirks in μL that are noted"],
+        [" as likely false by UXLC. They are as follows:"],
+    ]

@@ -1,5 +1,6 @@
 from pyauthor_util import author
 from pyauthor_util.job_ov_and_de import make_example_row
+
 _VARIANTS = {
     "intro-overview": "Each entry below",
     "intro-details": "The header of each entry below",

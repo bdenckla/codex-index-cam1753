@@ -181,6 +181,12 @@ def _maybe_comment(record):
     return []
 
 
+def _maybe_bhqcom(record):
+    if bhqcom := record.get("bhq-comment"):
+        return [bhqcom]
+    return []
+
+
 def _maybe_para_comment(record):
     if comment := record.get("comment"):
         if record.get(_CSNBPR):
@@ -211,7 +217,7 @@ def _dpe(record):
 def _dpe_inline(record):
     dpe1 = [
         *_maybe_comment(record),
-        record["bhq-comment"],
+        *_maybe_bhqcom(record),
         *_ancs_and_loc(record),
     ]
     return _parasperse(dpe1)

@@ -1,7 +1,7 @@
 RECORD_2134_UXLC = {
     "qr-cv": "21:34",
     "qr-lc-proposed": "וּ֝תְשֽׁוּבֹתֵיכֶ֗ם",
-    "qr-what-is-weird": "Change meteg under shin to merkha.",
+    "qr-what-is-weird": "Change meteg under shin to merkha",
     "qr-consensus": "וּ֝תְשׁ֥וּבֹתֵיכֶ֗ם",
     "qr-comment": [
         "The mark below the shin has the distinct northeast-to-southwest inclination of a merkha.",

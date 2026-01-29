@@ -11,7 +11,7 @@ RECORD_1804_B = {
     **RECORD_1804_CMN_AB,
     "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-n_of_m_for_this_word": (2, 2),  # this is record 2 of 2 for this word
-    "qr-what-is-weird": "מ has דגש.",
+    "qr-what-is-weird": "מ has דגש",
     "qr-comment": [
         "The quirk that the פתח on ה",
         " is חטף is discussed in a separate entry of mine.",

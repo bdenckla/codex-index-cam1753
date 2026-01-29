@@ -1,7 +1,7 @@
 RECORD_2405_UXLC = {
     "qr-cv": "24:5",
     "qr-lc-proposed": "בַּֽמִּדְבָּ֗ר",
-    "qr-what-is-weird": "Change meteg under first bet to merkha.",
+    "qr-what-is-weird": "Change meteg under first bet to merkha",
     "qr-consensus": "בַּ֥מִּדְבָּ֗ר",
     "qr-comment": [
         "The mark under the first bet has a distinct northeast-to-southwest inclination.",

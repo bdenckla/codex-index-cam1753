@@ -1,8 +1,8 @@
 RECORD_2713_UXLC = {
     "qr-cv": "27:13",
-    "qr-lc-proposed": "מִשַּׁדַּ֥י",
-    "qr-what-is-weird": "Remove dagesh from shin.",
-    "qr-consensus": "מִשַׁדַּ֥י",
+    "qr-lc-proposed": "מִשַׁדַּ֥י",
+    "qr-what-is-weird": "ש lacks דגש",
+    "qr-consensus": "מִשַּׁדַּ֥י",
     "qr-comment": [
         "The LC has no dagesh in the shin this word, מִשַׁדַּי."
         " The Miqra according to the Masorah (MAM) has a dagesh in the shin.",

@@ -1,7 +1,7 @@
 RECORD_3210_UXLC = {
     "qr-cv": "32:10",
     "qr-lc-proposed": "דֵּעִ֣י",
-    "qr-what-is-weird": "Remove dagesh from dalet.",
+    "qr-what-is-weird": "Remove dagesh from dalet",
     "qr-consensus": "דֵעִ֣י",
     "qr-comment": [
         "No sign of a dagesh is visible in the dalet.",

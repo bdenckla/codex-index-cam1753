@@ -2,7 +2,7 @@ RECORD_3719_UXLC = {
     "qr-cv": "37:19",
     "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-lc-proposed": "לֹ֥א־",
-    "qr-what-is-weird": "Change merkha under lamed to meteg. Add note 'm'. Remove maqaf at end of word.",
+    "qr-what-is-weird": "Change merkha under lamed to meteg. Add note 'm'. Remove maqaf at end of word",
     "qr-consensus": "לֹֽא־",
     "qr-comment": [
         "A maqaf may have been erased at the end of this word."

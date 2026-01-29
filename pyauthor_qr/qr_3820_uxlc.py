@@ -1,7 +1,7 @@
 RECORD_3820_UXLC = {
     "qr-cv": "38:20",
     "qr-lc-proposed": "תָ֝בִ֗ין",
-    "qr-what-is-weird": "Remove the revia above the bet.",
+    "qr-what-is-weird": "Remove the revia above the bet",
     "qr-consensus": "תָ֝בִין",
     "qr-comment": [
         "The only mark above the bet is a rafe which is not ordinarily transcribed here.",

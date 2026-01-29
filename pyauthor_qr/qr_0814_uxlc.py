@@ -1,7 +1,7 @@
 RECORD_0814_UXLC = {
     "qr-cv": "8:14",
     "qr-lc-proposed": "עַ֝כָּבִ֗ישׁ",
-    "qr-what-is-weird": "Consider adding a transcription note 't' because revia over bet is obscured by a rafe.",
+    "qr-what-is-weird": "Consider adding a transcription note 't' because revia over bet is obscured by a rafe",
     "qr-consensus": "עַ֝כָּבִ֗ישׁ",
     "qr-comment": [
         "The revia is visible in the left edge of the (untranscribed) rafe.",

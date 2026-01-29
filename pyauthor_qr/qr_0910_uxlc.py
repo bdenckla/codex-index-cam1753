@@ -1,7 +1,7 @@
 RECORD_0910_UXLC = {
     "qr-cv": "9:10",
     "qr-lc-proposed": "וְנִפְלָא֗וֹת",
-    "qr-what-is-weird": "Add geresh muqdam to initial vav. Add note 't'.",
+    "qr-what-is-weird": "Add geresh muqdam to initial vav. Add note 't'",
     "qr-consensus": "וְ֝נִפְלָא֗וֹת",
     "qr-comment": [
         "The geresh muqdam is very faint at the top left of the initial vav."

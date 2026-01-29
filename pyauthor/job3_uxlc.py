@@ -25,7 +25,7 @@ def _cpara_nu(the_len):
     return [
         ["$BHQ does not transcribe ", str(the_len)],
         [" quirks in μL that are noted"],
-        [" in UXLC. They are as follows:"],
+        [" in $UXLC. They are as follows:"],
     ]
 
 
@@ -33,5 +33,5 @@ def _cpara_zu(the_len):
     return [
         ["$BHQ transcribes but does not note ", str(the_len)],
         [" quirks in μL that are noted"],
-        [" as likely false by UXLC. They are as follows:"],
+        [" as likely false by $UXLC. They are as follows:"],
     ]

@@ -338,6 +338,7 @@ _ABBR_SC = {
     "$CD_ROM": "CD-ROM",
     "$BHS": "BHS",
     "$WLC": "WLC",
+    "$UXLC": "UXLC",
     "$BHQ": "BHQ",
     "$BHL": "BHL",
     "$BHL_A": "BHL-A",

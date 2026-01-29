@@ -1,7 +1,7 @@
 RECORD_1219_UXLC = {
     "qr-cv": "12:19",
     "qr-lc-proposed": "וְאֵֽתָנִ֣ים",
-    "qr-what-is-weird": "Change meteg under alef to tipeha.",
+    "qr-what-is-weird": "Change meteg under alef to tipeha",
     "qr-consensus": "וְאֵ֖תָנִ֣ים",
     "qr-comment": [
         "The mark under the alef is clearly inclined northwest-to-southeast.",

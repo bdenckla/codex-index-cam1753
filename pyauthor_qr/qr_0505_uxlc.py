@@ -1,7 +1,7 @@
 RECORD_0505_UXLC = {
     "qr-cv": "5:5",
     "qr-lc-proposed": "מִצִּנִּ֥ים",
-    "qr-what-is-weird": "Remove the dagesh from the tsadi.",
+    "qr-what-is-weird": "Remove the dagesh from the tsadi",
     "qr-consensus": "מִצִנִּ֥ים",
     "qr-comment": [
         "No evidence for a dagesh in the tsadi is available.",

@@ -1,3 +1,6 @@
+from pyauthor_util.uxlc_change import uxlc_change
+
+
 RECORD_3820 = {
     "qr-cv": "38:20",
     "qr-lc-proposed": "תָ֝בִין",
@@ -12,5 +15,5 @@ RECORD_3820 = {
     "qr-highlight": 2,
     "qr-lc-loc": {"page": "408A", "column": 1, "line": 24},
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-nUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-45",
+    "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-45"),
 }

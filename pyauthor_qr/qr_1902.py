@@ -1,3 +1,6 @@
+from pyauthor_util.uxlc_change import uxlc_change
+
+
 RECORD_1902 = {
     "qr-cv": "19:2",
     "qr-lc-proposed": "וּֽתְדַכְּאוּנַ֥נִי",
@@ -10,5 +13,5 @@ RECORD_1902 = {
     "qr-lc-loc": {"page": "402A", "column": 2, "line": 19},
     "qr-bhq-comment": ["$BHQ is the source of the proposed transcription of μL above."],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-19",
+    "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-19"),
 }

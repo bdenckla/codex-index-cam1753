@@ -1,3 +1,6 @@
+from pyauthor_util.uxlc_change import uxlc_change
+
+
 RECORD_4210 = {
     "qr-cv": "42:10",
     "qr-lc-proposed": "וַ֧יֹּסֶף",
@@ -23,7 +26,7 @@ RECORD_4210 = {
     "qr-lc-loc": {"page": "409B", "column": 1, "line": 10},
     "qr-bhq-comment": ["$BHQ is the source of the proposed transcription of μL above."],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-48",
+    "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-48"),
     "qr-aleppo-img": "Aleppo-4210.png",
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/42/1/mg/106",
 }

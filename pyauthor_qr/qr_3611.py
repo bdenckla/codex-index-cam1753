@@ -1,4 +1,5 @@
 from pyauthor_util import author
+from pyauthor_util.uxlc_change import uxlc_change
 
 _URL = "https://bdenckla.github.io/MAM-with-doc/misc/tsinnorit_and_oleh_on_ivs.html"
 doc = author.anc_h("document", _URL)
@@ -21,5 +22,5 @@ RECORD_3611 = {
     "qr-highlight-consensus": 2,
     "qr-lc-loc": {"page": "407B", "column": 1, "line": 1},
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-nUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-42",
+    "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-42"),
 }

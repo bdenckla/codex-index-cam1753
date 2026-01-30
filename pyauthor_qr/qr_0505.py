@@ -1,4 +1,5 @@
 from pyauthor_util.golinets import golinets_citation
+from pyauthor_util.uxlc_change import uxlc_change
 
 
 RECORD_0505 = {
@@ -25,5 +26,5 @@ RECORD_0505 = {
         " must spring from some source other than μL or the consensus.",
     ],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-1",
+    "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-1"),
 }

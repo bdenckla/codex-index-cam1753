@@ -1,7 +1,9 @@
+from pyauthor_util.uxlc_change import uxlc_change
 from pyauthor_util.golinets import golinets_citation
 from pyauthor_util import author
 
-_UXLC_CHANGE_2022_02_17_1 = "https://tanach.us/Changes/2022.04.01%20-%20Changes/2022.04.01%20-%20Changes.xml?2022.02.17-1"
+
+_UXLC_CHANGE_2022_02_17_1 = uxlc_change("2022.04.01", "2022.02.17-1")
 _ISAIAH_1306 = author.anc_h("Isaiah 13:6", _UXLC_CHANGE_2022_02_17_1)
 
 
@@ -36,5 +38,5 @@ RECORD_2401 = {
     "qr-highlight": 2,
     "qr-lc-loc": {"page": "403B", "column": 2, "line": 25},
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-nUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2022.04.01%20-%20Changes/2022.04.01%20-%20Changes.xml?2022.02.17-2",
+    "qr-uxlc-change-url": uxlc_change("2022.04.01", "2022.02.17-2"),
 }

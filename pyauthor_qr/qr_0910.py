@@ -1,3 +1,6 @@
+from pyauthor_util.uxlc_change import uxlc_change
+
+
 RECORD_0910 = {
     "qr-cv": "9:10",
     "qr-lc-proposed": "וְנִפְלָא֗וֹת",
@@ -17,5 +20,5 @@ RECORD_0910 = {
         " $BHQ should have noted its absence, i.e. noted the divergence from consensus.",
     ],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
-    "qr-uxlc-change-url": "https://tanach.us/Changes/2022.10.19%20-%20Changes/2022.10.19%20-%20Changes.xml?2022.07.05-3",
+    "qr-uxlc-change-url": uxlc_change("2022.10.19", "2022.07.05-3"),
 }

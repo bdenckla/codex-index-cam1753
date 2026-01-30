@@ -3,19 +3,19 @@ from pyauthor_util import author
 
 
 _COMMENT_3812_B = [
-        "The consensus is that this is one of those כתיב/קרי cases",
-        " where the word boundary shifts",
-        " from being after a ה to before that ה.",
-        " I.e. ידעתה שחר becomes ידעת השחר.",
-        " I.e. the ה that is at the end of the first word in the כתיב",
-        " moves to the start of the second word in the קרי.",
-        " Similar cases include",
-        " 2 Samuel 5:2 (the כתיב is הייתה מוציא) and",
-        " Ezekiel 42:9 (the כתיב is ומתחתה לשכות).",
-        " In contrast to the consensus, in going from כתיב to קרי,",
-        [" μL can be though of as having ", my_html.bold("copied")],
-        " the ה to the second word rather than moving it.",
-    ]
+    "The consensus is that this is one of those כתיב/קרי cases",
+    " where the word boundary shifts",
+    " from being after a ה to before that ה.",
+    " I.e. ידעתה שחר becomes ידעת השחר.",
+    " I.e. the ה that is at the end of the first word in the כתיב",
+    " moves to the start of the second word in the קרי.",
+    " Similar cases include",
+    " 2 Samuel 5:2 (the כתיב is הייתה מוציא) and",
+    " Ezekiel 42:9 (the כתיב is ומתחתה לשכות).",
+    " In contrast to the consensus, in going from כתיב to קרי,",
+    [" μL can be though of as having ", my_html.bold("copied")],
+    " the ה to the second word rather than moving it.",
+]
 _BHQ_COMMENT_3812_B = [
     "$BHS does not catch this quirk in μL: it reflects the consensus rather than μL.",
     " $BHQ half-fixes the error in $BHS:",

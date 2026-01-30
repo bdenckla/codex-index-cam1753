@@ -169,7 +169,7 @@ def _cpara17b(the_len):
         f"First, the good news: the Job volume of $BHQ notes {str(the_len)}",
         " quirks in μL that are not noted in any of the three editions listed above.",
         #
-        " I.e. these are places where $BHQ contributes something not available",
+        " I.e. these are cases where $BHQ contributes something not available",
         " in any of those other three editions.",
         #
         " The contributions of $BHQ are as follows:",
@@ -197,7 +197,7 @@ def _cpara18_part1(the_len):
 
 
 _CPARA18_PART2 = [
-    " I.e. these are places where $BHQ reiterates something available",
+    " I.e. these are cases where $BHQ reiterates something available",
     " in one or more of the other three editions.",
     #
     " While a reiteration is not as valuable as a new contribution,",

@@ -4,7 +4,7 @@ from py import my_html
 from pyauthor_util import author
 
 
-D3_TITLE = "BHQ Job: Places where UXLC could have helped"
+D3_TITLE = "BHQ Job: cases where UXLC could have helped"
 D3_H1_CONTENTS = D3_TITLE
 D3_FNAME = "job3_uxlc.html"
 

@@ -15,7 +15,7 @@ _CORR_IG_VARIANT_3419 = [
     " many readers will not engage with those images enough to understand how often",
     " there is great uncertainty in transcribing μL.",
     " And, even if the reader understands that such uncertainty exists in general,",
-    " $BHQ should, in my opinion, indicate to the reader the specific places",
+    " $BHQ should, in my opinion, indicate to the reader the specific cases",
     " where its transcription is particularly uncertain.",
 ]
 _CORR_IG_VARIANT = {

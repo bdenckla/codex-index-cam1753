@@ -191,7 +191,6 @@ def _ensure_lop(yyycom):
     return yyycom if _is_lop(yyycom) else [author.para(yyycom)]
 
 
-
 def _ancs(record):
     cv = record["qr-cv"]
     uxlc_href = f"https://tanach.us/Tanach.xml?Job{cv}"

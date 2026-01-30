@@ -1,35 +1,54 @@
 from pyauthor_util import author
 from pyauthor_util.uxlc_change import uxlc_change
 
-_PS118 = ["Ps 118:5 ", author.hbo("הַ֭מֵּצַ֥ר")]
 _COMPAR1 = [
-    ["In $BHS, a דחי followed by מרכא is found not only here"],
-    [" but also in the following three other cases"],
-    [" (and probably only in those cases):"],
-    [" Ps 86:7 ", author.hbo("צָ֭רָתִ֥י"), ","],
-    [" Ps 118:5 ", author.hbo("הַ֭מֵּצַ֥ר"), ", and"],
-    [" Ps 139:7 ", author.hbo("אָ֭נָ֥ה"), "."],
-    [" In those three other cases, there is little question about the דחי:"],
-    [" the question is only whether the second mark is מרכא or געיה."],
-    [" (In the case of )"],
+    "Whereas usually we just baldly and boldly state",
+    " what (we think) the consensus is,",
+    " here we will try to explain why the transcription’s divergence from consensus",
+    " seems so unlikely to reflect the scribal intent."
 ]
+_PS118 = ["Ps 118:5 ", author.hbo("הַ֭מֵּצַ֥ר")]
 _COMPAR2 = [
-    ["In contrast, here the דחי is highly questionable"],
+    ["In $BHS, a דחי followed by מרכא is probably found only here"],
+    [" and in the following three cases:"],
+    [" Ps 86:7 ", author.hbo("צָ֭רָתִ֥י"), ","],
+    [" ", *_PS118, ", and"],
+    [" Ps 139:7 ", author.hbo("אָ֭נָ֥ה"), "."],
+    [" In those three cases, there is little question about the דחי:"],
+    [" the question is only whether the second mark is מרכא or געיה."],
+    [" (In the ", *_PS118, " case, there is also a question of"],
+    [" whether there should be a second mark at all.)"],
+]
+_COMPAR3 = [
+    ["In contrast, here in 10:6 the דחי is highly questionable"],
     [" because it follows an אתנח,"],
     [" a sequence unprecedented in the consensus"],
     [" and rare even in $BHS, where it is probably found in only two other cases:"],
     [" Ps 115:3 ", author.hbo("כֹּ֭ל אֲשֶׁר־חָפֵ֣ץ עָשָֽׂה׃"), " and"],
     [" Ps 119:16 ", author.hbo("לֹ֭א אֶשְׁכַּ֣ח דְּבָרֶֽךָ׃"), "."],
-    [" In both of those two cases, more likely a טרחא was intended."],
+    [" In both of those two cases, טרחא is a better transcription of μL."],
 ]
-_COMPAR3 = [
-    ["After אתנח, the consensus sequence here in 10:6 is מרכא and then סוף פסוק:"],
+_COMPAR4 = [
+    ["After אתנח, the consensus sequence here in 10:6 is מרכא and then סילוק:"],
     [" ", author.hbo("וּֽלְחַטָּאתִ֥י תִדְרֽוֹשׁ׃"), "."],
     [" After אתנח, this sequence is found about 194 times in poetic verses,"],
-    [" and about 38 times in Job’s poetic verses,"],
+    [" about 38 of which are in Job,"],
     [" e.g. 6:12 ", author.hbo("אִֽם־בְּשָׂרִ֥י נָחֽוּשׁ׃"), ","],
     [" 7:14 ", author.hbo("וּֽמֵחֶזְיֹנ֥וֹת תְּבַעֲתַֽנִּי׃"), ", and"],
     [" 8:11 ", author.hbo("יִשְׂגֶּה־אָ֥חוּ בְלִי־מָֽיִם׃"), "."],
+]
+_COMPAR5 = [
+    "This mark was probably transcribed as a דחי",
+    " ignoring context, using only",
+    " the mark’s position relative to its letter (early) and",
+    " its inclination (twisted somewhat counterclockwise from vertical).",
+    " Although in an ideal world we could transcribe using only such criteria,",
+    " in practice we must transcribe more charitably, considering context as well.",
+    " The relevant context includes both the consensus pointing",
+    " and the likelihood of the non-consensus (quirky) pointing under consideration.",
+    " Here, a transcription of געיה seems best given that",
+    " the consensus is געיה and",
+    " דחי seems very unlikely.",
 ]
 # Found 3 verses where ETNAHTA (֑ U+0591) is followed by DEHI (֭ U+05AD):
 
@@ -47,6 +66,8 @@ RECORD_1006 = {
         author.para(_COMPAR1),
         author.para(_COMPAR2),
         author.para(_COMPAR3),
+        author.para(_COMPAR4),
+        author.para(_COMPAR5),
     ],
     "qr-bhq-comment": ["$BHQ is the source of the proposed transcription of μL above."],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",

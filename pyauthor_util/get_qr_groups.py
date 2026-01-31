@@ -24,9 +24,7 @@ def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
 def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
     if wlc in ("zWLCmisc", "zWLCdexi"):
         assert (bhq, bhl, dm, uxlc) == ("tBHQ", "xBHL", "xDM", "xUXLC")
-    if uxlc == "zUXLC":
-        assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
-    if uxlc == "nUXLC":
+    if uxlc in ("zUXLC", "nUXLC"):
         assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
 
 
@@ -49,13 +47,17 @@ def _foobhq_and_n3(foobhq, quirkrec):
     return bhq == foobhq and any(_startswith_n(part) for part in t3o)
 
 
-def _nbhq_and_x3(quirkrec):
+def _foobhq_and_x3(foobhq, quirkrec):
     bhq, t3o = _bhq_and_t3o(quirkrec)
-    return bhq == "nBHQ" and all(_startswith_x(part) for part in t3o)
+    return bhq == foobhq and all(_startswith_x(part) for part in t3o)
 
 
 def _nbhq_and_n3(quirkrec):
     return _foobhq_and_n3("nBHQ", quirkrec)
+
+
+def _nbhq_and_x3(quirkrec):
+    return _foobhq_and_x3("nBHQ", quirkrec)
 
 
 def _xbhq_and_n3(quirkrec):

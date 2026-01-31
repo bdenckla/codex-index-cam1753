@@ -3,13 +3,14 @@ RECORD_2212 = {
     "qr-lc-proposed": "רֹ֭אשׁ",
     "qr-what-is-weird": "דחי not טרחא",
     "qr-consensus": "רֹ֖אשׁ",
-    "qr-generic-comment": [
-        "foo",
-    ],
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "403B", "column": 1, "line": 12},
     "qr-bhq-comment": [
         "$BHQ has the proposed transcription of μL above.",
+        "The transcription differs from the consensus in way opposite to most such reports here:",
+        " here we see a דחי vs טרחא difference, with BHQ having דחי,",
+        " whereas most such reports involving these two accents",
+        " involve a טרחא vs דחי difference, with BHQ having טרחא.",
     ],
     "qr-noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }

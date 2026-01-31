@@ -3,9 +3,9 @@ from pyauthor_util import author
 
 _COMMENT_PARA1 = [
     "Note that consensus has a rare and hard-to-understand",
-    " phenomenon called “secondary מהפך” by Breuer."
+    " phenomenon called “secondary מרכא” by Breuer."
     #
-    " It may seem rather extraordinary to have two מרכא on the same word,",
+    " It may seem rather extraordinary to have two מרכא marks on the same word,",
     " but this is actually expected (or at least “allowed”).",
 ]
 _FOI_H2 = "foi-sec-merk.html#intro-poetic/(mer)/(mer),(mer)"
@@ -25,7 +25,7 @@ _COS_ENG_ANC = author.anc_h("translation", f"{_COS_CMN}-{_COS_ENG_REST}.htm")
 _COS_HEB_ANC = author.anc_h("original", f"{_COS_CMN}.htm")
 _COMMENT_PARA3 = [
     "See Breuer CoS sections 9.23, 9.24, and 11.20.",
-    " (CoS = The Cantillation of Scripture; rn = Roman numeral.)",
+    " (CoS = The Cantillation of Scripture.)",
     [" (Note that an English ", _COS_ENG_ANC, " of CoS is now available,"],
     " a great boon to students of cantillation who cannot easily read",
     [" the ", _COS_HEB_ANC, " in its modern Hebrew.)"],

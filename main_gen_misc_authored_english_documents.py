@@ -43,6 +43,8 @@ def main():
 def _prep(jobn_rel_top):
     qrs = sorted(QUIRKRECS, key=sort_key)
     for qr in qrs:
+        if qr.get("qr-under-construction"):
+            continue
         lc_img_path = f"{jobn_rel_top}/img/{lc_img(qr)}"
         assert os.path.exists(lc_img_path), f"Missing LC image: {lc_img_path}"
     ov_and_de = make_ov_and_de(qrs)

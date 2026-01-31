@@ -1,4 +1,5 @@
 RECORD_3433_C = {
+    "qr-noted-by": "xBHQ-nBHL-nDM",
     "qr-cv": "34:33",
     "qr-n_of_m_for_this_verse": (3, 4),
     "qr-consensus": "יְשַׁלְּמֶ֨נָּה ׀",

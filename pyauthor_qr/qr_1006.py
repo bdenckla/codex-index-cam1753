@@ -69,7 +69,7 @@ RECORD_1006 = {
         author.para(_COMPAR4),
         author.para(_COMPAR5),
     ],
-    "qr-bhq-comment": ["$BHQ is the source of the proposed transcription of μL above."],
+    "qr-bhq-comment": ["$BHQ has the proposed transcription of μL above."],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
     "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-9"),
 }

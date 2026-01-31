@@ -11,7 +11,7 @@ RECORD_1902 = {
     ],
     "qr-highlight": 4,
     "qr-lc-loc": {"page": "402A", "column": 2, "line": 19},
-    "qr-bhq-comment": ["$BHQ is the source of the proposed transcription of μL above."],
+    "qr-bhq-comment": ["$BHQ has the proposed transcription of μL above."],
     "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
     "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-19"),
 }

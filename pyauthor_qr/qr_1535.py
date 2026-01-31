@@ -13,7 +13,7 @@ RECORD_1535 = {
     "qr-highlight-consensus": 2,
     "qr-lc-loc": {"page": "401B", "column": 1, "line": -3},
     "qr-bhq-comment": [
-        "$BHQ is the source of the proposed transcription of μL above.",
+        "$BHQ has the proposed transcription of μL above.",
     ],
     "qr-noted-by": "tBHQ-xBHL-xDM-zWLCmisc",
 }

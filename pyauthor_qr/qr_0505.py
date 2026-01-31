@@ -37,11 +37,13 @@ RECORD_0505 = {
     ],
     "qr-lc-loc": {"page": "398A", "column": 2, "line": 22},
     "qr-bhq-comment": [
-        "$BHQ is the source of the proposed transcription of μL above."
+        "$BHQ has the proposed transcription of μL above."
         " The proposed transcription",
         " must either be a simple typo or",
-        " must spring from some source other than μL or the consensus.",
+        " must spring from some source other than the color image of μL or the consensus.",
+        " Sometimes the black and white images of μL can be misleading,",
+        " particularly when they are presented with high contrast,",
+        " i.e. showing little or no “middle ground” of gray tones.",
     ],
-    "qr-noted-by": "tBHQ-xBHL-xDM-xWLC-zUXLC",
-    "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-1"),
+    "qr-noted-by": "tBHQ-xBHL-nDM",
 }

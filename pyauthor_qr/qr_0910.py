@@ -13,7 +13,7 @@ RECORD_0910 = {
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "399B", "column": 1, "line": 16},
     "qr-bhq-comment": [
-        "$BHQ is the source of the proposed transcription of μL above.",
+        "$BHQ has the proposed transcription of μL above.",
         " The evidence for this גרש מוקדם is slim,",
         " so $BHQ’s choice to leave it out is reasonable.",
         " Having left it out though,"

@@ -21,6 +21,13 @@ def nb_dict(quirkrec):
     return full_dict
 
 
+def startswith_n(nbd, edition_key):
+    return nbd[edition_key].startswith("n")
+
+
+def startswith_x(nbd, edition_key):
+    return nbd[edition_key].startswith("x")
+
 def x_uclc(quirkrec):
     nbd = nb_dict(quirkrec)
     return nbd["e:UXLC"] == "xUXLC"

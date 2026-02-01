@@ -1,4 +1,4 @@
-from pyauthor_util.noted_by import nb_dict
+from pyauthor_util.noted_by import nb_dict, startswith_n, startswith_x
 from pycmn.my_utils import dv_map
 
 
@@ -9,38 +9,32 @@ def _bhq_and_t3o(quirkrec):
     return nbd["e:BHQ"], t30
 
 
-def _startswith_n(part):
-    return part.startswith("n")
+def _foobhq_and_n3(foobhq, nbd):
+    return nbd["e:BHQ"] == foobhq and any(startswith_n(nbd, e) for e in ("e:BHL", "e:DM", "e:WLC"))
 
 
-def _startswith_x(part):
-    return part.startswith("x")
-
-
-def _foobhq_and_n3(foobhq, quirkrec):
-    bhq, t3o = _bhq_and_t3o(quirkrec)
-    return bhq == foobhq and any(_startswith_n(part) for part in t3o)
-
-
-def _foobhq_and_x3(foobhq, quirkrec):
-    bhq, t3o = _bhq_and_t3o(quirkrec)
-    return bhq == foobhq and all(_startswith_x(part) for part in t3o)
+def _foobhq_and_x3(foobhq, nbd):
+    return nbd["e:BHQ"] == foobhq and all(startswith_x(nbd, e) for e in ("e:BHL", "e:DM", "e:WLC"))
 
 
 def _nbhq_and_n3(quirkrec):
-    return _foobhq_and_n3("nBHQ", quirkrec)
+    nbd = nb_dict(quirkrec)
+    return _foobhq_and_n3("nBHQ", nbd)
 
 
 def _nbhq_and_x3(quirkrec):
-    return _foobhq_and_x3("nBHQ", quirkrec)
+    nbd = nb_dict(quirkrec)
+    return _foobhq_and_x3("nBHQ", nbd)
 
 
 def _xbhq_and_n3(quirkrec):
-    return _foobhq_and_n3("xBHQ", quirkrec)
+    nbd = nb_dict(quirkrec)
+    return _foobhq_and_n3("xBHQ", nbd)
 
 
 def _tbhq_and_n3(quirkrec):
-    return _foobhq_and_n3("tBHQ", quirkrec)
+    nbd = nb_dict(quirkrec)
+    return _foobhq_and_n3("tBHQ", nbd)
 
 
 def _tbhq_and_zwd(quirkrec):

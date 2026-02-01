@@ -195,10 +195,9 @@ def _cpara18_part1(the_len):
         [" in one or more of the other three editions."],
     ]
 
+
 _COUNT_OF_RNTQ = 3  # RNTQ: reiterations new to BHQ
-_DESCRIPTION_OF_RNTQ = [
-    "three that are new are the ones in 6:21, 18:4, and 19:16"
-]
+_DESCRIPTION_OF_RNTQ = ["three that are new are the ones in 6:21, 18:4, and 19:16"]
 _WORDS_FOR_NUMBERS = {1: "one", 2: "two", 3: "three", 4: "four"}
 
 
@@ -217,7 +216,7 @@ _CPARA18_PART2 = [
     f" of the $BHQ reiterations",
     f" are not new, i.e. they were already present in $BHS.",
     #
-    [" (The ",_DESCRIPTION_OF_RNTQ, ".)"],
+    [" (The ", _DESCRIPTION_OF_RNTQ, ".)"],
     #
     f" The reiterations made by $BHQ are as follows:",
 ]

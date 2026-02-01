@@ -12,5 +12,5 @@ RECORD_0610 = {
         " This was a regression, in my opinion,"
         " since it leaves ותהי with no accent, only געיה.",
         " This is an uncharitable transcription.",
-    ]
+    ],
 }

@@ -1,34 +1,30 @@
+from pyauthor_util.noted_by import EDITIONS, nb_dict
 from pycmn.my_utils import dv_map
 
 
 def _bhq_and_t4o(quirkrec):
     """t4o: the four others (BHL, DM, WLC, & UXLC)"""
-    parts = quirkrec["qr-noted-by"].split("-")
-    bhq, bhl, dm = parts[0], parts[1], parts[2]
-    wlc = "xWLC" if len(parts) <= 3 else parts[3]
-    uxlc = "xUXLC" if len(parts) <= 4 else parts[4]
+    nbd = nb_dict(quirkrec)
+    bhq, bhl, dm, wlc, uxlc = (nbd[e] for e in EDITIONS)
     _do_solo_asserts(bhq, bhl, dm, wlc, uxlc)
     _do_combo_asserts(bhq, bhl, dm, wlc, uxlc)
     the_4_others = bhl, dm, wlc, uxlc
     return bhq, the_4_others
 
-
 def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
-    assert bhq in ("nBHQ", "xBHQ", "tBHQ")
-    assert bhl in ("nBHL", "xBHL")
-    assert dm in ("nDM", "xDM")
-    assert wlc in ("nWLC", "xWLC", "zmiscWLC", "zdexiWLC")
-    assert uxlc in ("nUXLC", "xUXLC", "zUXLC")
-
+    assert bhq in ("n", "x", "t")
+    assert bhl in ("n", "x")
+    assert dm in ("n", "x")
+    assert wlc in ("n", "x", "zmisc", "zdexi")
+    assert uxlc in ("n", "x", "z")
 
 def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
-    if wlc in ("zmiscWLC", "zdexiWLC"):
-        assert (bhq, bhl, dm, uxlc) == ("tBHQ", "xBHL", "xDM", "xUXLC")
-    if uxlc == "zUXLC":
-        assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
-    if uxlc == "nUXLC":
-        assert (bhq, bhl, dm, wlc) == ("xBHQ", "xBHL", "xDM", "xWLC")
-
+    if wlc in ("zmisc", "zdexi"):
+        assert (bhq, bhl, dm, uxlc) == ("t", "x", "x", "x")
+    if uxlc == "z":
+        assert (bhq, bhl, dm, wlc) == ("t", "x", "x", "x")
+    if uxlc == "n":
+        assert (bhq, bhl, dm, wlc) == ("x", "x", "x", "x")
 
 def _bhq_and_t3o(quirkrec):
     """t3o: the three others (BHL, DM, & WLC)"""
@@ -55,39 +51,39 @@ def _foobhq_and_x3(foobhq, quirkrec):
 
 
 def _nbhq_and_n3(quirkrec):
-    return _foobhq_and_n3("nBHQ", quirkrec)
+    return _foobhq_and_n3("n", quirkrec)
 
 
 def _nbhq_and_x3(quirkrec):
-    return _foobhq_and_x3("nBHQ", quirkrec)
+    return _foobhq_and_x3("n", quirkrec)
 
 
 def _xbhq_and_n3(quirkrec):
-    return _foobhq_and_n3("xBHQ", quirkrec)
+    return _foobhq_and_n3("x", quirkrec)
 
 
 def _tbhq_and_n3(quirkrec):
-    return _foobhq_and_n3("tBHQ", quirkrec)
+    return _foobhq_and_n3("t", quirkrec)
 
 
 def _tbhq_and_zwd(quirkrec):
     _bhq, t3o = _bhq_and_t3o(quirkrec)
-    return t3o[2] == "zdexiWLC"
+    return t3o[2] == "zdexi"
 
 
 def _tbhq_and_zwm(quirkrec):
     _bhq, t3o = _bhq_and_t3o(quirkrec)
-    return t3o[2] == "zmiscWLC"
+    return t3o[2] == "zmisc"
 
 
 def _xbhq_and_nuxlc(quirkrec):
     _bhq, t4o = _bhq_and_t4o(quirkrec)
-    return t4o[3] == "nUXLC"
+    return t4o[3] == "n"
 
 
 def _tbhq_and_zuxlc(quirkrec):
     _bhq, t4o = _bhq_and_t4o(quirkrec)
-    return t4o[3] == "zUXLC"
+    return t4o[3] == "z"
 
 
 def _filter(quirkrecs, filter_fn):

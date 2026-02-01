@@ -1,3 +1,6 @@
+from pyauthor_util.noted_by import nb_dict
+
+
 def short_id(record):
     cv_str = record["qr-cv"]
     chnu, vrnu = tuple(int(part) for part in cv_str.split(":"))
@@ -8,7 +11,7 @@ def short_id(record):
 
 
 def lc_img(record):
-    nb = record["qr-noted-by"]
-    zuxlc = "-zUXLC" in nb or "-nUXLC" in nb
-    ext = ".jpg" if zuxlc else ".png"
+    nbd = nb_dict(record)
+    use_jpg = nbd["UXLC"] in ("n", "z")
+    ext = ".jpg" if use_jpg else ".png"
     return record.get("qr-lc-img") or f"{short_id(record)}{ext}"

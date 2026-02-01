@@ -1,4 +1,4 @@
-from pyauthor_util.noted_by import EDITION_UXLC, nb_dict
+from pyauthor_util.noted_by import x_uclc
 
 
 def short_id(record):
@@ -11,7 +11,6 @@ def short_id(record):
 
 
 def lc_img(record):
-    nbd = nb_dict(record)
-    use_jpg = nbd[EDITION_UXLC] in ("n", "z")
-    ext = ".jpg" if use_jpg else ".png"
+    use_png = x_uclc(record)
+    ext = ".png" if use_png else ".jpg"
     return record.get("qr-lc-img") or f"{short_id(record)}{ext}"

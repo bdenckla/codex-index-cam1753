@@ -4,8 +4,8 @@ from pyauthor_util.get_qr_groups import (
     nbhq_and_n3,
     nbhq_and_x3,
     tbhq_and_n3,
-    tbhq_and_zwd,
-    tbhq_and_zwm,
+    tbhq_and_zdw,
+    tbhq_and_zmw,
 )
 from pycmn.my_utils import sl_map
 
@@ -20,7 +20,7 @@ def says(quirkrec):
     if xbhq_and_n3(quirkrec):
         # yes, the double list is intentional below
         return [["in μL, says ", _english_says_who(quirkrec), " but not $BHQ"]]
-    if tbhq_and_zwd(quirkrec) or tbhq_and_zwm(quirkrec):
+    if tbhq_and_zdw(quirkrec) or tbhq_and_zmw(quirkrec):
         return ["in μL, says $BHQ but not $WLC"]
     return []
 

@@ -28,11 +28,11 @@ def tbhq_and_n3(quirkrec):
     return _foobhq_and_n3("tBHQ", quirkrec["nbd"])
 
 
-def tbhq_and_zwd(quirkrec):
+def tbhq_and_zdw(quirkrec):
     return quirkrec["nbd"]["e:WLC"] == "zdexiWLC"
 
 
-def tbhq_and_zwm(quirkrec):
+def tbhq_and_zmw(quirkrec):
     return quirkrec["nbd"]["e:WLC"] == "zmiscWLC"
 
 
@@ -67,8 +67,8 @@ _FILTER_FNS = {
     "nbhq_and_n3": nbhq_and_n3,
     "tbhq_and_n3": tbhq_and_n3,
     "xbhq_and_n3": xbhq_and_n3,
-    "tbhq_and_zwd": tbhq_and_zwd,
-    "tbhq_and_zwm": tbhq_and_zwm,
+    "tbhq_and_zdw": tbhq_and_zdw,
+    "tbhq_and_zmw": tbhq_and_zmw,
     "xbhq_and_nuxlc": _xbhq_and_nuxlc,
     "tbhq_and_zuxlc": _tbhq_and_zuxlc,
 }

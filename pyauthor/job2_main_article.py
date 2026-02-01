@@ -22,8 +22,8 @@ def gen_html_file(tdm_ch, ov_and_de, qr_groups):
 
 def _make_cbody(ov_and_de, qr_groups):
     the_lens = dv_map(len, qr_groups)
-    len_dexi = the_lens["tbhq_and_zwd"]
-    len_misc = the_lens["tbhq_and_zwm"]
+    len_dexi = the_lens["tbhq_and_zdw"]
+    len_misc = the_lens["tbhq_and_zmw"]
     cbody = [
         author.heading_level_1(D2_H1_CONTENTS),
         author.para_ol(_CPARA10, _CLIST10),
@@ -43,8 +43,8 @@ def _make_cbody(ov_and_de, qr_groups):
         author.para(_cpara31()),
         author.para(_cpara32(len(qr_groups["nbhq_and_n3"]))),
         author.para(_cpara33(len_dexi, len_misc)),
-        para_and_table(_cpara34_dexi, ov_and_de, qr_groups["tbhq_and_zwd"]),
-        para_and_table(_cpara35_misc, ov_and_de, qr_groups["tbhq_and_zwm"]),
+        para_and_table(_cpara34_dexi, ov_and_de, qr_groups["tbhq_and_zdw"]),
+        para_and_table(_cpara35_misc, ov_and_de, qr_groups["tbhq_and_zmw"]),
         author.para_ul(_CPARA36, _clist36(the_lens)),
         author.heading_level_2("Postscript: $UXLC"),
         author.para(_CPARA_UXLC),
@@ -307,8 +307,8 @@ _CPARA36 = [
 
 
 def _clist36(the_lens):
-    len_dexi = the_lens["tbhq_and_zwd"]
-    len_misc = the_lens["tbhq_and_zwm"]
+    len_dexi = the_lens["tbhq_and_zdw"]
+    len_misc = the_lens["tbhq_and_zmw"]
     len_total = len_dexi + len_misc
     b = str(the_lens["nbhq_and_x3"])
     c = str(the_lens["nbhq_and_n3"])

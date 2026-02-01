@@ -15,7 +15,7 @@ RECORD_1905 = {
     "qr-cv": "19:5",
     "qr-lc-q": "(?)",
     "qr-lc-proposed": "חֶרְפָּתִּֽֿי",
-    "qr-what-is-weird": "דגש may fight with רפה",
+    "qr-what-is-weird": "דגש may fight רפה",
     "qr-consensus": "חֶרְפָּתִֽי׃",
     "qr-generic-comment": [
         "A דגש on a letter with רפה doesn’t make sense.",

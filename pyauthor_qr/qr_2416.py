@@ -5,7 +5,7 @@ RECORD_2416 = {
     "qr-cv": "24:16",
     "qr-lc-proposed": "יָ֥דְּֿעוּ",
     "qr-lc-q": "(?)",
-    "qr-what-is-weird": "דגש may fight with רפה",
+    "qr-what-is-weird": "דגש may fight רפה",
     "qr-consensus": "יָ֥דְעוּ",
     "qr-generic-comment": [
         "A דגש on a letter with רפה doesn’t make sense.",

@@ -1,38 +1,12 @@
-from pyauthor_util.noted_by import EDITIONS, nb_dict
+from pyauthor_util.noted_by import nb_dict
 from pycmn.my_utils import dv_map
-
-
-def _bhq_and_t4o(quirkrec):
-    """t4o: the four others (BHL, DM, WLC, & UXLC)"""
-    nbd = nb_dict(quirkrec)
-    bhq, bhl, dm, wlc, uxlc = (nbd[e] for e in EDITIONS)
-    _do_solo_asserts(bhq, bhl, dm, wlc, uxlc)
-    _do_combo_asserts(bhq, bhl, dm, wlc, uxlc)
-    the_4_others = bhl, dm, wlc, uxlc
-    return bhq, the_4_others
-
-
-def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
-    assert bhq in ("nBHQ", "xBHQ", "tBHQ")
-    assert bhl in ("nBHL", "xBHL")
-    assert dm in ("nDM", "xDM")
-    assert wlc in ("nWLC", "xWLC", "zmiscWLC", "zdexiWLC")
-    assert uxlc in ("nUXLC", "xUXLC", "zUXLC")
-
-
-def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
-    if wlc in ("zmiscWLC", "zdexiWLC"):
-        assert (bhq, bhl, dm, uxlc) == ("tBHQ", "xBHL", "xDM", "xUXLC")
-    if uxlc == "zUXLC":
-        assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
-    if uxlc == "nUXLC":
-        assert (bhq, bhl, dm, wlc) == ("xBHQ", "xBHL", "xDM", "xWLC")
 
 
 def _bhq_and_t3o(quirkrec):
     """t3o: the three others (BHL, DM, & WLC)"""
-    bhq, t4o = _bhq_and_t4o(quirkrec)
-    return bhq, t4o[:3]
+    nbd = nb_dict(quirkrec)
+    t30 = nbd["e:BHL"], nbd["e:DM"], nbd["e:WLC"]
+    return nbd["e:BHQ"], t30
 
 
 def _startswith_n(part):

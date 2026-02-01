@@ -17,12 +17,36 @@ def nb_dict(quirkrec):
     pairs = sl_map(_nb_pair, parts)
     sparse_dict = dict(pairs)
     full_dict = _fill_in(sparse_dict)
+    _do_asserts(full_dict)
     return full_dict
 
 
 def x_uclc(quirkrec):
     nbd = nb_dict(quirkrec)
     return nbd["e:UXLC"] == "xUXLC"
+
+
+def _do_asserts(nbd):
+    bhq, bhl, dm, wlc, uxlc = (nbd[e] for e in EDITIONS)
+    _do_solo_asserts(bhq, bhl, dm, wlc, uxlc)
+    _do_combo_asserts(bhq, bhl, dm, wlc, uxlc)
+
+
+def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
+    assert bhq in ("nBHQ", "xBHQ", "tBHQ")
+    assert bhl in ("nBHL", "xBHL")
+    assert dm in ("nDM", "xDM")
+    assert wlc in ("nWLC", "xWLC", "zmiscWLC", "zdexiWLC")
+    assert uxlc in ("nUXLC", "xUXLC", "zUXLC")
+
+
+def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
+    if wlc in ("zmiscWLC", "zdexiWLC"):
+        assert (bhq, bhl, dm, uxlc) == ("tBHQ", "xBHL", "xDM", "xUXLC")
+    if uxlc == "zUXLC":
+        assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
+    if uxlc == "nUXLC":
+        assert (bhq, bhl, dm, wlc) == ("xBHQ", "xBHL", "xDM", "xWLC")
 
 
 def _fill_in(nb_dict):

@@ -5,6 +5,7 @@ import os
 import os.path
 from py import two_col_css_styles as tcstyles
 from py import my_html
+from pycmn.my_utils import sl_map
 from pyauthor import (
     job1_full_list_overview,
     job3_uxlc,
@@ -13,6 +14,7 @@ from pyauthor import (
 )
 from pyauthor_util.common_titles_etc import d2_anchor
 from pyauthor_util.get_qr_groups import get_qr_groups
+from pyauthor_util.noted_by import nb_dict
 from pyauthor_util.short_id_etc import lc_img
 from pyauthor_util.job_quirkrecs import QUIRKRECS
 from pyauthor_util.job_ov_and_de import make_ov_and_de, sort_key
@@ -39,17 +41,25 @@ def main():
     #
     _write_index_dot_html((css_href,), "docs/index.html")
 
-
 def _prep(jobn_rel_top):
     qrs = sorted(QUIRKRECS, key=sort_key)
+    _assert_all_img_paths_exist(jobn_rel_top, qrs)
     qrs = [qr for qr in qrs if qr.get("qr-lc-proposed")]  # temporary
+    qrs_with_nbd = sl_map(_add_nbd, qrs)
+    ov_and_de = make_ov_and_de(qrs_with_nbd)
+    return qrs_with_nbd, ov_and_de
+
+
+def _add_nbd(quirkrec):
+    return {**quirkrec, "nbd": nb_dict(quirkrec)}
+
+
+def _assert_all_img_paths_exist(jobn_rel_top, qrs):
     for qr in qrs:
         if qr.get("qr-under-construction"):
             continue
         lc_img_path = f"{jobn_rel_top}/img/{lc_img(qr)}"
         assert os.path.exists(lc_img_path), f"Missing LC image: {lc_img_path}"
-    ov_and_de = make_ov_and_de(qrs)
-    return qrs, ov_and_de
 
 
 def _write_index_dot_html(css_hrefs, out_path):

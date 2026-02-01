@@ -12,7 +12,7 @@ from pyauthor_util.short_id_etc import short_id
 from pyauthor_util.job1_highlight import highlight, color
 from pyauthor_util.job1_lcloc import lcloc
 from pycmn import my_utils
-from pycmn.my_utils import sl_map
+from pycmn.my_utils import intersperse, sl_map
 from py_uxlc_loc import my_uxlc_location
 from py_uxlc_loc import my_tanakh_book_names as py_uxlc_loc_tbn
 
@@ -132,7 +132,19 @@ def _make_overview_row(quirkrec):
 
 
 def _what_is_weird(quirkrec):
-    return quirkrec["qr-what-is-weird"]
+    wiw = quirkrec["qr-what-is-weird"]
+    parts = [wiw, *_says(quirkrec)]
+    wiw_and_says = intersperse(my_html.line_break(), parts)
+    return wiw_and_says
+
+
+def _says(quirkrec):
+    # nbd = nb_dict(quirkrec)
+    # if _nbq_and_x3(nbd):
+    #     return ["in μL, as transcribed and noted by $BHQ"]
+    # if nbd["e:BHQ"] == "tBHQ":
+    #     return ["in μL, as transcribed but not noted by $BHQ"]
+    return []
 
 
 def _els(quirkrec):

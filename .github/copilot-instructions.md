@@ -31,6 +31,10 @@ When working with Hebrew text, maintain proper Unicode normalization order:
 
 Full order: **base letter → shin/sin dot → dagesh → rafeh → vowels → meteg → accents**
 
+## Temporary Generated Files
+
+Place any temporary generated files (scripts, HTML reports, debugging output, etc.) into the `.novc/` folder. This folder is excluded from version control.
+
 ## Verification After Refactoring
 
 After making changes to Python source files, verify the HTML output is unchanged:

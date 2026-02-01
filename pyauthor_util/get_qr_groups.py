@@ -11,12 +11,14 @@ def _bhq_and_t4o(quirkrec):
     the_4_others = bhl, dm, wlc, uxlc
     return bhq, the_4_others
 
+
 def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
     assert bhq in ("n", "x", "t")
     assert bhl in ("n", "x")
     assert dm in ("n", "x")
     assert wlc in ("n", "x", "zmisc", "zdexi")
     assert uxlc in ("n", "x", "z")
+
 
 def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
     if wlc in ("zmisc", "zdexi"):
@@ -25,6 +27,7 @@ def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
         assert (bhq, bhl, dm, wlc) == ("t", "x", "x", "x")
     if uxlc == "n":
         assert (bhq, bhl, dm, wlc) == ("x", "x", "x", "x")
+
 
 def _bhq_and_t3o(quirkrec):
     """t3o: the three others (BHL, DM, & WLC)"""

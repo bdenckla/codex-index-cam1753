@@ -70,22 +70,22 @@ def _tbhq_and_n3(quirkrec):
 
 
 def _tbhq_and_zwd(quirkrec):
-    _bhq, t3o = _bhq_and_t3o(quirkrec)
-    return t3o[2] == "zdexiWLC"
+    nbd = nb_dict(quirkrec)
+    return nbd["e:WLC"] == "zdexiWLC"
 
     
 def _tbhq_and_zwm(quirkrec):
-    _bhq, t3o = _bhq_and_t3o(quirkrec)
-    return t3o[2] == "zmiscWLC"
+    nbd = nb_dict(quirkrec)
+    return nbd["e:WLC"] == "zmiscWLC"
 
 def _xbhq_and_nuxlc(quirkrec):
-    _bhq, t4o = _bhq_and_t4o(quirkrec)
-    return t4o[3] == "nUXLC"
+    nbd = nb_dict(quirkrec)
+    return nbd["e:UXLC"] == "nUXLC"
 
 
 def _tbhq_and_zuxlc(quirkrec):
-    _bhq, t4o = _bhq_and_t4o(quirkrec)
-    return t4o[3] == "zUXLC"
+    nbd = nb_dict(quirkrec)
+    return nbd["e:UXLC"] == "zUXLC"
 
 
 def _filter(quirkrecs, filter_fn):

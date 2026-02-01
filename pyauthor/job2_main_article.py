@@ -32,20 +32,20 @@ def _make_cbody(ov_and_de, qr_groups):
         author.para_ul(_CPARA13, _CLIST13),
         author.para_ul(_CPARA14, _CLIST14),
         author.para_ul(_CPARA15, _CLIST15),
-        author.para(_CPARA16),
-        author.para(_CPARA17A),
-        para_and_table(_cpara17b, ov_and_de, qr_groups["nbhq_and_x3"]),
+        author.para(_CPARA24),
+        author.para(_CPARA25),
+        para_and_table(_cpara26, ov_and_de, qr_groups["nbhq_and_x3"]),
         *intro("intro-job2"),
-        author.para(_CPARA17C),
-        para_and_table(_cpara18, ov_and_de, qr_groups["nbhq_and_n3"]),
-        para_and_table(_cpara20, ov_and_de, qr_groups["tbhq_and_n3"]),
-        para_and_table(_cpara19, ov_and_de, qr_groups["xbhq_and_n3"]),
-        author.para(_cpara22()),
-        author.para(_cpara23(len(qr_groups["nbhq_and_n3"]))),
-        author.para(_cpara24a(len_dexi, len_misc)),
-        para_and_table(_cpara24b_dexi, ov_and_de, qr_groups["tbhq_and_zwd"]),
-        para_and_table(_cpara24c_misc, ov_and_de, qr_groups["tbhq_and_zwm"]),
-        author.para_ul(_CPARA25, _clist25(the_lens)),
+        author.para(_CPARA27),
+        para_and_table(_cpara28, ov_and_de, qr_groups["nbhq_and_n3"]),
+        para_and_table(_cpara29, ov_and_de, qr_groups["tbhq_and_n3"]),
+        para_and_table(_cpara30, ov_and_de, qr_groups["xbhq_and_n3"]),
+        author.para(_cpara31()),
+        author.para(_cpara32(len(qr_groups["nbhq_and_n3"]))),
+        author.para(_cpara33(len_dexi, len_misc)),
+        para_and_table(_cpara34_dexi, ov_and_de, qr_groups["tbhq_and_zwd"]),
+        para_and_table(_cpara35_misc, ov_and_de, qr_groups["tbhq_and_zwm"]),
+        author.para_ul(_CPARA36, _clist36(the_lens)),
         author.heading_level_2("Postscript: $UXLC"),
         author.para(_CPARA_UXLC),
     ]
@@ -149,14 +149,14 @@ _CLIST15 = [
     "Masorah magna and parva (other than קרי Mp)",
     "the meaning of the text",
 ]
-_CPARA16 = [
+_CPARA24 = [
     "For all I know, those parts of $BHQ are of high quality.",
     #
     " But those parts are not my concern.",
 ]
 
 
-_CPARA17A = [
+_CPARA25 = [
     "Having criticized $BHQ in general terms,",
     " I will now review the specifics of the $BHQ Book of Job (2024).",
     #
@@ -164,7 +164,7 @@ _CPARA17A = [
 ]
 
 
-def _cpara17b(the_len):
+def _cpara26(the_len):
     return [
         f"First, the good news: the Job volume of $BHQ notes {str(the_len)}",
         " quirks in μL that are not noted in any of the three editions listed above.",
@@ -176,7 +176,7 @@ def _cpara17b(the_len):
     ]
 
 
-_CPARA17C = [
+_CPARA27 = [
     "Unsurprisingly, all of these contributions",
     " are new, i.e. not present in $BHS.",
     #
@@ -222,11 +222,11 @@ _CPARA18_PART2 = [
 ]
 
 
-def _cpara18(the_len):
+def _cpara28(the_len):
     return _cpara18_part1(the_len) + _CPARA18_PART2
 
 
-def _cpara19(the_len):
+def _cpara30(the_len):
     return [
         f"Now for some bad news:",
         f" the Job volume of $BHQ does not transcribe {str(the_len)}",
@@ -244,7 +244,7 @@ def _cpara19(the_len):
     ]
 
 
-def _cpara20(the_len):
+def _cpara29(the_len):
     return [
         f"Now for some mixed news:",
         f" the Job volume of $BHQ transcribes but does not note {str(the_len)}",
@@ -264,7 +264,7 @@ _BHQ_HAS_DEX = "$BHQ has דחי but should probably have טרחא"
 _A_TAR_IN_BHQ = "a טרחא in $BHQ"
 
 
-def _cpara24a(len_dexi, len_misc):
+def _cpara33(len_dexi, len_misc):
     len_total = len_dexi + len_misc
     return [
         f"Finally, some $WLC notes help us identify that",
@@ -282,7 +282,7 @@ def _cpara24a(len_dexi, len_misc):
     ]
 
 
-def _cpara24b_dexi(len_dexi):
+def _cpara34_dexi(len_dexi):
     return [
         f"Here are the",
         f" {str(len_dexi)} cases noted in $WLC where {_BHQ_HAS_TAR}",
@@ -290,7 +290,7 @@ def _cpara24b_dexi(len_dexi):
     ]
 
 
-def _cpara24c_misc(len_misc):
+def _cpara35_misc(len_misc):
     return [
         f"Then there are the",
         f" {str(len_misc)} cases noted in $WLC where $BHQ is probably in error",
@@ -301,12 +301,12 @@ def _cpara24c_misc(len_misc):
     ]
 
 
-_CPARA25 = [
+_CPARA36 = [
     "In conclusion, by using the other three editions, we find the following about $BHQ:",
 ]
 
 
-def _clist25(the_lens):
+def _clist36(the_lens):
     len_dexi = the_lens["tbhq_and_zwd"]
     len_misc = the_lens["tbhq_and_zwm"]
     len_total = len_dexi + len_misc
@@ -324,7 +324,7 @@ def _clist25(the_lens):
     ]
 
 
-def _cpara22():
+def _cpara31():
     return [
         "I would not expect $BHQ to transcribe and/or note all the above quirks.",
         #
@@ -340,7 +340,7 @@ def _cpara22():
     ]
 
 
-def _cpara23(len_of_nbhq_and_n3):
+def _cpara32(len_of_nbhq_and_n3):
     foo = len_of_nbhq_and_n3 - _COUNT_OF_RNTQ
     bar = len_of_nbhq_and_n3
     return [

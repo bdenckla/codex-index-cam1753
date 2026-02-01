@@ -195,9 +195,9 @@ def _cpara18_part1(the_len):
         [" in one or more of the other three editions."],
     ]
 
-_COUNT_OF_RNTQ = 2  # RNTQ: reiterations new to BHQ
+_COUNT_OF_RNTQ = 3  # RNTQ: reiterations new to BHQ
 _DESCRIPTION_OF_RNTQ = [
-    "two that are new are the ones in 6:21 and 18:4"
+    "three that are new are the ones in 6:21, 18:4, and 19:16"
 ]
 _WORDS_FOR_NUMBERS = {1: "one", 2: "two", 3: "three", 4: "four"}
 
@@ -350,8 +350,8 @@ def _cpara23(len_of_nbhq_and_n3):
         " it is more likely that they were simply not considered at all.",
         #
         f" This conclusion is strengthened by the fact that {foo} of the {bar}",
-        " reiterations in the second group above were already present in $BHS.",
-        f" I.e., the source of these {foo} reiterations is almost certainly $BHS,",
+        " reiterations were already present in $BHS.",
+        f" The source of these {foo} reiterations is almost certainly $BHS,",
         " not one of the other three editions.",
     ]
 

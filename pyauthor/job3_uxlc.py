@@ -15,13 +15,14 @@ def gen_html_file(tdm_ch, ov_and_de, qr_groups):
 def _make_cbody(ov_and_de, qr_groups):
     cbody = [
         author.heading_level_1(D3_H1_CONTENTS),
-        para_and_table(_cpara_nu, ov_and_de, qr_groups["tbhq_and_nu"]),
-        para_and_table(_cpara_zu, ov_and_de, qr_groups["tbhq_and_zu"]),
+        para_and_table(_cpara_xn, ov_and_de, qr_groups["xbhq_and_nuxlc"]),
+        para_and_table(_cpara_tz, ov_and_de, qr_groups["tbhq_and_zuxlc"]),
     ]
     return cbody
 
 
-def _cpara_nu(the_len):
+def _cpara_xn(the_len):
+    """xn: xbhq_and_nuxlc"""
     return [
         ["$BHQ does not transcribe ", str(the_len)],
         [" quirks in μL that are noted"],
@@ -29,7 +30,8 @@ def _cpara_nu(the_len):
     ]
 
 
-def _cpara_zu(the_len):
+def _cpara_tz(the_len):
+    """tz: tbhq_and_zuxlc"""
     return [
         ["$BHQ transcribes but does not note ", str(the_len)],
         [" quirks in μL that are noted"],

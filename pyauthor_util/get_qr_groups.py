@@ -24,8 +24,10 @@ def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
 def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
     if wlc in ("zWLCmisc", "zWLCdexi"):
         assert (bhq, bhl, dm, uxlc) == ("tBHQ", "xBHL", "xDM", "xUXLC")
-    if uxlc in ("zUXLC", "nUXLC"):
+    if uxlc == "zUXLC":
         assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
+    if uxlc == "nUXLC":
+        assert (bhq, bhl, dm, wlc) == ("xBHQ", "xBHL", "xDM", "xWLC")
 
 
 def _bhq_and_t3o(quirkrec):
@@ -78,12 +80,12 @@ def _tbhq_and_zwm(quirkrec):
     return t3o[2] == "zWLCmisc"
 
 
-def _tbhq_and_nu(quirkrec):
+def _xbhq_and_nuxlc(quirkrec):
     _bhq, t4o = _bhq_and_t4o(quirkrec)
     return t4o[3] == "nUXLC"
 
 
-def _tbhq_and_zu(quirkrec):
+def _tbhq_and_zuxlc(quirkrec):
     _bhq, t4o = _bhq_and_t4o(quirkrec)
     return t4o[3] == "zUXLC"
 
@@ -99,8 +101,8 @@ _FILTER_FNS = {
     "tbhq_and_n3": _tbhq_and_n3,
     "tbhq_and_zwd": _tbhq_and_zwd,
     "tbhq_and_zwm": _tbhq_and_zwm,
-    "tbhq_and_nu": _tbhq_and_nu,
-    "tbhq_and_zu": _tbhq_and_zu,
+    "xbhq_and_nuxlc": _xbhq_and_nuxlc,
+    "tbhq_and_zuxlc": _tbhq_and_zuxlc,
 }
 # nbhq: noted (as a quirk) in BHQ
 # xbhq: not noted (as a quirk) in BHQ

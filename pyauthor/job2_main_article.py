@@ -195,6 +195,12 @@ def _cpara18_part1(the_len):
         [" in one or more of the other three editions."],
     ]
 
+_COUNT_OF_RNTQ = 2  # RNTQ: reiterations new to BHQ
+_DESCRIPTION_OF_RNTQ = [
+    "two that are new are the ones in 6:21 and 18:4"
+]
+_WORDS_FOR_NUMBERS = {1: "one", 2: "two", 3: "three", 4: "four"}
+
 
 _CPARA18_PART2 = [
     " I.e. these are cases where $BHQ reiterates something available",
@@ -206,11 +212,14 @@ _CPARA18_PART2 = [
     " Indeed my main criticism of $BHQ Job is that it",
     " should have reiterated most of what can be found in those other three editions.",
     #
-    " Unsurprisingly, all but one of the $BHQ reiterations",
-    " are not new, i.e. they were already present in $BHS.",
+    f" Unsurprisingly, all but",
+    f" {_WORDS_FOR_NUMBERS[_COUNT_OF_RNTQ]}",
+    f" of the $BHQ reiterations",
+    f" are not new, i.e. they were already present in $BHS.",
     #
-    " (The one that is new is the one regarding the דגש in the מ of הלמענך in 18:4.)",
-    " The reiterations made by $BHQ are as follows:",
+    [" (The ",_DESCRIPTION_OF_RNTQ, ".)"],
+    #
+    f" The reiterations made by $BHQ are as follows:",
 ]
 
 
@@ -327,9 +336,9 @@ def _cpara22():
     ]
 
 
-def _cpara23(the_len_of_the_2nd_group):
-    foo = the_len_of_the_2nd_group - 1
-    bar = the_len_of_the_2nd_group
+def _cpara23(len_of_nbhq_and_n3):
+    foo = len_of_nbhq_and_n3 - _COUNT_OF_RNTQ
+    bar = len_of_nbhq_and_n3
     return [
         "Nonetheless, the quirks not transcribed and/or noted by $BHQ",
         " are of high quantity and high average quality.",

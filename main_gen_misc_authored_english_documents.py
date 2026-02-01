@@ -42,7 +42,7 @@ def main():
 
 def _prep(jobn_rel_top):
     qrs = sorted(QUIRKRECS, key=sort_key)
-    qrs = [qr for qr in qrs if not qr.get("qr-under-construction")]  # temporary
+    qrs = [qr for qr in qrs if qr.get("qr-lc-proposed")]  # temporary
     for qr in qrs:
         if qr.get("qr-under-construction"):
             continue

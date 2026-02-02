@@ -1,5 +1,6 @@
 RECORD_0720 = {
     "qr-noted-by": "nDM",
+    "qr-noted-by-mam": True,
     "qr-cv": "7:20",
     "qr-consensus": "הָ֫אָדָ֥ם",
     "qr-lc-proposed": "הָאָ֫דָ֥ם",

@@ -1,5 +1,6 @@
 RECORD_3102 = {
     "qr-noted-by": "nDM",
+    "qr-noted-by-mam": True,
     "qr-cv": "31:2",
     "qr-consensus": "וּמֶ֤ה",
     "qr-lc-proposed": "וּמֶ֤ה׀",

@@ -1,5 +1,3 @@
-
-
 RECORD_0709 = {
     "qr-bhla-i": 5,
     "qr-cv": "7:9",

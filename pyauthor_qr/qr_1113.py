@@ -1,5 +1,3 @@
-
-
 RECORD_1113 = {
     "qr-cv": "11:13",
     "qr-lc-proposed": "אַ֭תָּ֗ה",

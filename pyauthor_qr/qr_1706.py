@@ -1,5 +1,3 @@
-
-
 RECORD_1706 = {
     "qr-cv": "17:6",
     "qr-lc-proposed": "וְתֹ֖פֶתּ",

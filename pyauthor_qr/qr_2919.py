@@ -1,5 +1,3 @@
-
-
 _COMMENT_2919 = [
     "Probably the ascender of the ל on the line below",
     f" “forced” the סילוק to be early.",

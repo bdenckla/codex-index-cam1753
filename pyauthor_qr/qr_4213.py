@@ -1,5 +1,3 @@
-
-
 RECORD_4213 = {
     "qr-cv": "42:13",
     "qr-lc-proposed": "בָנֽוֹת׃",

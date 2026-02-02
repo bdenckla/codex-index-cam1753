@@ -134,7 +134,7 @@ def _make_overview_row(quirkrec):
 
 
 def _what_is_weird(quirkrec):
-    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], " in μL," ]
+    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], " in μL,"]
     parts = [wiw_in_mu_ell, *says(quirkrec)]
     wiw_and_says = intersperse(my_html.line_break(), parts)
     return wiw_and_says

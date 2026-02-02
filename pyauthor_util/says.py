@@ -14,20 +14,20 @@ from pycmn.my_utils import sl_map
 
 def says(quirkrec):
     if nbhq_and_x3(quirkrec):
-        return ["in μL, says $BHQ’s contribution"]
+        return ["says $BHQ’s contribution"]
     if nbhq_and_n3(quirkrec):
-        return ["in μL, says $BHQ’s reiteration"]
+        return ["says $BHQ’s reiteration"]
     if tbhq_and_n3(quirkrec):
-        return ["in μL, says $BHQ’s implication"]
+        return ["says $BHQ’s implication"]
     if xbhq_and_n3(quirkrec):
         # yes, the double list is intentional below
-        return [["in μL, says ", _english_says_who(quirkrec), " but not $BHQ"]]
+        return [["says ", _english_says_who(quirkrec), " but not $BHQ"]]
     if tbhq_and_zdw(quirkrec) or tbhq_and_zmw(quirkrec):
-        return ["in μL, says $BHQ but not $WLC"]
+        return ["says $BHQ but not $WLC"]
     if xbhq_and_nuxlc(quirkrec):
-        return ["in μL, says $UXLC but not $BHQ"]
+        return ["says $UXLC but not $BHQ"]
     if tbhq_and_zuxlc(quirkrec):
-        return ["in μL, says $BHQ but not $UXLC"]
+        return ["says $BHQ but not $UXLC"]
     return []
 
 

@@ -6,7 +6,6 @@
 
 from py import my_html
 from pycmn import my_utils
-from pycmn import str_defs as sd
 from pycmn.my_utils import intersperse, sl_map
 from pyauthor_util.common_titles_etc import D1D_FNAME
 from pyauthor_util import author
@@ -112,7 +111,7 @@ def _lcp_and_con(quirkrec):
     hcon = highlight(quirkrec, "qr-consensus")
     if lc_q := quirkrec.get("qr-lc-q"):
         assert lc_q == "(?)"
-        lc_and_q = [hlcp, sd.NBSP, "(?)"]
+        lc_and_q = [hlcp, " (?)"]
     else:
         lc_and_q = [hlcp]
     lcp_and_con = [*lc_and_q, my_html.line_break(), hcon]
@@ -120,11 +119,13 @@ def _lcp_and_con(quirkrec):
 
 
 def _make_overview_row(quirkrec):
-    hbo_attrs = {"lang": "hbo", "dir": "rtl", **_els(quirkrec)}
+    hbo_rtl = {"lang": "hbo", "dir": "rtl"}
+    nowrap = {"style": "text-wrap: nowrap"}
+    td1_attrs = {**hbo_rtl, **nowrap, **_els(quirkrec)}
     the_row_id = row_id(quirkrec)
     anc = my_html.anchor_h("#", f"{D1D_FNAME}#{the_row_id}")  # self-anchor
     tr_contents = [
-        my_html.table_datum(_lcp_and_con(quirkrec), hbo_attrs),
+        my_html.table_datum(_lcp_and_con(quirkrec), td1_attrs),
         my_html.table_datum([anc, " ", quirkrec["qr-cv"]]),
         author.table_datum(_what_is_weird(quirkrec)),
     ]
@@ -133,8 +134,8 @@ def _make_overview_row(quirkrec):
 
 
 def _what_is_weird(quirkrec):
-    wiw = quirkrec["qr-what-is-weird"]
-    parts = [wiw, *says(quirkrec)]
+    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], " in μL," ]
+    parts = [wiw_in_mu_ell, *says(quirkrec)]
     wiw_and_says = intersperse(my_html.line_break(), parts)
     return wiw_and_says
 

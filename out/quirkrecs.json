@@ -406,7 +406,7 @@
     }
   },
   {
-    "qr-noted-by": "nDM",
+    "qr-noted-by": "tBHQ-nDM",
     "qr-cv": "6:17",
     "qr-consensus": "בְּעֵ֣ת",
     "qr-lc-proposed": "בְּ֭עֵת",
@@ -414,11 +414,11 @@
     "qr-lc-loc": {
       "page": "398B",
       "column": 2,
-      "line": 16
+      "line": 15
     },
     "qr-under-construction": true,
     "nbd": {
-      "e:BHQ": "xBHQ",
+      "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
       "e:DM": "nDM",
       "e:WLC": "xWLC",

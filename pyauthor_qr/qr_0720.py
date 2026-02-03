@@ -1,11 +1,11 @@
 RECORD_0720 = {
     "qr-noted-by": "nDM",
     "qr-noted-by-mam": True,
+    # XXX perhaps MAM's note should mention LC
     "qr-cv": "7:20",
     "qr-consensus": "הָ֫אָדָ֥ם",
     "qr-lc-proposed": "הָאָ֫דָ֥ם",
     "qr-what-is-weird": "עולה on א not ה",
-    # XXX noted by MAM but perhaps the note should mention LC
-    "qr-lc-loc": {"page": "399A", "column": 2, "line": 2},
+    "qr-lc-loc": {"page": "399A", "column": 1, "line": 27},
     "qr-under-construction": True,
 }

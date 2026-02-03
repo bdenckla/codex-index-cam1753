@@ -301,12 +301,15 @@
     "qr-lc-q": "(?)",
     "qr-what-is-weird": "ל may lack דגש",
     "qr-generic-comment": [
-      "Aside: the קמץ under ה is קטן."
+      "There is some kind of a dot way over next to the",
+      " final $khaf ( ך )",
+      " but it could easily be either not ink, or not intentional ink.",
+      " Aside: the קמץ under ה is קטן."
     ],
     "qr-lc-loc": {
       "page": "398B",
       "column": 1,
-      "line": 16
+      "line": 17
     },
     "qr-under-construction": true,
     "nbd": {
@@ -323,6 +326,11 @@
     "qr-consensus": "נָ֝וְךָ֗",
     "qr-lc-proposed": "נָ֝וְךָ",
     "qr-what-is-weird": "רביע of רביע מוגרש is absent (DM footnote 9)",
+    "qr-generic-comment": [
+      "The dot above the",
+      " final $khaf ( ך )",
+      " might at first glance appear to be a candidate for the possibly-expected רביע, but it is almost certainly the קמץ dot belonging to the word-part השלמה־ above, which, coincidentally, is part of our entry for 5:23."
+    ],
     "qr-lc-loc": {
       "page": "398B",
       "column": 1,
@@ -350,10 +358,80 @@
     },
     "qr-under-construction": true,
     "qr-bhq-comment": [
-      "The mark under the ו of ותהי was changed",
-      " from מרכא to געיה in going from $BHS to $BHQ.",
-      " This was a regression, in my opinion, since it leaves ותהי with no accent, only געיה.",
-      " This is an uncharitable transcription."
+      {
+        "_htel_tag": "p",
+        "contents": [
+          "Note that consensus has a rare and hard-to-understand phenomenon called “secondary מרכא” by Breuer."
+        ]
+      },
+      {
+        "_htel_tag": "p",
+        "contents": [
+          "This is one of only two strictly analogous cases listed ",
+          {
+            "_htel_tag": "a",
+            "attr": {
+              "href": "https://bdenckla.github.io/MAM-with-doc/foi/foi-sec-merk.html#intro-poetic/(%C3%BCazll)/(mer)-(%C3%BCazll)"
+            },
+            "contents": [
+              "here"
+            ]
+          },
+          ", though there are about 30 analogous cases if one includes those where the analogy is allowed to be less strict. What makes this case “rare among rare” is that, contrary to most cases, the מקף that is normally implicit is explict (in the consensus). Interestingly, μL has some sort of disturbance where one would expect the מקף, suggesting that there might have been a מקף here that was erased."
+        ]
+      },
+      {
+        "_htel_tag": "p",
+        "contents": [
+          "See Breuer CoS sections 09.27, 9.37, and 11.06.rn2. (CoS = The Cantillation of Scripture.) (Note that an English ",
+          {
+            "_htel_tag": "a",
+            "attr": {
+              "href": "https://www.chorev.co.il/%D7%98%D7%A2%D7%9E%D7%99-%D7%94%D7%9E%D7%A7%D7%A8%D7%90-%D7%91%D7%90%D7%A0%D7%92%D7%9C%D7%99%D7%AA-THE-CANTILLATION-OF-SCRIPTURE.htm"
+            },
+            "contents": [
+              "translation"
+            ]
+          },
+          " of CoS is now available, a great boon to students of cantillation who cannot easily read the ",
+          {
+            "_htel_tag": "a",
+            "attr": {
+              "href": "https://www.chorev.co.il/%D7%98%D7%A2%D7%9E%D7%99-%D7%94%D7%9E%D7%A7%D7%A8%D7%90.htm"
+            },
+            "contents": [
+              "original"
+            ]
+          },
+          " in its modern Hebrew.)"
+        ]
+      },
+      {
+        "_htel_tag": "p",
+        "contents": [
+          "The mark under the ו of ותהי was changed from מרכא to געיה in going from ",
+          {
+            "_htel_tag": "abbr",
+            "attr": {
+              "class": "small-caps"
+            },
+            "contents": [
+              "BHS"
+            ]
+          },
+          " to ",
+          {
+            "_htel_tag": "abbr",
+            "attr": {
+              "class": "small-caps"
+            },
+            "contents": [
+              "BHQ"
+            ]
+          },
+          ". This was a regression, in my opinion, since it leaves ותהי with no accent, only געיה. This is an uncharitable transcription."
+        ]
+      }
     ],
     "nbd": {
       "e:BHQ": "tBHQ",
@@ -491,6 +569,7 @@
   },
   {
     "qr-noted-by": "nDM",
+    "qr-noted-by-mam": true,
     "qr-cv": "7:20",
     "qr-consensus": "הָ֫אָדָ֥ם",
     "qr-lc-proposed": "הָאָ֫דָ֥ם",
@@ -1219,6 +1298,7 @@
       "$BHQ has the proposed transcription of μL above."
     ],
     "qr-noted-by": "tBHQ-zUXLC",
+    "qr-noted-by-mam": true,
     "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-12",
     "nbd": {
       "e:BHQ": "tBHQ",
@@ -3009,6 +3089,7 @@
   },
   {
     "qr-noted-by": "nDM",
+    "qr-noted-by-mam": true,
     "qr-cv": "31:2",
     "qr-consensus": "וּמֶ֤ה",
     "qr-lc-proposed": "וּמֶ֤ה׀",

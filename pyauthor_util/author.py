@@ -406,6 +406,7 @@ _ROMANIZED = {
     "$xiriq": "ḥiriq",
     "$xiriq_qatan": "ḥiriq qatan",
     "$kaf": "kaf",
+    "$khaf": "khaf",
     "$paseq": "paseq",
     "$pasoleg": "paseq/legarmeh",
     "$maqaf": "maqaf",

@@ -40,7 +40,7 @@
     },
     {
       "field": "qr-generic-comment",
-      "count": 60
+      "count": 61
     },
     {
       "field": "qr-under-construction",
@@ -83,6 +83,10 @@
       "count": 5
     },
     {
+      "field": "qr-noted-by-mam",
+      "count": 4
+    },
+    {
       "field": "qr-bhq",
       "count": 3
     },
@@ -108,10 +112,6 @@
     },
     {
       "field": "qr-cam1753-img-intro",
-      "count": 1
-    },
-    {
-      "field": "qr-noted-by-mam",
       "count": 1
     },
     {

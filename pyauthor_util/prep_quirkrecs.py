@@ -14,6 +14,20 @@ def _add_nbd(quirkrec):
     return {**quirkrec, "nbd": nb_dict(quirkrec)}
 
 
+def _add_auto_imgs(jobn_rel_top, quirkrec):
+    """Auto-detect Aleppo and Cam1753 images if files exist on disk."""
+    result = quirkrec.copy()
+    sid = short_id(quirkrec)
+    for field, prefix in [("qr-aleppo-img", "Aleppo-"), ("qr-cam1753-img", "Cam1753-")]:
+        if result.get(field):
+            continue  # Already explicitly set
+        auto_img = f"{prefix}{sid}.png"
+        auto_path = f"{jobn_rel_top}/img/{auto_img}"
+        if os.path.exists(auto_path):
+            result[field] = auto_img
+    return result
+
+
 def _assert_all_img_paths_exist(jobn_rel_top, qrs):
     for qr in qrs:
         if not qr.get("qr-lc-proposed"):
@@ -30,12 +44,13 @@ def prep_quirkrecs(jobn_rel_top, json_outdir):
     qrs_1 = sorted(QUIRKRECS, key=_sort_key)
     _assert_all_img_paths_exist(jobn_rel_top, qrs_1)
     qrs_1 = [qr for qr in qrs_1 if qr.get("qr-lc-proposed")]  # XXX temporary
-    qrs_2 = sl_map(_add_nbd, qrs_1)
-    qrs_3 = flatten_qrs(qrs_2)
+    qrs_2 = sl_map((_add_auto_imgs, jobn_rel_top), qrs_1)
+    qrs_3 = sl_map(_add_nbd, qrs_2)
+    qrs_4 = flatten_qrs(qrs_3)
     write_qr_field_stats_json(
-        qrs_3,
+        qrs_4,
         f"{json_outdir}/qr-field-stats-ordered-by-count.json",
         f"{json_outdir}/qr-field-stats-ordered-by-field-name.json",
     )
-    write_quirkrecs_json(qrs_3, f"{json_outdir}/quirkrecs.json")
-    return qrs_3
+    write_quirkrecs_json(qrs_4, f"{json_outdir}/quirkrecs.json")
+    return qrs_4

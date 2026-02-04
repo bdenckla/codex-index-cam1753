@@ -8,6 +8,6 @@ RECORD_2115 = {
         "24:1 and 27:13 are analogous.",
     ],
     "qr-highlight": 4,
-    "qr-lc-loc": {"page": "403A", "column": 1, "line": 25},
+    "qr-lc-loc": {"page": "403A", "column": 1, "line": 26},
     "qr-under-construction": True,
 }

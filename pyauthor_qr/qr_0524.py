@@ -1,3 +1,5 @@
+from pyauthor_util.thin_spaced_paren import wrap_with_thin_spaced_paren
+
 RECORD_0524 = {
     "qr-noted-by": "tBHQ-nDM",
     "qr-cv": "5:24",
@@ -7,7 +9,7 @@ RECORD_0524 = {
     "qr-highlight": 3,
     "qr-generic-comment": [
         "The dot above the",
-        " final $khaf (\u2009ך\u2009)",
+        " final $khaf " + wrap_with_thin_spaced_paren("ך"),
         " might at first glance appear to be a candidate",
         " for the possibly-expected רביע, but it is almost certainly",
         " the קמץ dot belonging to the word-part השלמה־ above,",

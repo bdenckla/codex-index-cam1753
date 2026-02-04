@@ -1842,9 +1842,9 @@
       "$BHQ notes that the דגש on the מ in μL disagrees with μA and μY. $BHQ misses the געיה in μA. This געיה is irrelevant to $BHQ’s point here, which is about the דגש. Still, it would have been nice if $BHQ had transcribed the געיה."
     ],
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
-    "qr-aleppo-img": "Aleppo-1804.png",
     "qr-noted-by": "nBHQ-nBHL-nDM",
     "qr-lc-img": "1804-2of2ftv.png",
+    "qr-aleppo-img": "Aleppo-1804-2of2ftv.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "nBHL",
@@ -2259,15 +2259,15 @@
     ],
     "qr-noted-by": "tBHQ-nBHL-nWLC",
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/22/1/mg/106",
-    "qr-aleppo-img": "Aleppo-2221.png",
     "qr-cam1753-page-url": "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page/n83/mode/1up",
-    "qr-cam1753-img": "Cam1753-2221.png",
     "qr-cam1753-img-intro": [
       "note that instead of a masorah circle, μY uses a pair of above-dots",
       " as a “callout” for a Masorah parva note;",
       " hence the pair of above-dots above ל in ושלם."
     ],
     "qr-lc-img": "2221-1of2ftv.png",
+    "qr-aleppo-img": "Aleppo-2221-1of2ftv.png",
+    "qr-cam1753-img": "Cam1753-2221-1of2ftv.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -4304,7 +4304,6 @@
       "column": 1,
       "line": -11
     },
-    "qr-aleppo-img": "Aleppo-3812_B.png",
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/38/1/mg/106",
     "qr-bhq-comment": [
       {
@@ -4345,6 +4344,7 @@
     ],
     "qr-noted-by": "nWLC",
     "qr-lc-img": "3812-2of2ftv.png",
+    "qr-aleppo-img": "Aleppo-3812-2of2ftv.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",

@@ -20,6 +20,5 @@ RECORD_1804_B = {
     "qr-highlight": 3,
     "qr-bhq-comment": _BHQ_COMMENT_1804_B,
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
-    "qr-aleppo-img": "Aleppo-1804.png",
     "qr-noted-by": "nBHQ-nBHL-nDM",
 }

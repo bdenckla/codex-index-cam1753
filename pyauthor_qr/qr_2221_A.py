@@ -27,8 +27,6 @@ RECORD_2221_A = {
     "qr-bhq-comment": _BHQ_COMMENT_2221_A,
     "qr-noted-by": "tBHQ-nBHL-nWLC",
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/22/1/mg/106",
-    "qr-aleppo-img": "Aleppo-2221.png",
     "qr-cam1753-page-url": f"{CAM1753_PAGE_URL_BASE}/n83/mode/1up",
-    "qr-cam1753-img": "Cam1753-2221.png",
     "qr-cam1753-img-intro": _CAM1753_IMG_INTRO_2221,
 }

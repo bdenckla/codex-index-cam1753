@@ -6,6 +6,6 @@ RECORD_3405 = {
     "qr-what-is-weird": "דחי not מונח",
     "qr-highlight-consensus": 5,
     "qr-highlight-lc-proposed": 4,
-    "qr-lc-loc": {"page": "406B", "column": 2, "line": 7},
+    "qr-lc-loc": {"page": "406B", "column": 2, "line": 8},
     "qr-under-construction": True,
 }

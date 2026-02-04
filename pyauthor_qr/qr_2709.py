@@ -5,6 +5,6 @@ RECORD_2709 = {
     "qr-lc-proposed": "הַֽ֭צַעֲקָתוֹ",
     "qr-what-is-weird": "פתח is full not חטף (DM footnotes 19 & 20)",
     "qr-highlight": 1,
-    "qr-lc-loc": {"page": "404B", "column": 1, "line": 8},
+    "qr-lc-loc": {"page": "404B", "column": 1, "line": 7},
     "qr-under-construction": True,
 }

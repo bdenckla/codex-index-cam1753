@@ -6,6 +6,6 @@ RECORD_3433_B = {
     "qr-lc-proposed": "יְשַׁלְמֶ֨נָּה׀",
     "qr-what-is-weird": "ל lacks דגש",
     "qr-highlight": 3,
-    "qr-lc-loc": {"page": "407A", "column": 1, "line": 18},
+    "qr-lc-loc": {"page": "407A", "column": 1, "line": 16},
     "qr-under-construction": True,
 }

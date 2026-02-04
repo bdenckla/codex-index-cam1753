@@ -62,7 +62,8 @@ BHQ_COMMENT_XELSEWHERE_DUBIOUS = [
 BHQ_COMMENT_CMN_0409_AND_SIMILAR = [
     "This is one of seven similar cases in Job in μL.",
     " All are correctly transcribed in $BHQ, i.e. transcribed without a מפיק.",
-    " Although all are correctly transcribed in $BHQ, they are noted to different extents in $BHQ.",
+    " Although all are correctly transcribed in $BHQ,",
+    " they are noted to different extents in $BHQ.",
 ]
 BHQ_COMMENT_LIKE_0409 = [
     *BHQ_COMMENT_CMN_0409_AND_SIMILAR,

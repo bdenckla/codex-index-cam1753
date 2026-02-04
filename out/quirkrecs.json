@@ -3914,7 +3914,10 @@
     "qr-aleppo-img": "Aleppo-3612.png",
     "qr-cam1753-page-url": "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page/n87/mode/1up",
     "qr-cam1753-img": "Cam1753-3612.png",
-    "qr-uxlc-needs-fix": "UXLC has kaf (as it should) but should note the divergence from consensus",
+    "qr-uxlc-needs-fix": [
+      "UXLC has kaf (as it should)",
+      " but should note the divergence from consensus"
+    ],
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "xBHL",

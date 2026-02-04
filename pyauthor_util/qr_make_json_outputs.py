@@ -34,7 +34,9 @@ def write_qr_field_stats_json(quirkrecs, out_path_by_count, out_path_by_name):
     output_by_count = {
         "description": "Count of fields used in quirkrecs (ordered by count descending)",
         "total_quirkrecs": len(quirkrecs),
-        "fields": [{"field": field, "count": count} for field, count in sorted_by_count],
+        "fields": [
+            {"field": field, "count": count} for field, count in sorted_by_count
+        ],
     }
 
     output_by_name = {

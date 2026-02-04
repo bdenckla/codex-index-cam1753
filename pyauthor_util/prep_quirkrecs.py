@@ -16,8 +16,8 @@ def _add_nbd(quirkrec):
 
 def _assert_all_img_paths_exist(jobn_rel_top, qrs):
     for qr in qrs:
-        if qr.get("qr-under-construction"):
-            continue
+        if not qr.get("qr-lc-proposed"):
+            continue  # Skip records without qr-lc-proposed (not in output)
         lc_img_path = f"{jobn_rel_top}/img/{lc_img(qr)}"
         assert os.path.exists(lc_img_path), f"Missing LC image: {lc_img_path}"
 

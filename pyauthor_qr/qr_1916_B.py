@@ -1,3 +1,20 @@
+from pyauthor_util import author
+
+
+_GENCOM_PARA_1 = [
+    "μL omits the רביע of רביע מוגרש,",
+    " which is expected,",
+    " since μL’s habit is to omit the רביע in cases like this,",
+    " where the רביע and the גרש מוקדם would be cramped together on the same letter.",
+    " So, while μL doesn’t literally match the consensus we have presented,",
+    " we can say that it implies that consenus,",
+    " that consensus being merely the explicit notation of what μL implies.",
+]
+_GENCOM_PARA_2 = [
+    "In μL, there is some extra ink on the right side of the גרש מוקדם,",
+    " which could, perhaps, be a misplaced רביע,",
+    " but I find this unlikely."
+]
 RECORD_1916_B = {
     "qr-noted-by-mam": True,
     "qr-noted-by": "aDM",
@@ -9,4 +26,8 @@ RECORD_1916_B = {
     "qr-highlight-consensus": 5,
     "qr-what-is-weird": "רביע מוגרש spans מקף",
     "qr-lc-loc": {"page": "402B", "column": 1, "line": 8},
+    "qr-generic-comment": [
+        author.para(_GENCOM_PARA_1),
+        author.para(_GENCOM_PARA_2),
+    ],
 }

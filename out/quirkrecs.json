@@ -1998,6 +1998,20 @@
       "column": 1,
       "line": 8
     },
+    "qr-generic-comment": [
+      {
+        "_htel_tag": "p",
+        "contents": [
+          "μL omits the רביע of רביע מוגרש, which is expected, since μL’s habit is to omit the רביע in cases like this, where the רביע and the גרש מוקדם would be cramped together on the same letter. So, while μL doesn’t literally match the consensus we have presented, we can say that it implies that consenus, that consensus being merely the explicit notation of what μL implies."
+        ]
+      },
+      {
+        "_htel_tag": "p",
+        "contents": [
+          "In μL, there is some extra ink on the right side of the גרש מוקדם, which could, perhaps, be a misplaced רביע, but I find this unlikely."
+        ]
+      }
+    ],
     "qr-lc-img": "1916-2of2ftv.png",
     "nbd": {
       "e:BHQ": "xBHQ",

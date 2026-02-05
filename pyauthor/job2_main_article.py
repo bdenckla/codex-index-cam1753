@@ -94,9 +94,8 @@ _CPARA13 = [
     #
     " This made me even more disappointed with $BHQ.",
     #
-    " It seems to have been made in a bubble:",
-    " its editors seem to have been",
-    " unaware of or uninterested in",
+    " It seems to have been made in a bubble: its editors",
+    " seem to have been unaware of or uninterested in",
     " relevant work done in other editions.",
     #
     " I can see why something like a fresh transcription of μL was beyond the scope of $BHQ.",
@@ -113,27 +112,46 @@ _CLIST13 = [
         f" (Breuer et al., {num_range(1970, 2003)})",
     ],
     ["Biblia Hebraica Leningradensia ($BHL) (Dotan, 2001)"],
-    ["The Westminster Leningrad Codex ($WLC) (electronic)"],
+    ["The Westminster Leningrad Codex ($WLC) (electronic) (editions dating back to the 1980s)"],
 ]
 _CPARA14 = [
-    "The first volume of $BHQ (Megilloth) came out in 2004.",
+    "The first fascicle of $BHQ (Megilloth) came out in 2004.",
     #
-    " That means that all three of the above editions were available to the $BHQ editors.",
+    " That means that all three of the above editions were available to the $BHQ editors",
+    " for all fascicles of $BHQ.",
 ]
-_CLIST14_ITEM1 = ["All volumes of דעת מקרא predate $BHQ Megilloth."]
+_CLIST14_ITEM1 = [
+    "All volumes of דעת מקרא predate $BHQ Megilloth."
+    " Other works by Breuer are cited as sources in some fascicles of $BHQ,",
+    " but the $BHQ editors",
+    " seem to have been unaware of or uninterested in",
+    " Breuer’s relevant work in דעת מקרא.",
+]
 _CLIST14_ITEM2 = [
     "Dotan’s $BHL predates $BHQ Megilloth.",
     #
     " Before he died, Dotan was even a consultant to the $BHQ project.",
     #
-    " What’s more, his $BHL is sometimes cited as a source in $BHQ.",
+    " What’s more, his $BHL is cited as a source in many fascicles of $BHQ.",
     #
-    " So it is particularly puzzling that his $BHL,",
-    " in particular its monumental Appendix A,"
-    " was not used (or was not thoroughly used) in $BHQ.",
+    " So it is particularly puzzling that the $BHQ editors",
+    " seem to have been unaware of or uninterested in",
+    " Dotan’s relevant work in $BHL’s Appendix A.",
 ]
 _CLIST14_ITEM3 = [
-    "$WLC has had various releases over its decades, many predating $BHQ Megilloth."
+    "$WLC has had various releases over its decades, many predating $BHQ Megilloth.",
+    #
+    " It is by far the most popular digital Hebrew Bible.",
+    #
+    " Plus, it is closely related to $BHS and $BHQ.",
+    #
+    " $WLC was originally a transcription of $BHS,",
+    " and it carefully documents cases where it diverges from $BHS and/or $BHQ.",
+    #
+    "While $WLC “cares” a lot about $DBG Bibles,",
+    " the reverse seems to be false since the $BHQ editors",
+    " seem to have been unaware of or uninterested in",
+    " $WLC, whose notes are particularly relevant to $BHQ.",
 ]
 _CLIST14 = [
     _CLIST14_ITEM1,
@@ -164,13 +182,18 @@ _CPARA25 = [
     "Having criticized $BHQ in general terms,",
     " I will now review the specifics of the $BHQ Book of Job (2024).",
     #
-    " As of now (January 2026), it is the latest volume of $BHQ to be published.",
+    " As of now (January 2026), it is the latest fascicle of $BHQ to be published",
+    " and thus seems most relevant to review, if only one fascicle is to be reviewed.",
+    #
+    " I assume that $BHQ Job is at least broadly representative of the $BHQ series so far,",
+    " although each fascicle has a different primary editor",
+    " and may have different editorial teams working with that editor."
 ]
 
 
 def _cpara26(the_len):
     return [
-        f"First, the good news: the Job volume of $BHQ notes {str(the_len)}",
+        f"First, the good news: the Job fascicle of $BHQ notes {str(the_len)}",
         " quirks in μL that are not noted in any of the three editions listed above.",
         #
         " I.e. these are cases where $BHQ contributes something not available",
@@ -194,7 +217,7 @@ _CPARA27 = [
 
 def _cpara18_part1(the_len):
     return [
-        ["It is also good news that the Job volume of $BHQ notes ", str(the_len)],
+        ["It is also good news that the Job fascicle of $BHQ notes ", str(the_len)],
         [" quirks in μL that ", my_html.bold("are"), " noted"],
         [" in one or more of the other three editions."],
     ]
@@ -233,7 +256,7 @@ def _cpara28(the_len):
 def _cpara30(the_len):
     return [
         f"Now for some bad news:",
-        f" the Job volume of $BHQ does not transcribe {str(the_len)}",
+        f" the Job fascicle of $BHQ does not transcribe {str(the_len)}",
         f" quirks in μL that are noted in one or more of the other three editions.",
         #
         f" Not all such missing transcriptions are a bad thing,",
@@ -251,7 +274,7 @@ def _cpara30(the_len):
 def _cpara29(the_len):
     return [
         f"Now for some mixed news:",
-        f" the Job volume of $BHQ transcribes but does not note {str(the_len)}",
+        f" the Job fascicle of $BHQ transcribes but does not note {str(the_len)}",
         f" quirks in μL that are noted in one or more of the other three editions.",
         #
         " We might say that in these cases $BHQ merely implies the quirk,",
@@ -272,7 +295,7 @@ def _cpara33(len_dexi, len_misc):
     len_total = len_dexi + len_misc
     return [
         f"Finally, some $WLC notes help us identify that",
-        f" the Job volume of $BHQ transcribes but does not note at least {str(len_total)}",
+        f" the Job fascicle of $BHQ transcribes but does not note at least {str(len_total)}",
         f" quirks in μL that,",
         [" ", my_html.bold("for good reason"), ","],
         " are not noted in any of the other three editions.",

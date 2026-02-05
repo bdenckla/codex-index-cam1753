@@ -3,6 +3,7 @@
 from py import my_html
 from pyauthor_util.para_and_table import para_and_table
 from pyauthor_util import author
+from pyauthor_util.all_quirks import AllQuirks
 from pyauthor_util.common_titles_etc import (
     D2_TITLE,
     D2_H1_CONTENTS,
@@ -15,14 +16,14 @@ from pyauthor_util.intro import intro
 from pycmn.my_utils import dv_map
 
 
-def gen_html_file(tdm_ch, ov_and_de, qr_groups):
+def gen_html_file(aq: AllQuirks):
     author.assert_stem_eq(__file__, D2_FNAME)
-    cbody = _make_cbody(tdm_ch, ov_and_de, qr_groups)
-    author.help_gen_html_file(tdm_ch, D2_FNAME, D2_TITLE, cbody)
+    cbody = _make_cbody(aq)
+    author.help_gen_html_file(aq.tdm_ch, D2_FNAME, D2_TITLE, cbody)
 
 
-def _make_cbody(tdm_ch, ov_and_de, qr_groups):
-    the_lens = dv_map(len, qr_groups)
+def _make_cbody(aq: AllQuirks):
+    the_lens = dv_map(len, aq.qr_groups)
     len_dexi = the_lens["tbhq_and_zdw"]
     len_misc = the_lens["tbhq_and_zmw"]
     cbody = [
@@ -35,17 +36,17 @@ def _make_cbody(tdm_ch, ov_and_de, qr_groups):
         author.para_ul(_CPARA15, _CLIST15),
         author.para(_CPARA24),
         author.para(_CPARA25),
-        para_and_table(_cpara26, tdm_ch, ov_and_de, qr_groups, "nbhq_and_x3"),
+        para_and_table(_cpara26, aq, "nbhq_and_x3"),
         *intro("intro-job2"),
         author.para(_CPARA27),
-        para_and_table(_cpara28, tdm_ch, ov_and_de, qr_groups, "nbhq_and_n3"),
-        para_and_table(_cpara29, tdm_ch, ov_and_de, qr_groups, "tbhq_and_n3"),
-        para_and_table(_cpara30, tdm_ch, ov_and_de, qr_groups, "xbhq_and_n3"),
+        para_and_table(_cpara28, aq, "nbhq_and_n3"),
+        para_and_table(_cpara29, aq, "tbhq_and_n3"),
+        para_and_table(_cpara30, aq, "xbhq_and_n3"),
         author.para(_cpara31()),
-        author.para(_cpara32(len(qr_groups["nbhq_and_n3"]))),
+        author.para(_cpara32(len(aq.qr_groups["nbhq_and_n3"]))),
         author.para(_cpara33(len_dexi, len_misc)),
-        para_and_table(_cpara34_dexi, tdm_ch, ov_and_de, qr_groups, "tbhq_and_zdw"),
-        para_and_table(_cpara35_misc, tdm_ch, ov_and_de, qr_groups, "tbhq_and_zmw"),
+        para_and_table(_cpara34_dexi, aq, "tbhq_and_zdw"),
+        para_and_table(_cpara35_misc, aq, "tbhq_and_zmw"),
         author.para_ul(_CPARA36, _clist36(the_lens)),
         author.heading_level_2("Postscript 1: $UXLC"),
         author.para(_CPARA_UXLC),

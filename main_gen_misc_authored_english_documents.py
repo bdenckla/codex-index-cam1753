@@ -12,6 +12,7 @@ from pyauthor import (
     job3_uxlc,
     job4_quirks_in_mu_a,
 )
+from pyauthor_util.all_quirks import AllQuirks
 from pyauthor_util.common_titles_etc import d2_anchor
 from pyauthor_util.job_ov_and_de import make_ov_and_de
 from pyauthor_util.get_qr_groups import get_qr_groups
@@ -32,11 +33,12 @@ def main():
     qrs = prep_quirkrecs(jobn_rel_top, "./out")
     ov_and_de = make_ov_and_de(qrs)
     qr_groups = get_qr_groups(qrs)
+    aq = AllQuirks(tdm_ch, ov_and_de, qr_groups)
     job1_full_list_overview.gen_html_file(tdm_ch, ov_and_de)
     job1_full_list_details.gen_html_file(tdm_ch, ov_and_de)
-    job2_main_article.gen_html_file(tdm_ch, ov_and_de, qr_groups)
-    job3_uxlc.gen_html_file(tdm_ch, ov_and_de, qr_groups)
-    job4_quirks_in_mu_a.gen_html_file(tdm_ch, ov_and_de, qr_groups)
+    job2_main_article.gen_html_file(aq)
+    job3_uxlc.gen_html_file(aq)
+    job4_quirks_in_mu_a.gen_html_file(aq)
     _write_index_dot_html((css_href,), "docs/index.html")
 
 

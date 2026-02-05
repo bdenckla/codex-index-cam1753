@@ -1,13 +1,14 @@
 """ Exports para_and_table """
 
 from pyauthor_util import author
+from pyauthor_util.all_quirks import AllQuirks
 from pyauthor_util.job_ov_and_de import row_id
 
 
-def para_and_table(para_func, tdm_ch, ov_and_de, qr_groups, group_key):
-    group_of_quirkrecs = qr_groups[group_key]
+def para_and_table(para_func, aq: AllQuirks, group_key):
+    group_of_quirkrecs = aq.qr_groups[group_key]
     record_count = len(group_of_quirkrecs)
-    link = _table_of_quirks(tdm_ch, group_key, ov_and_de, group_of_quirkrecs)
+    link = _table_of_quirks(aq.tdm_ch, group_key, aq.ov_and_de, group_of_quirkrecs)
     return [
         author.para(para_func(record_count)),
         author.para(link),

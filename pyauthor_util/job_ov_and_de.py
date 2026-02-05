@@ -142,12 +142,19 @@ def _make_overview_row(quirkrec):
     tr_attrs = {"id": the_row_id}
     return my_html.table_row(tr_contents, tr_attrs)
 
+_IN_MY_YYY = {
+    "qr-lc-proposed": "in μL",
+    "qr-ac-proposed": "in μA",
+}
+
+
 def _in_mu_yyy(quirkrec):
-    return f"in μ{_key_for_proposed(quirkrec)[3]}"  # "qr-lc-proposed" -> "L"
+    return _IN_MY_YYY[_key_for_proposed(quirkrec)]
 
 
 def _what_is_weird(quirkrec):
-    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], " in μL,"]
+    in_my_yyy = _in_mu_yyy(quirkrec)
+    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], f" {in_my_yyy},"]
     parts = [wiw_in_mu_ell, *says(quirkrec)]
     wiw_and_says = intersperse(my_html.line_break(), parts)
     return wiw_and_says

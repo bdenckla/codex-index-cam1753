@@ -12,7 +12,6 @@ from pyauthor_util.common_titles_etc import (
     d4_anchor,
 )
 from pyauthor_util.num_range import num_range
-from pyauthor_util.intro import intro
 from pycmn.my_utils import dv_map
 
 
@@ -37,9 +36,8 @@ def _make_cbody(aq: AllQuirks):
         author.para(_CPARA24),
         author.para(_CPARA25),
         para_and_table(aq, _cpara26, "nbhq_and_x3"),
-        *intro("intro-details"),
         author.para(_CPARA27),
-        para_and_table(aq, _cpara28, "nbhq_and_n3"),
+        para_and_table(aq, _cpara28, "nbhq_and_n3", extra_paras=[_CPARA18_PART3]),
         para_and_table(aq, _cpara29, "tbhq_and_n3"),
         para_and_table(aq, _cpara30, "xbhq_and_n3"),
         author.para(_cpara31()),
@@ -237,11 +235,18 @@ _CPARA18_PART2 = [
     #
     " Indeed my main criticism of $BHQ Job is that it",
     " should have reiterated most of what can be found in those other three editions.",
-    #
-    f" Unsurprisingly, all but",
+]
+
+
+_CPARA18_PART3 = [
+    f"Unsurprisingly, all but",
     f" {_WORDS_FOR_NUMBERS[_COUNT_OF_RNTQ]}",
     f" of the $BHQ reiterations",
     f" are not new, i.e. they were already present in $BHS.",
+    #
+    " Indeed it may be the other editions that are reiterating $BHS in these cases.",
+    #
+    " Nonetheless we refer to all of them as reiterations by $BHQ.",
     #
     [" (The ", _DESCRIPTION_OF_RNTQ, ".)"],
     #

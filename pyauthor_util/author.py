@@ -462,6 +462,10 @@ _DOLLAR_SUB_DISPATCH = {
 }
 
 
+def span_color(text, color):
+    return my_html.span(text, {"style": f"color: {color}"})
+
+
 # אבגדה וזחטי כלמנס עפצקר שת
 # Our code plus a highlight of unintuitive choices:
 # ABGDH VZXEY KLMNO 3PCQR JF plus ISTUW unused

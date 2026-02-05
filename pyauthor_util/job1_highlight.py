@@ -1,7 +1,7 @@
 """ Exports highlight and color"""
 
 import re
-from py import my_html
+from pyauthor_util.author import span_color
 
 
 def highlight(quirkrec, key):
@@ -15,8 +15,7 @@ def highlight(quirkrec, key):
 
 
 def color(text, key):
-    color = _RK_COLOR[key]
-    return my_html.span(text, {"style": f"color: {color}"})
+    return span_color(text, _RK_COLOR[key])
 
 
 _RK_COLOR = {

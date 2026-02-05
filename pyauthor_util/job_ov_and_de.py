@@ -154,7 +154,7 @@ def _make_overview_row(quirkrec):
 
 _IN_MY_YYY = {
     "qr-lc-proposed": "in μL",
-    "qr-ac-proposed": "in μA",
+    "qr-ac-proposed": author.span_color("in μA", "red"),
 }
 
 
@@ -164,7 +164,7 @@ def _in_mu_yyy(quirkrec):
 
 def _what_is_weird(quirkrec):
     in_my_yyy = _in_mu_yyy(quirkrec)
-    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], f" {in_my_yyy},"]
+    wiw_in_mu_ell = [quirkrec["qr-what-is-weird"], " ", in_my_yyy, ","]
     parts = [wiw_in_mu_ell, *says(quirkrec)]
     wiw_and_says = intersperse(my_html.line_break(), parts)
     return wiw_and_says

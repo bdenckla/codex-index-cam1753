@@ -103,12 +103,12 @@
       "count": 10
     },
     {
-      "field": "qr-lc-loc.including-blank-lines",
+      "field": "qr-aleppo-img",
       "count": 8
     },
     {
-      "field": "qr-aleppo-img",
-      "count": 6
+      "field": "qr-lc-loc.including-blank-lines",
+      "count": 8
     },
     {
       "field": "qr-aleppo-page-url",

@@ -51,7 +51,7 @@ def _do_asserts(nbd):
 def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
     assert bhq in ("nBHQ", "xBHQ", "tBHQ")
     assert bhl in ("nBHL", "xBHL")
-    assert dm in ("nDM", "xDM")
+    assert dm in ("nDM", "xDM", "aDM")
     assert wlc in ("nWLC", "xWLC", "zmiscWLC", "zdexiWLC")
     assert uxlc in ("nUXLC", "xUXLC", "zUXLC")
 

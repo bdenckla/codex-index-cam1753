@@ -44,6 +44,10 @@ def tbhq_and_zuxlc(quirkrec):
     return quirkrec["nbd"]["e:UXLC"] == "zUXLC"
 
 
+def tbhq_and_adm(quirkrec):
+    return quirkrec["nbd"]["e:DM"] == "aDM"
+
+
 #####################################################################
 
 
@@ -71,6 +75,7 @@ _FILTER_FNS = {
     "tbhq_and_zmw": tbhq_and_zmw,
     "xbhq_and_nuxlc": xbhq_and_nuxlc,
     "tbhq_and_zuxlc": tbhq_and_zuxlc,
+    "tbhq_and_adm": tbhq_and_adm,
 }
 # nbhq: noted (as a quirk) in BHQ
 # xbhq: not noted (as a quirk) in BHQ

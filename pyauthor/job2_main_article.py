@@ -46,8 +46,10 @@ def _make_cbody(ov_and_de, qr_groups):
         para_and_table(_cpara34_dexi, ov_and_de, qr_groups["tbhq_and_zdw"]),
         para_and_table(_cpara35_misc, ov_and_de, qr_groups["tbhq_and_zmw"]),
         author.para_ul(_CPARA36, _clist36(the_lens)),
-        author.heading_level_2("Postscript: $UXLC"),
+        author.heading_level_2("Postscript 1: $UXLC"),
         author.para(_CPARA_UXLC),
+        author.heading_level_2("Postscript 2: quirks in μA"),
+        author.para(_CPARA_QUIRKS_IN_MUA),
     ]
     return cbody
 
@@ -369,6 +371,19 @@ _CPARA_UXLC = [
     " Nonetheless, $UXLC is an edition I would like to bring attention to.",
     " So, I would like to show the ways that $UXLC",
     " might contribute to $BHQ Job if it were being compiled today.",
-    " I do so in the ",
-    d3_anchor(),
+    [" I do so in the ", d3_anchor()],
+]
+_CPARA_QUIRKS_IN_MUA = [
+    "Usually, μA agrees with the consensus.",
+    #
+    " Indeed, where extant, it more or less ",my_html.bold("defines")," the consensus.",
+    #
+    " Nonetheless, there are cases where",
+    " it is μA rather than μL that diverges from the consensus.",
+    #
+    " It is unclear what $BHQ Job’s policy is regarding such quirks in μA,",
+    " but regardless of aspirational policy, in practice, I found no such notes in $BHQ Job.",
+    #
+    " To me, it would make sense for $BHQ to note them,",
+    [" and therefore I note a few in the ", d4_anchor()],
 ]

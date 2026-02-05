@@ -8,6 +8,7 @@ from pyauthor_util.get_qr_groups import (
     tbhq_and_zmw,
     xbhq_and_nuxlc,
     tbhq_and_zuxlc,
+    tbhq_and_adm,
 )
 from pycmn.my_utils import sl_map
 
@@ -28,7 +29,9 @@ def says(quirkrec):
         return ["says $UXLC but not $BHQ"]
     if tbhq_and_zuxlc(quirkrec):
         return ["says $BHQ but not $UXLC"]
-    return []
+    if tbhq_and_adm(quirkrec):
+        return ["says $DM"]
+    assert False, "Unhandled case in says()"
 
 
 def _english_says_who(quirkrec):

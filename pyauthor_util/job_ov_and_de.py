@@ -1,5 +1,5 @@
 """ Exports:
-        make_ov_and_de_for_all_quirkrecs
+        make_ov_and_de
         make_example_row
         row_id
 """

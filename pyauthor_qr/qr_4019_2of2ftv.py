@@ -1,4 +1,4 @@
-RECORD_4019_B = {
+RECORD_4019_2of2ftv = {
     "qr-noted-by": "nDM",
     "qr-cv": "40:19",
     "qr-n_of_m_for_this_verse": (2, 2),

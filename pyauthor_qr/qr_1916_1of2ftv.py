@@ -1,4 +1,4 @@
-RECORD_1916_A = {
+RECORD_1916_1of2ftv = {
     "qr-cv": "19:16",
     "qr-n_of_m_for_this_verse": (1, 2),
     "qr-lc-q": "(?)",

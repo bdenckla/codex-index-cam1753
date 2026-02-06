@@ -1,4 +1,4 @@
-RECORD_3433_B = {
+RECORD_3433_2of4ftv = {
     "qr-noted-by": "tBHQ-nDM",
     "qr-cv": "34:33",
     "qr-n_of_m_for_this_verse": (2, 4),

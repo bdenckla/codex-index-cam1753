@@ -1,4 +1,4 @@
-RECORD_0816_B = {
+RECORD_0816_2of2ftv = {
     "qr-cv": "8:16",
     "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-lc-proposed": "יֹ֭נַקְתּ֥וֹ",

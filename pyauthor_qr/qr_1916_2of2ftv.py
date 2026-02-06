@@ -15,7 +15,7 @@ _GENCOM_PARA_2 = [
     " which could, perhaps, be a misplaced רביע,",
     " but I find this unlikely.",
 ]
-RECORD_1916_B = {
+RECORD_1916_2of2ftv = {
     "qr-noted-by-mam": True,
     "qr-noted-by": "aDM",
     "qr-cv": "19:16",

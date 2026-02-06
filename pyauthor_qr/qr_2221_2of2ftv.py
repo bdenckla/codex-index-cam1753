@@ -12,7 +12,7 @@ _BHQ_COMMENT_2221_B = [
     " $BHQ notes (as does $BHS) that whereas the ל of ושלם is unpointed in μL,",
     " that ל has קמץ and אתנח in μA and μY.",
 ]
-RECORD_2221_B = {
+RECORD_2221_2of2ftv = {
     **RECORD_2221_CMN_AB,
     "qr-n_of_m_for_this_verse": (2, 2),  # this is record 2 of 2 for this verse
     "qr-lc-proposed": "וּשְׁלם",

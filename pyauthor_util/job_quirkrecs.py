@@ -23,8 +23,8 @@ from pyauthor_qr.qr_0801 import RECORD_0801
 from pyauthor_qr.qr_0802 import RECORD_0802
 from pyauthor_qr.qr_0807 import RECORD_0807
 from pyauthor_qr.qr_0814 import RECORD_0814
-from pyauthor_qr.qr_0816_A import RECORD_0816_A
-from pyauthor_qr.qr_0816_B import RECORD_0816_B
+from pyauthor_qr.qr_0816_1of2ftv import RECORD_0816_1of2ftv
+from pyauthor_qr.qr_0816_2of2ftv import RECORD_0816_2of2ftv
 from pyauthor_qr.qr_0906 import RECORD_0906
 from pyauthor_qr.qr_0910 import RECORD_0910
 from pyauthor_qr.qr_0914 import RECORD_0914
@@ -54,14 +54,14 @@ from pyauthor_qr.qr_1703 import RECORD_1703
 from pyauthor_qr.qr_1704 import RECORD_1704
 from pyauthor_qr.qr_1706 import RECORD_1706
 from pyauthor_qr.qr_1711 import RECORD_1711
-from pyauthor_qr.qr_1804_A import RECORD_1804_A
-from pyauthor_qr.qr_1804_B import RECORD_1804_B
+from pyauthor_qr.qr_1804_1of2ftv import RECORD_1804_1of2ftv
+from pyauthor_qr.qr_1804_2of2ftv import RECORD_1804_2of2ftv
 from pyauthor_qr.qr_1806 import RECORD_1806
 from pyauthor_qr.qr_1809 import RECORD_1809
 from pyauthor_qr.qr_1902 import RECORD_1902
 from pyauthor_qr.qr_1905 import RECORD_1905
-from pyauthor_qr.qr_1916_A import RECORD_1916_A
-from pyauthor_qr.qr_1916_B import RECORD_1916_B
+from pyauthor_qr.qr_1916_1of2ftv import RECORD_1916_1of2ftv
+from pyauthor_qr.qr_1916_2of2ftv import RECORD_1916_2of2ftv
 from pyauthor_qr.qr_1928 import RECORD_1928
 from pyauthor_qr.qr_2001 import RECORD_2001
 from pyauthor_qr.qr_2023 import RECORD_2023
@@ -72,12 +72,12 @@ from pyauthor_qr.qr_2134 import RECORD_2134
 from pyauthor_qr.qr_2210 import RECORD_2210
 from pyauthor_qr.qr_2212 import RECORD_2212
 from pyauthor_qr.qr_2214 import RECORD_2214
-from pyauthor_qr.qr_2221_A import RECORD_2221_A
-from pyauthor_qr.qr_2221_B import RECORD_2221_B
+from pyauthor_qr.qr_2221_1of2ftv import RECORD_2221_1of2ftv
+from pyauthor_qr.qr_2221_2of2ftv import RECORD_2221_2of2ftv
 from pyauthor_qr.qr_2224 import RECORD_2224
 from pyauthor_qr.qr_2228 import RECORD_2228
-from pyauthor_qr.qr_2230_A import RECORD_2230_A
-from pyauthor_qr.qr_2230_B import RECORD_2230_B
+from pyauthor_qr.qr_2230_1of2ftv import RECORD_2230_1of2ftv
+from pyauthor_qr.qr_2230_2of2ftv import RECORD_2230_2of2ftv
 from pyauthor_qr.qr_2305 import RECORD_2305
 from pyauthor_qr.qr_2306 import RECORD_2306
 from pyauthor_qr.qr_2401 import RECORD_2401
@@ -116,13 +116,13 @@ from pyauthor_qr.qr_3328 import RECORD_3328
 from pyauthor_qr.qr_3330 import RECORD_3330
 from pyauthor_qr.qr_3405 import RECORD_3405
 from pyauthor_qr.qr_3410 import RECORD_3410
-from pyauthor_qr.qr_3419_A import RECORD_3419_A
-from pyauthor_qr.qr_3419_B import RECORD_3419_B
+from pyauthor_qr.qr_3419_1of2ftv import RECORD_3419_1of2ftv
+from pyauthor_qr.qr_3419_2of2ftv import RECORD_3419_2of2ftv
 from pyauthor_qr.qr_3422 import RECORD_3422
-from pyauthor_qr.qr_3433_A import RECORD_3433_A
-from pyauthor_qr.qr_3433_B import RECORD_3433_B
-from pyauthor_qr.qr_3433_C import RECORD_3433_C
-from pyauthor_qr.qr_3433_D import RECORD_3433_D
+from pyauthor_qr.qr_3433_1of4ftv import RECORD_3433_1of4ftv
+from pyauthor_qr.qr_3433_2of4ftv import RECORD_3433_2of4ftv
+from pyauthor_qr.qr_3433_3of4ftv import RECORD_3433_3of4ftv
+from pyauthor_qr.qr_3433_4of4ftv import RECORD_3433_4of4ftv
 from pyauthor_qr.qr_3437 import RECORD_3437
 from pyauthor_qr.qr_3507 import RECORD_3507
 from pyauthor_qr.qr_3514 import RECORD_3514
@@ -131,11 +131,11 @@ from pyauthor_qr.qr_3612 import RECORD_3612
 from pyauthor_qr.qr_3619 import RECORD_3619
 from pyauthor_qr.qr_3629 import RECORD_3629
 from pyauthor_qr.qr_3706 import RECORD_3706
-from pyauthor_qr.qr_3719_A import RECORD_3719_A
-from pyauthor_qr.qr_3719_B import RECORD_3719_B
+from pyauthor_qr.qr_3719_1of2ftv import RECORD_3719_1of2ftv
+from pyauthor_qr.qr_3719_2of2ftv import RECORD_3719_2of2ftv
 from pyauthor_qr.qr_3720 import RECORD_3720
-from pyauthor_qr.qr_3812_A import RECORD_3812_A
-from pyauthor_qr.qr_3812_B import RECORD_3812_B
+from pyauthor_qr.qr_3812_1of2ftv import RECORD_3812_1of2ftv
+from pyauthor_qr.qr_3812_2of2ftv import RECORD_3812_2of2ftv
 from pyauthor_qr.qr_3817 import RECORD_3817
 from pyauthor_qr.qr_3820 import RECORD_3820
 from pyauthor_qr.qr_3827 import RECORD_3827
@@ -149,8 +149,8 @@ from pyauthor_qr.qr_3915 import RECORD_3915
 from pyauthor_qr.qr_3920 import RECORD_3920
 from pyauthor_qr.qr_3925 import RECORD_3925
 from pyauthor_qr.qr_4010 import RECORD_4010
-from pyauthor_qr.qr_4019_A import RECORD_4019_A
-from pyauthor_qr.qr_4019_B import RECORD_4019_B
+from pyauthor_qr.qr_4019_1of2ftv import RECORD_4019_1of2ftv
+from pyauthor_qr.qr_4019_2of2ftv import RECORD_4019_2of2ftv
 from pyauthor_qr.qr_4026 import RECORD_4026
 from pyauthor_qr.qr_4029 import RECORD_4029
 from pyauthor_qr.qr_4125 import RECORD_4125
@@ -183,8 +183,8 @@ QUIRKRECS = [
     RECORD_0802,
     RECORD_0807,
     RECORD_0814,
-    RECORD_0816_A,
-    RECORD_0816_B,
+    RECORD_0816_1of2ftv,
+    RECORD_0816_2of2ftv,
     RECORD_0906,
     RECORD_0910,
     RECORD_0914,
@@ -214,14 +214,14 @@ QUIRKRECS = [
     RECORD_1704,
     RECORD_1706,
     RECORD_1711,
-    RECORD_1804_A,
-    RECORD_1804_B,
+    RECORD_1804_1of2ftv,
+    RECORD_1804_2of2ftv,
     RECORD_1806,
     RECORD_1809,
     RECORD_1902,
     RECORD_1905,
-    RECORD_1916_A,
-    RECORD_1916_B,
+    RECORD_1916_1of2ftv,
+    RECORD_1916_2of2ftv,
     RECORD_1928,
     RECORD_2001,
     RECORD_2023,
@@ -232,12 +232,12 @@ QUIRKRECS = [
     RECORD_2210,
     RECORD_2212,
     RECORD_2214,
-    RECORD_2221_A,
-    RECORD_2221_B,
+    RECORD_2221_1of2ftv,
+    RECORD_2221_2of2ftv,
     RECORD_2224,
     RECORD_2228,
-    RECORD_2230_A,
-    RECORD_2230_B,
+    RECORD_2230_1of2ftv,
+    RECORD_2230_2of2ftv,
     RECORD_2305,
     RECORD_2306,
     RECORD_2401,
@@ -276,13 +276,13 @@ QUIRKRECS = [
     RECORD_3330,
     RECORD_3405,
     RECORD_3410,
-    RECORD_3419_A,
-    RECORD_3419_B,
+    RECORD_3419_1of2ftv,
+    RECORD_3419_2of2ftv,
     RECORD_3422,
-    RECORD_3433_A,
-    RECORD_3433_B,
-    RECORD_3433_C,
-    RECORD_3433_D,
+    RECORD_3433_1of4ftv,
+    RECORD_3433_2of4ftv,
+    RECORD_3433_3of4ftv,
+    RECORD_3433_4of4ftv,
     RECORD_3437,
     RECORD_3507,
     RECORD_3514,
@@ -291,11 +291,11 @@ QUIRKRECS = [
     RECORD_3619,
     RECORD_3629,
     RECORD_3706,
-    RECORD_3719_A,
-    RECORD_3719_B,
+    RECORD_3719_1of2ftv,
+    RECORD_3719_2of2ftv,
     RECORD_3720,
-    RECORD_3812_A,
-    RECORD_3812_B,
+    RECORD_3812_1of2ftv,
+    RECORD_3812_2of2ftv,
     RECORD_3817,
     RECORD_3820,
     RECORD_3827,
@@ -309,11 +309,12 @@ QUIRKRECS = [
     RECORD_3920,
     RECORD_3925,
     RECORD_4010,
-    RECORD_4019_A,
-    RECORD_4019_B,
+    RECORD_4019_1of2ftv,
+    RECORD_4019_2of2ftv,
     RECORD_4026,
     RECORD_4029,
     RECORD_4125,
     RECORD_4210,
     RECORD_4213,
 ]
+

@@ -15,7 +15,7 @@ _CAM1753_IMG_INTRO_2221 = [
     " as a “callout” for a Masorah parva note;",
     " hence the pair of above-dots above ל in ושלם.",
 ]
-RECORD_2221_A = {
+RECORD_2221_1of2ftv = {
     **RECORD_2221_CMN_AB,
     "qr-n_of_m_for_this_verse": (1, 2),  # this is record 1 of 2 for this verse
     "qr-lc-q": "(?)",

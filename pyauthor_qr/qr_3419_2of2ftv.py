@@ -1,4 +1,4 @@
-RECORD_3419_B = {
+RECORD_3419_2of2ftv = {
     "qr-cv": "34:19",
     "qr-n_of_m_for_this_verse": (2, 2),
     "qr-lc-proposed": "שׁ֖וֹעַ",

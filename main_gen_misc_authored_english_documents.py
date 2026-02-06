@@ -19,6 +19,7 @@ from pyauthor_util.get_qr_groups import get_qr_groups
 
 __all__ = ["main"]
 
+
 def main():
 
     jobn_rel_top = "docs/jobn"

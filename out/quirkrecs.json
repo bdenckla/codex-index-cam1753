@@ -75,7 +75,7 @@
     "qr-cv": "3:4",
     "qr-consensus": "מִמַּ֑עַל",
     "qr-lc-proposed": "מִמָּ֑עַל",
-    "qr-what-is-weird": "מ has קמץ not פתח (DM footnote 4)",
+    "qr-what-is-weird": "מ has קמץ not פתח ($DM footnote 4)",
     "qr-highlight": 2,
     "qr-lc-loc": {
       "page": "397B",
@@ -301,7 +301,7 @@
     "qr-cv": "5:24",
     "qr-consensus": "נָ֝וְךָ֗",
     "qr-lc-proposed": "נָ֝וְךָ",
-    "qr-what-is-weird": "רביע of רביע מוגרש is absent (DM footnote 9)",
+    "qr-what-is-weird": "רביע of רביע מוגרש is absent ($DM footnote 9)",
     "qr-highlight": 3,
     "qr-generic-comment": [
       "The dot above the final $khaf ( ך ) might at first glance appear to be a candidate for the possibly-expected רביע, but it is almost certainly the קמץ dot belonging to the word-part השלמה־ above, which, coincidentally, is part of our entry for 5:23."
@@ -448,7 +448,7 @@
     "qr-cv": "6:21",
     "qr-consensus": "לֹ֑א",
     "qr-lc-proposed": "ל֑וֹ",
-    "qr-what-is-weird": "קרי of לו not לא (DM footnotes 10 & 11)",
+    "qr-what-is-weird": "קרי of לו not לא ($DM footnotes 10 & 11)",
     "qr-highlight": [
       1,
       2
@@ -1601,7 +1601,7 @@
     "qr-cv": "16:6",
     "qr-consensus": "מַה־מִּנִּ֥י",
     "qr-lc-proposed": "מַה־מִנִּ֥י",
-    "qr-what-is-weird": "מ after מח lacks דגש (DM footnote 25)",
+    "qr-what-is-weird": "מ after מח lacks דגש ($DM footnote 25)",
     "qr-highlight": 4,
     "qr-lc-loc": {
       "page": "401B",
@@ -1707,7 +1707,7 @@
     ],
     "qr-noted-by": "nWLC",
     "qr-uxlc-needs-fix": [
-      "UXLC should do one of the following.",
+      "$UXLC should do one of the following.",
       "(1) Remove the דגש from מ and note the uncertainty in transcription.",
       "(2) Leave the דגש and note the divergence from consensus as well as",
       " the uncertainty in transcription."
@@ -2122,7 +2122,7 @@
     "qr-cv": "21:15",
     "qr-consensus": "מַה־שַּׁדַּ֥י",
     "qr-lc-proposed": "מַה־שַׁדַּ֥י",
-    "qr-what-is-weird": "ש lacks דגש (DM footnote 25)",
+    "qr-what-is-weird": "ש lacks דגש ($DM footnote 25)",
     "qr-generic-comment": [
       "24:1 and 27:13 are analogous."
     ],
@@ -2229,7 +2229,7 @@
       "line": 12
     },
     "qr-bhq-comment": [
-      "$BHQ has the proposed transcription of μL above. The transcription differs from the consensus in way opposite to most such reports here: here we see a דחי vs טרחא difference, with BHQ having דחי, whereas most such reports involving these two accents involve a טרחא vs דחי difference, with BHQ having טרחא."
+      "$BHQ has the proposed transcription of μL above. The transcription differs from the consensus in way opposite to most such reports here: here we see a דחי vs טרחא difference, with $BHQ having דחי, whereas most such reports involving these two accents involve a טרחא vs דחי difference, with $BHQ having טרחא."
     ],
     "qr-noted-by": "tBHQ-zmiscWLC",
     "qr-lc-img": "2212.png",
@@ -2660,7 +2660,7 @@
     "qr-lc-proposed": "בְּֽמֹרְדֵ֫י־א֥וֹר",
     "qr-what-is-weird": "מקף is present.",
     "qr-generic-comment": [
-      "Gray מקף in MAM."
+      "Gray מקף in $MAM."
     ],
     "qr-lc-loc": {
       "page": "404A",
@@ -2860,7 +2860,7 @@
     "qr-cv": "27:9",
     "qr-consensus": "הֲֽ֭צַעֲקָתוֹ",
     "qr-lc-proposed": "הַֽ֭צַעֲקָתוֹ",
-    "qr-what-is-weird": "פתח is full not חטף (DM footnotes 19 & 20)",
+    "qr-what-is-weird": "פתח is full not חטף ($DM footnotes 19 & 20)",
     "qr-highlight": 1,
     "qr-lc-loc": {
       "page": "404B",
@@ -3132,7 +3132,7 @@
       "line": 15
     },
     "qr-generic-comment": [
-      "An argument could be made that it is μL not μA that represents the consensus here. For example, the Jerusalem Crown edition, despite normally staying quite close to μA, has לגרמיה in its body text and only notes in an appendix that μA has no לגרמיה.See the MAM documentation for this word for a list of where various manuscripts fall on this issue."
+      "An argument could be made that it is μL not μA that represents the consensus here. For example, the Jerusalem Crown edition, despite normally staying quite close to μA, has לגרמיה in its body text and only notes in an appendix that μA has no לגרמיה.See the $MAM documentation for this word for a list of where various manuscripts fall on this issue."
     ],
     "qr-lc-img": "3102.png",
     "nbd": {
@@ -3439,7 +3439,7 @@
     "qr-cv": "32:11",
     "qr-consensus": "הוֹחַ֨לְתִּי׀",
     "qr-lc-proposed": "הוֹחַ֨לְתִּי",
-    "qr-what-is-weird": "לגרמיה is absent (DM footnotes 19 & 32)",
+    "qr-what-is-weird": "לגרמיה is absent ($DM footnotes 19 & 32)",
     "qr-highlight": 7,
     "qr-lc-loc": {
       "page": "406A",
@@ -3800,7 +3800,7 @@
     ],
     "qr-consensus": "הֲֽמֵעִמְּךָ֬",
     "qr-lc-proposed": "הַֽמֵעִמְּךָ֬",
-    "qr-what-is-weird": "פתח is full not חטף (DM footnotes 19 & 20)",
+    "qr-what-is-weird": "פתח is full not חטף ($DM footnotes 19 & 20)",
     "qr-highlight": 1,
     "qr-lc-loc": {
       "page": "407A",
@@ -3850,7 +3850,7 @@
     ],
     "qr-consensus": "יְשַׁלְּמֶ֨נָּה׀",
     "qr-lc-proposed": "יְשַׁלְּמֶ֨נָּה",
-    "qr-what-is-weird": "לגרמיה is absent (DM footnote 32)",
+    "qr-what-is-weird": "לגרמיה is absent ($DM footnote 32)",
     "qr-highlight": 7,
     "qr-lc-loc": {
       "page": "407A",
@@ -3875,7 +3875,7 @@
     ],
     "qr-consensus": "וּֽמַה־יָּדַ֥עְתָּ",
     "qr-lc-proposed": "וּֽמַה־יָדַ֥עְתָּ",
-    "qr-what-is-weird": "$yod lacks דגש (DM footnote 25)",
+    "qr-what-is-weird": "$yod lacks דגש ($DM footnote 25)",
     "qr-highlight": 5,
     "qr-lc-loc": {
       "page": "407A",
@@ -3917,7 +3917,7 @@
     "qr-cv": "35:7",
     "qr-consensus": "מַה־מִּיָּדְךָ֥",
     "qr-lc-proposed": "מַה־מִיָּדְךָ֥",
-    "qr-what-is-weird": "מ after מח lacks דגש (DM footnote 25)",
+    "qr-what-is-weird": "מ after מח lacks דגש ($DM footnote 25)",
     "qr-highlight": 4,
     "qr-lc-loc": {
       "page": "407A",
@@ -3973,7 +3973,7 @@
           "document"
         ]
       },
-      ", “Tsinnorit & Oleh on Initial Vocal Shewa” for details.)"
+      ", “$Tsinnorit & $Oleh on Initial Vocal $Shewa” for details.)"
     ],
     "qr-lc-img": "3611-custom.jpg",
     "qr-highlight-lc-proposed": 3,
@@ -4092,7 +4092,7 @@
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "qr-cam1753-page-url": "https://archive.org/details/ketuvim-cambridge-ms-add-1753-images/page/n87/mode/1up",
     "qr-uxlc-needs-fix": [
-      "UXLC has כ (as it should)",
+      "$UXLC has כ (as it should)",
       " but should note the divergence from consensus"
     ],
     "qr-lc-img": "3612.png",

@@ -5,7 +5,7 @@ RECORD_2413 = {
     "qr-lc-proposed": "בְּֽמֹרְדֵ֫י־א֥וֹר",
     "qr-what-is-weird": "מקף is present.",
     "qr-generic-comment": [
-        "Gray מקף in MAM.",
+        "Gray מקף in $MAM.",
     ],
     # XXX perhaps should note מקף in L.
     "qr-lc-loc": {"page": "404A", "column": 1, "line": 11},

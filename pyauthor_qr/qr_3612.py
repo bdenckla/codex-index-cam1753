@@ -34,7 +34,7 @@ RECORD_3612 = {
     "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "qr-cam1753-page-url": f"{CAM1753_PAGE_URL_BASE}/n87/mode/1up",
     "qr-uxlc-needs-fix": [
-        "UXLC has כ (as it should)",
+        "$UXLC has כ (as it should)",
         " but should note the divergence from consensus",
     ],
 }

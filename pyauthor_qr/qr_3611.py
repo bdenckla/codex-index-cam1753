@@ -15,7 +15,9 @@ RECORD_3611 = {
         " regardless of whether the שווא is notated as a simple שווא or a חטף vowel.",
         " Yet, here is just such an עולה, on the letter ע with a חטף פתח.",
         " (Rarely, עולה appears on a letter with a vocal שווא at the beginning of a word.",
-        [" See my ", doc, ", “Tsinnorit & Oleh on Initial Vocal Shewa” for details.)"],
+        [" See my ", doc, ","],
+        " “$Tsinnorit & $Oleh on Initial Vocal $Shewa”",
+        " for details.)",
     ],
     "qr-lc-img": "3611-custom.jpg",
     # Above, we use the UXLC change record screen snip (a .jpg) rather than one we took

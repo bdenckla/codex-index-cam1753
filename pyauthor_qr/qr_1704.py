@@ -2,7 +2,7 @@ from pyauthor_util.job_common import correctly_ignores
 
 
 _UXLC_NEEDS_FIX = [
-    "UXLC should do one of the following.",
+    "$UXLC should do one of the following.",
     "(1) Remove the דגש from מ and note the uncertainty in transcription.",
     "(2) Leave the דגש and note the divergence from consensus as well as",
     " the uncertainty in transcription.",

@@ -220,7 +220,7 @@ def _maybe_imgs(quirkrec):
 def _maybe_bhq(bhq):
     if bhq is None:
         return []
-    cont_p = ["BHQ: ", author.hbo(bhq)]
+    cont_p = ["$BHQ: ", author.hbo(bhq)]
     return [author.para_cc(cont_p)]
 
 

@@ -19,7 +19,7 @@ RECORD_0621 = {
     "qr-cv": "6:21",
     "qr-consensus": "לֹ֑א",
     "qr-lc-proposed": "ל֑וֹ",
-    "qr-what-is-weird": "קרי of לו not לא (DM footnotes 10 & 11)",
+    "qr-what-is-weird": "קרי of לו not לא ($DM footnotes 10 & 11)",
     "qr-highlight": [1, 2],
     "qr-generic-comment": [author.para(_GENCOM_PARA1), author.para(_GENCOM_PARA2)],
     "qr-lc-loc": {"page": "398B", "column": 2, "line": 20},

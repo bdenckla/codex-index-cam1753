@@ -27,37 +27,39 @@ def _make_cbody(aq: AllQuirks):
     len_misc = the_lens["tbhq_and_zmw"]
     cbody = [
         author.heading_level_1(D2_H1_CONTENTS),
-        author.para_ol(_CPARA10, _CLIST10),
-        author.para(_CPARA11),
-        author.para(_CPARA12),
-        author.para_ul(_CPARA13, _CLIST13),
-        author.para(_CPARA14A),
-        author.para(_CPARA14B1),
-        author.para(_CPARA14B2),
-        author.para(_CPARA14C),
-        author.para_ul(_CPARA15, _CLIST15),
-        author.para(_CPARA24),
-        author.para(_CPARA25),
+        author.para_ol(_CULT_OF_BHS, _BHS_FAILS),
+        author.para(_BHQ_AS_BHS_ALTERNATIVE),
+        author.para(_SOURED),
+        author.para_ul(_BETTER_EDITIONS, _THE_THREE_EDITIONS),
+        author.para(_MEGILLOTH_2004),
+        author.para(_DM_PREDATES),
+        author.para(_BHL_PREDATES),
+        author.para(_AWARE_OF_BHL),
+        author.para(_WE_ARE_NOW_LEFT),
+        author.para(_WLC_PREDATES),
+        author.para_ul(_MY_PURPOSES, _CLIST_NOT_MY_CONCERN),
+        author.para(_CPARA_NOT_MY_CONCERN),
+        author.para(_SPECIFICS_OF_BHQ_JOB),
         para_and_table(aq, _cpara26, "nbhq_and_x3"),
-        author.para(_CPARA27),
-        para_and_table(aq, _cpara28, "nbhq_and_n3", extra_paras=[_CPARA18_PART3]),
-        para_and_table(aq, _cpara29, "tbhq_and_n3"),
-        para_and_table(aq, _cpara30, "xbhq_and_n3"),
+        author.para(_CONTRIBUTIONS),
+        para_and_table(aq, _reiterations, "nbhq_and_n3", extra_paras=[_CPARA_RNTQ]),
+        para_and_table(aq, _mixed, "tbhq_and_n3"),
+        para_and_table(aq, _bad_news_1, "xbhq_and_n3"),
         author.para(_cpara31()),
         author.para(_cpara32(len(aq.qr_groups["nbhq_and_n3"]))),
-        author.para(_cpara33(len_dexi, len_misc)),
+        author.para(_bad_news_2(len_dexi, len_misc)),
         para_and_table(aq, _cpara34_dexi, "tbhq_and_zdw"),
         para_and_table(aq, _cpara35_misc, "tbhq_and_zmw"),
-        author.para_ul(_CPARA36, _clist36(the_lens)),
+        author.para_ul(_CONCLUSION, _clist36(the_lens)),
         author.heading_level_2("Postscript 1: $UXLC"),
-        author.para(_CPARA_UXLC),
+        author.para(_POSTSCRIPT_UXLC),
         author.heading_level_2("Postscript 2: quirks in μA"),
-        author.para(_CPARA_QUIRKS_IN_MU_A),
+        author.para(_POSTSCRIPT_QUIRKS_IN_MU_A),
     ]
     return cbody
 
 
-_CPARA10 = [
+_CULT_OF_BHS = [
     "Like many students of Tanakh, I started out in the cult of $BHS.",
     #
     [" I thought $BHS was ", my_html.bold("the")],
@@ -67,19 +69,19 @@ _CPARA10 = [
     " for the following reasons:",
 ]
 #
-_CLIST10 = [
+_BHS_FAILS = [
     "It often fails to accurately transcribe μL (the Leningrad Codex).",
     #
     "It often fails to note where μL disagrees with other manuscripts.",
     #
     "It emphasizes manuscript quantity over quality.",
 ]
-_CPARA11 = [
+_BHQ_AS_BHS_ALTERNATIVE = [
     "My first candidate for a $BHS alternative was $BHQ (Biblia Hebraica Quinta).",
     #
-    " (Though I had soured on $BHS, I still hadn’t fully escaped its cult.)",
+    " (Though I had soured on $BHS, I hadn’t escaped the broader cult of $DBG.)",
 ]
-_CPARA12 = [
+_SOURED = [
     "But I soon soured on $BHQ as well."
     #
     " I was dismayed to find that $BHQ will not be complete for many years.",
@@ -90,7 +92,7 @@ _CPARA12 = [
     " Although $BHQ now emphasizes manuscript quality over quantity,",
     " the other two problems listed above remain, albeit to a lesser degree.",
 ]
-_CPARA13 = [
+_BETTER_EDITIONS = [
     "I continued my search for better editions, and I found some.",
     #
     " This made me even more disappointed with $BHQ.",
@@ -105,7 +107,7 @@ _CPARA13 = [
     #
     " in particular the following:",
 ]
-_CLIST13 = [
+_THE_THREE_EDITIONS = [
     [
         "The דעת מקרא (Da-at Miqra) series,",
         " particularly the volumes with sections called",
@@ -120,45 +122,59 @@ _CLIST13 = [
         " (editions dating back to the 1980s)",
     ],
 ]
-_CPARA14 = [
+_MEGILLOTH_2004 = [
     "The first fascicle of $BHQ (Megilloth) came out in 2004.",
     #
     " That means that all three of the above editions were available to the $BHQ editors",
     " for all fascicles of $BHQ.",
 ]
-_CPARA14A = [
+_DM_PREDATES = [
     "All volumes of דעת מקרא predate $BHQ Megilloth."
     " Other works by Breuer are cited as sources in some fascicles of $BHQ,",
     " but the $BHQ editors",
     " seem to have been unaware of or uninterested in",
     " Breuer’s relevant work in דעת מקרא.",
 ]
-_CPARA14B1 = [
+_BHL_PREDATES = [
     "Dotan’s $BHL predates $BHQ Megilloth.",
     #
-    " Before he died, Dotan was even a consultant to the $BHQ project.",
+    " Dotan was even a consultant to the $BHQ project.",
     #
-    " What’s more, his $BHL is cited as a source in many fascicles of $BHQ.",
+    " What’s more, his $BHL is cited as a source in many fascicles.",
     #
-    " So it is particularly puzzling that most of the $BHQ editors",
+    " So it is puzzling that most of the $BHQ editors",
     " seem to have been unaware of or uninterested in",
     " his relevant work in $BHL’s Appendix A.",
 ]
-_CPARA14B2 = [
+_AWARE_OF_BHL = [
+    "The editors of the Genesis and Proverbs fascicles",
+    " were aware of $BHL’s Appendix A, since they cite it in their Introductions.",
     #
-    "Exceptions include Prof. Abraham Tal, editor of $BHQ Genesis."
+    " Though aware of it, they were not interested in it, at least not enough",
+    " to have it deeply influence the apparatus.",
     #
-    " Prof. Tal declines to reiterate all of Dotan’s relevant work,",
-    " a reasonable albeit disappointing editorial decision.",
+    " This represents a departure from the strictly diplomatic editorial policy of $BHS.",
     #
-    " Importantly, though, Prof. Tal is neither unaware of nor uninterested in it,",
-    " citing it in the Introduction:",
-    " “A full list of the uncommon forms in [μL] is given in [$BHL Appendix A].”",
+    " For better or for worse, $BHS aspired to transcribe (and often note) quirks in μL",
+    " with almost no quirk deemed irrelevant,",
+    " except those that could not be captured typographically.",
     #
-    " Similarly, Prof. Jan de Waard, in the Introduction to $BHQ Proverbs, says,",
-    " “An exhaustive list of these variations can be found in [$BHL Appendix A].”",
+    " A good example of this is $BHS’s transcription of געיה before vowel marks.",
 ]
-_CPARA14C = [
+_WE_ARE_NOW_LEFT = [
+    #
+    "With $BHQ, we now have an edition that is unevenly diplomatic.",
+    #
+    " It still transcribes (and often notes)",
+    " most or all of the quirks that $BHS editors found relevant,",
+    " plus a smattering of new ones.",
+    " But many quirks are not transcribed, and many that are transcribed are not noted.",
+    #
+    " In Genesis and Proverbs, we know that this unevenness is by design.",
+    #
+    " Perhaps it is so in all fascicles, and only documented in Genesis and Proverbs."
+]
+_WLC_PREDATES = [
     "$WLC has had various releases over its decades, many predating $BHQ Megilloth.",
     #
     " It is by far the most popular digital Hebrew Bible.",
@@ -168,32 +184,35 @@ _CPARA14C = [
     " $WLC was originally a transcription of $BHS,",
     " and it carefully documents cases where it diverges from $BHS and/or $BHQ.",
     #
-    "While $WLC “cares” a lot about $DBG Bibles,",
+    " While $WLC “cares” a lot about $DBG Bibles,",
     " the reverse seems to be false since the $BHQ editors",
     " seem to have been unaware of or uninterested in",
     " $WLC, whose notes are particularly relevant to $BHQ.",
+    #
+    " This is puzzling since Alan Groves was intimately involved",
+    " in both the $WLC and $BHQ projects."
 ]
-_CPARA15 = [
+_MY_PURPOSES = [
     "Although it may already be clear, I should explicitly state that",
     " my purposes are narrowly focused on the Masoretic text.",
     #
     " Thus I am not concerned with",
     " the many parts of $BHQ that deal with the following:",
 ]
-_CLIST15 = [
-    "sources in languages other than Hebrew",
-    "non-Masoretic (e.g. unpointed) Hebrew sources",
+_CLIST_NOT_MY_CONCERN = [
+    "witnesses in languages other than Hebrew",
+    "non-Masoretic (e.g. unpointed) Hebrew witnesses",
     "Masorah magna and parva (other than קרי Mp)",
     "the meaning of the text",
 ]
-_CPARA24 = [
+_CPARA_NOT_MY_CONCERN = [
     "For all I know, those parts of $BHQ are of high quality.",
     #
     " But those parts are not my concern.",
 ]
 
 
-_CPARA25 = [
+_SPECIFICS_OF_BHQ_JOB = [
     "Having criticized $BHQ in general terms,",
     " I will now review the specifics of the $BHQ Book of Job (2024).",
     #
@@ -218,7 +237,7 @@ def _cpara26(the_len):
     ]
 
 
-_CPARA27 = [
+_CONTRIBUTIONS = [
     "Unsurprisingly, all of these contributions",
     " are new, i.e. not present in $BHS.",
     #
@@ -243,7 +262,7 @@ _DESCRIPTION_OF_RNTQ = ["three that are new are the ones in 6:21, 18:4, and 19:1
 _WORDS_FOR_NUMBERS = {1: "one", 2: "two", 3: "three", 4: "four"}
 
 
-_CPARA18_PART2 = [
+_CPARA_REITERATES = [
     " I.e. these are cases where $BHQ reiterates something available",
     " in one or more of the other three editions.",
     #
@@ -255,7 +274,7 @@ _CPARA18_PART2 = [
 ]
 
 
-_CPARA18_PART3 = [
+_CPARA_RNTQ = [
     "Unsurprisingly, all but",
     f" {_WORDS_FOR_NUMBERS[_COUNT_OF_RNTQ]}",
     " of the $BHQ reiterations",
@@ -271,11 +290,11 @@ _CPARA18_PART3 = [
 ]
 
 
-def _cpara28(the_len):
-    return _cpara18_part1(the_len) + _CPARA18_PART2
+def _reiterations(the_len):
+    return _cpara18_part1(the_len) + _CPARA_REITERATES
 
 
-def _cpara30(the_len):
+def _bad_news_1(the_len):
     return [
         "Now for some bad news:",
         f" the Job fascicle of $BHQ does not transcribe {str(the_len)}",
@@ -293,7 +312,7 @@ def _cpara30(the_len):
     ]
 
 
-def _cpara29(the_len):
+def _mixed(the_len):
     return [
         "Now for some mixed news:",
         f" the Job fascicle of $BHQ transcribes but does not note {str(the_len)}",
@@ -313,7 +332,7 @@ _BHQ_HAS_DEX = "$BHQ has דחי but should probably have טרחא"
 _A_TAR_IN_BHQ = "a טרחא in $BHQ"
 
 
-def _cpara33(len_dexi, len_misc):
+def _bad_news_2(len_dexi, len_misc):
     len_total = len_dexi + len_misc
     return [
         "Finally, we present some more bad news: some $WLC notes help us identify that",
@@ -350,7 +369,7 @@ def _cpara35_misc(len_misc):
     ]
 
 
-_CPARA36 = [
+_CONCLUSION = [
     "In conclusion, by using the other three editions, we find the following about $BHQ:",
 ]
 
@@ -409,7 +428,7 @@ def _cpara32(len_of_nbhq_and_n3):
     ]
 
 
-_CPARA_UXLC = [
+_POSTSCRIPT_UXLC = [
     "If $BHQ Job were being compiled today,",
     " $UXLC (a fork of $WLC) is another edition that could help.",
     " But $UXLC’s Job changes (and their accompanying notes)",
@@ -420,7 +439,7 @@ _CPARA_UXLC = [
     " might contribute to $BHQ Job if it were being compiled today.",
     [" I do so in the ", d3_anchor()],
 ]
-_CPARA_QUIRKS_IN_MU_A = [
+_POSTSCRIPT_QUIRKS_IN_MU_A = [
     "Usually, μA agrees with the consensus.",
     #
     " Indeed, where extant, it more or less ",

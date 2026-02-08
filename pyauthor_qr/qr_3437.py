@@ -9,4 +9,9 @@ RECORD_3437 = {
     # XXX add μA image
     "qr-highlight": 2,
     "qr-lc-loc": {"page": "407A", "column": 1, "line": 22},
+    "qr-generic-comment": [
+        "Although my focus is pointing rather than spelling,",
+        " I am interested in a spelling difference like this,",
+        " since it is not just a חסר vs מלא difference.",
+    ],
 }

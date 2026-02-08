@@ -1,9 +1,13 @@
+from pyauthor_util.mod_no_dag_after_mah import no_dag_after_mah
+
+
 RECORD_3507 = {
     "qr-noted-by": "tBHQ-nDM",
     "qr-cv": "35:7",
     "qr-consensus": "מַה־מִּיָּדְךָ֥",
     "qr-lc-proposed": "מַה־מִיָּדְךָ֥",
-    "qr-what-is-weird": "מ after מח lacks דגש ($DM footnote 25)",
+    "qr-what-is-weird": "מ after מח lacks דגש",
     "qr-highlight": 4,
     "qr-lc-loc": {"page": "407A", "column": 2, "line": 4},
+    "qr-generic-comment": no_dag_after_mah("35:7"),
 }

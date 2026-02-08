@@ -1601,7 +1601,7 @@
     "qr-cv": "16:6",
     "qr-consensus": "מַה־מִּנִּ֥י",
     "qr-lc-proposed": "מַה־מִנִּ֥י",
-    "qr-what-is-weird": "מ after מח lacks דגש ($DM footnote 25)",
+    "qr-what-is-weird": "מ after מח lacks דגש",
     "qr-highlight": 4,
     "qr-lc-loc": {
       "page": "401B",
@@ -1609,7 +1609,7 @@
       "line": 7
     },
     "qr-generic-comment": [
-      "As $DM footnote 25 mentions, the omission of דגש after the word 'מה' is common in μL. See 21:15."
+      "As $DM footnote 25 mentions, the omission of דגש after מה־ is common in μL. See 21:15, 24:1, 27:13, 34:33, and 35:7."
     ],
     "qr-lc-img": "1606.png",
     "nbd": {
@@ -2127,7 +2127,7 @@
     "qr-lc-proposed": "מַה־שַׁדַּ֥י",
     "qr-what-is-weird": "ש lacks דגש",
     "qr-generic-comment": [
-      "As $DM footnote 25 mentions, the omission of דגש after the word 'מה' is common in μL. See 16:6. 24:1 and 27:13 are analogous."
+      "As $DM footnote 25 mentions, the omission of דגש after מה־ is common in μL. See 16:6, 24:1, 27:13, 34:33, and 35:7. Of those, the following are שדי cases like this one: 24:1 and 27:13."
     ],
     "qr-highlight": 4,
     "qr-lc-loc": {
@@ -2885,7 +2885,7 @@
     "qr-what-is-weird": "ש lacks דגש",
     "qr-consensus": "מִשַּׁדַּ֥י",
     "qr-generic-comment": [
-      "As $DM footnote 25 mentions, the omission of דגש after the word 'מה' is common in μL. See 16:6 and 21:15. 21:15 and 24:1 are analogous."
+      "As $DM footnote 25 mentions, the omission of דגש after מה־ is common in μL. See 16:6, 21:15, 24:1, 34:33, and 35:7. Of those, the following are שדי cases like this one: 21:15 and 24:1."
     ],
     "qr-highlight": 2,
     "qr-lc-loc": {
@@ -3878,13 +3878,16 @@
     ],
     "qr-consensus": "וּֽמַה־יָּדַ֥עְתָּ",
     "qr-lc-proposed": "וּֽמַה־יָדַ֥עְתָּ",
-    "qr-what-is-weird": "$yod lacks דגש ($DM footnote 25)",
+    "qr-what-is-weird": "$yod lacks דגש",
     "qr-highlight": 5,
     "qr-lc-loc": {
       "page": "407A",
       "column": 1,
       "line": 18
     },
+    "qr-generic-comment": [
+      "As $DM footnote 25 mentions, the omission of דגש after מה־ is common in μL. See 16:6, 21:15, 24:1, 27:13, and 35:7."
+    ],
     "qr-lc-img": "3433-4of4ftv.png",
     "nbd": {
       "e:BHQ": "tBHQ",
@@ -3920,13 +3923,16 @@
     "qr-cv": "35:7",
     "qr-consensus": "מַה־מִּיָּדְךָ֥",
     "qr-lc-proposed": "מַה־מִיָּדְךָ֥",
-    "qr-what-is-weird": "מ after מח lacks דגש ($DM footnote 25)",
+    "qr-what-is-weird": "מ after מח lacks דגש",
     "qr-highlight": 4,
     "qr-lc-loc": {
       "page": "407A",
       "column": 2,
       "line": 4
     },
+    "qr-generic-comment": [
+      "As $DM footnote 25 mentions, the omission of דגש after מה־ is common in μL. See 16:6, 21:15, 24:1, 27:13, and 34:33."
+    ],
     "qr-lc-img": "3507.png",
     "nbd": {
       "e:BHQ": "tBHQ",

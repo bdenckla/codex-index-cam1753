@@ -1,15 +1,11 @@
-from py import my_html
-
-
-def _span_rtl(contents):
-    return my_html.span(contents, {"dir": "rtl"})
+from pyauthor_util.author import span_rtl
 
 
 RECORD_1535 = {
     "qr-cv": "15:35",
     "qr-lc-proposed": "וְיָלֹ֣ד",
     "qr-lc-q": "(?)",
-    "qr-what-is-weird": [_span_rtl("∅-מונח"), " not מונח-געיה"],
+    "qr-what-is-weird": [span_rtl("∅-מונח"), " not מונח-געיה"],
     "qr-consensus": "וְיָ֣לֹֽד",
     "qr-extra-letter-spacing": True,
     "qr-generic-comment": [

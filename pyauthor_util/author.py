@@ -466,6 +466,10 @@ _DOLLAR_SUB_DISPATCH = {
 }
 
 
+def span_rtl(contents):
+    return my_html.span(contents, {"dir": "rtl"})
+
+
 # אבגדה וזחטי כלמנס עפצקר שת
 # Our code plus a highlight of unintuitive choices:
 # ABGDH VZXEY KLMNO 3PCQR JF plus ISTUW unused

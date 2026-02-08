@@ -112,20 +112,21 @@ _THE_THREE_EDITIONS = [
         "The דעת מקרא (Da-at Miqra) series,",
         " particularly the volumes with sections called",
         " “הנוסח ומקורותיו”",
-        f" (Breuer et al., {num_range(1970, 2003)})",
+        f" (Breuer et al., {num_range(1970, 2003)}).",
     ],
     [
-        "Biblia Hebraica Leningradensia ($BHL) (Dotan, 2001)",
+        "Biblia Hebraica Leningradensia ($BHL) (Dotan, 2001),",
+        " particularly its Appendix A ($BHL_A).",
     ],
     [
         "The Westminster Leningrad Codex ($WLC) (electronic)",
-        " (editions dating back to the 1980s)",
+        " (editions dating back to the 1980s).",
     ],
 ]
 _MEGILLOTH_2004 = [
     "The first fascicle of $BHQ (Megilloth) came out in 2004.",
     #
-    " That means that all three of the above editions were available to the $BHQ editors",
+    " So, all three of the above editions were available to the $BHQ editors",
     " for all fascicles of $BHQ.",
 ]
 _DM_PREDATES = [
@@ -144,11 +145,12 @@ _BHL_PREDATES = [
     #
     " So it is puzzling that most of the $BHQ editors",
     " seem to have been unaware of or uninterested in",
-    " his relevant work in $BHL’s Appendix A.",
+    " his relevant work in $BHL_A.",
 ]
 _AWARE_OF_BHL = [
-    "The editors of the Genesis and Proverbs fascicles",
-    " were aware of $BHL’s Appendix A, since they cite it in their Introductions.",
+    "The editors of the some fascicles",
+    " cite $BHL_A in their Introductions",
+    " (Genesis, Leviticus, and Proverbs)."
     #
     " Though aware of it, they were not interested in it, at least not enough",
     " to have it deeply influence the apparatus.",
@@ -170,9 +172,12 @@ _WE_ARE_NOW_LEFT = [
     " plus a smattering of new ones.",
     " But many quirks are not transcribed, and many that are transcribed are not noted.",
     #
-    " In Genesis and Proverbs, we know that this unevenness is by design.",
+    " In a few fascicles, we know that this unevenness is by design,",
+    " as the editors refer the interested reader to $BHL_A",
+    " for more information about the quirks in μL.",
     #
-    " Perhaps it is so in all fascicles, and only documented in Genesis and Proverbs."
+    " Perhaps all fascicles are uneven by design, i.e. uneven by editorial policy,",
+    " and these are just the few that happen to document it."
 ]
 _WLC_PREDATES = [
     "$WLC has had various releases over its decades, many predating $BHQ Megilloth.",

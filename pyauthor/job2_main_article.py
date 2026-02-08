@@ -57,6 +57,8 @@ def _make_cbody(aq: AllQuirks):
         author.para(_POSTSCRIPT_UXLC),
         author.heading_level_2("Postscript 2: quirks in μA"),
         author.para(_POSTSCRIPT_QUIRKS_IN_MU_A),
+        author.heading_level_2("Related works by me"),
+        author.para(_RELATED_WORKS_BY_ME),
     ]
     return cbody
 
@@ -496,4 +498,12 @@ _POSTSCRIPT_QUIRKS_IN_MU_A = [
     #
     " To me, it would make sense for $BHQ to note them,",
     [" and therefore I note a few in the ", d4_anchor()],
+]
+_README = author.anc_h(
+    "README",
+    "https://github.com/bdenckla/document-index/blob/main/README.md",
+)
+_RELATED_WORKS_BY_ME = [
+    "Other works by me about the Masoretic Text can be found in this",
+    [" ", _README, "."],
 ]

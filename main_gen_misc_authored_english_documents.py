@@ -6,7 +6,6 @@ from pyauthor_util.prep_quirkrecs import prep_quirkrecs
 from py import two_col_css_styles as tcstyles
 from py import my_html
 from pyauthor import (
-    job1_full_list_overview,
     job1_full_list_details,
     job2_main_article,
     job3_uxlc,
@@ -36,7 +35,6 @@ def main():
     ov_and_de = make_ov_and_de(qrs)
     qr_groups = get_qr_groups(qrs)
     aq = AllQuirks(tdm_ch, ov_and_de, qr_groups)
-    job1_full_list_overview.gen_html_file(tdm_ch, ov_and_de)
     job1_full_list_details.gen_html_file(tdm_ch, ov_and_de)
     job2_main_article.gen_html_file(aq)
     job3_uxlc.gen_html_file(aq)

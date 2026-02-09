@@ -42,8 +42,7 @@ RECORD_0505 = {
     # in one of the three earlier-published editions: BHL, DM, & WLC.
     "qr-lc-loc": {"page": "398A", "column": 2, "line": 22},
     "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above."
-        " The proposed transcription",
+        "The proposed transcription",
         " must either be a simple typo or",
         " must spring from some source other than the color image of μL or the consensus.",
         " Sometimes the black and white images of μL can be misleading,",

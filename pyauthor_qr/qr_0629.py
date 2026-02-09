@@ -9,6 +9,5 @@ RECORD_0629 = {
     ],
     "qr-highlight": 2,
     "qr-lc-loc": {"page": "399A", "column": 1, "line": 2},
-    "qr-bhq-comment": "$BHQ has the proposed transcription of μL above.",
     "qr-noted-by": "tBHQ-zmiscWLC",
 }

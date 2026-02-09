@@ -1,9 +1,7 @@
 from pyauthor_util import author
 
 _COMMENT_1413_PARA1 = [
-    "$WLC has the proposed transcription of μL above.",
-    #
-    " I find this transcription far-fetched.",
+    "I find $WLC’s transcription far-fetched.",
     #
     " Note that the consensus has a rare and hard-to-understand",
     " phenomenon called “secondary מהפך” by Breuer."

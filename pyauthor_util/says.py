@@ -16,16 +16,17 @@ def _says_fn_for_xbhq_and_n3(quirkrec):
 
 
 _SAYS_HANDLERS = {
-    "nbhq_and_x3": "says $BHQ’s contribution",
-    "nbhq_and_n3": "says $BHQ’s reiteration",
-    "tbhq_and_n3": "says $BHQ’s implication",
-    "xbhq_and_n3": _says_fn_for_xbhq_and_n3,
-    "tbhq_and_zdw": "says $BHQ but not $WLC",
-    "tbhq_and_zmw": "says $BHQ but not $WLC",
-    "xbhq_and_nuxlc": "says $UXLC but not $BHQ",
-    "tbhq_and_zuxlc": "says $BHQ but not $UXLC",
-    "tbhq_and_adm": "says $DM",
-    None: "says Denckla",
+    "g:nbhq_and_x3": "says $BHQ’s contribution",
+    "g:nbhq_and_n3": "says $BHQ’s reiteration",
+    "g:tbhq_and_n3": "says $BHQ’s implication",
+    "g:xbhq_and_n3": _says_fn_for_xbhq_and_n3,
+    "g:tbhq_and_zdw": "says $BHQ but not $WLC",
+    "g:tbhq_and_zmw": "says $BHQ but not $WLC",
+    "g:xbhq_and_nuxlc": "says $UXLC but not $BHQ",
+    "g:tbhq_and_zuxlc": "says $BHQ but not $UXLC",
+    "g:adm": "says $DM",
+    "g:tbhq_and_twlc": "says $BHQ and $WLC",
+    "g:xbhq_and_twlc": "says $WLC but not $BHQ",
 }
 
 

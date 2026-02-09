@@ -53,7 +53,7 @@ def _do_solo_asserts(bhq, bhl, dm, wlc, uxlc):
     assert bhq in ("nBHQ", "xBHQ", "tBHQ")
     assert bhl in ("nBHL", "xBHL")
     assert dm in ("nDM", "xDM", "aDM")
-    assert wlc in ("nWLC", "xWLC", "zmiscWLC", "zdexiWLC")
+    assert wlc in ("nWLC", "xWLC", "tWLC", "zmiscWLC", "zdexiWLC")
     assert uxlc in ("nUXLC", "xUXLC", "zUXLC")
 
 
@@ -64,6 +64,8 @@ def _do_combo_asserts(bhq, bhl, dm, wlc, uxlc):
         assert (bhq, bhl, dm, wlc) == ("tBHQ", "xBHL", "xDM", "xWLC")
     if uxlc == "nUXLC":
         assert (bhq, bhl, dm, wlc) == ("xBHQ", "xBHL", "xDM", "xWLC")
+    if dm == "aDM":
+        assert (bhq, bhl, wlc, uxlc) == ("xBHQ", "xBHL", "xWLC", "xUXLC")
 
 
 def _fill_in(nb_dict):

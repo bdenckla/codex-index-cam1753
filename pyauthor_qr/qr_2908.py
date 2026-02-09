@@ -1,5 +1,5 @@
 RECORD_2908 = {
-    "qr-noted-by": "",
+    "qr-noted-by": "tBHQ-tWLC",
     "qr-cv": "29:8",
     "qr-consensus": "וִ֝ישִׁישִׁ֗ים",
     "qr-lc-proposed": "וִֽ֝ישִׁישִׁים",

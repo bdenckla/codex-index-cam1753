@@ -1,78 +1,78 @@
 {
   "description": "Count of fields used in quirkrecs (ordered by count descending)",
-  "total_quirkrecs": 159,
+  "total_quirkrecs": 160,
   "fields": [
     {
       "field": "nbd",
-      "count": 159
+      "count": 160
     },
     {
       "field": "nbd.e:BHL",
-      "count": 159
+      "count": 160
     },
     {
       "field": "nbd.e:BHQ",
-      "count": 159
+      "count": 160
     },
     {
       "field": "nbd.e:DM",
-      "count": 159
+      "count": 160
     },
     {
       "field": "nbd.e:UXLC",
-      "count": 159
+      "count": 160
     },
     {
       "field": "nbd.e:WLC",
-      "count": 159
+      "count": 160
     },
     {
       "field": "pgroup",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-consensus",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-cv",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-lc-img",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-lc-loc",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-lc-loc.column",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-lc-loc.line",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-lc-loc.page",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-noted-by",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-what-is-weird",
-      "count": 159
+      "count": 160
     },
     {
       "field": "qr-lc-proposed",
-      "count": 157
+      "count": 158
     },
     {
       "field": "qr-highlight",
-      "count": 137
+      "count": 138
     },
     {
       "field": "qr-generic-comment",

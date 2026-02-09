@@ -23,8 +23,8 @@ def gen_html_file(aq: AllQuirks):
 
 def _make_cbody(aq: AllQuirks):
     the_lens = dv_map(len, aq.qr_groups)
-    len_dexi = the_lens["tbhq_and_zdw"]
-    len_misc = the_lens["tbhq_and_zmw"]
+    len_dexi = the_lens["g:tbhq_and_zdw"]
+    len_misc = the_lens["g:tbhq_and_zmw"]
     cbody = [
         author.heading_level_1(D2_H1_CONTENTS),
         author.para(_NOT_A_SCHOLARLY),
@@ -42,17 +42,17 @@ def _make_cbody(aq: AllQuirks):
         author.para_ul(_MY_PURPOSES, _CLIST_NOT_MY_CONCERN),
         author.para(_CPARA_NOT_MY_CONCERN),
         author.para(_SPECIFICS_OF_BHQ_JOB),
-        para_and_table(aq, _cpara26, "nbhq_and_x3"),
+        para_and_table(aq, _cpara26, "g:nbhq_and_x3"),
         author.para(_CONTRIBUTIONS),
-        para_and_table(aq, _reiterations, "nbhq_and_n3", extra_paras=[_CPARA_RNTQ]),
-        para_and_table(aq, _mixed, "tbhq_and_n3"),
-        para_and_table(aq, _bad_news_1_part_1, "xbhq_and_n3"),
+        para_and_table(aq, _reiterations, "g:nbhq_and_n3", extra_paras=[_CPARA_RNTQ]),
+        para_and_table(aq, _mixed, "g:tbhq_and_n3"),
+        para_and_table(aq, _bad_news_1_part_1, "g:xbhq_and_n3"),
         author.para(_BAD_NEWS_1_PART_2),
-        author.para(_bad_news_1_part_3(len(aq.qr_groups["nbhq_and_n3"]))),
+        author.para(_bad_news_1_part_3(len(aq.qr_groups["g:nbhq_and_n3"]))),
         author.para(_BAD_NEWS_1_PART_4),
         author.para(_bad_news_2(len_dexi, len_misc)),
-        para_and_table(aq, _cpara34_dexi, "tbhq_and_zdw"),
-        para_and_table(aq, _cpara35_misc, "tbhq_and_zmw"),
+        para_and_table(aq, _cpara34_dexi, "g:tbhq_and_zdw"),
+        para_and_table(aq, _cpara35_misc, "g:tbhq_and_zmw"),
         author.para_ul(_CONCLUSION, _clist36(the_lens)),
         author.heading_level_2("Postscript 1: $UXLC"),
         author.para(_POSTSCRIPT_UXLC),
@@ -460,13 +460,13 @@ _CONCLUSION = [
 
 
 def _clist36(the_lens):
-    len_dexi = the_lens["tbhq_and_zdw"]
-    len_misc = the_lens["tbhq_and_zmw"]
+    len_dexi = the_lens["g:tbhq_and_zdw"]
+    len_misc = the_lens["g:tbhq_and_zmw"]
     len_total = len_dexi + len_misc
-    b = str(the_lens["nbhq_and_x3"])
-    c = str(the_lens["nbhq_and_n3"])
-    d = str(the_lens["tbhq_and_n3"])
-    e = str(the_lens["xbhq_and_n3"])
+    b = str(the_lens["g:nbhq_and_x3"])
+    c = str(the_lens["g:nbhq_and_n3"])
+    d = str(the_lens["g:tbhq_and_n3"])
+    e = str(the_lens["g:xbhq_and_n3"])
     f = str(len_total)
     return [
         f"$BHQ contributes notes on {b} quirks not found in those editions.",

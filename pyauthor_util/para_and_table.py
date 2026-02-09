@@ -29,7 +29,8 @@ def _table_of_quirks(tdm_ch, group_key, ov_and_de, group_of_quirkrecs):
     rows = [_overview(ov_and_de, rec) for rec in group_of_quirkrecs]
     table = author.table_c(rows)
     # Generate filename and title from group_key
-    fname = f"grp_{group_key}.html"
+    group_key_sanitized = group_key.replace("g:", "grp_")
+    fname = f"{group_key_sanitized}.html"
     title = f"Group: {group_key}"
     # Generate the HTML file
     cbody = [

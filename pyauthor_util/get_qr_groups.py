@@ -34,6 +34,10 @@ def tbhq_and_n3(quirkrec):
     return _foobhq_and_n3("tBHQ", quirkrec["nbd"])
 
 
+def tbhq_and_x3(quirkrec):
+    return _foobhq_and_x3("tBHQ", quirkrec["nbd"])
+
+
 def tbhq_and_zdw(quirkrec):
     return quirkrec["nbd"]["e:WLC"] == "zdexiWLC"
 
@@ -50,8 +54,18 @@ def tbhq_and_zuxlc(quirkrec):
     return quirkrec["nbd"]["e:UXLC"] == "zUXLC"
 
 
-def tbhq_and_adm(quirkrec):
+def adm(quirkrec):
     return quirkrec["nbd"]["e:DM"] == "aDM"
+
+
+def xbhq_and_twlc(quirkrec):
+    nbd = quirkrec["nbd"]
+    return (nbd["e:BHQ"], nbd["e:WLC"]) == ("xBHQ", "tWLC")
+
+
+def tbhq_and_twlc(quirkrec):
+    nbd = quirkrec["nbd"]
+    return (nbd["e:BHQ"], nbd["e:WLC"]) == ("tBHQ", "tWLC")
 
 
 #####################################################################
@@ -67,21 +81,19 @@ def _foobhq_and_x3(foobhq, nbd):
     )
 
 
-def _filter(quirkrecs, filter_fn):
-    return list(filter(filter_fn, quirkrecs))
-
-
 _T30 = ("e:BHL", "e:DM", "e:WLC")
 _FILTER_FNS = {
-    "nbhq_and_x3": nbhq_and_x3,
-    "nbhq_and_n3": nbhq_and_n3,
-    "tbhq_and_n3": tbhq_and_n3,
-    "xbhq_and_n3": xbhq_and_n3,
-    "tbhq_and_zdw": tbhq_and_zdw,
-    "tbhq_and_zmw": tbhq_and_zmw,
-    "xbhq_and_nuxlc": xbhq_and_nuxlc,
-    "tbhq_and_zuxlc": tbhq_and_zuxlc,
-    "tbhq_and_adm": tbhq_and_adm,
+    "g:nbhq_and_x3": nbhq_and_x3,
+    "g:nbhq_and_n3": nbhq_and_n3,
+    "g:tbhq_and_n3": tbhq_and_n3,
+    "g:xbhq_and_n3": xbhq_and_n3,
+    "g:tbhq_and_zdw": tbhq_and_zdw,
+    "g:tbhq_and_zmw": tbhq_and_zmw,
+    "g:xbhq_and_nuxlc": xbhq_and_nuxlc,
+    "g:tbhq_and_zuxlc": tbhq_and_zuxlc,
+    "g:adm": adm,
+    "g:xbhq_and_twlc": xbhq_and_twlc,
+    "g:tbhq_and_twlc": tbhq_and_twlc,
 }
 # nbhq: noted (as a quirk) in BHQ
 # xbhq: not noted (as a quirk) in BHQ

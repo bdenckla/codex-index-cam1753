@@ -6,8 +6,5 @@ RECORD_3419_2of2ftv = {
     "qr-consensus": "שׁ֭וֹעַ",
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "406B", "column": 2, "line": 26},
-    "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above.",
-    ],
     "qr-noted-by": "tBHQ-zdexiWLC",
 }

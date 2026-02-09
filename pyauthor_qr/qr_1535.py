@@ -20,8 +20,5 @@ RECORD_1535 = {
     ],
     "qr-highlight": [2, 3],
     "qr-lc-loc": {"page": "401B", "column": 1, "line": -3},
-    "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above.",
-    ],
     "qr-noted-by": "tBHQ-nDM",
 }

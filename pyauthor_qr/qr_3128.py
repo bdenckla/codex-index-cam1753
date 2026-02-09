@@ -5,8 +5,5 @@ RECORD_3128 = {
     "qr-consensus": "ה֭וּא",
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "405B", "column": 2, "line": 18},
-    "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above.",
-    ],
     "qr-noted-by": "tBHQ-zdexiWLC",
 }

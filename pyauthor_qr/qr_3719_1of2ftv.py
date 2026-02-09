@@ -6,9 +6,6 @@ RECORD_3719_1of2ftv = {
     "qr-consensus": "ה֭וֹדִיעֵנוּ",
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "407B", "column": 2, "line": 23},
-    "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above.",
-    ],
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-generic-comment": [
         "The pointing of this word must, by necessity, be transcribed with much charity.",

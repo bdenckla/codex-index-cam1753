@@ -17,8 +17,5 @@ RECORD_0816_2of2ftv = {
     ],
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "399A", "column": 2, "line": -4},
-    "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above.",
-    ],
     "qr-noted-by": "tBHQ-zmiscWLC",
 }

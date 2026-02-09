@@ -7,9 +7,6 @@ RECORD_3619 = {
     "qr-consensus": "שׁ֭וּעֲךָ",
     "qr-highlight": 1,
     "qr-lc-loc": {"page": "407B", "column": 1, "line": 11},
-    "qr-bhq-comment": [
-        "$BHQ has the proposed transcription of μL above.",
-    ],
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-generic-comment": [
         "All but the southeast end of the דחי seems to have flaked off,",

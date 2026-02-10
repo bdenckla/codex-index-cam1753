@@ -3,7 +3,6 @@ _BHQ_COMMENT_1806 = [
     " The mark is a little to the right of center.",
     " So it is not centered, as one would expect a טרחא to be,",
     " but neither is it as far to the right as דחי normally is in $BHQ.",
-    # XXX add BHQ image
 ]
 RECORD_1806 = {
     "qr-cv": "18:6",

@@ -3,7 +3,7 @@ from pyauthor_util import author
 
 _BHQ_COMMENT_2228 = [
     "$BHQ places the mark a little left of center.",
-    # XXX add BHQ image
+    #
     " Though this placement is odd,",
     " this makes it clear that a טרחא was intended by $BHQ rather than a דחי.",
     " Thus $BHQ somewhat-accurately transcribes the quirk in μL,",

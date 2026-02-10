@@ -488,6 +488,7 @@
     "qr-what-is-weird": "דחי not מונח",
     "qr-highlight-consensus": 2,
     "qr-highlight-lc-proposed": 1,
+    "qr-generic-comment": "See 34:5.",
     "qr-lc-loc": {
       "page": "398B",
       "column": 2,
@@ -4201,6 +4202,7 @@
     "qr-what-is-weird": "דחי not מונח",
     "qr-highlight-consensus": 5,
     "qr-highlight-lc-proposed": 4,
+    "qr-generic-comment": "See 6:17.",
     "qr-lc-loc": {
       "page": "406B",
       "column": 2,

@@ -30,7 +30,7 @@ _GENCOM_2 = [
     " instead, it floats before the ש of שחר.",
     #
     " A vowel mark floating like this before a כתיב word has manuscript precedent.",
-    # XXX Give some examples of this precedent.
+    #
     " I.e. although the Jerusalem Crown edition is diverging from the manuscript here,",
     " it is not diverging from manuscript tradition in general by using this notation.",
 ]

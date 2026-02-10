@@ -1,7 +1,7 @@
 RECORD_0720 = {
     "qr-noted-by": "tBHQ-nDM",
     "qr-noted-by-mam": True,
-    # XXX perhaps MAM's note should mention LC
+    # XXX perhaps MAM should note what LC has here
     "qr-cv": "7:20",
     "qr-consensus": "הָ֫אָדָ֥ם",
     "qr-lc-proposed": "הָאָ֫דָ֥ם",

@@ -7,6 +7,6 @@ RECORD_2413 = {
     "qr-generic-comment": [
         "Gray מקף in $MAM.",
     ],
-    # XXX perhaps should note מקף in L.
+    # XXX perhaps MAM should note מקף in L.
     "qr-lc-loc": {"page": "404A", "column": 1, "line": 11},
 }

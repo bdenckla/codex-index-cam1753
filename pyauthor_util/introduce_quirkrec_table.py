@@ -15,7 +15,7 @@ _WHERE_LIST = [
 ]
 
 
-def intro(ov_or_de):
+def qr_table_intro(ov_or_de):
     each = _VARIANTS[ov_or_de]
     return [
         author.para(_each(each)),

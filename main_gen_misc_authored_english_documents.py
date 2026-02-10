@@ -2,6 +2,7 @@
 
 import glob
 import os
+from pyauthor_util import author
 from pyauthor_util.prep_quirkrecs import prep_quirkrecs
 from py import two_col_css_styles as tcstyles
 from py import my_html
@@ -44,7 +45,7 @@ def main():
 
 def _write_index_dot_html(css_hrefs, out_path):
     write_ctx = my_html.WriteCtx("Job Documents", out_path, css_hrefs=css_hrefs)
-    my_html.write_html_to_file(_CBODY, write_ctx)
+    my_html.write_html_to_file(author.para(_CBODY), write_ctx)
 
 
 def _delete_files(directory, patterns):

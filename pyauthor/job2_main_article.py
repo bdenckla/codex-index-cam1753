@@ -42,17 +42,17 @@ def _make_cbody(aq: AllQuirks):
         author.para_ul(_MY_PURPOSES, _CLIST_NOT_MY_CONCERN),
         author.para(_CPARA_NOT_MY_CONCERN),
         author.para(_SPECIFICS_OF_BHQ_JOB),
-        para_and_table(aq, _cpara26, "g:nbhq_and_x3"),
-        author.para(_CONTRIBUTIONS),
+        para_and_table(aq, _contributions, "g:nbhq_and_x3"),
+        author.para(_AFTER_CONTRIBUTIONS),
         para_and_table(aq, _reiterations, "g:nbhq_and_n3"),
         para_and_table(aq, _mixed, "g:tbhq_and_n3"),
-        para_and_table(aq, _bad_news_1_part_1, "g:xbhq_and_n3"),
-        author.para(_BAD_NEWS_1_PART_2),
-        author.para(_bad_news_1_part_3(len(aq.qr_groups["g:nbhq_and_n3"]))),
-        author.para(_BAD_NEWS_1_PART_4),
+        para_and_table(aq, _bad_news_1, "g:xbhq_and_n3"),
+        author.para(_AFTER_BAD_NEWS_1_PART_1),
+        author.para(_after_bad_news_1_part_2(len(aq.qr_groups["g:nbhq_and_n3"]))),
+        author.para(_AFTER_BAD_NEWS_1_PART_3),
         author.para(_bad_news_2(len_dexi, len_misc)),
-        para_and_table(aq, _cpara34_dexi, "g:tbhq_and_zdw"),
-        para_and_table(aq, _cpara35_misc, "g:tbhq_and_zmw"),
+        para_and_table(aq, _wlc_dexi, "g:tbhq_and_zdw"),
+        para_and_table(aq, _wlc_misc, "g:tbhq_and_zmw"),
         author.para_ul(_CONCLUSION, _clist36(the_lens)),
         author.heading_level_2("Postscript 1: $UXLC"),
         author.para(_POSTSCRIPT_UXLC),
@@ -268,7 +268,7 @@ _SPECIFICS_OF_BHQ_JOB = [
 ]
 
 
-def _cpara26(the_len):
+def _contributions(the_len):
     return [
         f"First, the good news: the Job fascicle of $BHQ notes {str(the_len)}",
         " quirks in μL that are not noted in any of the three editions listed above.",
@@ -280,7 +280,7 @@ def _cpara26(the_len):
     ]
 
 
-_CONTRIBUTIONS = [
+_AFTER_CONTRIBUTIONS = [
     "Unsurprisingly, all of these contributions",
     " are new, i.e. not present in $BHS.",
     #
@@ -340,7 +340,7 @@ def _reiterations(the_len):
     ]
 
 
-def _bad_news_1_part_1(the_len):
+def _bad_news_1(the_len):
     return [
         "Now for some bad news:",
         f" the Job fascicle of $BHQ does not transcribe {str(the_len)}",
@@ -358,7 +358,7 @@ def _bad_news_1_part_1(the_len):
     ]
 
 
-_BAD_NEWS_1_PART_2 = [
+_AFTER_BAD_NEWS_1_PART_1 = [
     "I would not expect $BHQ to transcribe all the above quirks.",
     #
     " For example it would be reasonable for the $BHQ editors",
@@ -368,7 +368,7 @@ _BAD_NEWS_1_PART_2 = [
 ]
 
 
-def _bad_news_1_part_3(len_of_nbhq_and_n3):
+def _after_bad_news_1_part_2(len_of_nbhq_and_n3):
     foo = len_of_nbhq_and_n3 - _COUNT_OF_RNTQ
     bar = len_of_nbhq_and_n3
     return [
@@ -389,7 +389,7 @@ def _bad_news_1_part_3(len_of_nbhq_and_n3):
     ]
 
 
-_BAD_NEWS_1_PART_4 = [
+_AFTER_BAD_NEWS_1_PART_3 = [
     "The failure to transcribe these quirks contrasts starkly"
     " with the $BHQ’s decision to continue and expand upon $BHS’s tradition of interest",
     " in Masorah notes, both parva and magna.",
@@ -438,7 +438,7 @@ def _bad_news_2(len_dexi, len_misc):
     ]
 
 
-def _cpara34_dexi(len_dexi):
+def _wlc_dexi(len_dexi):
     return [
         "Here are the",
         f" {str(len_dexi)} cases noted in $WLC where {_BHQ_HAS_TAR}",
@@ -446,7 +446,7 @@ def _cpara34_dexi(len_dexi):
     ]
 
 
-def _cpara35_misc(len_misc):
+def _wlc_misc(len_misc):
     return [
         "Then there are the",
         f" {str(len_misc)} cases noted in $WLC where $BHQ is probably in error",

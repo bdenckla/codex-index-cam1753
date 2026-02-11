@@ -60,6 +60,13 @@ def simplify_simple_diffs(diffs):
     return desc or (str(diffs), None)
 
 
+_ORDINALS = {
+    1: "first",
+    2: "second",
+    3: "third",
+}
+
+
 def _qcp_cp_and_lwc(qcp):  # lwc: letter with count
     letter = qcp_get(qcp, "letter")
     count = qcp_get(qcp, "count")
@@ -69,12 +76,7 @@ def _qcp_cp_and_lwc(qcp):  # lwc: letter with count
     elif count == (1, 1):  # simple case: 1 of 1
         lwc = letter
     else:
-        ordinals = {
-            1: "first",
-            2: "second",
-            3: "third",
-        }
-        ordinal = ordinals[count[0]]
+        ordinal = _ORDINALS[count[0]]
         lwc = f"the {ordinal} {letter}"
     return qcp_get(qcp, "code_point"), lwc
 
@@ -136,6 +138,14 @@ def _ssd1_dt_remove(diff0):
     return f"remove {d0a0_cp} from {d0a0_lett}", "remove"
 
 
+def _move_desc(cp, direction, from_lett, to_lett):
+    if from_lett == to_lett:
+        detail = f"move {cp} {direction} within the same letter ({to_lett})"
+    else:
+        detail = f"move {cp} {direction} from {from_lett} to {to_lett}"
+    return detail, "move"
+
+
 def _ssd2_dt_add_dt_remove(diff0, diff1):
     add = diff0[1]
     rem = diff1[0]
@@ -147,13 +157,7 @@ def _ssd2_dt_add_dt_remove(diff0, diff1):
     rem0_cp, rem0_lett = _qcp_cp_and_lwc(rem0)
     if add0_cp != rem0_cp:
         return None
-    if rem0_lett == add0_lett:
-        return (
-            "move " + add0_cp + " back within the same letter (" + add0_lett + ")",
-            "move",
-        )
-    ltl = "from " + rem0_lett + " to " + add0_lett
-    return "move " + add0_cp + " back " + ltl, "move"
+    return _move_desc(add0_cp, "back", rem0_lett, add0_lett)
 
 
 def _ssd2_dt_remove_dt_add(diff0, diff1):
@@ -167,13 +171,7 @@ def _ssd2_dt_remove_dt_add(diff0, diff1):
     rem0_cp, rem0_lett = _qcp_cp_and_lwc(rem0)
     if add0_cp != rem0_cp:
         return None
-    if rem0_lett == add0_lett:
-        return (
-            "move " + add0_cp + " forward within the same letter (" + add0_lett + ")",
-            "move",
-        )
-    ltl = "from " + rem0_lett + " to " + add0_lett
-    return "move " + add0_cp + " forward " + ltl, "move"
+    return _move_desc(add0_cp, "forward", rem0_lett, add0_lett)
 
 
 def _diff_type(diff):

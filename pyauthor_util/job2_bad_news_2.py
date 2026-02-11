@@ -75,7 +75,7 @@ def _wlc_dexi_group_toh(wlc, bhq):
 
 def _wlc_misc_group_toh(wlc, bhq):
     """toh: title or heading"""
-    return f"Group: {wlc} corrects {bhq} misc. (non-טרחא)"
+    return f"Group: {wlc} corrects {bhq} various (non-טרחא)"
 
 
 def _wlc_dexi_core(len_dexi):

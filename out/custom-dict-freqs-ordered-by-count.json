@@ -1,0 +1,50 @@
+{
+    "words": {
+        "masorah": 12,
+        "cantillation": 9,
+        "doesn't": 9,
+        "khaf": 3,
+        "parva": 3,
+        "magna": 2,
+        "unpointed": 2,
+        "ascenders": 1,
+        "callout": 1,
+        "niqqud": 1,
+        "readme": 1,
+        "untranscribed": 1
+    },
+    "words_exact": {
+        "μL": 603,
+        "BHQ": 551,
+        "WLC": 102,
+        "μA": 60,
+        "BHL": 56,
+        "BHS": 39,
+        "UXLC": 38,
+        "μY": 18,
+        "Megilloth": 4,
+        "DBG": 3,
+        "KUSATU": 3,
+        "μA's": 3,
+        "Biblia": 2,
+        "Dotan": 2,
+        "Hebraica": 2,
+        "Tanakh": 2,
+        "μL's": 2,
+        "Breuer's": 1,
+        "Dotan's": 1,
+        "Golinets": 1,
+        "Leningradensia": 1,
+        "Mp": 1,
+        "Ofer": 1,
+        "Quinta": 1,
+        "μY's": 1
+    },
+    "phrases": {
+        "Dageš, Mappiq, Specks on Vellum, and Editing of the Codex Leningradensis": 3,
+        "Viktor Golinets": 3,
+        "Da-at Miqra": 1,
+        "Tsinnorit & Oleh on Initial Vocal Shewa": 1,
+        "Y(qere)": 1
+    }
+}

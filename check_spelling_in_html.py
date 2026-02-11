@@ -12,20 +12,30 @@ from pathlib import Path
 from spellchecker import SpellChecker
 
 
-def load_custom_dictionary(dict_path: Path) -> tuple[set[str], list[str]]:
+def load_custom_dictionary(
+    dict_path: Path,
+) -> tuple[set[str], set[str], list[str]]:
     """Load custom words and phrases from JSON dictionary file.
 
-    Returns (words, phrases) where phrases are multi-word entries.
+    Returns (words_ci, words_exact, phrases) where:
+    - words_ci: case-insensitive words (stored lowercased)
+    - words_exact: case-sensitive words (stored in original case,
+      with curly apostrophes normalized to straight)
+    - phrases: multi-word entries
     """
-    words = set()
+    words_ci = set()
+    words_exact = set()
     phrases = []
     if dict_path.exists():
         data = json.loads(dict_path.read_text(encoding="utf-8"))
         for word in data.get("words", []):
             # Normalize curly apostrophes to straight for lookup
-            words.add(word.replace("\u2019", "'").lower())
+            words_ci.add(word.replace("\u2019", "'").lower())
+        for word in data.get("words_exact", []):
+            # Normalize curly apostrophes but preserve case
+            words_exact.add(word.replace("\u2019", "'"))
         phrases = data.get("phrases", [])
-    return words, phrases
+    return words_ci, words_exact, phrases
 
 
 def extract_english_words(text: str) -> list[str]:
@@ -105,39 +115,58 @@ def check_period_uppercase(html_files: list[Path]):
 
 
 def check_spelling(html_files: list[Path], custom_dict_path: Path):
-    """Check spelling of English words in HTML files."""
+    """Check spelling of English words in HTML files.
+
+    Returns (issues, word_ci_freq, word_exact_freq, phrase_freq) where the
+    freq dicts map each custom-dictionary entry to the number of times it
+    was matched.
+    """
     spell = SpellChecker()
-    custom_words, custom_phrases = load_custom_dictionary(custom_dict_path)
+    words_ci, words_exact, custom_phrases = load_custom_dictionary(custom_dict_path)
+
+    # Track how many times each custom entry is matched
+    word_ci_freq: dict[str, int] = {w: 0 for w in words_ci}
+    word_exact_freq: dict[str, int] = {w: 0 for w in words_exact}
+    phrase_freq: dict[str, int] = {p: 0 for p in custom_phrases}
 
     issues = []
 
     for html_path in html_files:
         text = _extract_text_from_html(html_path)
-        rel = html_path.as_posix()
 
         # Normalize whitespace so phrase matching works
         # (the HTML text extractor can produce runs of whitespace)
         cleaned = re.sub(r"\s+", " ", text)
 
-        # Remove accepted phrases before word extraction
+        # Remove accepted phrases before word extraction, counting hits
         for phrase in custom_phrases:
-            cleaned = re.sub(re.escape(phrase), " ", cleaned, flags=re.IGNORECASE)
+            pattern = re.compile(re.escape(phrase), flags=re.IGNORECASE)
+            matches = pattern.findall(cleaned)
+            phrase_freq[phrase] += len(matches)
+            cleaned = pattern.sub(" ", cleaned)
 
         words = extract_english_words(cleaned)
         for word in words:
-            word_lower = word.lower()
-            # Normalize curly apostrophe to straight for pyspellchecker lookup
-            lookup = word_lower.replace("\u2019", "'")
-            if lookup not in custom_words and lookup not in spell:
+            # Normalize curly apostrophe to straight for lookups
+            normalized = word.replace("\u2019", "'")
+            lookup_lower = normalized.lower()
+            if normalized in words_exact:
+                word_exact_freq[normalized] += 1
+            elif lookup_lower in words_ci:
+                word_ci_freq[lookup_lower] += 1
+            elif lookup_lower not in spell:
+                rel = html_path.as_posix()
                 issues.append(
                     {
                         "file": rel,
                         "word": word,
-                        "suggestions": list(spell.candidates(word_lower) or [])[:5],
+                        "suggestions": list(
+                            spell.candidates(word.lower()) or []
+                        )[:5],
                     }
                 )
 
-    return issues
+    return issues, word_ci_freq, word_exact_freq, phrase_freq
 
 
 def main():
@@ -176,7 +205,57 @@ def main():
         for issue in period_issues:
             print(f"  [{issue['file']}]: ...{issue['context']}...")
 
-    issues = check_spelling(html_files, custom_dict_path)
+    issues, word_ci_freq, word_exact_freq, phrase_freq = check_spelling(
+        html_files, custom_dict_path
+    )
+
+    # Write custom dictionary frequency reports
+    out_dir = project_root / "out"
+    out_dir.mkdir(exist_ok=True)
+
+    def _make_freq_report(sorter):
+        return {
+            "words": {k: v for k, v in sorter(word_ci_freq.items())},
+            "words_exact": {k: v for k, v in sorter(word_exact_freq.items())},
+            "phrases": {k: v for k, v in sorter(phrase_freq.items())},
+        }
+
+    # Alphabetical order
+    alpha_path = out_dir / "custom-dict-freqs-ordered-by-entry.json"
+    alpha_path.write_text(
+        json.dumps(
+            _make_freq_report(sorted), indent=4, ensure_ascii=False
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    # By count (descending), then alphabetical within same count
+    by_count = lambda items: sorted(items, key=lambda x: (-x[1], x[0]))
+    count_path = out_dir / "custom-dict-freqs-ordered-by-count.json"
+    count_path.write_text(
+        json.dumps(
+            _make_freq_report(by_count), indent=4, ensure_ascii=False
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    print(f"\nCustom dictionary frequencies written to {alpha_path}")
+    print(f"Custom dictionary frequencies written to {count_path}")
+
+    # Suggest removals for zero-count entries
+    unused_words = sorted(w for w, c in word_ci_freq.items() if c == 0)
+    unused_words += sorted(w for w, c in word_exact_freq.items() if c == 0)
+    unused_phrases = sorted(p for p, c in phrase_freq.items() if c == 0)
+    if unused_words or unused_phrases:
+        print("\nSuggested removals from custom dictionary (zero occurrences):")
+        for w in unused_words:
+            print(f"  word: {w}")
+        for p in unused_phrases:
+            print(f"  phrase: {p}")
+    else:
+        print("\nAll custom dictionary entries are in use.")
 
     if issues:
         print(f"\nFound {len(issues)} potential spelling issues:\n")

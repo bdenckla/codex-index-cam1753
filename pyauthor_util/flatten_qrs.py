@@ -1,16 +1,18 @@
 from pycmn.shrink import shrink
-from pycmn.my_utils import sl_map
 from py import my_html
 
 
 def flatten_strings_in_one_qr(quirkrec):
+    wiw = quirkrec["qr-what-is-weird"]
     gencom = quirkrec.get("qr-generic-comment")
     bhqcom = quirkrec.get("qr-bhq-comment")
+    flat_wiw = _flatten_yyycom(wiw)
     flat_gencom = gencom and _flatten_yyycom(gencom)
     flat_bhqcom = bhqcom and _flatten_yyycom(bhqcom)
+    new_wiw = {"qr-what-is-weird": flat_wiw} if flat_wiw else {}
     new_gencom = {"qr-generic-comment": flat_gencom} if flat_gencom else {}
     new_bhqcom = {"qr-bhq-comment": flat_bhqcom} if flat_bhqcom else {}
-    return {**quirkrec, **new_gencom, **new_bhqcom}
+    return {**quirkrec, **new_wiw, **new_gencom, **new_bhqcom}
 
 
 def _flatten_yyycom(yyycom):

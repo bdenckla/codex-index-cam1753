@@ -1843,11 +1843,7 @@
     "qr-lc-proposed": "וְיָלֹ֣ד",
     "qr-lc-q": "(?)",
     "qr-what-is-weird": [
-      [
-        "אפס-",
-        "מונח"
-      ],
-      " not מונח-געיה"
+      "אפס-מונח not מונח-געיה"
     ],
     "qr-consensus": "וְיָ֣לֹֽד",
     "qr-extra-letter-spacing": true,
@@ -4018,11 +4014,7 @@
     "qr-cv": "31:7",
     "qr-lc-proposed": "מֻאֿוּֽם׃",
     "qr-what-is-weird": [
-      "קבוץ-סילוק not ",
-      [
-        "סילוק",
-        "-אפס"
-      ]
+      "קבוץ-סילוק not סילוק-אפס"
     ],
     "qr-consensus": "מֽאֿוּם׃",
     "qr-highlight": [

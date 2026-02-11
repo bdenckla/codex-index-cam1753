@@ -285,8 +285,9 @@ def _non_comment_dpe_parts(quirkrec):
 
 
 def _maybe_g3yh_dontcare_message(quirkrec):
-    if quirkrec.get("qr-ignore-g3yh-diff"):
-        return ["The געיה difference is not important to us here."]
+    for ig_key in ("qr-ignore-g3yh-diff", "qr-ignore-g3yh-diff-in-consensus"):
+        if quirkrec.get(ig_key):
+            return ["The געיה difference is not important to us here."]
     return []
 
 

@@ -127,15 +127,19 @@
       "count": 6
     },
     {
-      "field": "qr-ignore-g3yh-diff",
-      "count": 5
-    },
-    {
       "field": "qr-uxlc-position-within-verse",
       "count": 5
     },
     {
+      "field": "qr-ignore-g3yh-diff",
+      "count": 4
+    },
+    {
       "field": "qr-bhq",
+      "count": 3
+    },
+    {
+      "field": "qr-intermediate",
       "count": 3
     },
     {
@@ -167,7 +171,7 @@
       "count": 1
     },
     {
-      "field": "qr-intermediate",
+      "field": "qr-ignore-g3yh-diff-in-consensus",
       "count": 1
     },
     {

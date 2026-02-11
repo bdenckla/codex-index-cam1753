@@ -100,11 +100,15 @@
     },
     {
       "field": "qr-ignore-g3yh-diff",
-      "count": 5
+      "count": 4
+    },
+    {
+      "field": "qr-ignore-g3yh-diff-in-consensus",
+      "count": 1
     },
     {
       "field": "qr-intermediate",
-      "count": 1
+      "count": 3
     },
     {
       "field": "qr-jc-img",

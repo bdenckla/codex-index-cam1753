@@ -3518,7 +3518,7 @@
       {
         "_htel_tag": "p",
         "contents": [
-          "In general I do not cover מלא/חסר differences here, but this one seems worth noting because it involves a כתיב/קרי difference, and it was called out by a ",
+          "In general I do not cover מלא/חסר differences here, but this one seemed worth noting because it involves a כתיב/קרי difference, and it was called out by a ",
           {
             "_htel_tag": "abbr",
             "attr": {
@@ -3654,6 +3654,7 @@
     "qr-lc-proposed": "הִדְריכֻ֥הוּ",
     "qr-what-is-weird": "ר lacks חיריק",
     "qr-consensus": "הִדְרִיכ֥וּהוּ",
+    "qr-intermediate": "הִדְרִיכֻ֥הוּ",
     "qr-generic-comment": "The מלא/חסר spelling difference is not important to us here.",
     "qr-highlight": 3,
     "qr-lc-loc": {
@@ -3675,8 +3676,8 @@
     },
     "pgroup": "g:xbhq_and_n3",
     "qr-auto-diff": [
-      "(((('xiriq', 'resh', (1, 1)),), None), (None, (('qubuts', 'kaf', (1, 1)),)), ((('vav', 'vav', (1, 2)), ('dagesh/mapiq/shuruq-dot', 'vav', (1, 2))), None), ((('vav', 'vav', (2, 2)), ('dagesh/mapiq/shuruq-dot', 'vav', (2, 2))), (('vav', 'vav', (1, 1)), ('dagesh/mapiq/shuruq-dot', 'vav', (1, 1)))))",
-      "deep diff"
+      "remove xiriq from resh",
+      "remove"
     ]
   },
   {

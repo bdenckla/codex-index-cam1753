@@ -141,7 +141,7 @@ def main():
     project_root = Path(__file__).parent
     docs_dir = project_root / "docs"
     custom_dict_path = (
-        Path(__file__).parent / "check_spelling_in_quirkrecs.custom-dict.json"
+        Path(__file__).parent / "check_spelling_in_html.custom-dict.json"
     )
 
     if not docs_dir.exists():

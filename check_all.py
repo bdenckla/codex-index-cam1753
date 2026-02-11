@@ -22,7 +22,7 @@ import sys
 
 import check_function_ordering
 import check_html_output
-import check_spelling_in_quirkrecs
+import check_spelling_in_html
 
 _SEPARATOR = "\u2500" * 60
 
@@ -71,7 +71,7 @@ def main():
 
 def _run_spellcheck():
     # spellcheck_quirkrecs.main() returns None; treat that as success
-    check_spelling_in_quirkrecs.main()
+    check_spelling_in_html.main()
     return 0
 
 

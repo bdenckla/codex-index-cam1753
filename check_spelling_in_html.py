@@ -17,16 +17,18 @@ def load_custom_dictionary(
 ) -> tuple[set[str], set[str], list[str], set[str]]:
     """Load custom words and phrases from JSON dictionary file.
 
-    Returns (words_ci, words_exact, phrases, words_hebrew) where:
+    Returns (words_ci, words_exact, phrases, phrases_hebrew, words_hebrew) where:
     - words_ci: case-insensitive words (stored lowercased)
     - words_exact: case-sensitive words (stored in original case,
       with curly apostrophes normalized to straight)
-    - phrases: multi-word entries
+    - phrases: multi-word English entries
+    - phrases_hebrew: multi-word Hebrew entries
     - words_hebrew: Hebrew words (exact match)
     """
     words_ci = set()
     words_exact = set()
     phrases = []
+    phrases_hebrew = []
     words_hebrew = set()
     if dict_path.exists():
         data = json.loads(dict_path.read_text(encoding="utf-8"))
@@ -37,9 +39,10 @@ def load_custom_dictionary(
             # Normalize curly apostrophes but preserve case
             words_exact.add(word.replace("\u2019", "'"))
         phrases = data.get("phrases", [])
+        phrases_hebrew = data.get("phrases_hebrew", [])
         for word in data.get("words_hebrew", []):
             words_hebrew.add(word)
-    return words_ci, words_exact, phrases, words_hebrew
+    return words_ci, words_exact, phrases, phrases_hebrew, words_hebrew
 
 
 def extract_english_words(text: str) -> list[str]:
@@ -139,19 +142,20 @@ def check_period_uppercase(html_files: list[Path]):
 def check_spelling(html_files: list[Path], custom_dict_path: Path):
     """Check spelling of English words in HTML files.
 
-    Returns (issues, word_ci_freq, word_exact_freq, phrase_freq, word_heb_freq)
-    where the freq dicts map each custom-dictionary entry to the number of
-    times it was matched.
+    Returns (issues, word_ci_freq, word_exact_freq, phrase_freq,
+    phrase_heb_freq, word_heb_freq) where the freq dicts map each
+    custom-dictionary entry to the number of times it was matched.
     """
     spell = SpellChecker()
-    words_ci, words_exact, custom_phrases, words_hebrew = load_custom_dictionary(
-        custom_dict_path
+    words_ci, words_exact, custom_phrases, custom_phrases_heb, words_hebrew = (
+        load_custom_dictionary(custom_dict_path)
     )
 
     # Track how many times each custom entry is matched
     word_ci_freq: dict[str, int] = {w: 0 for w in words_ci}
     word_exact_freq: dict[str, int] = {w: 0 for w in words_exact}
     phrase_freq: dict[str, int] = {p: 0 for p in custom_phrases}
+    phrase_heb_freq: dict[str, int] = {p: 0 for p in custom_phrases_heb}
     word_heb_freq: dict[str, int] = {w: 0 for w in words_hebrew}
 
     issues = []
@@ -168,6 +172,11 @@ def check_spelling(html_files: list[Path], custom_dict_path: Path):
             pattern = re.compile(re.escape(phrase), flags=re.IGNORECASE)
             matches = pattern.findall(cleaned)
             phrase_freq[phrase] += len(matches)
+            cleaned = pattern.sub(" ", cleaned)
+        for phrase in custom_phrases_heb:
+            pattern = re.compile(re.escape(phrase))
+            matches = pattern.findall(cleaned)
+            phrase_heb_freq[phrase] += len(matches)
             cleaned = pattern.sub(" ", cleaned)
 
         # Check English words
@@ -207,7 +216,7 @@ def check_spelling(html_files: list[Path], custom_dict_path: Path):
                     }
                 )
 
-    return issues, word_ci_freq, word_exact_freq, phrase_freq, word_heb_freq
+    return issues, word_ci_freq, word_exact_freq, phrase_freq, phrase_heb_freq, word_heb_freq
 
 
 def main():
@@ -246,8 +255,8 @@ def main():
         for issue in period_issues:
             print(f"  [{issue['file']}]: ...{issue['context']}...")
 
-    issues, word_ci_freq, word_exact_freq, phrase_freq, word_heb_freq = check_spelling(
-        html_files, custom_dict_path
+    issues, word_ci_freq, word_exact_freq, phrase_freq, phrase_heb_freq, word_heb_freq = (
+        check_spelling(html_files, custom_dict_path)
     )
 
     # Write custom dictionary frequency reports
@@ -259,6 +268,7 @@ def main():
             "words": {k: v for k, v in sorter(word_ci_freq.items())},
             "words_exact": {k: v for k, v in sorter(word_exact_freq.items())},
             "phrases": {k: v for k, v in sorter(phrase_freq.items())},
+            "phrases_hebrew": {k: v for k, v in sorter(phrase_heb_freq.items())},
             "words_hebrew": {k: v for k, v in sorter(word_heb_freq.items())},
         }
 
@@ -291,6 +301,7 @@ def main():
     unused_words += sorted(w for w, c in word_exact_freq.items() if c == 0)
     unused_words += sorted(w for w, c in word_heb_freq.items() if c == 0)
     unused_phrases = sorted(p for p, c in phrase_freq.items() if c == 0)
+    unused_phrases += sorted(p for p, c in phrase_heb_freq.items() if c == 0)
     if unused_words or unused_phrases:
         print("\nSuggested removals from custom dictionary (zero occurrences):")
         for w in unused_words:

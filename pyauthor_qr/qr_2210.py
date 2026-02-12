@@ -6,7 +6,7 @@ RECORD_2210 = {
     "qr-what-is-weird": "רביע of רביע מוגרש is absent",
     "qr-highlight": 6,
     "qr-generic-comment": [
-        "Aside: in μL, the געיה (under ו) has either",
+        "Aside: in μL, the געיה (under $vav) has either",
         " survived much better than the other pointing of this word,"
         " been carefully re-inked (unlikely: the re-inking is rarely careful),"
         " or been added during re-inking (most likely).",

@@ -47,6 +47,9 @@
         "Dageš, Mappiq, Specks on Vellum, and Editing of the Codex Leningradensis",
         "Da-at Miqra"
     ],
+    "phrases_hebrew": [
+        "מקרא על פי המסורה"
+    ],
     "words_hebrew": [
         "א",
         "אלוה",
@@ -67,7 +70,6 @@
         "ה",
         "הייתה",
         "המימיך",
-        "המסורה",
         "הנוסח",
         "הפוך",
         "השחר",
@@ -126,7 +128,6 @@
         "עמו",
         "עמי",
         "פ",
-        "פי",
         "פתח",
         "צ",
         "צירה",

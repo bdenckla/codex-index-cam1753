@@ -75,7 +75,7 @@ _KINGS_INTRO = [
 _KINGS_DISCUSSION_1 = [
     "This is hard to show in the “pointed כתיב”",
     " style of קרי/כתיב presentation favored by the manuscripts.",
-    " In such a style, three diagonal קובוץ dots float before the ב.",
+    " In such a style, three diagonal קובוץ dots float before the ב of %בניכי.",
     " The dots are “orphans”: they belong to no letter of the כתיב word.",
 ]
 _WLCAU = "https://bdenckla.github.io/UXLC-utils/wlc-a-notes/"
@@ -84,7 +84,9 @@ _KINGS_DISCUSSION_2 = [
     #
     " But they are understood to represent a שורוק.",
     #
-    " Or, another way of looking at them is that they just represent a שורוק dot.",
+    " Or, another way of looking at them is that",
+    " they are understood to represent just a שורוק dot,",
+    " not the entire שורוק.",
     #
 ]
 _KINGS_DISCUSSION_3 = [
@@ -100,7 +102,7 @@ _KINGS_DISCUSSION_4 = [
     " (3) it has too many other meanings (דגש and מפיק).",
 ]
 _KINGS_DISCUSSION_5 = [
-    "It is more common for the כתיב to lack a final שורוק",
+    "It is more common for a כתיב to lack a final שורוק",
     " than for it to lack initial שורוק.",
     #
     " So, we see this use of orphan קובוץ dots most often in cases",
@@ -114,6 +116,9 @@ _KINGS_DISCUSSION_5 = [
     " In many printed editions, this would be shown as",
     [" an unpointed כתיב of ", author.hbo("ויאמר")],
     [" paired with a pointed קרי of ", author.hbo("וַיֹּאמְר֣וּ"), "."],
+    #
+    " Note that this קובוץ marking is not really an orphan,",
+    " since it belongs to the last letter of the word (ר)."
 ]
 _KINGS_DISCUSSION_6 = [
     ["See ", author.anc_h("this list of $WLC a-notes", _WLCAU), " for more examples."],

@@ -1,4 +1,6 @@
 """Human-friendly group info dicts for groups that previously used bare string keys."""
+from pyauthor.mcontributions_base import contributions_base
+from pyauthor_util import author
 
 
 def contributions_group_info(the_len):
@@ -6,7 +8,7 @@ def contributions_group_info(the_len):
         "gi:group_key": "g:nbhq_and_x3",
         "gi:group_heading": "$BHQ contributions",
         "gi:group_title": "BHQ contributions",
-        "gi:group_intro": [],
+        "gi:group_intro": [author.para(contributions_base("The", the_len))],
     }
 
 

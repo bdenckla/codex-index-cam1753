@@ -1,6 +1,7 @@
 """Exports gen_html_file and anchor"""
 
 from py import my_html
+from pyauthor.mcontributions_base import contributions_base
 from pyauthor_util.job2_bad_news_2 import (
     bad_news_2,
     wlc_dexi,
@@ -287,21 +288,8 @@ _SPECIFICS_OF_BHQ_JOB = [
 ]
 
 
-def _contributions_base(intro, the_len):
-    return [
-        f"{intro} Job fascicle of $BHQ notes {str(the_len)}",
-        " quirks in μL that are not noted in any of our three editions of primary interest:",
-        " $DM, $BHL, and $WLC.",
-        #
-        " These are cases where $BHQ contributes something not available",
-        " in any of those other three editions.",
-        #
-        " The contributions of $BHQ are as follows:",
-    ]
-
-
 def _contributions(the_len):
-    return _contributions_base("First, the good news: the", the_len)
+    return contributions_base("First, the good news: the", the_len)
 
 
 _AFTER_CONTRIBUTIONS = [

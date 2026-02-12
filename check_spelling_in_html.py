@@ -98,7 +98,7 @@ class _TextExtractor(HTMLParser):
         if tag in self._SKIP_TAGS:
             self._skip_depth += 1
         attrs_dict = dict(attrs)
-        is_hbo = attrs_dict.get("lang") in ("hbo", "he")
+        is_hbo = attrs_dict.get("lang") == "hbo"
         is_upt = tag == "span" and attrs_dict.get("class") == "unpointed-tanakh"
         self._tag_stack.append((tag, is_hbo, is_upt))
         if is_hbo:

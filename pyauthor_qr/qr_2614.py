@@ -6,11 +6,8 @@ _BHQ_COMMENT_2614 = [
     " $BHQ half-fixes the error in $BHS:",
     " it updates its marginal קרי note to reflect μL rather than the consensus,",
     " but it does not correspondingly update its bottom-of-page critical apparatus note.",
-    [
-        " This is similar to what happened with the μL קרי of ",
-        author.span_unpointed_tanakh("ידעתה השחר"),
-        " in 38:12.",
-    ],
+    " This error is similar to $BHQ’s error regarding the μL קרי of",
+    [" ", author.span_unpointed_tanakh("ידעתה השחר"), " in 38:12."],
 ]
 
 _GENCOM_PART1 = [

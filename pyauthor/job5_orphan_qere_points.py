@@ -62,7 +62,7 @@ _INTRO = [
     "In Job 38:12, the Jerusalem Crown edition puts a פתח on no letter.",
     " The פתח floats before the ש of %שחר.",
     #
-    " Although this is not the way μA or μL presents this כתיב/קרי,",
+    " Although neither μA nor μL presents this כתיב/קרי like this,",
     " there is manuscript precedent for such a floating presentation.",
     " This page presents some examples of that precedent.",
 ]
@@ -80,12 +80,12 @@ _KINGS_DISCUSSION_1 = [
 ]
 _WLCAU = "https://bdenckla.github.io/UXLC-utils/wlc-a-notes/"
 _KINGS_DISCUSSION_2 = [
-    "Actually, they belong to no letter of the קרי word either!",
+    "Actually, it belongs to no letter of the קרי word either!",
     #
-    " But they are understood to represent a שורוק.",
+    " But it is understood to represent a שורוק.",
     #
-    " Or, another way of looking at them is that",
-    " they are understood to represent just a שורוק dot,",
+    " Or, another way of looking at this קובוץ is that",
+    " it is understood to represent just a שורוק dot,",
     " not the entire שורוק.",
     #
 ]
@@ -105,7 +105,7 @@ _KINGS_DISCUSSION_5 = [
     "It is more common for a כתיב to lack a final שורוק",
     " than for it to lack initial שורוק.",
     #
-    " When a כתיב to lacks a final שורוק, we see a related use of קובוץ.",
+    " When a כתיב lacks a final שורוק, we see a related use of קובוץ.",
     #
     " An example is found in 1 Samuel 12:10",
     [" (", *_links_to_u_and_m(tbn.BK_FST_SAM, 12, 10), ")"],
@@ -116,14 +116,14 @@ _KINGS_DISCUSSION_5 = [
     " In many printed editions, this would be shown as",
     [" an unpointed כתיב of ", author.hbo("ויאמר")],
     [" paired with a pointed קרי of ", author.hbo("וַיֹּאמְר֣וּ"), "."],
-    #
-    " Note that this קובוץ is not really an orphan,",
+]
+_KINGS_DISCUSSION_6 = [
+    ["Note that the קובוץ of ", author.hbo("וַיֹּאמְרֻ֣"), " is not really an orphan,"],
     " since it belongs to the last letter of the word (ר)."
     #
     " Nevertheless, I consider the notations to be related, if not strictly analogous.",
-]
-_KINGS_DISCUSSION_6 = [
-    ["See ", author.anc_h("this list of $WLC a-notes", _WLCAU), " for more examples."],
+    [" See ", author.anc_h("this list of $WLC a-notes", _WLCAU)],
+    " for more examples of final קובוץ.",
     #
     " Also, that list shows many examples where דגש is not allowed to be an orphan,",
     " supporting my claims as to why שורוק dot, too, is not allowed to be an orphan.",
@@ -167,9 +167,9 @@ _SAMUEL_DISCUSSION_1 = [
     #
     " Or rather, the marks would float in that space if enough space had been left for them.",
     #
-    " As it is, they somewhat awkwardly and confusingly reside beneath the ל.",
+    " As it is, they reside somewhat awkwardly and confusingly beneath the ל.",
 ]
 _SAMUEL_DISCUSSION_2 = [
-    "Several other examples of these complete orphans like this can be found in the same",
+    "Several other examples of complete orphans like this can be found in the same",
     [" ", author.anc_h("list of $WLC a-notes", _WLCAU), " mentioned above."],
 ]

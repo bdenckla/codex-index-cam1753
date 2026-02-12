@@ -3553,72 +3553,44 @@
           {
             "_htel_tag": "span",
             "attr": {
-              "class": "unpointed-tanakh"
+              "class": "unpointed-tanakh",
+              "dir": "rtl"
             },
             "contents": [
-              {
-                "_htel_tag": "span",
-                "attr": {
-                  "dir": "rtl"
-                },
-                "contents": [
-                  "– רתו"
-                ]
-              }
+              "– רתו"
             ]
           },
           " in the כתיב merely expands to ",
           {
             "_htel_tag": "span",
             "attr": {
-              "class": "unpointed-tanakh"
+              "class": "unpointed-tanakh",
+              "dir": "rtl"
             },
             "contents": [
-              {
-                "_htel_tag": "span",
-                "attr": {
-                  "dir": "rtl"
-                },
-                "contents": [
-                  "– רתיו"
-                ]
-              }
+              "– רתיו"
             ]
           },
           " in the קרי. In contrast to the consensus, in μL, ",
           {
             "_htel_tag": "span",
             "attr": {
-              "class": "unpointed-tanakh"
+              "class": "unpointed-tanakh",
+              "dir": "rtl"
             },
             "contents": [
-              {
-                "_htel_tag": "span",
-                "attr": {
-                  "dir": "rtl"
-                },
-                "contents": [
-                  "– רתו"
-                ]
-              }
+              "– רתו"
             ]
           },
           " in the כתיב expands all the way to ",
           {
             "_htel_tag": "span",
             "attr": {
-              "class": "unpointed-tanakh"
+              "class": "unpointed-tanakh",
+              "dir": "rtl"
             },
             "contents": [
-              {
-                "_htel_tag": "span",
-                "attr": {
-                  "dir": "rtl"
-                },
-                "contents": [
-                  "– רותיב"
-                ]
-              }
+              "– רותיב"
             ]
           },
           " in the קרי. The marginal קרי note in μL is a little hard to parse until you realize that it is “invaded” from above by the descender of a big dotted ק."

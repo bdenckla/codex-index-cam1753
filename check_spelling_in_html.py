@@ -128,19 +128,6 @@ class _TextExtractor(HTMLParser):
         return " ".join(self._unpointed_tanakh_pieces)
 
 
-def _extract_text_from_html(html_path: Path) -> tuple[str, str]:
-    """Parse an HTML file and return (visible_text, unpointed_tanakh_text)."""
-    html = html_path.read_text(encoding="utf-8")
-    extractor = _TextExtractor()
-    extractor.feed(html)
-    return extractor.get_text(), extractor.get_unpointed_tanakh_text()
-
-
-def _collect_html_files(docs_dir: Path) -> list[Path]:
-    """Collect all .html files under docs/, recursively."""
-    return sorted(docs_dir.rglob("*.html"))
-
-
 def check_straight_apostrophes(html_files: list[Path]):
     """Check for straight apostrophes (U+0027) in HTML text; curly (\u2019) should be used."""
     issues = []
@@ -376,6 +363,19 @@ def main():
 
     if apos_issues or period_issues or issues:
         exit(1)
+
+
+def _extract_text_from_html(html_path: Path) -> tuple[str, str]:
+    """Parse an HTML file and return (visible_text, unpointed_tanakh_text)."""
+    html = html_path.read_text(encoding="utf-8")
+    extractor = _TextExtractor()
+    extractor.feed(html)
+    return extractor.get_text(), extractor.get_unpointed_tanakh_text()
+
+
+def _collect_html_files(docs_dir: Path) -> list[Path]:
+    """Collect all .html files under docs/, recursively."""
+    return sorted(docs_dir.rglob("*.html"))
 
 
 if __name__ == "__main__":

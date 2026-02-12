@@ -72,7 +72,9 @@ def main():
             files_to_check.append(path)
         elif path.is_dir():
             files_to_check.extend(
-                f for f in path.rglob("*.py") if "__pycache__" not in f.parts
+                f
+                for f in path.rglob("*.py")
+                if "__pycache__" not in f.parts and ".venv" not in f.parts
             )
 
     total_violations = 0

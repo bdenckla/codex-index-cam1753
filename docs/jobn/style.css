@@ -25,6 +25,7 @@ em { font-style: normal; font-weight: bold; }
 span.romanized { font-style: italic; }
 *[lang="he"] span.book-title { font-weight: bold; font-style: normal; }
 span.book-title { font-style: italic; }
+span.unpointed-tanakh { /* semantic marker, no visual styling */ }
 abbr.small-caps { text-transform: lowercase; font-variant: small-caps; }
 p { text-align: justify; }
 li { text-align: justify; }

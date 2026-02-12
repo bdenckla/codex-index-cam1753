@@ -199,6 +199,12 @@ def nothing_dash_yyy(contents):
     return ["אפס-", contents]
 
 
+def consensus_to_ascii(consensus):
+    """Convert a Hebrew consensus string to an ASCII word-id."""
+    kept = "".join(_KEEP_RE.findall(consensus))
+    return kept.translate(_HEBREW_TO_OUR_CODE)
+
+
 # def pasoleg_pas(string: str):
 #     return _pasoleg_xxx(string, "$sub_pe")
 
@@ -496,12 +502,6 @@ _HEBREW_TO_OUR_CODE = str.maketrans(
 # Space maps to underscore (for multi-word consensus strings).
 
 _KEEP_RE = re.compile(f"[{re.escape(_HEBREW_TO_OUR_CODE_FROM)}]+")
-
-
-def consensus_to_ascii(consensus):
-    """Convert a Hebrew consensus string to an ASCII word-id."""
-    kept = "".join(_KEEP_RE.findall(consensus))
-    return kept.translate(_HEBREW_TO_OUR_CODE)
 
 
 # אבגדה וזחטי כלמנס עפצקר שת

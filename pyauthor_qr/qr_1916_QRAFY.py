@@ -1,6 +1,5 @@
 RECORD_1916_QRAFY = {
     "qr-cv": "19:16",
-    "qr-word-id": "QRAFY",
     "qr-lc-q": "(?)",
     "qr-lc-proposed": "קָּ֭רָאתִי",
     "qr-what-is-weird": "ק has דגש",

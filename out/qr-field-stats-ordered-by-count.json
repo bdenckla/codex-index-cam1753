@@ -139,6 +139,10 @@
       "count": 4
     },
     {
+      "field": "qr-n_of_m_for_this_word",
+      "count": 4
+    },
+    {
       "field": "qr-bhq",
       "count": 3
     },
@@ -160,10 +164,6 @@
     },
     {
       "field": "qr-highlight-ac-proposed",
-      "count": 2
-    },
-    {
-      "field": "qr-n_of_m_for_this_word",
       "count": 2
     },
     {

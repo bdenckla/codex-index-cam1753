@@ -3,7 +3,6 @@ from pyauthor_util.job_common import correctly_ignores
 
 RECORD_3419_NKR0 = {
     "qr-cv": "34:19",
-    "qr-word-id": "NKR0",
     "qr-lc-proposed": "נִּכַּר־",
     "qr-what-is-weird": "נ has דגש",
     "qr-consensus": "נִכַּר־",

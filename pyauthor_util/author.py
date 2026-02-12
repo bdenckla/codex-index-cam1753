@@ -488,9 +488,17 @@ def _my_maketrans(frm, to):
 
 
 _HEBREW_TO_OUR_CODE = _my_maketrans(
-    "אבגדה וזחטי כלמנס עפצקר שת ךםןףץ",
-    "ABGDH VZXEY KLMNO 3PCQR JF 56789",
+    "אבגדה וזחטי כלמנס עפצקר שת ךםןףץ ־",
+    "ABGDH VZXEY KLMNO 3PCQR JF 56789 0",
 )
+# ־ is maqaf (U+05BE). 0 (zero) is maqaf because - is invalid in identifiers.
+
+
+def consensus_to_ascii(consensus):
+    """Convert a Hebrew consensus string to an ASCII word-id."""
+    kept = re.sub(r"[^\u05D0-\u05EA\u05BE ]", "", consensus)
+    return kept.replace(" ", "_").translate(_HEBREW_TO_OUR_CODE)
+
 
 # אבגדה וזחטי כלמנס עפצקר שת
 # Our code plus a highlight of unintuitive choices:

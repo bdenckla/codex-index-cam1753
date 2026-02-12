@@ -11,6 +11,7 @@ from pyauthor import (
     job2_main_article,
     job3_uxlc,
     job4_quirks_in_mu_a,
+    job5_orphan_qere_points,
 )
 from pyauthor_util.all_quirks import AllQuirks
 from pyauthor_util.common_titles_etc import d2_anchor
@@ -40,6 +41,7 @@ def main():
     job2_main_article.gen_html_file(aq)
     job3_uxlc.gen_html_file(aq)
     job4_quirks_in_mu_a.gen_html_file(aq)
+    job5_orphan_qere_points.gen_html_file(tdm_ch)
     _write_index_dot_html((css_href,), "docs/index.html")
 
 

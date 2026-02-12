@@ -25,7 +25,6 @@ em { font-style: normal; font-weight: bold; }
 span.romanized { font-style: italic; }
 *[lang="he"] span.book-title { font-weight: bold; font-style: normal; }
 span.book-title { font-style: italic; }
-span.unpointed-tanakh { /* semantic marker, no visual styling */ }
 abbr.small-caps { text-transform: lowercase; font-variant: small-caps; }
 p { text-align: justify; }
 li { text-align: justify; }
@@ -42,3 +41,4 @@ img.width5em { width: 5em; }
 img.maxwidth50pc { max-width: 50%; }
 th, td { padding-right: 0.4em; padding-left: 0.4em; }
 img { max-width: 100%; }
+span.unpointed-tanakh { /* semantic marker, no visual styling */ }

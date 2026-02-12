@@ -1,5 +1,6 @@
 from py import my_html
 from pyauthor_util import author
+from pyauthor_util.common_titles_etc import d5_anchor
 
 _GENCOM_1 = [
     "The consensus is that this is one of those כתיב/קרי cases",
@@ -38,7 +39,7 @@ _GENCOM_2 = [
     " In its body text, the Jerusalem Crown edition puts the פתח on no letter:",
     " instead, it floats before the ש of %שחר.",
     #
-    " A vowel mark floating like this before a כתיב word has manuscript precedent.",
+    [" A vowel mark floating like this before a כתיב word has ", d5_anchor(), "."],
     #
     " I.e. although the Jerusalem Crown edition is diverging from the manuscript here,",
     " it is not diverging from manuscript tradition in general by using this notation.",

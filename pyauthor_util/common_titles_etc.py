@@ -13,6 +13,16 @@ D4_H1_CONTENTS = d4_toh("$BHQ")
 D4_FNAME = "job4_quirks_in_mu_a.html"
 
 
+D5_TITLE = "Orphan pointing: manuscript precedent"
+D5_H1_CONTENTS = D5_TITLE
+D5_FNAME = "job5_orphan_qere_points.html"
+
+
+def d5_anchor(jobn_dir="."):
+    anc = my_html.anchor_h("manuscript precedent", f"{jobn_dir}/{D5_FNAME}")
+    return author.std_anchor(anc, D5_H1_CONTENTS)
+
+
 def d4_anchor(jobn_dir="."):
     anc = my_html.anchor_h("document", f"{jobn_dir}/{D4_FNAME}")
     return author.std_anchor(anc, D4_H1_CONTENTS)

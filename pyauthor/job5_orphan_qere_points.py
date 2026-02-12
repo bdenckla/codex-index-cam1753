@@ -75,8 +75,8 @@ _KINGS_INTRO = [
 _KINGS_DISCUSSION_1 = [
     "This is hard to show in the “pointed כתיב”",
     " style of קרי/כתיב presentation favored by the manuscripts.",
-    " In such a style, three diagonal קובוץ dots float before the ב of %בניכי.",
-    " The dots are “orphans”: they belong to no letter of the כתיב word.",
+    " In such a style, a קובוץ floats before the ב of %בניכי.",
+    " The קובוץ is an orphan: it belongs to no letter of the כתיב word.",
 ]
 _WLCAU = "https://bdenckla.github.io/UXLC-utils/wlc-a-notes/"
 _KINGS_DISCUSSION_2 = [
@@ -91,7 +91,7 @@ _KINGS_DISCUSSION_2 = [
 ]
 _KINGS_DISCUSSION_3 = [
     "The first image below is from μA; the second is from μL.",
-    " The קובוץ dots are faint in μL, almost invisible.",
+    " The קובוץ is faint in μL, almost invisible.",
     " (They are under the ת of the previous word.)",
 ]
 _KINGS_DISCUSSION_4 = [
@@ -105,11 +105,11 @@ _KINGS_DISCUSSION_5 = [
     "It is more common for a כתיב to lack a final שורוק",
     " than for it to lack initial שורוק.",
     #
-    " So, we see this use of orphan קובוץ dots most often in cases",
-    " where the כתיב lacks a final שורוק.",
+    " When a כתיב to lacks a final שורוק, we see a related use of קובוץ.",
     #
     " An example is found in 1 Samuel 12:10",
-    [" (", *_links_to_u_and_m(tbn.BK_FST_SAM, 12, 10), ") where, in Tiberian manuscripts,"],
+    [" (", *_links_to_u_and_m(tbn.BK_FST_SAM, 12, 10), ")"],
+    " where, in Tiberian manuscripts,",
     [" a pointed כתיב of ", author.hbo("וַיֹּאמְרֻ֣")],
     [" is paired with an unpointed קרי of ", author.hbo("ויאמרו"), "."],
     #
@@ -117,8 +117,10 @@ _KINGS_DISCUSSION_5 = [
     [" an unpointed כתיב of ", author.hbo("ויאמר")],
     [" paired with a pointed קרי of ", author.hbo("וַיֹּאמְר֣וּ"), "."],
     #
-    " Note that this קובוץ marking is not really an orphan,",
+    " Note that this קובוץ is not really an orphan,",
     " since it belongs to the last letter of the word (ר)."
+    #
+    " Nevertheless, I consider the notations to be related, if not strictly analogous.",
 ]
 _KINGS_DISCUSSION_6 = [
     ["See ", author.anc_h("this list of $WLC a-notes", _WLCAU), " for more examples."],
@@ -134,7 +136,7 @@ _LAMENTATIONS_INTRO = [
 ]
 _LAMENTATIONS_DISCUSSION_1 = [
     "As in 2 Kings 4:7,",
-    " the קובוץ dots must float before the first letter of the word,",
+    " the קובוץ floats before the first letter of the word,",
     " which in this case is ז.",
     " Here is the way this word looks in Sassoon 1053:",
 ]

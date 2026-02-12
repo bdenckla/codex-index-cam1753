@@ -258,7 +258,7 @@ def check_spelling(html_files: list[Path], custom_dict_path: Path):
     )
 
 
-def main():
+def main(*, verbose=False):
     project_root = Path(__file__).parent
     docs_dir = project_root / "docs"
     custom_dict_path = Path(__file__).parent / "check_spelling_in_html.custom-dict.json"
@@ -273,8 +273,11 @@ def main():
         print(f"Error: no HTML files found under {docs_dir}")
         return
 
-    print(f"Checking spelling in {len(html_files)} HTML file(s) under {docs_dir}...")
-    print(f"Using custom dictionary: {custom_dict_path}")
+    if verbose:
+        print(
+            f"Checking spelling in {len(html_files)} HTML file(s) under {docs_dir}..."
+        )
+        print(f"Using custom dictionary: {custom_dict_path}")
 
     apos_issues = check_straight_apostrophes(html_files)
     if apos_issues:
@@ -335,8 +338,6 @@ def main():
         encoding="utf-8",
     )
 
-
-
     # Suggest removals for zero-count entries
     unused_words = sorted(w for w, c in word_ci_freq.items() if c == 0)
     unused_words += sorted(w for w, c in word_exact_freq.items() if c == 0)
@@ -351,7 +352,8 @@ def main():
         for p in unused_phrases:
             print(f"  phrase: {p}")
     else:
-        print("\nAll custom dictionary entries are in use.")
+        if verbose:
+            print("\nAll custom dictionary entries are in use.")
 
     if issues:
         print(f"\nFound {len(issues)} potential spelling issues:\n")
@@ -370,7 +372,8 @@ def main():
         for word, count in sorted(word_counts.items(), key=lambda x: -x[1]):
             print(f"  {word}: {count} occurrence(s)")
     else:
-        print("\nNo spelling issues found!")
+        if verbose:
+            print("\nNo spelling issues found!")
 
     if apos_issues or period_issues or issues:
         exit(1)
@@ -390,4 +393,9 @@ def _collect_html_files(docs_dir: Path) -> list[Path]:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verbose", action="store_true")
+    args = parser.parse_args()
+    main(verbose=args.verbose)

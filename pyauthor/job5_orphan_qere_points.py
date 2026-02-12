@@ -31,19 +31,26 @@ def _make_cbody():
         #
         author.heading_level_2("2 Kings 4:7"),
         author.para(_KINGS_INTRO),
-        author.para(_KINGS_DISCUSSION),
+        author.para(_KINGS_DISCUSSION_1),
+        author.para(_KINGS_DISCUSSION_2),
+        author.para(_KINGS_DISCUSSION_3),
         _img("Aleppo-2Kings-c4v7.png"),
         _img("2Kings-c4v7.png"),
+        author.para(_KINGS_DISCUSSION_4),
+        author.para(_KINGS_DISCUSSION_5),
+        author.para(_KINGS_DISCUSSION_6),
         #
         author.heading_level_2("Lamentations 4:16"),
         author.para(_LAMENTATIONS_INTRO),
-        author.para(_LAMENTATIONS_DISCUSSION),
+        author.para(_LAMENTATIONS_DISCUSSION_1),
         _img("Sassoon-1053-Lamentations-c4v16.png"),
+        author.para(_LAMENTATIONS_DISCUSSION_2),
         #
         author.heading_level_2("2 Samuel 18:20"),
         author.para(_SAMUEL_INTRO),
-        author.para(_SAMUEL_DISCUSSION),
+        author.para(_SAMUEL_DISCUSSION_1),
         _img("2-Samuel-c18v20.jpg"),
+        author.para(_SAMUEL_DISCUSSION_2),
     ]
 
 
@@ -65,14 +72,54 @@ _KINGS_INTRO = [
     [" there is a קרי of ", author.hbo("וּבָנַ֔יִךְ")],
     [" corresponding to a כתיב of ", author.hbo("בניכי"), "."],
 ]
-_KINGS_DISCUSSION = [
+_KINGS_DISCUSSION_1 = [
     "This is hard to show in the “pointed כתיב”",
     " style of קרי/כתיב presentation favored by the manuscripts.",
-    " In such a style, the three diagonal קובוץ dots must float before the ב.",
+    " In such a style, three diagonal קובוץ dots float before the ב.",
     " The dots are “orphans”: they belong to no letter of the כתיב word.",
-    " The first image below is from μA; the second is from μL.",
+]
+_WLCAU = "https://bdenckla.github.io/UXLC-utils/wlc-a-notes/"
+_KINGS_DISCUSSION_2 = [
+    "Actually, they belong to no letter of the קרי word either!",
+    #
+    " But they are understood to represent a שורוק.",
+    #
+    " Or, another way of looking at them is that they just represent a שורוק dot.",
+    #
+]
+_KINGS_DISCUSSION_3 = [
+    "The first image below is from μA; the second is from μL.",
     " The קובוץ dots are faint in μL, almost invisible.",
     " (They are under the ת of the previous word.)",
+]
+_KINGS_DISCUSSION_4 = [
+    "My assumption is that a שורוק dot was not allowed to be an orphan",
+    " for one or more of the following reasons:",
+    " (1) it is placed too high, i.e. not a below-mark,",
+    " (2) it is too small, and",
+    " (3) it has too many other meanings (דגש and מפיק).",
+]
+_KINGS_DISCUSSION_5 = [
+    "It is more common for the כתיב to lack a final שורוק",
+    " than for it to lack initial שורוק.",
+    #
+    " So, we see this use of orphan קובוץ dots most often in cases",
+    " where the כתיב lacks a final שורוק.",
+    #
+    " An example is found in 1 Samuel 12:10",
+    [" (", *_links_to_u_and_m(tbn.BK_FST_SAM, 12, 10), ") where, in Tiberian manuscripts,"],
+    [" a pointed כתיב of ", author.hbo("וַיֹּאמְרֻ֣")],
+    [" is paired with an unpointed קרי of ", author.hbo("ויאמרו"), "."],
+    #
+    " In many printed editions, this would be shown as",
+    [" an unpointed כתיב of ", author.hbo("ויאמר")],
+    [" paired with a pointed קרי of ", author.hbo("וַיֹּאמְר֣וּ"), "."],
+]
+_KINGS_DISCUSSION_6 = [
+    ["See ", author.anc_h("this list of $WLC a-notes", _WLCAU), " for more examples."],
+    #
+    " Also, that list shows many examples where דגש is not allowed to be an orphan,",
+    " supporting my claims as to why שורוק dot, too, is not allowed to be an orphan.",
 ]
 
 _LAMENTATIONS_INTRO = [
@@ -80,28 +127,42 @@ _LAMENTATIONS_INTRO = [
     [" there is a קרי of ", author.hbo("וּזְקֵנִ֖ים")],
     [" corresponding to a כתיב of ", author.hbo("זקנים"), "."],
 ]
-_LAMENTATIONS_DISCUSSION = [
+_LAMENTATIONS_DISCUSSION_1 = [
     "As in 2 Kings 4:7,",
     " the קובוץ dots must float before the first letter of the word,",
     " which in this case is ז.",
     " Here is the way this word looks in Sassoon 1053:",
 ]
+_LAMENTATIONS_DISCUSSION_2 = [
+    "(We provide an image from Sassoon 1053 rather than from μA and/or μL because",
+    " μA is lost here and",
+    " μL does not use this (or any other)",
+    " notation representing the שורוק dot in the קרי.)",
+]
 
 _SAMUEL_INTRO = [
     ["2 Samuel 18:20 (", *_links_to_u_and_m(tbn.BK_SND_SAM, 18, 20), ")"],
     [" is a קרי ולא כתיב: the word ", author.hbo("כֵּ֥ן")],
-    " is read but not written.",
+    " is read but not written, where by “not written” we mean not written in formal texts.",
+    #
+    " Such formal texts include the main columns of a Tiberian manuscript",
+    " and the text of an unpointed scroll.",
 ]
-_SAMUEL_DISCUSSION = [
-    "So there are no letters %כן in the body text on which to put the קרי pointing.",
+_SAMUEL_DISCUSSION_1 = [
+    "So, in the main columns of a Tiberian manuscript, there are no letters %כן",
+    " on which to put the קרי pointing.",
     #
     " This represents a more extreme case of orphan קרי points than the previous two examples,"
     " since there is no word to which the orphan points can “snuggle up” to.",
     #
-    " In other words, the vowel and accent marks of the קרי word, כן,",
+    " In other words, the vowel and accent marks of the קרי word, %כן,",
     " float in the space between the surrounding כתיב words.",
     #
     " Or rather, the marks would float in that space if enough space had been left for them.",
     #
     " As it is, they somewhat awkwardly and confusingly reside beneath the ל.",
+]
+_SAMUEL_DISCUSSION_2 = [
+    "Several other examples of these complete orphans like this can be found in the same",
+    [" ", author.anc_h("list of $WLC a-notes", _WLCAU), " mentioned above."],
 ]

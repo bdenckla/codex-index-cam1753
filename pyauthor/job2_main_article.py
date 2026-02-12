@@ -149,7 +149,7 @@ _BETTER_EDITIONS = [
 ]
 _THE_THREE_EDITIONS = [
     [
-        "The דעת מקרא (Da-at Miqra) series,",
+        "The דעת מקרא (Da-at Miqra) series ($DM),",
         " particularly its",
         " “הנוסח ומקורותיו” sections",
         f" (Breuer et al., {num_range(1970, 2003)}).",
@@ -287,16 +287,21 @@ _SPECIFICS_OF_BHQ_JOB = [
 ]
 
 
-def _contributions(the_len):
+def _contributions_base(intro, the_len):
     return [
-        f"First, the good news: the Job fascicle of $BHQ notes {str(the_len)}",
-        " quirks in μL that are not noted in any of the three editions listed above.",
+        f"{intro} Job fascicle of $BHQ notes {str(the_len)}",
+        " quirks in μL that are not noted in any of our three editions of primary interest:",
+        " $DM, $BHL, and $WLC.",
         #
-        " I.e. these are cases where $BHQ contributes something not available",
+        " These are cases where $BHQ contributes something not available",
         " in any of those other three editions.",
         #
         " The contributions of $BHQ are as follows:",
     ]
+
+
+def _contributions(the_len):
+    return _contributions_base("First, the good news: the", the_len)
 
 
 _AFTER_CONTRIBUTIONS = [
@@ -325,7 +330,7 @@ _WORDS_FOR_NUMBERS = {1: "one", 2: "two", 3: "three", 4: "four"}
 
 
 _CPARA_REITERATES = [
-    " I.e. these are cases where $BHQ reiterates something available",
+    " These are cases where $BHQ reiterates something available",
     " in one or more of the other three editions.",
     #
     " While a reiteration is not as valuable as a new contribution,",

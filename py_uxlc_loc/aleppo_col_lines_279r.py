@@ -1,11 +1,11 @@
 """
-Manual line-by-line alignment of Job 34–35
-to the Aleppo Codex page image (two columns).
+Manual line-by-line alignment of Aleppo Codex leaf 279r
+(Job 34:1–35:9) to the page image (two columns).
 
 Column 1 (right): Job 34:1–23, 28 lines
 Column 2 (left):  Job 34:24–35:9, 28 lines
 
-Ground truth text: mam-xml CSV (Job.csv)
+Ground truth text: MAM-XML (Job.xml)
 Page image: https://www.mgketer.org/mikra/29/34/1/mg/106
 """
 

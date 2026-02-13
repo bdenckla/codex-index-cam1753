@@ -1,6 +1,6 @@
 """
-Manual line-by-line alignment of Job 35–37
-to the Aleppo Codex page image (two columns).
+Manual line-by-line alignment of Aleppo Codex leaf 279v
+(Job 35:10–37:8) to the page image (two columns).
 
 Column 1 (right): Job 35:10–36:18 (partial), 28 lines
 Column 2 (left): Job 36:18 (cont.)–37:8, 28 lines

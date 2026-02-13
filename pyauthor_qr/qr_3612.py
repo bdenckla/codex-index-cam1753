@@ -30,7 +30,6 @@ RECORD_3612 = {
     "qr-lc-loc": {"page": "407B", "column": 1, "line": 4},
     "qr-bhq-comment": [author.para(_BHQ_COMMENT_3612)],
     "qr-noted-by": "nBHQ-nDM-nWLC",
-    "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/36/1/mg/106",
     "qr-cam1753-page-url": f"{CAM1753_PAGE_URL_BASE}/n87/mode/1up",
     "qr-uxlc-needs-fix": [
         "$UXLC has כ (as it should)",

@@ -25,5 +25,4 @@ RECORD_4210 = {
     "qr-lc-loc": {"page": "409B", "column": 1, "line": 10},
     "qr-noted-by": "tBHQ-zUXLC",
     "qr-uxlc-change-url": uxlc_change("2023.10.19", "2023.06.10-48"),
-    "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/42/1/mg/106",
 }

@@ -18,6 +18,5 @@ RECORD_1804_HLM3N5_2_of_2_FTW = {
     "qr-ignore-g3yh-diff-in-consensus": True,
     "qr-highlight": 3,
     "qr-bhq-comment": _BHQ_COMMENT_1804_B,
-    "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/18/1/mg/106",
     "qr-noted-by": "nBHQ-nBHL-nDM",
 }

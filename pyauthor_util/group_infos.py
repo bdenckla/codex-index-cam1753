@@ -1,4 +1,5 @@
 """Human-friendly group info dicts for groups that previously used bare string keys."""
+
 from pyauthor.m_contributions_base import contributions_base
 from pyauthor.m_reiterations_base import reiterations_base
 from pyauthor.m_implications_base import implications_base

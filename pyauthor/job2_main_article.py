@@ -66,7 +66,9 @@ def _make_cbody(aq: AllQuirks):
         para_and_table(
             aq, _reiterations, reiterations_group_info(the_lens["g:nbhq_and_n3"])
         ),
-        para_and_table(aq, _implications, implications_group_info(the_lens["g:tbhq_and_n3"])),
+        para_and_table(
+            aq, _implications, implications_group_info(the_lens["g:tbhq_and_n3"])
+        ),
         para_and_table(
             aq, _bad_news_1, xbhq_and_n3_group_info(the_lens["g:xbhq_and_n3"])
         ),

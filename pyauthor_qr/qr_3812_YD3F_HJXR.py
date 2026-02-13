@@ -64,7 +64,6 @@ RECORD_3812_YD3F_HJXR = {
     ],
     "qr-highlight-lc-proposed": 5,
     "qr-lc-loc": {"page": "408A", "column": 1, "line": -11},
-    "qr-aleppo-page-url": "https://www.mgketer.org/mikra/29/38/1/mg/106",
     "qr-bhq-comment": [author.para(_BHQ_COMMENT_3812_B)],
     "qr-noted-by": "nWLC",
 }

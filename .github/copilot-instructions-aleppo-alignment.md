@@ -1,5 +1,9 @@
 # Procedure: Manual Line-by-Line Alignment of Aleppo Codex Pages
 
+## Note on verification
+
+Files in `py_ac_loc/` are **not** consumed by `main_gen_misc_authored_english_documents.py`. Changes to alignment data or alignment-related code here do **not** require running the generation script or checking `docs/` for changes.
+
 ## Goal
 
 Align ground truth text (extracted from mam-xml) to the physical manuscript lines visible in an Aleppo Codex page image from mgketer.org.
@@ -74,7 +78,7 @@ https://www.mgketer.org/mikra/29/{chnu}/1/mg/106
 
 ## Outputs
 
-- **Alignment file:** `py_ac_loc/aleppo_col_lines_{leaf}.py` — one file per leaf (e.g., `aleppo_col_lines_280r.py`), containing `COLUMN_1_LINES` and `COLUMN_2_LINES`.
+- **Alignment file:** `py_ac_loc/aleppo_col_lines_{leaf}.json` — one file per leaf (e.g., `aleppo_col_lines_280r.json`), containing `column_1_lines` and `column_2_lines`.
 - **Interactive alignment tool:** `.novc/aleppo_align_{leaf}_col{N}.html` — an HTML page for the user to visually align text to the image.
 
 ## Page Lookup
@@ -204,7 +208,7 @@ generate_alignment_html(
     out_path=r'.novc\aleppo_align_{leaf}_colM.html',
     image_path='aleppo_{leaf}_colM_page.png',
     title='Leaf NNNx, Job X:Y–A:B, Column M (right/left column)',
-    column_var='COLUMN_M_LINES',
+    column_key='column_m_lines',
     xml_path=MAM_XML,
     book='Job',
     verse_range=((X, Y), (A, B)),
@@ -219,7 +223,7 @@ The generated HTML includes:
 - **Ketiv words** styled in gold.
 - **Parashah markers** (`{פ}`, `{ס}`) shown inline as clickable orange pseudo-words.
 - **Click a word** to toggle it as the last word on a manuscript line (turns green with line number).
-- **Copy to Clipboard** exports the `COLUMN_{N}_LINES` Python list.
+- **Copy to Clipboard** exports the `column_{n}_lines` JSON array.
 
 #### Parashah markers
 
@@ -252,7 +256,7 @@ generate_alignment_html(
     out_path=r'.novc\aleppo_align_281v_col2.html',
     image_path='aleppo_281v_col2.jpg',
     title='Leaf 281v, Job 42:11–Prov 1:8, Column 2',
-    column_var='COLUMN_2_LINES',
+    column_key='column_2_lines',
     xml_path=rf'{MAM_XML_DIR}\Job.xml',
     book='Job',
     verse_range=((42, 11), (42, 17)),
@@ -280,7 +284,7 @@ The user opens the HTML in a browser, loads the image, and clicks the last word/
 
 ### 5. Record the alignment
 
-Replace the `COLUMN_{N}_LINES` list in `py_ac_loc/aleppo_col_lines_{leaf}.py` with the pasted output.
+Replace the `column_{n}_lines` array in `py_ac_loc/aleppo_col_lines_{leaf}.json` with the pasted output.
 
 ## Line Break Heuristics
 
@@ -294,33 +298,33 @@ Replace the `COLUMN_{N}_LINES` list in `py_ac_loc/aleppo_col_lines_{leaf}.py` wi
 - **Full page image:** `.novc/aleppo_{leaf}_page_hires.jpg` (e.g., `aleppo_281r_page_hires.jpg`)
 - **Cropped column image:** `.novc/aleppo_{leaf}_col{N}.jpg` (e.g., `aleppo_281r_col1.jpg`)
 - **Alignment HTML:** `.novc/aleppo_align_{leaf}_col{N}.html` (e.g., `aleppo_align_280r_col1.html`)
-- **Python output file:** `py_ac_loc/aleppo_col_lines_{leaf}.py` (e.g., `aleppo_col_lines_280r.py`) with `COLUMN_1_LINES` and `COLUMN_2_LINES`
+- **JSON output file:** `py_ac_loc/aleppo_col_lines_{leaf}.json` (e.g., `aleppo_col_lines_280r.json`) with `column_1_lines` and `column_2_lines`
 - Each Aleppo page has two columns: column 1 = right, column 2 = left.
 - The `{leaf}` identifier (e.g., `279r`, `280v`) comes from the Aleppo Codex index (`codex-index/aleppo/index-flat.json`).
 
 ## Completed Alignments
 
-- **Leaf 270r** (Ps 149:1 – Job 1:16): `py_ac_loc/aleppo_col_lines_270r.py`
+- **Leaf 270r** (Ps 149:1 – Job 1:16): `py_ac_loc/aleppo_col_lines_270r.json`
   - Column 1: Ps 149:1–150:6 + Job 1:1–1:4 (partial), 28 lines (lines 19–20 blank = Ps→Job book boundary; line 11 = `"{פ}"` after Ps 149:9)
   - Column 2: Job 1:4 (cont.)–1:16 (partial), 28 lines (line 6 = `"{פ}"` after Job 1:5; 1:10 ketiv את)
-- **Leaf 278v** (Job 32:8–33:33): `py_ac_loc/aleppo_col_lines_278v.py`
+- **Leaf 278v** (Job 32:8–33:33): `py_ac_loc/aleppo_col_lines_278v.json`
   - Column 1: Job 32:8–33:11, 28 lines
   - Column 2: Job 33:12–33:33, 28 lines (33:19 ketiv וריב, 33:21 ketiv נפשי+וחיתי, 33:28 ketiv נפשי+וחיתי; 33:33 parashah {פ})
-- **Leaf 279r** (Job 34:1–35:9): `py_ac_loc/aleppo_col_lines_279r.py`
+- **Leaf 279r** (Job 34:1–35:9): `py_ac_loc/aleppo_col_lines_279r.json`
   - Column 1: Job 34:1–23, 28 lines
   - Column 2: Job 34:24–35:9, 28 lines
-- **Leaf 279v** (Job 35:10–37:8): `py_ac_loc/aleppo_col_lines_279v.py`
+- **Leaf 279v** (Job 35:10–37:8): `py_ac_loc/aleppo_col_lines_279v.json`
   - Column 1: Job 35:10–36:18 (partial), 28 lines
   - Column 2: Job 36:18 (cont.)–37:8, 28 lines
-- **Leaf 280r** (Job 37:9–38:30): `py_ac_loc/aleppo_col_lines_280r.py`
+- **Leaf 280r** (Job 37:9–38:30): `py_ac_loc/aleppo_col_lines_280r.json`
   - Column 1: Job 37:9 (cont.)–38:6, 28 lines (line 21 = `"{פ}"` pe break)
   - Column 2: Job 38:7–38:30, 28 lines
-- **Leaf 280v** (Job 38:31–40:5): `py_ac_loc/aleppo_col_lines_280v.py`
+- **Leaf 280v** (Job 38:31–40:5): `py_ac_loc/aleppo_col_lines_280v.json`
   - Column 1: Job 38:31–39:13, 28 lines
   - Column 2: Job 39:14–40:5, 28 lines (line 7 = `"{פ}"`, line 23 = `"{פ}"` + 40:1, line 25 = `"{פ}"`)
-- **Leaf 281r** (Job 40:6–41:22): `py_ac_loc/aleppo_col_lines_281r.py`
+- **Leaf 281r** (Job 40:6–41:22): `py_ac_loc/aleppo_col_lines_281r.json`
   - Column 1: Job 40:6–40:30 (partial), 28 lines (line 1 = `"{פ}"` pe break; 40:6 ketiv מנסערה)
   - Column 2: Job 40:30 (cont.)–41:22, 28 lines (41:4 ketiv לא)
-- **Leaf 281v** (Job 41:23–Prov 1:8): `py_ac_loc/aleppo_col_lines_281v.py`
+- **Leaf 281v** (Job 41:23–Prov 1:8): `py_ac_loc/aleppo_col_lines_281v.json`
   - Column 1: Job 41:23–42:10, 28 lines (line 5 = `"{פ}"`, line 14 = `"{פ}"`; 42:2 ketiv ידעת, 42:10 ketiv שבית)
   - Column 2: Job 42:11–42:17 + Prov 1:1–1:8, 28 lines (lines 17–18 blank = book boundary; 42:16 ketiv וירא; line 27 = `"{פ}"` after Prov 1:7)

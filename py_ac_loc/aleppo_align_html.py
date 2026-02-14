@@ -4,7 +4,7 @@ Generate interactive Aleppo Codex line-alignment HTML pages.
 This module produces a self-contained HTML file with:
   - Left panel: clickable ground-truth words (RTL)
   - Right panel: manuscript page image
-  - Click last word of each line → export Python tuple list
+  - Click last word of each line → export JSON array
 
 Usage from a thin column-specific script::
 
@@ -14,7 +14,7 @@ Usage from a thin column-specific script::
         out_path='.novc/aleppo_align_job37_col1.html',
         image_path='aleppo_job37_col1_page.png',   # relative to HTML file
         title='Job 37:9–38:20, Column 1 (right column)',
-        column_var='COLUMN_1_LINES',
+        column_key='column_1_lines',
         xml_path=r'C:\\...\\Job.xml',
         book='Job',
         verse_range=((37, 9), (38, 20)),
@@ -62,7 +62,7 @@ def generate_alignment_html(
     out_path: str,
     image_path: str,
     title: str,
-    column_var: str,
+    column_key: str,
     xml_path: str,
     book: str,
     verse_range: tuple,
@@ -78,7 +78,7 @@ def generate_alignment_html(
         out_path: where to write the HTML file
         image_path: path to the page image, relative to the HTML file
         title: human-readable title (e.g., 'Job 37:9–38:20, Column 1')
-        column_var: Python variable name for export (e.g., 'COLUMN_1_LINES')
+        column_key: JSON key name for export (e.g., 'column_1_lines')
         xml_path: absolute path to the MAM-XML file
         book: OSIS book prefix (e.g., 'Job')
         verse_range: ((start_ch, start_vs), (end_ch, end_vs))
@@ -120,7 +120,7 @@ def generate_alignment_html(
     html = _HTML_TEMPLATE.format(
         title=title,
         image_path=image_path,
-        column_var=column_var,
+        column_key=column_key,
         verses_js=verses_js,
         locked_indices_js=locked_indices_js,
     )
@@ -197,7 +197,7 @@ def _compute_locked_end_indices(locked_lines: list[str]) -> list[int]:
 # HTML template
 # ---------------------------------------------------------------------------
 # Uses {{ and }} for literal braces in the f-string.
-# Substitutable placeholders: {title}, {image_path}, {column_var}, {verses_js},
+# Substitutable placeholders: {title}, {image_path}, {column_key}, {verses_js},
 # {locked_indices_js}
 
 _HTML_TEMPLATE = '''<!DOCTYPE html>
@@ -321,7 +321,7 @@ br.linebreak {{ }}
 <div id="output"></div>
 
 <script>
-const COLUMN_VAR = "{column_var}";
+const COLUMN_KEY = "{column_key}";
 const verses = [
 {verses_js}
 ];
@@ -471,16 +471,13 @@ function getLines() {{
 
 function copyToClipboard() {{
     const lines = getLines();
-    let out = COLUMN_VAR + ' = [\\n';
-    lines.forEach(l => {{
-        out += `    (${{l.num}}, "${{l.text}}"),\\n`;
-    }});
-    out += ']\\n';
+    const arr = lines.map(l => [l.num, l.text]);
+    const out = JSON.stringify(arr, null, 2) + '\\n';
     const el = document.getElementById('output');
     el.style.display = 'block';
-    el.textContent = out;
+    el.textContent = COLUMN_KEY + ':\\n' + out;
     navigator.clipboard.writeText(out).then(() => {{
-        alert('Copied to clipboard!');
+        alert('Copied ' + COLUMN_KEY + ' JSON to clipboard!');
     }});
 }}
 

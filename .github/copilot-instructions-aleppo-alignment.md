@@ -18,7 +18,7 @@ Align ground truth text (extracted from mam-xml) to the physical manuscript line
 
 ## Inputs
 
-- **Page index:** `C:\Users\BenDe\GitRepos\codex-index\aleppo\index-flat.json` — maps each Aleppo Codex leaf to a `[start_cv, end_cv]` text range. Key `"body"` contains the list; each entry has `de_leaf` (e.g., `"280r"`), `de_text_range` (e.g., `[["Job",37,9],["Job",38,30]]`), and `de_url`.
+- **Page index:** `..\..\GitRepos\codex-index\aleppo\index-flat.json` — maps each Aleppo Codex leaf to a `[start_cv, end_cv]` text range. Key `"body"` contains the list; each entry has `de_leaf` (e.g., `"280r"`), `de_text_range` (e.g., `[["Job",37,9],["Job",38,30]]`), and `de_url`.
 - **Ground truth text:** Extracted on the fly from MAM-XML via `py_ac_loc/mam_xml_verses.py`.
 - **Page image:** Screenshot from one of the sources below, saved to `.novc/`
 
@@ -95,7 +95,7 @@ To find the leaf for a given chapter, or what text a leaf contains:
 
 ```python
 import json
-with open(r'C:\Users\BenDe\GitRepos\codex-index\aleppo\index-flat.json') as f:
+with open(r'..\..\GitRepos\codex-index\aleppo\index-flat.json') as f:
     pages = json.load(f)['body']
 job_pages = [p for p in pages if p['de_text_range'][0][0] == 'Job' or p['de_text_range'][1][0] == 'Job']
 for p in job_pages:
@@ -135,7 +135,7 @@ Use the reusable extraction module `py_ac_loc/mam_xml_verses.py`:
 from py_ac_loc.mam_xml_verses import get_verses_in_range
 
 verses = get_verses_in_range(
-    r'C:\Users\BenDe\GitRepos\MAM-XML\out\xml-vtrad-mam\Job.xml',
+    r'..\..\GitRepos\MAM-XML\out\xml-vtrad-mam\Job.xml',
     'Job', (37, 9), (38, 20),
 )
 ```
@@ -206,11 +206,11 @@ Use the reusable module `py_ac_loc/aleppo_align_html.py`. Create a thin column-s
 ```python
 """Generate alignment HTML for leaf NNNx Column M."""
 import sys
-sys.path.insert(0, r'C:\Users\BenDe\GitRepos\book-of-job')
+sys.path.insert(0, r'..\..\GitRepos\book-of-job')
 
 from py_ac_loc.aleppo_align_html import generate_alignment_html
 
-MAM_XML = r'C:\Users\BenDe\GitRepos\MAM-XML\out\xml-vtrad-mam\Job.xml'
+MAM_XML = r'..\..\GitRepos\MAM-XML\out\xml-vtrad-mam\Job.xml'
 
 generate_alignment_html(
     out_path=r'.novc\aleppo_align_{leaf}_colM.html',
@@ -258,7 +258,7 @@ Maqaf-joined word parts display with zero gap between them but each part remains
 When a column spans two books (e.g., 281v col2: Job 42:11–42:17 + Prov 1:1–1:8), use the `extra_sources` parameter instead of writing an ad-hoc script:
 
 ```python
-MAM_XML_DIR = r'C:\Users\BenDe\GitRepos\MAM-XML\out\xml-vtrad-mam'
+MAM_XML_DIR = r'..\..\GitRepos\MAM-XML\out\xml-vtrad-mam'
 
 generate_alignment_html(
     out_path=r'.novc\aleppo_align_281v_col2.html',

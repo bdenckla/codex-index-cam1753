@@ -1,12 +1,12 @@
 # How to Read MAM-XML
 
-> **Canonical documentation:** The MAM-XML repo itself has a human-readable version of this guide at `C:\Users\BenDe\GitRepos\MAM-XML\doc\reading-mam-xml.md`. This file is a Copilot-oriented copy with local path references.
+> **Canonical documentation:** The MAM-XML repo itself has a human-readable version of this guide at `..\..\GitRepos\MAM-XML\doc\reading-mam-xml.md`. This file is a Copilot-oriented copy with local path references.
 
 ## What is MAM-XML?
 
 MAM-XML is an XML format containing **MAM (Miqra According to the Masorah)** — the Hebrew Bible text. The source of truth is the [MAM Google Sheet](https://docs.google.com/spreadsheets/d/1mkQyj6by1AtBUabpbaxaZq9Z2X3pX8ZpwG91ZCSOEYs/edit#gid=920165745). MAM-XML is one of several derived formats; others include [MAM-parsed](https://github.com/bdenckla/MAM-parsed) and [MAM for Sefaria](https://github.com/bdenckla/MAM-for-Sefaria).
 
-**Repository:** `C:\Users\BenDe\GitRepos\MAM-XML` (or [github.com/bdenckla/MAM-XML](https://github.com/bdenckla/MAM-XML))
+**Repository:** `..\..\GitRepos\MAM-XML` (or [github.com/bdenckla/MAM-XML](https://github.com/bdenckla/MAM-XML))
 
 ## File Layout
 
@@ -158,4 +158,4 @@ For Job, these are largely the same. Differences matter more for Torah and some 
 
 ## Downstream Products
 
-- **MAM-for-Sefaria** (`C:\Users\BenDe\GitRepos\mam-for-sefaria`): CSV/HTML format generated from MAM-XML by `py-example/main_mam4sef.py`. Each row is `"Book Ch:Vs","<html_text>"`. This is a *derived* product — the XML is the source.
+- **MAM-for-Sefaria** (`..\..\GitRepos\mam-for-sefaria`): CSV/HTML format generated from MAM-XML by `py-example/main_mam4sef.py`. Each row is `"Book Ch:Vs","<html_text>"`. This is a *derived* product — the XML is the source.

@@ -1,8 +1,8 @@
 # How to Read MAM-parsed JSON
 
 > **Canonical documentation:** The MAM-parsed repo has human-readable format guides at:
-> - `C:\Users\BenDe\GitRepos\MAM-parsed\doc\reading-mam-parsed-plain.md`
-> - `C:\Users\BenDe\GitRepos\MAM-parsed\doc\reading-mam-parsed-plus.md`
+> - `..\..\GitRepos\MAM-parsed\doc\reading-mam-parsed-plain.md`
+> - `..\..\GitRepos\MAM-parsed\doc\reading-mam-parsed-plus.md`
 >
 > This file is a Copilot-oriented summary with local path references and usage patterns.
 
@@ -12,7 +12,7 @@ MAM-parsed is a JSON format containing the MAM (Miqra According to the Masorah) 
 with Wikitext templates parsed into structured objects.
 It comes in two flavors: **plain** (close to the Google Sheet) and **plus** (enhanced).
 
-**Repository:** `C:\Users\BenDe\GitRepos\MAM-parsed` (or [github.com/bdenckla/MAM-parsed](https://github.com/bdenckla/MAM-parsed))
+**Repository:** `..\..\GitRepos\MAM-parsed` (or [github.com/bdenckla/MAM-parsed](https://github.com/bdenckla/MAM-parsed))
 
 ## File Layout
 

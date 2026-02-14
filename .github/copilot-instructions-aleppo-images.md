@@ -25,10 +25,10 @@ Search `out/quirkrecs.json` for the verse (e.g. `"qr-cv": "6:17"`). Note:
 
 ## 3. Show the full verse
 
-Find the verse in `C:\Users\BenDe\GitRepos\mam-for-sefaria\out\csv\Job.csv`:
+Find the verse in `..\..\GitRepos\mam-for-sefaria\out\csv\Job.csv`:
 
 ```powershell
-Select-String -Path "C:\Users\BenDe\GitRepos\mam-for-sefaria\out\csv\Job.csv" -Pattern "6.17" | Select-Object -First 3 Line
+Select-String -Path "..\..\GitRepos\mam-for-sefaria\out\csv\Job.csv" -Pattern "6.17" | Select-Object -First 3 Line
 ```
 
 ## 4. Open mgketer.org

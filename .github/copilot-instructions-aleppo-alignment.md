@@ -7,7 +7,7 @@ Align ground truth text (extracted from mam-xml) to the physical manuscript line
 ## Inputs
 
 - **Page index:** `C:\Users\BenDe\GitRepos\codex-index\aleppo\index-flat.json` — maps each Aleppo Codex leaf to a `[start_cv, end_cv]` text range. Key `"body"` contains the list; each entry has `de_leaf` (e.g., `"280r"`), `de_text_range` (e.g., `[["Job",37,9],["Job",38,30]]`), and `de_url`.
-- **Ground truth text:** Extracted on the fly from MAM-XML via `pycmn/mam_xml_verses.py`.
+- **Ground truth text:** Extracted on the fly from MAM-XML via `py_ac_loc/mam_xml_verses.py`.
 - **Page image:** Screenshot from one of the sources below, saved to `.novc/`
 
 ## Page Image Sources
@@ -117,10 +117,10 @@ Job pages (for reference):
 
 ### 1. Prepare the ground truth
 
-Use the reusable extraction module `pycmn/mam_xml_verses.py`:
+Use the reusable extraction module `py_ac_loc/mam_xml_verses.py`:
 
 ```python
-from pycmn.mam_xml_verses import get_verses_in_range
+from py_ac_loc.mam_xml_verses import get_verses_in_range
 
 verses = get_verses_in_range(
     r'C:\Users\BenDe\GitRepos\MAM-XML\out\xml-vtrad-mam\Job.xml',
@@ -189,14 +189,14 @@ Copy-Item "$env:USERPROFILE\OneDrive\Pictures\Screenshots\<latest>.png" ".novc/a
 
 ### 3. Generate the interactive alignment HTML
 
-Use the reusable module `pycmn/aleppo_align_html.py`. Create a thin column-specific script in `.novc/`:
+Use the reusable module `py_ac_loc/aleppo_align_html.py`. Create a thin column-specific script in `.novc/`:
 
 ```python
 """Generate alignment HTML for leaf NNNx Column M."""
 import sys
 sys.path.insert(0, r'C:\Users\BenDe\GitRepos\book-of-job')
 
-from pycmn.aleppo_align_html import generate_alignment_html
+from py_ac_loc.aleppo_align_html import generate_alignment_html
 
 MAM_XML = r'C:\Users\BenDe\GitRepos\MAM-XML\out\xml-vtrad-mam\Job.xml'
 

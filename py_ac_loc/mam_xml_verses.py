@@ -12,7 +12,7 @@ Handles all special MAM-XML elements:
   - <spi-samekh2>: setumah (closed paragraph) break — emitted as {ס}
 
 Usage:
-    from pycmn.mam_xml_verses import get_verses_in_range
+    from py_ac_loc.mam_xml_verses import get_verses_in_range
 
     verses = get_verses_in_range(
         r'C:\\path\\to\\MAM-XML\\out\\xml-vtrad-mam\\Job.xml',

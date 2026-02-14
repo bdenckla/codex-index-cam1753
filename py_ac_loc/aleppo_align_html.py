@@ -8,7 +8,7 @@ This module produces a self-contained HTML file with:
 
 Usage from a thin column-specific script::
 
-    from pycmn.aleppo_align_html import generate_alignment_html
+    from py_ac_loc.aleppo_align_html import generate_alignment_html
 
     generate_alignment_html(
         out_path='.novc/aleppo_align_job37_col1.html',
@@ -54,7 +54,7 @@ text sources via ``extra_sources``::
 import json
 from pathlib import Path
 
-from pycmn.mam_xml_verses import get_verses_in_range
+from py_ac_loc.mam_xml_verses import get_verses_in_range
 
 
 def generate_alignment_html(

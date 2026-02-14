@@ -3,19 +3,29 @@
   "description": [
     "Manual line-by-line alignment of Aleppo Codex leaf 281v",
     "(Job 41:23–Prov 1:8) to the page image (two columns).",
-    "",
-    "Column 1 (right): Job 41:23–42:10, 28 lines",
-    "  Line 5 = {פ} (pe break after 41:26)",
-    "  Line 14 = {פ} (pe break after 42:6)",
-    "  42:2 ketiv ידעת, 42:10 ketiv אֶת־שבית",
-    "Column 2 (left): Job 42:11–42:17 + Prov 1:1–1:8, 28 lines",
-    "  Lines 17–18 = blank (book boundary between Job and Proverbs)",
-    "  42:16 ketiv וירא",
-    "  Prov 1:7 parashah_after={פ} → line 25 = {פ}",
-    "",
-    "Ground truth text: MAM-XML (Job.xml, Prov.xml)",
-    "Page image: https://archive.org/details/aleppo-codex/page/n563/mode/1up"
+    "Ground truth text: MAM-XML (Job.xml, Prov.xml)"
   ],
+  "page_image": "https://archive.org/details/aleppo-codex/page/n563/mode/1up",
+  "column_1": {
+    "side": "right",
+    "range": "Job 41:23–42:10",
+    "line_count": 28,
+    "notes": [
+      "Line 5 = {פ} (pe break after 41:26)",
+      "Line 14 = {פ} (pe break after 42:6)",
+      "42:2 ketiv ידעת, 42:10 ketiv אֶת־שבית"
+    ]
+  },
+  "column_2": {
+    "side": "left",
+    "range": "Job 42:11–42:17 + Prov 1:1–1:8",
+    "line_count": 28,
+    "notes": [
+      "Lines 17–18 = blank (book boundary between Job and Proverbs)",
+      "42:16 ketiv וירא",
+      "Prov 1:7 parashah_after={פ} → line 25 = {פ}"
+    ]
+  },
   "column_1_lines": [
     [
       1,

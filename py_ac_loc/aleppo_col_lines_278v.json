@@ -3,13 +3,19 @@
   "description": [
     "Manual line-by-line alignment of Aleppo Codex leaf 278v",
     "(Job 32:8–33:33) to the page image (two columns).",
-    "",
-    "Column 1 (right): Job 32:8–33:11, 28 lines",
-    "Column 2 (left):  Job 33:12–33:33, 28 lines",
-    "",
-    "Ground truth text: MAM-XML (Job.xml)",
-    "Page image: https://archive.org/details/aleppo-codex/page/n557/mode/1up"
+    "Ground truth text: MAM-XML (Job.xml)"
   ],
+  "page_image": "https://archive.org/details/aleppo-codex/page/n557/mode/1up",
+  "column_1": {
+    "side": "right",
+    "range": "Job 32:8–33:11",
+    "line_count": 28
+  },
+  "column_2": {
+    "side": "left",
+    "range": "Job 33:12–33:33",
+    "line_count": 28
+  },
   "column_1_lines": [
     [
       1,

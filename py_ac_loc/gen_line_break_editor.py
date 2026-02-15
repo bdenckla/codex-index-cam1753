@@ -63,9 +63,12 @@ def _extract_words_and_markers(stream):
     Returns:
         words: list of dicts describing each word/parashah token
         line_ends: list of (word_index, col, line_num) for existing line-end markers
+        page_start_idx: word index of the first word on the page (from
+            line-start col 1 line-num 1), or None if not yet set
     """
     words = []
     line_ends = []
+    page_start_idx = None
     current_verse = None
     word_idx = 0
 
@@ -97,7 +100,9 @@ def _extract_words_and_markers(stream):
                 })
                 word_idx += 1
             elif "line-start" in item:
-                pass  # tracked via line-end
+                ls = item["line-start"]
+                if ls["col"] == 1 and ls["line-num"] == 1:
+                    page_start_idx = word_idx
             elif "line-end" in item:
                 if word_idx > 0:
                     line_ends.append((
@@ -107,7 +112,7 @@ def _extract_words_and_markers(stream):
                     ))
             # page-start, page-end: skip
 
-    return words, line_ends
+    return words, line_ends, page_start_idx
 
 
 def generate_editor_html(page_id, col):
@@ -116,7 +121,7 @@ def generate_editor_html(page_id, col):
     col: 1 = right column (right 60%), 2 = left column (left 60%)
     """
     stream = load_stream(page_id)
-    words, line_ends = _extract_words_and_markers(stream)
+    words, line_ends, page_start_idx = _extract_words_and_markers(stream)
     image_url = _image_url(page_id)
 
     # CSS crop: col 1 shows right 60%, col 2 shows left 60%
@@ -152,6 +157,7 @@ def generate_editor_html(page_id, col):
     words_json = json.dumps(js_words, ensure_ascii=False, indent=None)
     line_ends_json = json.dumps(js_line_ends, ensure_ascii=False)
     stream_json = json.dumps(stream_no_lines, ensure_ascii=False, indent=2)
+    page_start_js = "null" if page_start_idx is None else str(page_start_idx)
 
     col1_sel = ' selected' if col == 1 else ''
     col2_sel = ' selected' if col == 2 else ''
@@ -165,6 +171,7 @@ def generate_editor_html(page_id, col):
         words_json=words_json,
         line_ends_json=line_ends_json,
         stream_json=stream_json,
+        page_start_idx_js=page_start_js,
     )
 
     out_path = OUT_DIR / f"lb_editor_{page_id}_col{col}.html"
@@ -190,10 +197,10 @@ h1 {{ text-align: center; padding: 10px; font-size: 17px; }}
     font-family: 'SBL Hebrew', 'Ezra SIL', 'Times New Roman', serif;
 }}
 .col-image {{
-    flex: 1; overflow: auto; border-left: 2px solid #444;
+    flex: 1; overflow-x: hidden; overflow-y: auto;
+    border-left: 2px solid #444;
     padding: 8px; direction: ltr;
 }}
-.col-image {{ overflow: hidden; }}
 .col-image img {{ {img_css} cursor: crosshair; }}
 .word {{
     display: inline-block;
@@ -217,6 +224,23 @@ h1 {{ text-align: center; padding: 10px; font-size: 17px; }}
     font-size: 16px;
     font-family: monospace;
     cursor: default;
+}}
+.word.lead-in {{
+    opacity: 0.35;
+    cursor: default;
+}}
+.word.page-start {{
+    background: #3a2a5f;
+    border-color: #9a7adf;
+    border-right: 3px solid #9a7adf;
+}}
+.page-start-label {{
+    display: inline-block;
+    color: #9a7adf;
+    font-size: 11px;
+    font-family: monospace;
+    direction: ltr;
+    margin-left: 4px;
 }}
 .word.verse-start {{
     border-bottom: 2px solid #5a5a8a;
@@ -297,6 +321,11 @@ const baseStream = {stream_json};
 // State: Map<wordIdx, {{col, lineNum}}>
 let lineEndMap = new Map();
 
+// Page-start: index of the first word actually on this page.
+// Words before this are lead-in from the previous page.
+// null means not set (or page starts at word 0).
+let pageStartIdx = {page_start_idx_js};
+
 // Initialize from pre-existing line ends
 preExistingLineEnds.forEach(le => {{
     lineEndMap.set(le.idx, {{col: le.col, lineNum: le.lineNum}});
@@ -325,6 +354,8 @@ function render() {{
     const panel = document.getElementById('wordsPanel');
     panel.innerHTML = '';
 
+    const isLeadIn = (idx) => pageStartIdx !== null && idx < pageStartIdx;
+
     allWords.forEach((entry, idx) => {{
         const span = document.createElement('span');
         span.className = 'word';
@@ -336,7 +367,9 @@ function render() {{
         if (endsMaqaf) span.classList.add('maqaf-end');
         if (prevEndsMaqaf) span.classList.add('after-maqaf');
 
-        if (entry.isParashah) {{
+        if (isLeadIn(idx)) {{
+            span.classList.add('lead-in');
+        }} else if (entry.isParashah) {{
             span.classList.add('parashah');
         }} else {{
             if (entry.isVerseStart) {{
@@ -346,15 +379,34 @@ function render() {{
             span.addEventListener('click', () => toggleLineEnd(idx));
         }}
 
+        // Page-start marker
+        if (pageStartIdx === idx) {{
+            span.classList.add('page-start');
+        }}
+
+        // Right-click to set/clear page-start
+        span.addEventListener('contextmenu', (e) => {{
+            e.preventDefault();
+            togglePageStart(idx);
+        }});
+
         const leInfo = lineEndMap.get(idx);
-        if (leInfo) {{
+        if (leInfo && !isLeadIn(idx)) {{
             span.classList.add('line-end');
             span.title = `Col ${{leInfo.col}}, Line ${{leInfo.lineNum}}`;
         }}
 
         panel.appendChild(span);
 
-        if (leInfo) {{
+        // Page-start label
+        if (pageStartIdx === idx) {{
+            const lbl = document.createElement('span');
+            lbl.className = 'page-start-label';
+            lbl.textContent = '\u25C0 page start';
+            panel.appendChild(lbl);
+        }}
+
+        if (leInfo && !isLeadIn(idx)) {{
             const colLbl = document.createElement('span');
             colLbl.className = 'col-label';
             colLbl.textContent = `c${{leInfo.col}}`;
@@ -383,6 +435,20 @@ function toggleLineEnd(idx) {{
     render();
 }}
 
+function togglePageStart(idx) {{
+    if (pageStartIdx === idx) {{
+        pageStartIdx = null;  // clear it
+    }} else {{
+        pageStartIdx = idx;
+        // Remove any line-end markers on lead-in words
+        for (const [k, _] of lineEndMap) {{
+            if (k < idx) lineEndMap.delete(k);
+        }}
+        recalcLineNums();
+    }}
+    render();
+}}
+
 function updateStatus() {{
     const counts = {{}};
     lineEndMap.forEach(info => {{
@@ -391,7 +457,9 @@ function updateStatus() {{
     const parts = Object.entries(counts)
         .sort((a, b) => a[0] - b[0])
         .map(([c, n]) => `Col ${{c}}: ${{n}} lines`);
-    document.getElementById('status').textContent = parts.join(' | ') || 'No lines marked';
+    const psInfo = pageStartIdx !== null ? `Page start: word ${{pageStartIdx}}` : 'No page start set';
+    document.getElementById('status').textContent =
+        psInfo + (parts.length ? ' | ' + parts.join(' | ') : '');
 }}
 
 function buildExportStream() {{
@@ -414,13 +482,18 @@ function buildExportStream() {{
         for (let i = 0; i < ends.length; i++) {{
             let startIdx;
             if (i === 0) {{
-                // First line: starts at 0 or after the last line-end
-                // from another col that comes before this col's first end
-                const allEndsBefore = sorted.filter(([eidx, _]) => eidx < ends[i]);
-                if (allEndsBefore.length > 0) {{
-                    startIdx = allEndsBefore[allEndsBefore.length - 1][0] + 1;
+                if (parseInt(col) === 1 && pageStartIdx !== null) {{
+                    // Col 1 line 1 starts at the page-start word
+                    startIdx = pageStartIdx;
                 }} else {{
-                    startIdx = 0;
+                    // First line of this col: after the last line-end
+                    // from another col that comes before this col's first end
+                    const allEndsBefore = sorted.filter(([eidx, _]) => eidx < ends[i]);
+                    if (allEndsBefore.length > 0) {{
+                        startIdx = allEndsBefore[allEndsBefore.length - 1][0] + 1;
+                    }} else {{
+                        startIdx = pageStartIdx !== null ? pageStartIdx : 0;
+                    }}
                 }}
             }} else {{
                 startIdx = ends[i - 1] + 1;

@@ -140,8 +140,8 @@ def generate_editor_html(page_id, col):
     else:
         # Left 60%: image at 166% width, no offset (left portion shows)
         img_css = "width: 166%; max-width: none; margin-left: 0;"
-        # Skinny: show 20%-50% of image (strips 3-5)
-        img_css_skinny = "width: 333%; max-width: none; margin-left: -67%;"
+        # Skinny: show 0%-30% of image (strips 1-3)
+        img_css_skinny = "width: 333%; max-width: none; margin-left: 0;"
 
     # Build JS data
     js_words = []
@@ -329,7 +329,7 @@ h1 {{ text-align: center; padding: 10px; font-size: 17px; }}
         <option value="3">3 (center/prose)</option>
     </select></label>
     <button onclick="exportJSON()">Export JSON to Clipboard</button>
-    <button id="skinnyBtn" onclick="toggleSkinnyMode()">Normal Mode</button>
+    <button id="skinnyBtn" onclick="toggleSkinnyMode()">Go to normal mode</button>
     <span id="status"></span>
 </div>
 
@@ -559,7 +559,7 @@ function toggleSkinnyMode() {{
     const css = isSkinnyMode ? IMG_CSS_SKINNY : IMG_CSS_NORMAL;
     img.style.cssText = css + ' cursor: crosshair;';
     document.getElementById('skinnyBtn').textContent =
-        isSkinnyMode ? 'Normal Mode' : 'Skinny Mode';
+        isSkinnyMode ? 'Go to normal mode' : 'Go to skinny mode';
 }}
 
 function exportJSON() {{
@@ -586,8 +586,8 @@ render();
     const words = document.getElementById('wordsPanel');
     const divider = document.getElementById('divider');
     const image = document.getElementById('imagePanel');
-    // Default 30/70
-    let wordsPct = 30;
+    // Default 45/55
+    let wordsPct = 45;
     words.style.flex = '0 0 ' + wordsPct + '%';
     image.style.flex = '1 1 0%';
     let dragging = false;

@@ -367,7 +367,9 @@
       "line-num": 21
     }
   },
-  "{פ}",
+  {
+    "parashah": "spi-pe2"
+  },
   {
     "line-end": {
       "col": 1,

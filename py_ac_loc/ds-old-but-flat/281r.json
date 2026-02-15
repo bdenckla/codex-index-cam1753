@@ -5,7 +5,9 @@
       "line-num": 1
     }
   },
-  "{פ}",
+  {
+    "parashah": "spi-pe2"
+  },
   {
     "line-end": {
       "col": 1,

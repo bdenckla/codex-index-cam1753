@@ -82,7 +82,9 @@
       "line-num": 5
     }
   },
-  "{פ}",
+  {
+    "parashah": "spi-pe2"
+  },
   {
     "line-end": {
       "col": 1,
@@ -237,7 +239,9 @@
       "line-num": 14
     }
   },
-  "{פ}",
+  {
+    "parashah": "spi-pe2"
+  },
   {
     "line-end": {
       "col": 1,
@@ -312,7 +316,9 @@
   "נְכוֹנָ֖ה",
   "כְּעַבְדִּ֥י",
   "אִיּֽוֹב׃",
-  "{ס}",
+  {
+    "parashah": "spi-samekh2"
+  },
   "וְעַתָּ֡ה",
   {
     "line-end": {
@@ -971,7 +977,9 @@
       "line-num": 27
     }
   },
-  "{פ}",
+  {
+    "parashah": "spi-pe2"
+  },
   {
     "line-end": {
       "col": 2,

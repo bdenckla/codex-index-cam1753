@@ -3,6 +3,9 @@
     "page-start": "270r"
   },
   {
+    "parashah": "spi-pe2"
+  },
+  {
     "verse-start": "Ps 149:1"
   },
   {
@@ -1205,9 +1208,6 @@
       "col": 2,
       "line-num": 28
     }
-  },
-  {
-    "verse-end": "Job 1:16"
   },
   {
     "page-end": "270r"

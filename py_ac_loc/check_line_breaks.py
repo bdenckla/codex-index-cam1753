@@ -208,6 +208,28 @@ def check_file(path, verbose=True):
             if "verse-end" in item:
                 file_verse_ends.add(item["verse-end"])
 
+    # Every verse-start must have a matching verse-end or verse-fragment-end
+    all_end_verses = set()
+    all_start_verses = set()
+    for item in stream:
+        if isinstance(item, dict):
+            if "verse-end" in item:
+                all_end_verses.add(item["verse-end"])
+            if "verse-fragment-end" in item:
+                all_end_verses.add(item["verse-fragment-end"])
+            if "verse-start" in item:
+                all_start_verses.add(item["verse-start"])
+            if "verse-fragment-start" in item:
+                all_start_verses.add(item["verse-fragment-start"])
+    for v in sorted(file_verse_starts):
+        if v not in all_end_verses:
+            issues.append(f"verse-start {v} has no matching verse-end or verse-fragment-end")
+
+    # Every verse-end must have a matching verse-start or verse-fragment-start
+    for v in sorted(file_verse_ends):
+        if v not in all_start_verses:
+            issues.append(f"verse-end {v} has no matching verse-start or verse-fragment-start")
+
     # --- Word count ---
     word_count = classes.get("word", 0)
 
@@ -438,6 +460,8 @@ def main():
   <li>Reversed-order pairs (line-end before line-start) must be truly empty (no words between them)</li>
   <li>No words before first <code>line-start</code> (pre-content) or after last <code>line-end</code> (post-content)</li>
   <li>No full verse (<code>verse-start</code>/<code>verse-end</code>) appears in more than one file</li>
+  <li>Every <code>verse-start</code> has a matching <code>verse-end</code> or <code>verse-fragment-end</code> in the same file</li>
+  <li>Every <code>verse-end</code> has a matching <code>verse-start</code> or <code>verse-fragment-start</code> in the same file</li>
 </ol>
 </body>
 </html>

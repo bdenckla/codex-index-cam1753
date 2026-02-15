@@ -548,7 +548,85 @@ function buildExportStream() {{
         }}
     }}
 
-    return result;
+    return trimPageBoundaryContent(result);
+}}
+
+function trimPageBoundaryContent(stream) {{
+    // Find the first line-start and last line-end indices in the stream.
+    let firstLineStart = -1;
+    let lastLineEnd = -1;
+    for (let i = 0; i < stream.length; i++) {{
+        const item = stream[i];
+        if (typeof item === 'object' && item !== null) {{
+            if ('line-start' in item && firstLineStart === -1) firstLineStart = i;
+            if ('line-end' in item) lastLineEnd = i;
+        }}
+    }}
+    if (firstLineStart === -1 || lastLineEnd === -1) return stream;
+
+    // --- Trim pre-content (words before first line-start) ---
+    // Check if there are any words before firstLineStart
+    let hasPreWords = false;
+    for (let i = 0; i < firstLineStart; i++) {{
+        if (typeof stream[i] === 'string') {{ hasPreWords = true; break; }}
+    }}
+    if (hasPreWords) {{
+        // Remove words, convert last verse-start before firstLineStart
+        // to verse-fragment-start
+        const kept = [];
+        let lastVsIdx = -1;
+        for (let i = 0; i < firstLineStart; i++) {{
+            const item = stream[i];
+            if (typeof item === 'object' && item !== null && 'verse-start' in item) {{
+                lastVsIdx = kept.length;
+                kept.push(item);
+            }} else if (typeof item === 'string') {{
+                // skip pre-content word
+            }} else {{
+                kept.push(item);
+            }}
+        }}
+        if (lastVsIdx !== -1) {{
+            const vs = kept[lastVsIdx]['verse-start'];
+            kept[lastVsIdx] = {{'verse-fragment-start': vs}};
+        }}
+        stream = [...kept, ...stream.slice(firstLineStart)];
+    }}
+
+    // --- Trim post-content (words after last line-end) ---
+    // Recalculate lastLineEnd after possible pre-content trim
+    lastLineEnd = -1;
+    for (let i = 0; i < stream.length; i++) {{
+        if (typeof stream[i] === 'object' && stream[i] !== null && 'line-end' in stream[i]) {{
+            lastLineEnd = i;
+        }}
+    }}
+    let hasPostWords = false;
+    for (let i = lastLineEnd + 1; i < stream.length; i++) {{
+        if (typeof stream[i] === 'string') {{ hasPostWords = true; break; }}
+    }}
+    if (hasPostWords) {{
+        const kept = [];
+        let firstVeIdx = -1;
+        for (let i = lastLineEnd + 1; i < stream.length; i++) {{
+            const item = stream[i];
+            if (typeof item === 'object' && item !== null && 'verse-end' in item) {{
+                if (firstVeIdx === -1) firstVeIdx = kept.length;
+                kept.push(item);
+            }} else if (typeof item === 'string') {{
+                // skip post-content word
+            }} else {{
+                kept.push(item);
+            }}
+        }}
+        if (firstVeIdx !== -1) {{
+            const ve = kept[firstVeIdx]['verse-end'];
+            kept[firstVeIdx] = {{'verse-fragment-end': ve}};
+        }}
+        stream = [...stream.slice(0, lastLineEnd + 1), ...kept];
+    }}
+
+    return stream;
 }}
 
 function applyImageCrop() {{

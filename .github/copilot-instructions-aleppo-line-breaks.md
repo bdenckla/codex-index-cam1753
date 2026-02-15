@@ -19,6 +19,7 @@ py_ac_loc/
   MAM-XML/              ← MAM-XML source files (Job.xml, Ps.xml, Prov.xml)
   gen_flat_stream.py    ← generates initial flat-stream JSON (no line markers)
   gen_line_break_editor.py  ← generates interactive HTML editor
+  merge_line_markers.py ← merges edited line markers back, handling NFC normalization
   mam_xml_verses.py     ← low-level MAM-XML verse extraction (used by gen_flat_stream)
 ```
 
@@ -132,11 +133,21 @@ Click the last word of each manuscript line to toggle a line-end marker.
 The column selector sets which column number new markers get.
 Line numbers auto-renumber per column.
 
-### 3. Export and save
+### 3. Export and merge
 
-Click **Export JSON to Clipboard**. This produces the full flat-stream
-JSON with `line-start`/`line-end` markers inserted. Paste the result
-into `py_ac_loc/line-breaks/<page>.json`, replacing the file content.
+Click **Export JSON to Clipboard**. The user will paste the exported
+JSON into the chat. Save the pasted content to `.novc/edited_<page>.json`
+and run the merge script:
+
+```
+python py_ac_loc/merge_line_markers.py <page_id>
+```
+
+This reads `.novc/edited_<page>.json` by default. The merge script
+matches words by NFC-normalized comparison (the clipboard/chat pipeline
+may normalize Hebrew strings) but preserves the original pristine
+strings from the flat-stream source. It strips any pre-existing line
+markers from the original before re-inserting the edited ones.
 
 ### 4. Repeat for the other column
 
@@ -158,6 +169,7 @@ work on column 2.
 | Page | Range | Status |
 |------|-------|--------|
 | 270r | Ps 149:1 – Job 1:16 | Done |
+| 270v | Job 1:16 – Job 3:6 | Col 1 done (27 lines) |
 | 278v | Job 32:8 – Job 33:33 | Done |
 | 279r | Job 34:1 – Job 35:10 | Done |
 | 279v | Job 35:10 – Job 37:9 | Done |
@@ -167,3 +179,11 @@ work on column 2.
 | 281v | Job 41:23 – Prov 1:8 | Done |
 
 All data is in `py_ac_loc/line-breaks/*.json`.
+
+## Script promotion policy
+
+When a script in `.novc/` turns out to be part of an ongoing,
+repeatable workflow (not a one-time experiment), promote it to a
+permanent location (e.g. `py_ac_loc/`) immediately. This avoids
+re-creating it later and keeps the workflow self-contained. Suggest
+promotion as soon as the pattern becomes clear.

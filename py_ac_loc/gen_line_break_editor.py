@@ -193,7 +193,6 @@ h1 {{ text-align: center; padding: 10px; font-size: 17px; }}
 .container {{ display: flex; height: calc(100vh - 90px); }}
 .col-words {{
     overflow-y: auto; padding: 16px; direction: rtl;
-    text-align: end;
     font-size: 22px;
     font-family: 'SBL Hebrew', 'Ezra SIL', 'Times New Roman', serif;
 }}
@@ -233,7 +232,7 @@ h1 {{ text-align: center; padding: 10px; font-size: 17px; }}
     color: #e07040;
     font-size: 16px;
     font-family: monospace;
-    cursor: default;
+    cursor: pointer;
 }}
 .word.lead-in {{
     opacity: 0.35;
@@ -382,6 +381,7 @@ function render() {{
             span.classList.add('lead-in');
         }} else if (entry.isParashah) {{
             span.classList.add('parashah');
+            span.addEventListener('click', () => toggleLineEnd(idx));
         }} else {{
             if (entry.isVerseStart) {{
                 span.classList.add('verse-start');

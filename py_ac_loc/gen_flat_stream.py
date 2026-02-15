@@ -158,26 +158,21 @@ def _assert_standard_order(word, verse_label):
             i += 1
 
 
-def build_flat_stream(page_id, verses, parashah_before=None):
+def build_flat_stream(page_id, verses):
     """Build the flat stream array for a page.
 
-    parashah_before: optional parashah marker ("{פ}" or "{ס}") that belongs
-        at the start of this page (carried over from the end of the
-        previous page).
-
-    Returns (stream, parashah_carry) where parashah_carry is a marker
-    to place at the start of the next page, or None.
+    Returns the stream list.
     """
     stream = []
     stream.append({"page-start": page_id})
 
-    if parashah_before:
-        stream.append(parashah_before)
-
-    for i, v in enumerate(verses):
+    for v in verses:
         book = v["book"]
         cv = v["cv"]
         label = f"{book} {cv}"
+
+        if v.get("parashah_before"):
+            stream.append(v["parashah_before"])
 
         stream.append({"verse-start": label})
         for word in v["words"]:
@@ -185,35 +180,18 @@ def build_flat_stream(page_id, verses, parashah_before=None):
             stream.append(word)
         stream.append({"verse-end": label})
 
-        if v.get("parashah_after"):
-            if i < len(verses) - 1:
-                # Mid-page parashah: include inline
-                stream.append(v["parashah_after"])
-            else:
-                # Last verse of page: carry to next page
-                stream.append({"page-end": page_id})
-                return stream, v["parashah_after"]
-
     stream.append({"page-end": page_id})
-    return stream, None
+    return stream
 
 
 def write_stream(page_id, stream):
     """Write the flat stream JSON file."""
     OUT_DIR.mkdir(exist_ok=True)
     out_path = OUT_DIR / f"{page_id}.json"
-    # Custom formatting: one element per line
-    lines = ["["]
-    for i, item in enumerate(stream):
-        comma = "," if i < len(stream) - 1 else ""
-        if isinstance(item, str):
-            lines.append(f"  {json.dumps(item, ensure_ascii=False)}{comma}")
-        elif isinstance(item, dict):
-            lines.append(f"  {json.dumps(item, ensure_ascii=False)}{comma}")
-        else:
-            lines.append(f"  {json.dumps(item, ensure_ascii=False)}{comma}")
-    lines.append("]")
-    out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    out_path.write_text(
+        json.dumps(stream, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     return out_path
 
 
@@ -225,17 +203,14 @@ def main():
     else:
         pages_set = set(OUR_PAGES)
 
-    # Process all pages in order so parashah markers can carry across
-    all_pages = OUR_PAGES
-    parashah_carry = None
-    for page_id in all_pages:
+    for page_id in OUR_PAGES:
         if page_id not in index:
             print(f"WARNING: {page_id} not found in index-flat.json")
             continue
         text_range = index[page_id]
         print(f"{page_id}: {text_range[0]} .. {text_range[1]}")
         verses = get_page_verses(text_range)
-        stream, parashah_carry = build_flat_stream(page_id, verses, parashah_carry)
+        stream = build_flat_stream(page_id, verses)
 
         if page_id in pages_set:
             word_count = sum(1 for x in stream if isinstance(x, str))

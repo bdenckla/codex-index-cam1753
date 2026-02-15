@@ -18,8 +18,8 @@ Usage:
         r'C:\\path\\to\\MAM-XML\\out\\xml-vtrad-mam\\Job.xml',
         'Job', (37, 9), (38, 20),
     )
-    # Returns: [{'cv': '37:9', 'words': [...], 'ketiv_indices': [], 'parashah_after': None}, ...]
-    # parashah_after is None, {"parashah": "spi-pe2"}, or {"parashah": "spi-samekh2"}
+    # Returns: [{'cv': '37:9', 'words': [...], 'ketiv_indices': [], 'parashah_before': None}, ...]
+    # parashah_before is None, {"parashah": "spi-pe2"}, or {"parashah": "spi-samekh2"}
 """
 
 import xml.etree.ElementTree as ET
@@ -115,22 +115,13 @@ def get_verses_in_range(xml_path, book_osis_prefix, start_cv, end_cv):
             cv: str — e.g., '37:9'
             words: list of str — maqaf-joined words
             ketiv_indices: list of int — indices of ketiv (unpointed) words
-            parashah_after: None, {"parashah": "spi-pe2"}, or {"parashah": "spi-samekh2"} — break after this verse
+            parashah_before: None or {"parashah": "spi-pe2"} or {"parashah": "spi-samekh2"}
+                — parashah break before this verse (from starts-with-sampe attribute)
     """
     tree = ET.parse(xml_path)
     book39 = tree.getroot()[0]
 
-    # First pass: collect parashah breaks between chapters (book-level siblings)
-    inter_chapter_breaks = {}  # ch_num -> break string
-    prev_chapter_num = None
-    for child in book39:
-        if child.tag == 'chapter':
-            osis = child.attrib.get('osisID', '')
-            if osis.startswith(book_osis_prefix + '.'):
-                prev_chapter_num = int(osis.split('.')[-1])
-        elif child.tag in ('spi-pe2', 'spi-samekh2') and prev_chapter_num is not None:
-            brk = {"parashah": child.tag}
-            inter_chapter_breaks[prev_chapter_num] = brk
+    sampe_tag = {'pe2': 'spi-pe2', 'samekh2': 'spi-samekh2'}
 
     verses = []
     for child in book39:
@@ -140,24 +131,6 @@ def get_verses_in_range(xml_path, book_osis_prefix, start_cv, end_cv):
         if not osis.startswith(book_osis_prefix + '.'):
             continue
         ch = int(osis.split('.')[-1])
-
-        # Collect intra-chapter parashah breaks: verse osisID -> break string
-        intra_breaks = {}
-        ch_children = list(child)
-        for i, el in enumerate(ch_children):
-            if el.tag in ('spi-pe2', 'spi-samekh2'):
-                brk = {"parashah": el.tag}
-                # Find the preceding verse
-                for j in range(i - 1, -1, -1):
-                    if ch_children[j].tag == 'verse':
-                        intra_breaks[ch_children[j].attrib['osisID']] = brk
-                        break
-
-        # Find the last verse number in this chapter (for inter-chapter break check)
-        last_vs_in_ch = max(
-            (int(vv.attrib['osisID'].split('.')[-1]) for vv in child if vv.tag == 'verse'),
-            default=0,
-        )
 
         for v in child:
             if v.tag != 'verse':
@@ -169,13 +142,12 @@ def get_verses_in_range(xml_path, book_osis_prefix, start_cv, end_cv):
             result = get_verse_words(v)
             result['cv'] = f'{ch}:{vs}'
 
-            # Check for parashah break after this verse
-            if v_osis in intra_breaks:
-                result['parashah_after'] = intra_breaks[v_osis]
-            elif vs == last_vs_in_ch and ch in inter_chapter_breaks:
-                result['parashah_after'] = inter_chapter_breaks[ch]
+            # Check for parashah break before this verse
+            sws = v.attrib.get('starts-with-sampe')
+            if sws and sws in sampe_tag:
+                result['parashah_before'] = {"parashah": sampe_tag[sws]}
             else:
-                result['parashah_after'] = None
+                result['parashah_before'] = None
 
             verses.append(result)
 

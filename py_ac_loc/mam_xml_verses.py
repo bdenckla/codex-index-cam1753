@@ -96,8 +96,21 @@ def get_verse_words(verse_el):
             joined.append(w)
             joined_ketiv.append(is_k)
 
-    ketiv_indices = [i for i, k in enumerate(joined_ketiv) if k]
-    return {'words': joined, 'ketiv_indices': ketiv_indices}
+    # Attach standalone sof pasuq (׃) to the preceding word.
+    # This happens when a <kq> element is followed by <text text="׃" />
+    # in the MAM-XML — the sof pasuq ends up as its own token.
+    SOF_PASUQ = '\u05C3'
+    merged = []
+    merged_ketiv = []
+    for w, is_k in zip(joined, joined_ketiv):
+        if w == SOF_PASUQ and merged:
+            merged[-1] = merged[-1] + SOF_PASUQ
+        else:
+            merged.append(w)
+            merged_ketiv.append(is_k)
+
+    ketiv_indices = [i for i, k in enumerate(merged_ketiv) if k]
+    return {'words': merged, 'ketiv_indices': ketiv_indices}
 
 
 def get_verses_in_range(xml_path, book_osis_prefix, start_cv, end_cv):

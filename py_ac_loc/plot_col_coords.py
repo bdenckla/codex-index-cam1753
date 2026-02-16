@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 
 COORD_DIR = Path(__file__).resolve().parent / "column-coordinates"
 OUT_DIR = Path(__file__).resolve().parent.parent / ".novc"
-PERSISTENT_DIR = COORD_DIR.parent
+PERSISTENT_DIR = Path(__file__).resolve().parent / "plot_col_coords-out"
 
 ANGLE_EXAGGERATION = 20
 ANGLE_BINS = 5

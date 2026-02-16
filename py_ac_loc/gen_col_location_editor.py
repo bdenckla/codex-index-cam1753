@@ -315,6 +315,29 @@ function drawAll() {{
     outline.setAttribute('stroke-dasharray', '6 3');
     svg.appendChild(outline);
   }}
+
+  // --- Skew indicator: triangle next to the active skew target line ---
+  const st = SKEW_TARGETS[skewIndex];
+  const sr = cols[st.col];
+  const sColNum = st.col === 'col1' ? 1 : 2;
+  const sT = st.edge === 'topAngle' ? 0 : 1;
+  const sEp = lineEndpoints(sr, sT);
+  // Place on outer edge of the column
+  const sPt = sColNum === 1 ? sEp.right : sEp.left;
+  const sDir = sColNum === 1 ? 1 : -1;  // +1 = rightward, -1 = leftward
+  const sx = sPt.x * 1000 + sDir * 28;
+  const sy = sPt.y * 1000;
+  // Draw "skew" label in column colour
+  const skColour = sColNum === 1 ? '#ff4040' : '#4080ff';
+  const skLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  skLabel.setAttribute('x', sx);
+  skLabel.setAttribute('y', sy + 3);
+  skLabel.setAttribute('text-anchor', sColNum === 1 ? 'start' : 'end');
+  skLabel.setAttribute('font-size', '10');
+  skLabel.setAttribute('font-weight', 'bold');
+  skLabel.setAttribute('fill', skColour);
+  skLabel.textContent = 'skew';
+  svg.appendChild(skLabel);
 }}
 
 // --- Dragging (side handles, each adjusts only one dimension) ---
@@ -360,32 +383,28 @@ window.addEventListener('mousemove', (e) => {{
   const r = cols[dragCol];
   r.cx = r0.cx; r.cy = r0.cy; r.hw = r0.hw; r.hh = r0.hh;
 
-  // Vector from centre to mouse (no rotation projection needed for handles).
-  const localX = mx - r.cx;
-  const localY = my - r.cy;
+  // Each side handle moves only its own edge; the opposite edge stays put.
+  const top0  = r0.cy - r0.hh;
+  const bot0  = r0.cy + r0.hh;
+  const left0 = r0.cx - r0.hw;
+  const right0 = r0.cx + r0.hw;
 
-  // Each side handle moves the corresponding edge while keeping
-  // the opposite edge fixed (adjusting cx/cy + hw or hh).
   if (dragSide === 'right') {{
-    const newHw = Math.max(0.01, localX);
-    const shift = (newHw - r.hw) / 2;
-    r.cx += shift;
-    r.hw = newHw;
+    const newRight = Math.max(left0 + 0.02, mx);
+    r.hw = (newRight - left0) / 2;
+    r.cx = (left0 + newRight) / 2;
   }} else if (dragSide === 'left') {{
-    const newHw = Math.max(0.01, -localX);
-    const shift = (newHw - r.hw) / 2;
-    r.cx -= shift;
-    r.hw = newHw;
+    const newLeft = Math.min(right0 - 0.02, mx);
+    r.hw = (right0 - newLeft) / 2;
+    r.cx = (newLeft + right0) / 2;
   }} else if (dragSide === 'bottom') {{
-    const newHh = Math.max(0.01, localY);
-    const shift = (newHh - r.hh) / 2;
-    r.cy += shift;
-    r.hh = newHh;
+    const newBot = Math.max(top0 + 0.02, my);
+    r.hh = (newBot - top0) / 2;
+    r.cy = (top0 + newBot) / 2;
   }} else if (dragSide === 'top') {{
-    const newHh = Math.max(0.01, -localY);
-    const shift = (newHh - r.hh) / 2;
-    r.cy -= shift;
-    r.hh = newHh;
+    const newTop = Math.min(bot0 - 0.02, my);
+    r.hh = (bot0 - newTop) / 2;
+    r.cy = (newTop + bot0) / 2;
   }}
 
   drawAll();
@@ -409,9 +428,17 @@ const SKEW_TARGETS = [
 ];
 let skewIndex = 0;
 
+function updateSkewBtn() {{
+  const btn = document.getElementById('skew-btn');
+  const t = SKEW_TARGETS[skewIndex];
+  btn.textContent = 'Skew: ' + t.label;
+  btn.style.color = t.col === 'col1' ? '#ff4040' : '#4080ff';
+}}
+
 function cycleSkew() {{
   skewIndex = (skewIndex + 1) % SKEW_TARGETS.length;
-  document.getElementById('skew-btn').textContent = 'Skew: ' + SKEW_TARGETS[skewIndex].label;
+  updateSkewBtn();
+  drawAll();
   updateStatus();
 }}
 
@@ -496,6 +523,7 @@ function round4(v) {{ return Math.round(v * 10000) / 10000; }}
 
 // --- Init ---
 
+updateSkewBtn();
 drawAll();
 updateStatus();
 </script>

@@ -152,6 +152,20 @@ def generate_editor(page_id):
     cursor: grabbing;
     fill: #ff0;
   }}
+  .ctrl-point.active-target {{
+    animation: pulse-handle 0.8s ease-in-out infinite;
+  }}
+  @keyframes pulse-handle {{
+    0%, 100% {{ fill-opacity: 1; stroke-width: 3; }}
+    50% {{ fill-opacity: 0.3; stroke-width: 1; }}
+  }}
+  .skew-label-active {{
+    animation: pulse-skew 0.8s ease-in-out infinite;
+  }}
+  @keyframes pulse-skew {{
+    0%, 100% {{ opacity: 1; }}
+    50% {{ opacity: 0.2; }}
+  }}
 </style>
 </head>
 <body>
@@ -285,15 +299,23 @@ function drawAll() {{
 
     // Side-midpoint handles (each adjusts only one dimension).
     const m = midpoints(r);
+    const at = activeTargets();
     for (const side of ['top', 'bottom', 'left', 'right']) {{
       const pt = m[side];
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circle.setAttribute('cx', pt.x * 1000);
       circle.setAttribute('cy', pt.y * 1000);
       circle.setAttribute('r', '8');
-      circle.setAttribute('class', 'ctrl-point');
-      circle.setAttribute('fill', handleColour);
-      circle.setAttribute('stroke', handleColour);
+      let cls = 'ctrl-point';
+      if (at.handle && at.handle.col === colName && at.handle.side === side) {{
+        cls += ' active-target';
+        circle.setAttribute('fill', '#ff0');
+        circle.setAttribute('stroke', '#ff0');
+      }} else {{
+        circle.setAttribute('fill', handleColour);
+        circle.setAttribute('stroke', handleColour);
+      }}
+      circle.setAttribute('class', cls);
       circle.setAttribute('data-col', colName);
       circle.setAttribute('data-side', side);
       svg.appendChild(circle);
@@ -337,6 +359,9 @@ function drawAll() {{
   skLabel.setAttribute('font-weight', 'bold');
   skLabel.setAttribute('fill', skColour);
   skLabel.textContent = 'skew';
+  if (activeTargets().skew) {{
+    skLabel.setAttribute('class', 'skew-label-active');
+  }}
   svg.appendChild(skLabel);
 }}
 
@@ -348,11 +373,39 @@ let dragSide = null;
 let dragStartMouse = null;   // mouse pos at drag start (normalised)
 let dragStartRect = null;    // snapshot of rect params at drag start
 
+// Track what arrow keys affect.
+// cursorMode: 'topbot-skew' or 'side'
+//   'topbot-skew': Up/Down move vertCol's vertEdge; Left/Right adjust skew.
+//   'side': Left/Right move sideCol's sideEdge.
+let cursorMode = 'topbot-skew';
+let vertCol = 'col1';    // which column's top/bot edge Up/Down affects
+let vertEdge = 'top';    // 'top' or 'bottom'
+let sideCol = 'col1';    // which column's left/right edge Left/Right affects
+let sideEdge = 'right';  // 'left' or 'right'
+
+// Helper for drawAll to know what to highlight.
+function activeTargets() {{
+  if (cursorMode === 'topbot-skew') {{
+    return {{ handle: {{ col: vertCol, side: vertEdge }}, skew: true }};
+  }} else {{
+    return {{ handle: {{ col: sideCol, side: sideEdge }}, skew: false }};
+  }}
+}}
+
 svg.addEventListener('mousedown', (e) => {{
   if (e.target.classList.contains('ctrl-point')) {{
     dragTarget = e.target;
     dragCol = dragTarget.getAttribute('data-col');
     dragSide = dragTarget.getAttribute('data-side');
+    // Clicking a top/bottom handle switches skew target to that edge.
+    if (dragSide === 'top' || dragSide === 'bottom') {{
+      const edge = dragSide === 'top' ? 'topAngle' : 'botAngle';
+      const idx = SKEW_TARGETS.findIndex(t => t.col === dragCol && t.edge === edge);
+      if (idx >= 0 && idx !== skewIndex) {{
+        skewIndex = idx;
+        updateSkewBtn();
+      }}
+    }}
     dragTarget.classList.add('dragging');
     const svgRect = svg.getBoundingClientRect();
     dragStartMouse = {{
@@ -413,8 +466,18 @@ window.addEventListener('mousemove', (e) => {{
 
 window.addEventListener('mouseup', () => {{
   if (dragTarget) {{
+    if (dragSide === 'top' || dragSide === 'bottom') {{
+      cursorMode = 'topbot-skew';
+      vertCol = dragCol;
+      vertEdge = dragSide;
+    }} else {{
+      cursorMode = 'side';
+      sideCol = dragCol;
+      sideEdge = dragSide;
+    }}
     dragTarget.classList.remove('dragging');
     dragTarget = null;
+    drawAll();
   }}
 }});
 
@@ -448,9 +511,74 @@ function rotate(degrees) {{
   const d = fineMode ? degrees * FINE_SCALE : degrees;
   const target = SKEW_TARGETS[skewIndex];
   cols[target.col][target.edge] += d;
+  cursorMode = 'topbot-skew';
   drawAll();
   updateStatus();
 }}
+
+// --- Arrow keys ---
+// topbot-skew mode: Up/Down move top/bot edge, Left/Right adjust skew.
+// side mode: Left/Right move a side edge.
+
+const ARROW_STEP = 0.001;  // ~1px at typical image sizes
+
+function nudgeEdge(col, side, delta) {{
+  const r = cols[col];
+  const top0  = r.cy - r.hh;
+  const bot0  = r.cy + r.hh;
+  const left0 = r.cx - r.hw;
+  const right0 = r.cx + r.hw;
+  if (side === 'top') {{
+    const newTop = Math.min(bot0 - 0.02, top0 + delta);
+    r.hh = (bot0 - newTop) / 2;
+    r.cy = (newTop + bot0) / 2;
+  }} else if (side === 'bottom') {{
+    const newBot = Math.max(top0 + 0.02, bot0 + delta);
+    r.hh = (newBot - top0) / 2;
+    r.cy = (top0 + newBot) / 2;
+  }} else if (side === 'left') {{
+    const newLeft = Math.min(right0 - 0.02, left0 + delta);
+    r.hw = (right0 - newLeft) / 2;
+    r.cx = (newLeft + right0) / 2;
+  }} else if (side === 'right') {{
+    const newRight = Math.max(left0 + 0.02, right0 + delta);
+    r.hw = (newRight - left0) / 2;
+    r.cx = (left0 + newRight) / 2;
+  }}
+}}
+
+window.addEventListener('keydown', (e) => {{
+  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.key) < 0) return;
+  e.preventDefault();
+
+  const step = fineMode ? ARROW_STEP * FINE_SCALE : ARROW_STEP;
+
+  if (cursorMode === 'topbot-skew') {{
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {{
+      const dy = e.key === 'ArrowUp' ? -step : step;
+      nudgeEdge(vertCol, vertEdge, dy);
+    }} else {{
+      // Left/Right adjust skew
+      if (e.key === 'ArrowLeft') rotate(-1);
+      else if (e.key === 'ArrowRight') rotate(1);
+      return;  // rotate already redraws
+    }}
+  }} else {{
+    // side mode
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {{
+      const dx = e.key === 'ArrowLeft' ? -step : step;
+      nudgeEdge(sideCol, sideEdge, dx);
+    }}
+    // Up/Down in side mode: move the last vert target if set
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {{
+      const dy = e.key === 'ArrowUp' ? -step : step;
+      nudgeEdge(vertCol, vertEdge, dy);
+    }}
+  }}
+
+  drawAll();
+  updateStatus();
+}});
 
 // --- Status ---
 
@@ -526,6 +654,18 @@ function round4(v) {{ return Math.round(v * 10000) / 10000; }}
 updateSkewBtn();
 drawAll();
 updateStatus();
+
+// Scroll to show col1 (right column) when the image is wider than viewport.
+document.getElementById('page-img').addEventListener('load', () => {{
+  const container = document.getElementById('container');
+  const col1 = cols.col1;
+  // Scroll so that col1's center is visible, biased toward the right edge.
+  const imgEl = document.getElementById('page-img');
+  const renderedW = imgEl.clientWidth;
+  const targetX = col1.cx * renderedW;
+  const scrollX = targetX - container.clientWidth / 2;
+  if (scrollX > 0) container.scrollLeft = scrollX;
+}});
 </script>
 </body>
 </html>

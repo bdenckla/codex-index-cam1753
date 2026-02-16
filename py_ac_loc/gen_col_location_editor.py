@@ -10,14 +10,43 @@ Usage:
     python py_ac_loc/gen_col_location_editor.py 270r
 """
 
+import json
 import sys
 import webbrowser
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 OUT_DIR = BASE / ".novc"
+COORD_DIR = Path(__file__).resolve().parent / "column-coordinates"
 
 LINES_PER_COL = 28
+
+_FALLBACK_DEFAULTS = {
+    "col1": {"cx": 0.7242, "cy": 0.4535, "hw": 0.19, "hh": 0.3714, "topAngle": 0, "botAngle": 0},
+    "col2": {"cx": 0.2604, "cy": 0.4541, "hw": 0.1934, "hh": 0.3725, "topAngle": 0, "botAngle": 0},
+}
+
+
+def _load_defaults(page_id):
+    """Load saved column coordinates if they exist, else use fallback."""
+    coord_file = COORD_DIR / f"{page_id}.json"
+    if coord_file.exists():
+        data = json.loads(coord_file.read_text(encoding="utf-8"))
+        result = {}
+        for col_key in ("col1", "col2"):
+            rel = data["columns"][col_key]["rel"]
+            hw = rel["w"] / 2
+            hh = rel["h"] / 2
+            result[col_key] = {
+                "cx": round(rel["x"] + hw, 4),
+                "cy": round(rel["y"] + hh, 4),
+                "hw": round(hw, 4),
+                "hh": round(hh, 4),
+                "topAngle": rel["top_angle"],
+                "botAngle": rel["bot_angle"],
+            }
+        return result, True
+    return _FALLBACK_DEFAULTS, False
 
 
 def _leaf_to_page_n(page_id):
@@ -42,6 +71,10 @@ def generate_editor(page_id):
     """Generate the HTML column-location editor for a page."""
 
     img_url = _image_url(page_id)
+    defaults, from_file = _load_defaults(page_id)
+    c1 = defaults["col1"]
+    c2 = defaults["col2"]
+    source_note = f"column-coordinates/{page_id}.json" if from_file else "fallback defaults"
 
     html = f"""\
 <!DOCTYPE html>
@@ -83,12 +116,12 @@ def generate_editor(page_id):
     position: absolute;
     top: 36px; left: 0; right: 0; bottom: 0;
     overflow: auto;
-    display: flex;
-    justify-content: center;
   }}
   #page-wrapper {{
     position: relative;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
   }}
   #page-wrapper img {{
     display: block;
@@ -125,12 +158,13 @@ def generate_editor(page_id):
 
 <div id="toolbar">
   <span><b>Col Location</b> \u2014 {page_id}</span>
-  <button id="fine-btn" onclick="toggleFine()">Fine: OFF</button>
+  <button id="fine-btn" onclick="toggleFine()" style="background:#070">Fine: ON</button>
+  <button id="skew-btn" onclick="cycleSkew()">Skew: C1 Top</button>
   <button onclick="rotate(-1)">Rotate \u21B6</button>
   <button onclick="rotate(+1)">Rotate \u21B7</button>
   <button onclick="resetPositions()">Reset</button>
   <button onclick="exportJSON()">Export JSON</button>
-  <span class="info" id="status">Drag side handles to resize; buttons to rotate</span>
+  <span class="info" id="status">Drag handles to resize; buttons to skew</span>
 </div>
 
 <div id="container">
@@ -147,11 +181,13 @@ def generate_editor(page_id):
 const LINES = {LINES_PER_COL};
 const DEG = Math.PI / 180;
 
-// Each column is a rectangle: centre (cx,cy), half-extents (hw,hh), angle in degrees.
+// Each column is a trapezoid: centre (cx,cy), half-extents (hw,hh),
+// independent top/bottom edge angles in degrees.
 // Col 1 = right column, Col 2 = left column.
+// Source: {source_note}
 const DEFAULTS = {{
-  col1: {{ cx: 0.7358, cy: 0.4547, hw: 0.1897, hh: 0.3659, angle: 0 }},
-  col2: {{ cx: 0.27,   cy: 0.4561, hw: 0.19,   hh: 0.3667, angle: 0 }},
+  col1: {{ cx: {c1['cx']}, cy: {c1['cy']}, hw: {c1['hw']}, hh: {c1['hh']}, topAngle: {c1['topAngle']}, botAngle: {c1['botAngle']} }},
+  col2: {{ cx: {c2['cx']}, cy: {c2['cy']}, hw: {c2['hw']}, hh: {c2['hh']}, topAngle: {c2['topAngle']}, botAngle: {c2['botAngle']} }},
 }};
 
 let cols = JSON.parse(JSON.stringify(DEFAULTS));
@@ -160,7 +196,7 @@ const svg = document.getElementById('overlay-svg');
 const status = document.getElementById('status');
 
 // Fine mode: scale down mouse deltas by FINE_SCALE for precise adjustments.
-let fineMode = false;
+let fineMode = true;
 const FINE_SCALE = 0.2;  // 1/5 sensitivity
 
 function toggleFine() {{
@@ -171,33 +207,33 @@ function toggleFine() {{
 
 // --- Geometry helpers ---
 
-function corners(r) {{
-  // Returns {{ tl, tr, bl, br }} in normalised coords, applying rotation.
-  const cos = Math.cos(r.angle * DEG);
-  const sin = Math.sin(r.angle * DEG);
-  function pt(dx, dy) {{
-    return {{ x: r.cx + dx * cos - dy * sin, y: r.cy + dx * sin + dy * cos }};
-  }}
+function lineEndpoints(r, t) {{
+  // Returns {{ left, right }} for the line at parameter t (0=top, 1=bottom).
+  // The angle interpolates linearly between topAngle and botAngle.
+  const angle = r.topAngle + t * (r.botAngle - r.topAngle);
+  const cos = Math.cos(angle * DEG);
+  const sin = Math.sin(angle * DEG);
+  const cy = r.cy - r.hh + t * 2 * r.hh;
   return {{
-    tl: pt(-r.hw, -r.hh),
-    tr: pt(+r.hw, -r.hh),
-    bl: pt(-r.hw, +r.hh),
-    br: pt(+r.hw, +r.hh),
+    left:  {{ x: r.cx - r.hw * cos, y: cy + r.hw * sin }},
+    right: {{ x: r.cx + r.hw * cos, y: cy - r.hw * sin }},
   }};
+}}
+
+function corners(r) {{
+  // Returns {{ tl, tr, bl, br }} from the top and bottom line endpoints.
+  const top = lineEndpoints(r, 0);
+  const bot = lineEndpoints(r, 1);
+  return {{ tl: top.left, tr: top.right, bl: bot.left, br: bot.right }};
 }}
 
 function midpoints(r) {{
   // Returns {{ top, bottom, left, right }} midpoints of each side.
-  const cos = Math.cos(r.angle * DEG);
-  const sin = Math.sin(r.angle * DEG);
-  function pt(dx, dy) {{
-    return {{ x: r.cx + dx * cos - dy * sin, y: r.cy + dx * sin + dy * cos }};
-  }}
   return {{
-    top:    pt(0, -r.hh),
-    bottom: pt(0, +r.hh),
-    left:   pt(-r.hw, 0),
-    right:  pt(+r.hw, 0),
+    top:    {{ x: r.cx, y: r.cy - r.hh }},
+    bottom: {{ x: r.cx, y: r.cy + r.hh }},
+    left:   {{ x: r.cx - r.hw, y: r.cy }},
+    right:  {{ x: r.cx + r.hw, y: r.cy }},
   }};
 }}
 
@@ -221,8 +257,9 @@ function drawAll() {{
     // Draw line segments.
     for (let i = 0; i < LINES; i++) {{
       const t = LINES === 1 ? 0.5 : i / (LINES - 1);
-      const left = lerp(c.tl, c.bl, t);
-      const right = lerp(c.tr, c.br, t);
+      const ep = lineEndpoints(r, t);
+      const left = ep.left;
+      const right = ep.right;
 
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('x1', left.x * 1000);
@@ -233,14 +270,16 @@ function drawAll() {{
       line.setAttribute('stroke-width', '1.5');
       svg.appendChild(line);
 
-      const mid = lerp(left, right, 0.5);
+      // Label: show line number just outside the outer edge of the column.
+      const labelPt = colNum === 1 ? right : left;
+      const nudgeX = colNum === 1 ? 12 : -12;
       const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('x', mid.x * 1000);
-      label.setAttribute('y', mid.y * 1000 - 3);
-      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('x', labelPt.x * 1000 + nudgeX);
+      label.setAttribute('y', labelPt.y * 1000 + 3);
+      label.setAttribute('text-anchor', colNum === 1 ? 'start' : 'end');
       label.setAttribute('font-size', '8');
       label.setAttribute('fill', colour);
-      label.textContent = `${{colNum}}:${{i + 1}}`;
+      label.textContent = `${{i + 1}}`;
       svg.appendChild(label);
     }}
 
@@ -260,9 +299,13 @@ function drawAll() {{
       svg.appendChild(circle);
     }}
 
-    // Bounding rectangle outline.
+    // Bounding outline: sides extend one line-spacing below the last line.
+    const lineSpacingFrac = LINES > 1 ? 1 / (LINES - 1) : 1;
+    const ext = lineEndpoints(r, 1 + lineSpacingFrac);
+    const extBl = ext.left;
+    const extBr = ext.right;
     const outline = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    const pts = [c.tl, c.tr, c.br, c.bl]
+    const pts = [c.tl, c.tr, extBr, extBl]
       .map(p => `${{p.x * 1000}},${{p.y * 1000}}`)
       .join(' ');
     outline.setAttribute('points', pts);
@@ -317,41 +360,31 @@ window.addEventListener('mousemove', (e) => {{
   const r = cols[dragCol];
   r.cx = r0.cx; r.cy = r0.cy; r.hw = r0.hw; r.hh = r0.hh;
 
-  const cos = Math.cos(r.angle * DEG);
-  const sin = Math.sin(r.angle * DEG);
-
-  // Vector from centre to mouse, projected onto rotated local axes.
-  const dx = mx - r.cx;
-  const dy = my - r.cy;
-  const localX = dx * cos + dy * sin;
-  const localY = -dx * sin + dy * cos;
+  // Vector from centre to mouse (no rotation projection needed for handles).
+  const localX = mx - r.cx;
+  const localY = my - r.cy;
 
   // Each side handle moves the corresponding edge while keeping
   // the opposite edge fixed (adjusting cx/cy + hw or hh).
   if (dragSide === 'right') {{
-    // localX = new hw; shift centre so left edge stays put.
     const newHw = Math.max(0.01, localX);
     const shift = (newHw - r.hw) / 2;
-    r.cx += shift * cos;
-    r.cy += shift * sin;
+    r.cx += shift;
     r.hw = newHw;
   }} else if (dragSide === 'left') {{
     const newHw = Math.max(0.01, -localX);
     const shift = (newHw - r.hw) / 2;
-    r.cx -= shift * cos;
-    r.cy -= shift * sin;
+    r.cx -= shift;
     r.hw = newHw;
   }} else if (dragSide === 'bottom') {{
     const newHh = Math.max(0.01, localY);
     const shift = (newHh - r.hh) / 2;
-    r.cx -= shift * sin;
-    r.cy += shift * cos;
+    r.cy += shift;
     r.hh = newHh;
   }} else if (dragSide === 'top') {{
     const newHh = Math.max(0.01, -localY);
     const shift = (newHh - r.hh) / 2;
-    r.cx += shift * sin;
-    r.cy -= shift * cos;
+    r.cy -= shift;
     r.hh = newHh;
   }}
 
@@ -366,12 +399,28 @@ window.addEventListener('mouseup', () => {{
   }}
 }});
 
-// --- Rotation ---
+// --- Skew selector ---
+
+const SKEW_TARGETS = [
+  {{ col: 'col1', edge: 'topAngle', label: 'C1 Top' }},
+  {{ col: 'col1', edge: 'botAngle', label: 'C1 Bot' }},
+  {{ col: 'col2', edge: 'topAngle', label: 'C2 Top' }},
+  {{ col: 'col2', edge: 'botAngle', label: 'C2 Bot' }},
+];
+let skewIndex = 0;
+
+function cycleSkew() {{
+  skewIndex = (skewIndex + 1) % SKEW_TARGETS.length;
+  document.getElementById('skew-btn').textContent = 'Skew: ' + SKEW_TARGETS[skewIndex].label;
+  updateStatus();
+}}
+
+// --- Rotation (applies to selected skew target) ---
 
 function rotate(degrees) {{
   const d = fineMode ? degrees * FINE_SCALE : degrees;
-  cols.col1.angle += d;
-  cols.col2.angle += d;
+  const target = SKEW_TARGETS[skewIndex];
+  cols[target.col][target.edge] += d;
   drawAll();
   updateStatus();
 }}
@@ -379,13 +428,15 @@ function rotate(degrees) {{
 // --- Status ---
 
 function updateStatus() {{
-  const c1 = corners(cols.col1);
-  const c2 = corners(cols.col2);
-  const a = cols.col1.angle.toFixed(1);
+  const target = SKEW_TARGETS[skewIndex];
+  const val = cols[target.col][target.edge].toFixed(2);
+  const c1t = cols.col1.topAngle.toFixed(2);
+  const c1b = cols.col1.botAngle.toFixed(2);
+  const c2t = cols.col2.topAngle.toFixed(2);
+  const c2b = cols.col2.botAngle.toFixed(2);
   status.textContent =
-    `Angle: ${{a}}\u00b0  |  ` +
-    `Col 1: TL(${{f(c1.tl)}}) BR(${{f(c1.br)}})  |  ` +
-    `Col 2: TL(${{f(c2.tl)}}) BR(${{f(c2.br)}})`;
+    `[${{target.label}}: ${{val}}\u00b0]  ` +
+    `C1: ${{c1t}}\u00b0/${{c1b}}\u00b0  C2: ${{c2t}}\u00b0/${{c2b}}\u00b0`;
 }}
 
 function f(pt) {{ return `${{(pt.x * 100).toFixed(1)}}%,${{(pt.y * 100).toFixed(1)}}%`; }}
@@ -405,53 +456,35 @@ function exportJSON() {{
   const W = img.naturalWidth;
   const H = img.naturalHeight;
 
-  function pxPt(pt) {{ return {{ x: Math.round(pt.x * W), y: Math.round(pt.y * H) }}; }}
-
-  const result = {{}};
+  const colData = {{}};
   for (const [colName, r] of Object.entries(cols)) {{
     const colNum = colName === 'col1' ? 1 : 2;
     const c = corners(r);
-    const linesRel = [];
-    const linesPx = [];
-    for (let i = 0; i < LINES; i++) {{
-      const t = LINES === 1 ? 0.5 : i / (LINES - 1);
-      const left = lerp(c.tl, c.bl, t);
-      const right = lerp(c.tr, c.br, t);
-      linesRel.push({{
-        line: i + 1,
-        left: {{ x: round4(left.x), y: round4(left.y) }},
-        right: {{ x: round4(right.x), y: round4(right.y) }},
-      }});
-      linesPx.push({{
-        line: i + 1,
-        left: pxPt(left),
-        right: pxPt(right),
-      }});
-    }}
-    result[`col${{colNum}}`] = {{
-      rect: {{
-        cx: round4(r.cx), cy: round4(r.cy),
-        hw: round4(r.hw), hh: round4(r.hh),
-        angle: round4(r.angle),
+    const w = 2 * r.hw;
+    const h = 2 * r.hh;
+    const lineSpacing = LINES > 1 ? h / (LINES - 1) : h;
+    colData[`col${{colNum}}`] = {{
+      rel: {{
+        x: round4(c.tl.x), y: round4(c.tl.y),
+        w: round4(w), h: round4(h),
+        top_angle: round4(r.topAngle),
+        bot_angle: round4(r.botAngle),
+        line_spacing: round4(lineSpacing),
       }},
-      corners_rel: {{
-        tl: {{ x: round4(c.tl.x), y: round4(c.tl.y) }},
-        tr: {{ x: round4(c.tr.x), y: round4(c.tr.y) }},
-        bl: {{ x: round4(c.bl.x), y: round4(c.bl.y) }},
-        br: {{ x: round4(c.br.x), y: round4(c.br.y) }},
+      px: {{
+        x: Math.round(c.tl.x * W), y: Math.round(c.tl.y * H),
+        w: Math.round(w * W), h: Math.round(h * H),
+        top_angle: round4(r.topAngle),
+        bot_angle: round4(r.botAngle),
+        line_spacing: Math.round(lineSpacing * H),
       }},
-      corners_px: {{
-        tl: pxPt(c.tl), tr: pxPt(c.tr),
-        bl: pxPt(c.bl), br: pxPt(c.br),
-      }},
-      lines_rel: linesRel,
-      lines_px: linesPx,
     }};
   }}
   const json = JSON.stringify({{
     page: "{page_id}",
     image_size: {{ width: W, height: H }},
-    columns: result,
+    lines_per_col: LINES,
+    columns: colData,
   }}, null, 2);
   navigator.clipboard.writeText(json).then(() => {{
     status.textContent = 'JSON copied to clipboard!';

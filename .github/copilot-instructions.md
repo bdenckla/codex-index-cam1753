@@ -39,6 +39,10 @@ Place any temporary generated files (scripts, HTML reports, debugging output, et
 
 **Never run Python one-liners via `python -c "..."` in the terminal.** These invariably fail due to character encoding and/or shell escaping issues, especially with Hebrew text. Instead, always create an actual `.py` file in `.novc/` and run it with `python .novc/<filename>.py`.
 
+## Installing Python Packages
+
+**Never install packages to the system Python.** Always install into the project venv using `.venv\Scripts\pip.exe install <package>` (or ensure the venv is activated first). Add new dependencies to `requirements.txt` at the top level.
+
 ## Reading and Writing Python Files
 
 When reading or modifying Python source files in this project:
@@ -108,6 +112,24 @@ After making changes to Python source files, verify the HTML output is unchanged
 1. Run: `python ./main_gen_misc_authored_english_documents.py`
 2. Check: `git status --porcelain docs/`
 3. If any files in `docs/` are modified, investigate and fix the differences before considering the task complete
+
+## Column Coordinate Editing Workflow
+
+To measure column positions on an Aleppo Codex page image:
+
+1. **Generate the interactive HTML editor:**
+   ```
+   python py_ac_loc/gen_col_location_editor.py <page_id>
+   ```
+   This opens a browser editor with draggable side-midpoint handles and skew (rotation) controls for two columns of 28 lines each. If a coordinate file already exists for that page, it loads those values as defaults.
+
+2. **Adjust columns** using handles, skew buttons (rotate ↶/↷), and fine mode. The "skew" label on the image shows which edge angle is being adjusted.
+
+3. **Export JSON** by clicking the Export button (copies to clipboard).
+
+4. **Paste the JSON into the chat.** The assistant saves it to `py_ac_loc/column-coordinates/<page_id>.json`.
+
+5. **Pages for Book of Job:** 270r through 281v (24 pages total). Check which are done by listing `py_ac_loc/column-coordinates/`.
 
 ## Line Break Editing Workflow
 

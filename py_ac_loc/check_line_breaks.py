@@ -15,11 +15,61 @@ import webbrowser
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from py_ac_loc.gen_flat_stream import (
+    load_index, build_flat_stream,
+    BOOK_XML, BOOK_END_SENTINEL, BOOK_START, MAM_XML_DIR,
+)
+from py_ac_loc.mam_xml_verses import get_verses_in_range
+
 PROJ_DIR = Path(__file__).resolve().parent.parent
 LB_DIR = PROJ_DIR / "py_ac_loc" / "line-breaks"
-OUT_DIR = PROJ_DIR / ".novc"
+OUT_DIR = PROJ_DIR / "py_ac_loc"
 
 EXPECTED_LINES_PER_COL = 28
+
+# Book ordering for the poetic books in the Aleppo Codex.
+# Note: book order varies across manuscripts and printed editions;
+# the order in MAM-XML does not necessarily match the Aleppo Codex.
+BOOK_ORDER = ["Ps", "Job", "Prov"]
+
+
+def _get_mega_verses(start_ref, end_ref):
+    """Get all verses from MAM-XML spanning a multi-book range.
+
+    start_ref: [book, ch, vs]  e.g. ["Ps", 149, 1]
+    end_ref:   [book, ch, vs]  e.g. ["Prov", 1, 8]
+    Returns: list of verse dicts with 'book' key added.
+    """
+    start_book, start_ch, start_vs = start_ref
+    end_book, end_ch, end_vs = end_ref
+
+    si = BOOK_ORDER.index(start_book)
+    ei = BOOK_ORDER.index(end_book)
+    all_verses = []
+
+    for bi in range(si, ei + 1):
+        book = BOOK_ORDER[bi]
+        xml_path = str(MAM_XML_DIR / BOOK_XML[book])
+        if bi == si and bi == ei:
+            # Same book
+            s_cv = (start_ch, start_vs)
+            e_cv = (end_ch, end_vs)
+        elif bi == si:
+            s_cv = (start_ch, start_vs)
+            e_cv = BOOK_END_SENTINEL
+        elif bi == ei:
+            s_cv = BOOK_START
+            e_cv = (end_ch, end_vs)
+        else:
+            s_cv = BOOK_START
+            e_cv = BOOK_END_SENTINEL
+        verses = get_verses_in_range(xml_path, book, s_cv, e_cv)
+        for v in verses:
+            v["book"] = book
+        all_verses.extend(verses)
+
+    return all_verses
 
 
 def load_stream(path):
@@ -63,46 +113,6 @@ def check_file(path, verbose=True):
     if classes["page-end"] != 1:
         issues.append(f"Expected 1 page-end, found {classes['page-end']}")
 
-    # line-start / line-end pairing
-    if classes["line-start"] != classes["line-end"]:
-        issues.append(
-            f"line-start ({classes['line-start']}) != "
-            f"line-end ({classes['line-end']})"
-        )
-
-    # verse-start / verse-end (full verses + fragments)
-    total_vs = classes["verse-start"] + classes["verse-fragment-start"]
-    total_ve = classes["verse-end"] + classes["verse-fragment-end"]
-    vs_diff = total_vs - total_ve
-    if abs(vs_diff) > 1:
-        issues.append(
-            f"verse starts ({total_vs}) and "
-            f"verse ends ({total_ve}) differ by {vs_diff}"
-        )
-
-    # No pre-content words (before first line-start)
-    first_ls = next(
-        (i for i, x in enumerate(stream) if classify_item(x) == "line-start"),
-        None,
-    )
-    if first_ls is not None:
-        pre_words = [i for i in range(first_ls) if classify_item(stream[i]) == "word"]
-        if pre_words:
-            issues.append(f"{len(pre_words)} word(s) before first line-start")
-
-    # No post-content words (after last line-end)
-    last_le = None
-    for i, x in enumerate(stream):
-        if classify_item(x) == "line-end":
-            last_le = i
-    if last_le is not None:
-        post_words = [
-            i for i in range(last_le + 1, len(stream))
-            if classify_item(stream[i]) == "word"
-        ]
-        if post_words:
-            issues.append(f"{len(post_words)} word(s) after last line-end")
-
     # Unknown types
     for key, count in classes.items():
         if key.startswith("unknown"):
@@ -110,9 +120,11 @@ def check_file(path, verbose=True):
 
     # --- Line marker checks ---
 
-    # Collect line-start and line-end positions (stream index)
-    line_starts = {}  # (col, line-num) -> stream index
-    line_ends = {}    # (col, line-num) -> stream index
+    # Every line-start has exactly one matching line-end and vice versa
+    line_start_counts = Counter()  # (col, line-num) -> count
+    line_end_counts = Counter()
+    line_starts = {}  # (col, line-num) -> last stream index (for ordering check)
+    line_ends = {}    # (col, line-num) -> last stream index
     col_lines = {}    # col -> list of line-nums (from line-end markers)
 
     for idx, item in enumerate(stream):
@@ -120,38 +132,40 @@ def check_file(path, verbose=True):
         if cls == "line-start":
             info = item["line-start"]
             key = (info["col"], info["line-num"])
-            if key in line_starts:
-                issues.append(f"Duplicate line-start(col={key[0]}, num={key[1]})")
+            line_start_counts[key] += 1
             line_starts[key] = idx
         elif cls == "line-end":
             info = item["line-end"]
             col = info["col"]
             lnum = info["line-num"]
             key = (col, lnum)
-            if key in line_ends:
-                issues.append(f"Duplicate line-end(col={col}, num={lnum})")
+            line_end_counts[key] += 1
             line_ends[key] = idx
             if col not in col_lines:
                 col_lines[col] = []
             col_lines[col].append(lnum)
 
-    # Check that every line-start has a matching line-end and vice versa
-    start_keys = set(line_starts.keys())
-    end_keys = set(line_ends.keys())
-    for key in sorted(start_keys - end_keys):
-        issues.append(f"line-start(col={key[0]}, num={key[1]}) with no matching line-end")
-    for key in sorted(end_keys - start_keys):
-        issues.append(f"line-end(col={key[0]}, num={key[1]}) with no matching line-start")
+    all_keys = sorted(set(line_start_counts) | set(line_end_counts))
+    for key in all_keys:
+        sc = line_start_counts[key]
+        ec = line_end_counts[key]
+        if sc == 0:
+            issues.append(f"line-end(col={key[0]}, num={key[1]}) with no matching line-start")
+        elif sc > 1:
+            issues.append(f"line-start(col={key[0]}, num={key[1]}) appears {sc} times (expected 1)")
+        if ec == 0:
+            issues.append(f"line-start(col={key[0]}, num={key[1]}) with no matching line-end")
+        elif ec > 1:
+            issues.append(f"line-end(col={key[0]}, num={key[1]}) appears {ec} times (expected 1)")
 
-    # For matched pairs, check ordering (line-start should come before
-    # line-end, unless the line is empty — which is fine)
+    # Reversed-order pairs (line-end before line-start) must be truly
+    # empty (no words between them)
     empty_lines = []
-    for key in sorted(start_keys & end_keys):
+    matched_keys = sorted(set(line_starts) & set(line_ends))
+    for key in matched_keys:
         s_idx = line_starts[key]
         e_idx = line_ends[key]
         if e_idx < s_idx:
-            # line-end before line-start: verify the line is empty
-            # (no words between line-end and line-start)
             words_between = [
                 stream[i] for i in range(e_idx + 1, s_idx)
                 if classify_item(stream[i]) == "word"
@@ -164,7 +178,7 @@ def check_file(path, verbose=True):
             else:
                 empty_lines.append(key)
 
-    # Check lines per column
+    # N lines per column, numbered sequentially 1..N
     for col in sorted(col_lines.keys()):
         nums = col_lines[col]
         n = len(nums)
@@ -172,7 +186,6 @@ def check_file(path, verbose=True):
             issues.append(
                 f"Col {col}: {n} lines (expected {EXPECTED_LINES_PER_COL})"
             )
-        # Check line numbering is sequential 1..N
         expected_nums = list(range(1, n + 1))
         if nums != expected_nums:
             issues.append(
@@ -180,14 +193,37 @@ def check_file(path, verbose=True):
                 f"expected {expected_nums}"
             )
 
-    # Check that we have both columns (for poetry pages)
+    # No words before first line-start or after last line-end
+    first_ls = next(
+        (i for i, x in enumerate(stream) if classify_item(x) == "line-start"),
+        None,
+    )
+    if first_ls is not None:
+        pre_words = [i for i in range(first_ls) if classify_item(stream[i]) == "word"]
+        if pre_words:
+            issues.append(f"{len(pre_words)} word(s) before first line-start")
+
+    last_le = None
+    for i, x in enumerate(stream):
+        if classify_item(x) == "line-end":
+            last_le = i
+    if last_le is not None:
+        post_words = [
+            i for i in range(last_le + 1, len(stream))
+            if classify_item(stream[i]) == "word"
+        ]
+        if post_words:
+            issues.append(f"{len(post_words)} word(s) after last line-end")
+
+    # Both columns present (structural, but depends on col_lines built above)
     if 1 not in col_lines:
         issues.append("No col 1 line markers")
     if 2 not in col_lines:
         issues.append("No col 2 line markers")
 
-    # --- Verse continuity check ---
-    # Verify verse-start and verse-fragment-start values are well-formed
+    # --- Verse marker checks ---
+
+    # All verse identifiers are well-formed (Book C:V)
     for item in stream:
         if isinstance(item, dict):
             for key in ("verse-start", "verse-fragment-start",
@@ -198,37 +234,38 @@ def check_file(path, verbose=True):
                     if len(parts) != 2 or ":" not in parts[1]:
                         issues.append(f"Malformed {key}: {vs!r}")
 
-    # Collect verse identifiers for cross-file checking
+    # Every verse-start has exactly one matching verse-end or verse-fragment-end
+    start_counts = Counter()  # counts of verse-end/verse-fragment-end per verse ID
+    end_counts = Counter()    # counts of verse-start/verse-fragment-start per verse ID
     file_verse_starts = set()
     file_verse_ends = set()
     for item in stream:
         if isinstance(item, dict):
             if "verse-start" in item:
                 file_verse_starts.add(item["verse-start"])
+                end_counts[item["verse-start"]] += 1
+            if "verse-fragment-start" in item:
+                end_counts[item["verse-fragment-start"]] += 1
             if "verse-end" in item:
                 file_verse_ends.add(item["verse-end"])
-
-    # Every verse-start must have a matching verse-end or verse-fragment-end
-    all_end_verses = set()
-    all_start_verses = set()
-    for item in stream:
-        if isinstance(item, dict):
-            if "verse-end" in item:
-                all_end_verses.add(item["verse-end"])
+                start_counts[item["verse-end"]] += 1
             if "verse-fragment-end" in item:
-                all_end_verses.add(item["verse-fragment-end"])
-            if "verse-start" in item:
-                all_start_verses.add(item["verse-start"])
-            if "verse-fragment-start" in item:
-                all_start_verses.add(item["verse-fragment-start"])
-    for v in sorted(file_verse_starts):
-        if v not in all_end_verses:
-            issues.append(f"verse-start {v} has no matching verse-end or verse-fragment-end")
+                start_counts[item["verse-fragment-end"]] += 1
 
-    # Every verse-end must have a matching verse-start or verse-fragment-start
+    for v in sorted(file_verse_starts):
+        n = start_counts[v]
+        if n == 0:
+            issues.append(f"verse-start {v} has no matching verse-end or verse-fragment-end")
+        elif n > 1:
+            issues.append(f"verse-start {v} has {n} matching verse-end/verse-fragment-end markers (expected 1)")
+
+    # Every verse-end has exactly one matching verse-start or verse-fragment-start
     for v in sorted(file_verse_ends):
-        if v not in all_start_verses:
+        n = end_counts[v]
+        if n == 0:
             issues.append(f"verse-end {v} has no matching verse-start or verse-fragment-start")
+        elif n > 1:
+            issues.append(f"verse-end {v} has {n} matching verse-start/verse-fragment-start markers (expected 1)")
 
     # --- Word count ---
     word_count = classes.get("word", 0)
@@ -305,6 +342,81 @@ def main():
                 if s["name"] == ve_files[0]:
                     s["issues"].append(msg)
                     break
+
+    # --- Cross-file word sequence check (MAM-XML ground truth) ---
+    # Build the expected word sequence from MAM-XML for the full page range,
+    # then verify that the concatenated JSON words match a contiguous slice.
+    if len(paths) > 1:
+        index = load_index()
+        first_page = all_stats[0]["name"]
+        last_page = all_stats[-1]["name"]
+        first_range = index[first_page]
+        last_range = index[last_page]
+        # Get all verses from MAM-XML spanning the full range
+        mega_verses = _get_mega_verses(first_range[0], last_range[1])
+        mega_stream = build_flat_stream("_mega_", mega_verses)
+        mam_words = [x for x in mega_stream if isinstance(x, str)]
+
+        # Concatenate JSON words from all files in order
+        json_words = []
+        for path in paths:
+            stream = load_stream(path)
+            json_words.extend(x for x in stream if isinstance(x, str))
+
+        # JSON words should appear as a contiguous subsequence of MAM words
+        # (MAM may have extra words at start/end due to whole-verse extraction)
+        if json_words:
+            # Find where json_words[0] first appears in mam_words
+            match_start = None
+            for i in range(len(mam_words) - len(json_words) + 1):
+                if mam_words[i] == json_words[0]:
+                    match_start = i
+                    break
+            if match_start is None:
+                msg = (
+                    f"Cross-file word check: first JSON word "
+                    f"{json_words[0]!r} not found in MAM-XML stream"
+                )
+                total_issues += 1
+                all_stats[0]["issues"].append(msg)
+            else:
+                mam_slice = mam_words[match_start:match_start + len(json_words)]
+                if len(mam_slice) < len(json_words):
+                    msg = (
+                        f"Cross-file word check: JSON has {len(json_words)} words "
+                        f"but only {len(mam_words) - match_start} remain in MAM-XML "
+                        f"from match position"
+                    )
+                    total_issues += 1
+                    all_stats[-1]["issues"].append(msg)
+                else:
+                    # Compare word by word
+                    mismatches = []
+                    for j, (jw, mw) in enumerate(zip(json_words, mam_slice)):
+                        if jw != mw:
+                            mismatches.append((j, jw, mw))
+                            if len(mismatches) >= 5:
+                                break
+                    if mismatches:
+                        # Find which page the first mismatch falls in
+                        words_so_far = 0
+                        mismatch_idx = mismatches[0][0]
+                        blame_stat = all_stats[0]
+                        for s in all_stats:
+                            if words_so_far + s["words"] > mismatch_idx:
+                                blame_stat = s
+                                break
+                            words_so_far += s["words"]
+                        detail = "; ".join(
+                            f"word {j}: JSON={jw!r} MAM={mw!r}"
+                            for j, jw, mw in mismatches
+                        )
+                        msg = (
+                            f"Cross-file word check: {len(mismatches)} mismatch(es) "
+                            f"vs MAM-XML: {detail}"
+                        )
+                        total_issues += 1
+                        blame_stat["issues"].append(msg)
 
     # --- Collect unique verse-start values ---
     all_verses = set()
@@ -448,20 +560,33 @@ def main():
 {empty_rows_html}
 
 <h2>Checks Performed</h2>
+
+<h3>Structural</h3>
 <ol>
   <li>Exactly 1 <code>page-start</code> and 1 <code>page-end</code> marker per file</li>
-  <li>Every <code>line-start</code> has a matching <code>line-end</code> with the same column and line number, and vice versa</li>
-  <li>No duplicate <code>line-start</code> or <code>line-end</code> markers</li>
-  <li>{EXPECTED_LINES_PER_COL} lines per column, numbered sequentially 1\u2013{EXPECTED_LINES_PER_COL}</li>
-  <li>Both columns (1 and 2) present in every file</li>
-  <li>Total verse starts (full + fragment) and verse ends differ by at most 1</li>
-  <li>All verse identifiers are well-formed (<code>Book C:V</code>)</li>
   <li>No unknown dict types in the stream</li>
+  <li>Both columns (1 and 2) present in every file</li>
+</ol>
+
+<h3>Line markers</h3>
+<ol start="4">
+  <li>Every <code>line-start</code> has exactly one matching <code>line-end</code> (same col &amp; line number), and vice versa</li>
   <li>Reversed-order pairs (line-end before line-start) must be truly empty (no words between them)</li>
+  <li>{EXPECTED_LINES_PER_COL} lines per column, numbered sequentially 1\u2013{EXPECTED_LINES_PER_COL}</li>
   <li>No words before first <code>line-start</code> (pre-content) or after last <code>line-end</code> (post-content)</li>
+</ol>
+
+<h3>Verse markers (within-file)</h3>
+<ol start="8">
+  <li>All verse identifiers are well-formed (<code>Book C:V</code>)</li>
+  <li>Every <code>verse-start</code> has exactly one matching <code>verse-end</code> or <code>verse-fragment-end</code> in the same file, and vice versa</li>
+  <li>Every <code>verse-end</code> has exactly one matching <code>verse-start</code> or <code>verse-fragment-start</code> in the same file, and vice versa</li>
+</ol>
+
+<h3>Verse markers (cross-file)</h3>
+<ol start="11">
   <li>No full verse (<code>verse-start</code>/<code>verse-end</code>) appears in more than one file</li>
-  <li>Every <code>verse-start</code> has a matching <code>verse-end</code> or <code>verse-fragment-end</code> in the same file</li>
-  <li>Every <code>verse-end</code> has a matching <code>verse-start</code> or <code>verse-fragment-start</code> in the same file</li>
+  <li>Concatenated JSON words match the MAM-XML word sequence for the full page range</li>
 </ol>
 </body>
 </html>

@@ -776,6 +776,7 @@
       "An argument could be made that it is μL not μA that represents the consensus here. For example, the Jerusalem Crown edition, despite normally staying quite close to μA, has עולה on א in its body text and only notes in an appendix that μA has עולה on ה."
     ],
     "qr-lc-img": "0720.png",
+    "qr-aleppo-img": "Aleppo-0720.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -805,6 +806,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "0721.png",
+    "qr-aleppo-img": "Aleppo-0721.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -833,6 +835,7 @@
     "qr-bhq-comment": "This quirk is noted in $BHQ.",
     "qr-noted-by": "nBHQ-nBHL-nWLC",
     "qr-lc-img": "0801.png",
+    "qr-aleppo-img": "Aleppo-0801.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "nBHL",
@@ -859,6 +862,7 @@
       "line": 6
     },
     "qr-lc-img": "0802.png",
+    "qr-aleppo-img": "Aleppo-0802.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -888,6 +892,7 @@
     "qr-bhq-comment": "$BHQ silently ignores the possible שורוק dot.",
     "qr-noted-by": "nBHL",
     "qr-lc-img": "0807.png",
+    "qr-aleppo-img": "Aleppo-0807.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -918,6 +923,7 @@
     },
     "qr-noted-by": "nDM-nWLC",
     "qr-lc-img": "0814.png",
+    "qr-aleppo-img": "Aleppo-0814.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -1003,6 +1009,7 @@
     },
     "qr-noted-by": "tBHQ-nWLC",
     "qr-lc-img": "0906.png",
+    "qr-aleppo-img": "Aleppo-0906.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1036,6 +1043,7 @@
     "qr-noted-by": "tBHQ-zUXLC",
     "qr-uxlc-change-url": "https://tanach.us/Changes/2022.10.19%20-%20Changes/2022.10.19%20-%20Changes.xml?2022.07.05-3",
     "qr-lc-img": "0910.png",
+    "qr-aleppo-img": "Aleppo-0910.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1067,6 +1075,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "0914.png",
+    "qr-aleppo-img": "Aleppo-0914.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -1097,6 +1106,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "0930.png",
+    "qr-aleppo-img": "Aleppo-0930.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -1126,6 +1136,7 @@
       "As $DM footnote 20 mentions, this is one of three such cases, the other two being 27:9 and 34:33. In all three cases, the consensus has געיה on an initial vocal שווא notated as a חטף פתח. In μL, the געיה is on an initial פתח, a full (albeit short) syllable rather than a שווא."
     ],
     "qr-lc-img": "0935.png",
+    "qr-aleppo-img": "Aleppo-0935.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -1153,6 +1164,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL",
     "qr-lc-img": "1001.png",
+    "qr-aleppo-img": "Aleppo-1001.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -1332,6 +1344,7 @@
     "qr-noted-by": "tBHQ-zUXLC",
     "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-9",
     "qr-lc-img": "1006.png",
+    "qr-aleppo-img": "Aleppo-1006.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1361,6 +1374,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL",
     "qr-lc-img": "1015.png",
+    "qr-aleppo-img": "Aleppo-1015.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -1387,6 +1401,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nWLC",
     "qr-lc-img": "1103.png",
+    "qr-aleppo-img": "Aleppo-1103.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -1417,6 +1432,7 @@
     ],
     "qr-noted-by": "nBHQ-nBHL-nDM",
     "qr-lc-img": "1106.png",
+    "qr-aleppo-img": "Aleppo-1106.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "nBHL",
@@ -1446,6 +1462,7 @@
     ],
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "1107.png",
+    "qr-aleppo-img": "Aleppo-1107.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -1474,6 +1491,7 @@
     "qr-noted-by-mam": true,
     "qr-noted-by-uxlc": true,
     "qr-lc-img": "1113.png",
+    "qr-aleppo-img": "Aleppo-1113.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1503,6 +1521,7 @@
     ],
     "qr-noted-by": "nBHL-nDM",
     "qr-lc-img": "1203.png",
+    "qr-aleppo-img": "Aleppo-1203.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -1533,6 +1552,7 @@
       "The חולם חסר dot’s absence from μL is not important to us here."
     ],
     "qr-lc-img": "1209.png",
+    "qr-aleppo-img": "Aleppo-1209.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1566,6 +1586,7 @@
     },
     "qr-noted-by": "tBHQ-nWLC",
     "qr-lc-img": "1216.png",
+    "qr-aleppo-img": "Aleppo-1216.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1594,6 +1615,7 @@
     "qr-noted-by-mam": true,
     "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-12",
     "qr-lc-img": "1219.png",
+    "qr-aleppo-img": "Aleppo-1219.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1713,6 +1735,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "1409.png",
+    "qr-aleppo-img": "Aleppo-1409.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -1730,7 +1753,7 @@
     "qr-cv": "14:13",
     "qr-lc-proposed": "תָּ֤שִׁ֥ית",
     "qr-lc-q": "(?)",
-    "qr-what-is-weird": "maybe מרכא not געיה",
+    "qr-what-is-weird": "מרכא not געיה",
     "qr-consensus": "תָּ֤שִֽׁית",
     "qr-generic-comment": [
       {
@@ -1851,6 +1874,7 @@
     ],
     "qr-noted-by": "nWLC",
     "qr-lc-img": "1413.png",
+    "qr-aleppo-img": "Aleppo-1413.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -1880,6 +1904,7 @@
     ],
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "1508.png",
+    "qr-aleppo-img": "Aleppo-1508.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -1907,6 +1932,7 @@
     "qr-bhq-comment": "$BHQ silently ignores the possible מרכא.",
     "qr-noted-by": "nBHL",
     "qr-lc-img": "1534.png",
+    "qr-aleppo-img": "Aleppo-1534.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -1943,6 +1969,7 @@
     },
     "qr-noted-by": "tBHQ-nDM",
     "qr-lc-img": "1535.png",
+    "qr-aleppo-img": "Aleppo-1535.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -1975,6 +2002,7 @@
     ],
     "qr-noted-by": "tBHQ-nBHL",
     "qr-lc-img": "1604.png",
+    "qr-aleppo-img": "Aleppo-1604.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -2004,6 +2032,7 @@
       "As $DM footnote 25 mentions, the omission of דגש after %מה־ is common in μL. See 21:15, 34:33, and 35:7."
     ],
     "qr-lc-img": "1606.png",
+    "qr-aleppo-img": "Aleppo-1606.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -2031,6 +2060,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "1613.png",
+    "qr-aleppo-img": "Aleppo-1613.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -2060,6 +2090,7 @@
     ],
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "1620.png",
+    "qr-aleppo-img": "Aleppo-1620.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -2089,6 +2120,7 @@
       "line": 4
     },
     "qr-lc-img": "1703.png",
+    "qr-aleppo-img": "Aleppo-1703.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -2178,6 +2210,7 @@
       " the uncertainty in transcription."
     ],
     "qr-lc-img": "1704.png",
+    "qr-aleppo-img": "Aleppo-1704.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -2208,6 +2241,7 @@
     "qr-noted-by": "nBHQ",
     "qr-uxlc-needs-fix": true,
     "qr-lc-img": "1706.png",
+    "qr-aleppo-img": "Aleppo-1706.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "xBHL",
@@ -2235,6 +2269,7 @@
     "qr-noted-by": "nBHQ",
     "qr-uxlc-needs-fix": true,
     "qr-lc-img": "1711.png",
+    "qr-aleppo-img": "Aleppo-1711.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "xBHL",
@@ -2346,6 +2381,7 @@
     ],
     "qr-noted-by": "tBHQ-nBHL",
     "qr-lc-img": "1806.png",
+    "qr-aleppo-img": "Aleppo-1806.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -3499,7 +3535,7 @@
     "qr-cv": "24:21",
     "qr-lc-q": "(?)",
     "qr-lc-proposed": "רֹעֵ֣ה",
-    "qr-what-is-weird": "maybe צירה not סגול",
+    "qr-what-is-weird": "צירה not סגול",
     "qr-consensus": "רֹעֶ֣ה",
     "qr-generic-comment": [
       "Perhaps there is some very faint evidence of a third dot that would make a סגול, but this could be just wishful thinking. Note that there is a third dot above the two clearer dots, but I take that to be part of the ע that did not flake off like its neighboring ink did."

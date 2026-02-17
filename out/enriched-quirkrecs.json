@@ -951,6 +951,7 @@
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-word-id": "HVA",
     "qr-lc-img": "0816-HVA.png",
+    "qr-aleppo-img": "Aleppo-0816-HVA.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -981,6 +982,7 @@
     "qr-noted-by": "tBHQ-zmiscWLC",
     "qr-word-id": "YNQFV",
     "qr-lc-img": "0816-YNQFV.png",
+    "qr-aleppo-img": "Aleppo-0816-YNQFV.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -2310,6 +2312,7 @@
     "qr-noted-by": "nBHL-nDM",
     "qr-word-id": "HLM3N5_1_of_2_FTW",
     "qr-lc-img": "1804-HLM3N5_1_of_2_FTW.png",
+    "qr-aleppo-img": "Aleppo-1804-HLM3N5_1_of_2_FTW.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -3512,6 +3515,7 @@
     "qr-noted-by": "nBHQ",
     "qr-uxlc-needs-fix": true,
     "qr-lc-img": "2416.png",
+    "qr-aleppo-img": "Aleppo-2416.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "xBHL",
@@ -3538,6 +3542,7 @@
       "line": 19
     },
     "qr-lc-img": "2418.png",
+    "qr-aleppo-img": "Aleppo-2418.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -3571,6 +3576,7 @@
     ],
     "qr-noted-by": "nBHL-nDM",
     "qr-lc-img": "2421.png",
+    "qr-aleppo-img": "Aleppo-2421.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -3711,6 +3717,7 @@
     ],
     "qr-noted-by": "nBHL-nDM",
     "qr-lc-img": "2702.png",
+    "qr-aleppo-img": "Aleppo-2702.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -3740,6 +3747,7 @@
       "As $DM footnote 20 mentions, this is one of three such cases, the other two being 9:35 and 34:33. In all three cases, the consensus has געיה on an initial vocal שווא notated as a חטף פתח. In μL, the געיה is on an initial פתח, a full (albeit short) syllable rather than a שווא."
     ],
     "qr-lc-img": "2709.png",
+    "qr-aleppo-img": "Aleppo-2709.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -3770,6 +3778,7 @@
     "qr-noted-by": "nUXLC",
     "qr-uxlc-change-url": "https://tanach.us/Changes/2022.04.01%20-%20Changes/2022.04.01%20-%20Changes.xml?2022.02.17-3",
     "qr-lc-img": "2713.png",
+    "qr-aleppo-img": "Aleppo-2713.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -3801,6 +3810,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "2808.png",
+    "qr-aleppo-img": "Aleppo-2808.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -3827,6 +3837,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "2824.png",
+    "qr-aleppo-img": "Aleppo-2824.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -3859,6 +3870,7 @@
     ],
     "qr-noted-by": "tBHQ-zmiscWLC",
     "qr-lc-img": "2826.png",
+    "qr-aleppo-img": "Aleppo-2826.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -3885,6 +3897,7 @@
       "line": 7
     },
     "qr-lc-img": "2903.png",
+    "qr-aleppo-img": "Aleppo-2903.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -3945,6 +3958,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "2911.png",
+    "qr-aleppo-img": "Aleppo-2911.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -3974,6 +3988,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL",
     "qr-lc-img": "2919.png",
+    "qr-aleppo-img": "Aleppo-2919.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -4000,6 +4015,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3018.png",
+    "qr-aleppo-img": "Aleppo-3018.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4026,6 +4042,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3022.png",
+    "qr-aleppo-img": "Aleppo-3022.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4052,6 +4069,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3030.png",
+    "qr-aleppo-img": "Aleppo-3030.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4082,6 +4100,7 @@
       "An argument could be made that it is μL not μA that represents the consensus here. For example, the Jerusalem Crown edition, despite normally staying quite close to μA, has לגרמיה in its body text and only notes in an appendix that μA has no לגרמיה. See the $MAM documentation for this word for a list of where various manuscripts fall on this issue."
     ],
     "qr-lc-img": "3102.png",
+    "qr-aleppo-img": "Aleppo-3102.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4108,6 +4127,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3104.png",
+    "qr-aleppo-img": "Aleppo-3104.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4139,6 +4159,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "3105.png",
+    "qr-aleppo-img": "Aleppo-3105.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -4253,6 +4274,7 @@
     "qr-bhq": "מֻאֽוּם׃",
     "qr-noted-by": "nBHL-nDM-nWLC",
     "qr-lc-img": "3107.png",
+    "qr-aleppo-img": "Aleppo-3107.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -4312,6 +4334,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3119.png",
+    "qr-aleppo-img": "Aleppo-3119.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4338,6 +4361,7 @@
       "line": 10
     },
     "qr-lc-img": "3120.png",
+    "qr-aleppo-img": "Aleppo-3120.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4364,6 +4388,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3128.png",
+    "qr-aleppo-img": "Aleppo-3128.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4391,6 +4416,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "3133.png",
+    "qr-aleppo-img": "Aleppo-3133.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -4417,6 +4443,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3139.png",
+    "qr-aleppo-img": "Aleppo-3139.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4447,6 +4474,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "3206.png",
+    "qr-aleppo-img": "Aleppo-3206.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -4477,6 +4505,7 @@
     "qr-noted-by": "tBHQ-zUXLC",
     "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-40",
     "qr-lc-img": "3210.png",
+    "qr-aleppo-img": "Aleppo-3210.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4506,6 +4535,7 @@
       "As $DM footnote 32 mentions, in two cases in Job, μL omits the לגרמיה stroke before a word with געיה and רביע. The other such case is 34:33. In both cases, it looks like there may have been an erasure in between the words, where one would expect a לגרמיה to have been, if one was originally present in μL."
     ],
     "qr-lc-img": "3211.png",
+    "qr-aleppo-img": "Aleppo-3211.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4535,6 +4565,7 @@
     ],
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "3312.png",
+    "qr-aleppo-img": "Aleppo-3312.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -4595,6 +4626,7 @@
     ],
     "qr-noted-by": "nBHQ-nBHL-nDM",
     "qr-lc-img": "3330.png",
+    "qr-aleppo-img": "Aleppo-3330.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "nBHL",
@@ -4700,6 +4732,7 @@
     },
     "qr-noted-by": "tBHQ-zmiscWLC",
     "qr-lc-img": "3410.png",
+    "qr-aleppo-img": "Aleppo-3410.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4819,6 +4852,7 @@
     "qr-noted-by": "nBHL-nDM",
     "qr-word-id": "NKR0",
     "qr-lc-img": "3419-NKR0.png",
+    "qr-aleppo-img": "Aleppo-3419-NKR0.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -4846,6 +4880,7 @@
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-word-id": "JV3",
     "qr-lc-img": "3419-JV3.png",
+    "qr-aleppo-img": "Aleppo-3419-JV3.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4872,6 +4907,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3422.png",
+    "qr-aleppo-img": "Aleppo-3422.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4902,6 +4938,7 @@
     ],
     "qr-word-id": "HM3M5",
     "qr-lc-img": "3433-HM3M5.png",
+    "qr-aleppo-img": "Aleppo-3433-HM3M5.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4933,6 +4970,7 @@
     },
     "qr-word-id": "YJLMNH_1_of_2_FTW",
     "qr-lc-img": "3433-YJLMNH_1_of_2_FTW.png",
+    "qr-aleppo-img": "Aleppo-3433-YJLMNH_1_of_2_FTW.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4967,6 +5005,7 @@
     ],
     "qr-word-id": "YJLMNH_2_of_2_FTW",
     "qr-lc-img": "3433-YJLMNH_2_of_2_FTW.png",
+    "qr-aleppo-img": "Aleppo-3433-YJLMNH_2_of_2_FTW.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -4997,6 +5036,7 @@
     ],
     "qr-word-id": "VMH0YD3F",
     "qr-lc-img": "3433-VMH0YD3F.png",
+    "qr-aleppo-img": "Aleppo-3433-VMH0YD3F.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5056,6 +5096,7 @@
       "As $DM footnote 25 mentions, the omission of דגש after %מה־ is common in μL. See 16:6, 21:15, and 34:33."
     ],
     "qr-lc-img": "3507.png",
+    "qr-aleppo-img": "Aleppo-3507.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5082,6 +5123,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3514.png",
+    "qr-aleppo-img": "Aleppo-3514.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5122,6 +5164,7 @@
     },
     "qr-noted-by": "nDM",
     "qr-lc-img": "3611.png",
+    "qr-aleppo-img": "Aleppo-3611.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -5276,6 +5319,7 @@
       " to transcribe the similarly faint blob (an erasure?) right next to it under the ש."
     ],
     "qr-lc-img": "3619.png",
+    "qr-aleppo-img": "Aleppo-3619.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5358,6 +5402,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "3629.png",
+    "qr-aleppo-img": "Aleppo-3629.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -5384,6 +5429,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nWLC",
     "qr-lc-img": "3706.png",
+    "qr-aleppo-img": "Aleppo-3706.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -5414,6 +5460,7 @@
     ],
     "qr-word-id": "HVDY3NV",
     "qr-lc-img": "3719-HVDY3NV.png",
+    "qr-aleppo-img": "Aleppo-3719-HVDY3NV.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5445,6 +5492,7 @@
     "qr-uxlc-change-url": "https://tanach.us/Changes/2023.10.19%20-%20Changes/2023.10.19%20-%20Changes.xml?2023.06.10-43",
     "qr-word-id": "LA0",
     "qr-lc-img": "3719-LA0.png",
+    "qr-aleppo-img": "Aleppo-3719-LA0.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5471,6 +5519,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3720.png",
+    "qr-aleppo-img": "Aleppo-3720.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5502,6 +5551,7 @@
     "qr-noted-by": "nBHQ-nBHL-nDM-nWLC",
     "qr-word-id": "HMYMY5",
     "qr-lc-img": "3812-HMYMY5.png",
+    "qr-aleppo-img": "Aleppo-3812-HMYMY5.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "nBHL",
@@ -5696,6 +5746,7 @@
     "qr-noted-by": "nBHQ",
     "qr-uxlc-needs-fix": true,
     "qr-lc-img": "3817.png",
+    "qr-aleppo-img": "Aleppo-3817.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "xBHL",
@@ -5752,6 +5803,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3827.png",
+    "qr-aleppo-img": "Aleppo-3827.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5781,6 +5833,7 @@
       "line": 9
     },
     "qr-lc-img": "3829.png",
+    "qr-aleppo-img": "Aleppo-3829.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -5892,6 +5945,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "3902.png",
+    "qr-aleppo-img": "Aleppo-3902.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -5919,6 +5973,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "3906.png",
+    "qr-aleppo-img": "Aleppo-3906.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -5945,6 +6000,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3911.png",
+    "qr-aleppo-img": "Aleppo-3911.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -5971,6 +6027,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "3912.png",
+    "qr-aleppo-img": "Aleppo-3912.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -6004,6 +6061,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "3913.png",
+    "qr-aleppo-img": "Aleppo-3913.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -6030,6 +6088,7 @@
       "line": 14
     },
     "qr-lc-img": "3915.png",
+    "qr-aleppo-img": "Aleppo-3915.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -6057,6 +6116,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "3920.png",
+    "qr-aleppo-img": "Aleppo-3920.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -6086,6 +6146,7 @@
       "line": 26
     },
     "qr-lc-img": "3925.png",
+    "qr-aleppo-img": "Aleppo-3925.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -6114,6 +6175,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nWLC",
     "qr-lc-img": "4010.png",
+    "qr-aleppo-img": "Aleppo-4010.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -6141,6 +6203,7 @@
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-word-id": "HVA",
     "qr-lc-img": "4019-HVA.png",
+    "qr-aleppo-img": "Aleppo-4019-HVA.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -6171,6 +6234,7 @@
     ],
     "qr-word-id": "H3JV",
     "qr-lc-img": "4019-H3JV.png",
+    "qr-aleppo-img": "Aleppo-4019-H3JV.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "xBHL",
@@ -6198,6 +6262,7 @@
     },
     "qr-noted-by": "tBHQ-nBHL-nDM",
     "qr-lc-img": "4026.png",
+    "qr-aleppo-img": "Aleppo-4026.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "nBHL",
@@ -6224,6 +6289,7 @@
     },
     "qr-noted-by": "tBHQ-zdexiWLC",
     "qr-lc-img": "4029.png",
+    "qr-aleppo-img": "Aleppo-4029.png",
     "nbd": {
       "e:BHQ": "tBHQ",
       "e:BHL": "xBHL",
@@ -6253,6 +6319,7 @@
     ],
     "qr-noted-by": "nBHL",
     "qr-lc-img": "4125.png",
+    "qr-aleppo-img": "Aleppo-4125.png",
     "nbd": {
       "e:BHQ": "xBHQ",
       "e:BHL": "nBHL",
@@ -6314,6 +6381,7 @@
     "qr-noted-by": "nBHQ",
     "qr-uxlc-needs-fix": true,
     "qr-lc-img": "4213.png",
+    "qr-aleppo-img": "Aleppo-4213.png",
     "nbd": {
       "e:BHQ": "nBHQ",
       "e:BHL": "xBHL",

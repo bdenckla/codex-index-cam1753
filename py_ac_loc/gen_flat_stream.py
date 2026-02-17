@@ -62,8 +62,14 @@ def load_index():
 def get_page_verses(text_range):
     """Fetch all verses for a page from MAM-XML, handling cross-book pages.
 
-    text_range: [[book, ch, vs], [book, ch, vs]] from index-flat.json
-    Returns: list of dicts with keys: book, cv, words, ketiv_indices, parashah_after
+    Args:
+        text_range: [[book, ch, vs], [book, ch, vs]] pair from
+            index-flat.json, giving the start and end of the page’s
+            text coverage.
+
+    Returns:
+        List of verse dicts, each with keys: book, cv, words,
+        ketiv_indices, parashah_after.
     """
     start_book, start_ch, start_vs = text_range[0]
     end_book, end_ch, end_vs = text_range[1]
@@ -109,7 +115,10 @@ def _mark_group(cp):
     """Group number for Hebrew combining marks (project standard order).
 
     Only inter-group ordering is enforced. Within the accent group,
-    MAM-XML's order is accepted as-is.
+    MAM-XML’s order is accepted as-is.
+
+    Args:
+        cp: integer code point of a combining character.
     """
     if cp in (0x05C1, 0x05C2):  # shin/sin dot
         return 0
@@ -130,6 +139,11 @@ def _assert_standard_order(word, verse_label):
     Checks that no mark from a lower-numbered group appears after a mark
     from a higher-numbered group. Does NOT enforce ordering within the
     accent group (group 5).
+
+    Args:
+        word: a single Hebrew word string (base letters + combining marks).
+        verse_label: human-readable verse label (e.g. "Job 38:1") for
+            error messages.
     """
     i = 0
     while i < len(word):
@@ -161,7 +175,12 @@ def _assert_standard_order(word, verse_label):
 def build_flat_stream(page_id, verses):
     """Build the flat stream array for a page.
 
-    Returns the stream list.
+    Args:
+        page_id: leaf identifier, e.g. "270r".
+        verses: list of verse dicts as returned by get_page_verses.
+
+    Returns:
+        The flat stream list (strings and marker dicts).
     """
     stream = []
     stream.append({"page-start": page_id})
@@ -192,7 +211,12 @@ def build_flat_stream(page_id, verses):
 
 
 def write_stream(page_id, stream):
-    """Write the flat stream JSON file."""
+    """Write the flat stream JSON file.
+
+    Args:
+        page_id: leaf identifier, e.g. "270r".
+        stream: flat stream list to serialize.
+    """
     OUT_DIR.mkdir(exist_ok=True)
     out_path = OUT_DIR / f"{page_id}.json"
     out_path.write_text(

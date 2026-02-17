@@ -18,6 +18,15 @@ __all__ = ["make_ov_and_de", "make_example_row", "row_id"]
 
 
 def make_ov_and_de(quirkrecs):
+    """Build overview-row and detail-HTML for every quirkrec.
+
+    Args:
+        quirkrecs: list of enriched quirkrec dicts.
+
+    Returns:
+        Dict mapping row IDs to {"od-overview": ..., "od-details": ...}
+        sub-dicts.
+    """
     ids = sl_map(row_id, quirkrecs)
     dups = _duplicates(ids)
     assert not dups, f"Duplicate row IDs found: {dups}"

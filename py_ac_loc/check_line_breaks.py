@@ -37,9 +37,12 @@ BOOK_ORDER = ["Ps", "Job", "Prov"]
 def _get_mega_verses(start_ref, end_ref):
     """Get all verses from MAM-XML spanning a multi-book range.
 
-    start_ref: [book, ch, vs]  e.g. ["Ps", 149, 1]
-    end_ref:   [book, ch, vs]  e.g. ["Prov", 1, 8]
-    Returns: list of verse dicts with 'book' key added.
+    Args:
+        start_ref: [book, ch, vs] triple, e.g. ["Ps", 149, 1].
+        end_ref: [book, ch, vs] triple, e.g. ["Prov", 1, 8].
+
+    Returns:
+        List of verse dicts, each with a ‘book’ key added.
     """
     start_book, start_ch, start_vs = start_ref
     end_book, end_ch, end_vs = end_ref
@@ -95,7 +98,15 @@ def classify_item(item):
 
 
 def check_file(path, verbose=True):
-    """Check a single line-break JSON file. Returns list of issues."""
+    """Check a single line-break JSON file.
+
+    Args:
+        path: Path object pointing to a line-break JSON file.
+        verbose: if True, print progress and issue details to stdout.
+
+    Returns:
+        List of issue description strings (empty if no problems found).
+    """
     name = path.stem
     stream = load_stream(path)
     issues = []

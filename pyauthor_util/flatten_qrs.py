@@ -3,6 +3,13 @@ from py import my_html
 
 
 def _enrich_one_qr_by_flattening_strs(quirkrec):
+    """Flatten nested HTML content in comment fields to shrunk flat lists.
+
+    Args:
+        quirkrec: partially-enriched quirkrec dict. The fields
+            qr-what-is-weird, qr-generic-comment, and qr-bhq-comment
+            are flattened if present.
+    """
     wiw = quirkrec["qr-what-is-weird"]
     gencom = quirkrec.get("qr-generic-comment")
     bhqcom = quirkrec.get("qr-bhq-comment")

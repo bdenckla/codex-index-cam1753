@@ -154,7 +154,12 @@ def para_table(cpara_before, table_data, cparas_after=None):
 
 
 def he_en_table_wct(ti_he_en_triples):
-    """Hebrew-English table with centered titles."""
+    """Hebrew-English table with centered titles.
+
+    Args:
+        ti_he_en_triples: list of (title, hebrew, english) triples,
+            each rendered as a two-row block (title row + content row).
+    """
     args_to_table = sum_of_map(_he_en_table_wci_row_pair, ti_he_en_triples)
     return table_c(args_to_table)
 
@@ -200,7 +205,14 @@ def nothing_dash_yyy(contents):
 
 
 def consensus_to_ascii(consensus):
-    """Convert a Hebrew consensus string to an ASCII word-id."""
+    """Convert a Hebrew consensus string to an ASCII word-id.
+
+    Args:
+        consensus: Hebrew string from the qr-consensus field.
+
+    Returns:
+        ASCII transliteration suitable for use as a word identifier.
+    """
     kept = "".join(_KEEP_RE.findall(consensus))
     return kept.translate(_HEBREW_TO_OUR_CODE)
 

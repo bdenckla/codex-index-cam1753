@@ -47,9 +47,13 @@ def extract_words(stream):
 def extract_line_markers_by_word_idx(edited_stream):
     """Walk the edited stream and record line markers relative to word index.
 
+    Args:
+        edited_stream: flat stream list that may contain line-start and
+            line-end marker dicts interspersed with word strings.
+
     Returns:
-        before: dict mapping word_idx -> list of dicts to insert BEFORE that word
-        after:  dict mapping word_idx -> list of dicts to insert AFTER that word
+        before: dict mapping word_idx → list of dicts to insert BEFORE that word.
+        after: dict mapping word_idx → list of dicts to insert AFTER that word.
     """
     before = {}  # word_idx -> [marker, ...]
     after = {}   # word_idx -> [marker, ...]
@@ -82,7 +86,13 @@ def extract_line_markers_by_word_idx(edited_stream):
 
 
 def verify_words_match(orig_words, edited_words):
-    """Verify that original and edited word lists match under NFC normalization."""
+    """Verify that original and edited word lists match under NFC normalization.
+
+    Args:
+        orig_words: word list extracted from the original (pristine) stream.
+        edited_words: word list extracted from the edited stream (may have
+            been Unicode-normalized during the clipboard/browser pipeline).
+    """
     if len(orig_words) != len(edited_words):
         print(f"ERROR: Word count mismatch: original={len(orig_words)}, edited={len(edited_words)}")
         sys.exit(1)
@@ -120,7 +130,15 @@ def verify_words_match(orig_words, edited_words):
 def merge(orig_stream, edited_stream):
     """Merge line markers from edited stream into original stream.
 
-    Returns the merged stream (original strings + edited line markers).
+    Args:
+        orig_stream: the original flat stream (pristine Hebrew strings,
+            possibly with old line markers that will be stripped).
+        edited_stream: the edited flat stream containing new line-start
+            and line-end marker dicts.
+
+    Returns:
+        The merged stream: original strings with line markers from the
+        edited stream inserted at the corresponding positions.
     """
     # Strip existing line markers from original
     base_stream = [

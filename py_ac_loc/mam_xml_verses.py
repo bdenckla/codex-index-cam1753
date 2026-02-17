@@ -32,6 +32,9 @@ def get_verse_words(verse_el):
     """
     Extract the word list from a MAM-XML <verse> element.
 
+    Args:
+        verse_el: an xml.etree.ElementTree Element for a <verse>.
+
     Returns a dict:
         words: list of str — space-separated words (maqaf-connected words joined)
         ketiv_indices: list of int — indices in `words` that are ketiv (unpointed)

@@ -9,7 +9,17 @@ _INFO_ABOUT_OPTIONAL_IMAGES = [
 
 
 def get_auto_imgs(jobn_rel_top, quirkrec):
-    """Auto-detect LC, Aleppo, and Cam1753 images if files exist on disk."""
+    """Auto-detect LC, Aleppo, and Cam1753 images if files exist on disk.
+
+    Args:
+        jobn_rel_top: path to the jobn directory, relative to repo root.
+        quirkrec: quirkrec dict (must have at least qr-cv; qr-word-id
+            is used if present to form the short ID).
+
+    Returns:
+        Dict of image-field keys (e.g. "qr-lc-img", "qr-aleppo-img")
+        mapped to filename strings, for images that exist on disk.
+    """
     out = {}
     sid = short_id(quirkrec)
     out["qr-lc-img"] = f"{sid}.png"

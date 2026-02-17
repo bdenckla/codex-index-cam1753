@@ -5,9 +5,15 @@ from pycmn.my_utils import sl_map
 
 
 def dollar_sub_g(dispatch, contents):
-    """The parameter "dispatch" is a dict.
-    It maps strings like "$tsinnorit" to functions that take no
-    arguments and return an HTML element (usually a span)."""
+    """Perform dollar-sign substitution on HTML contents.
+
+    Args:
+        dispatch: dict mapping dollar-prefixed keys (e.g. "$tsinnorit")
+            to zero-argument callables that return an HTML element
+            (usually a span).
+        contents: HTML content tree (strings and nested lists) to
+            process.
+    """
     flat_1 = my_html.flatten(contents)
     assert flat_1 is not None
     _check_no_undollared(dispatch, flat_1)
@@ -15,7 +21,13 @@ def dollar_sub_g(dispatch, contents):
 
 
 def _check_no_undollared(dispatch, flat_list):
-    """Check that un-dollared identifiers don't appear in the input."""
+    """Check that un-dollared identifiers don’t appear in the input.
+
+    Args:
+        dispatch: the dollar-substitution dispatch dict (keys are
+            dollar-prefixed strings like "$tsinnorit").
+        flat_list: flattened list of strings and HTML elements to scan.
+    """
     strings = [el for el in flat_list if isinstance(el, str)]
     full_text = "".join(strings)
     for key in dispatch:

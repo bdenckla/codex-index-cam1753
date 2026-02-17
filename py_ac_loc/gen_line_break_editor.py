@@ -60,11 +60,16 @@ def load_stream(page_id):
 def _extract_words_and_markers(stream):
     """Extract word list and pre-existing line-end indices from a flat stream.
 
+    Args:
+        stream: flat stream list (strings and marker dicts) as loaded
+            from a line-break JSON file.
+
     Returns:
-        words: list of dicts describing each word/parashah token
-        line_ends: list of (word_index, col, line_num) for existing line-end markers
+        words: list of dicts describing each word/parashah token.
+        line_ends: list of (word_index, col, line_num) for existing
+            line-end markers.
         page_start_idx: word index of the first word on the page (from
-            line-start col 1 line-num 1), or None if not yet set
+            line-start col 1 line-num 1), or None if not yet set.
     """
     words = []
     line_ends = []
@@ -118,7 +123,9 @@ def _extract_words_and_markers(stream):
 def generate_editor_html(page_id, col):
     """Generate the HTML editor file for a page, cropped to a column.
 
-    col: 1 = right column (right 60%), 2 = left column (left 60%)
+    Args:
+        page_id: leaf identifier, e.g. "270r".
+        col: column number (1 = right column, 2 = left column).
     """
     stream = load_stream(page_id)
     words, line_ends, page_start_idx = _extract_words_and_markers(stream)

@@ -3,11 +3,24 @@ from pycmn.my_utils import my_groupby
 
 
 def get_qr_groups(quirkrecs):
+    """Group quirkrecs by their presentation group key.
+
+    Args:
+        quirkrecs: list of enriched quirkrec dicts (must have pgroup).
+
+    Returns:
+        Dict mapping group key strings to lists of quirkrecs.
+    """
     groups = my_groupby(quirkrecs, lambda qr: get_pgroup(qr))
     return groups
 
 
 def get_pgroup(quirkrec):
+    """Return the presentation group key for a quirkrec, or None.
+
+    Args:
+        quirkrec: dict with at least a nbd (noted-by dict) field.
+    """
     groups = [k for k, v in _FILTER_FNS.items() if v(quirkrec)]
     assert len(groups) <= 1, f"Multiple groups for {quirkrec['qr-cv']}: {groups}"
     return groups[0] if groups else None

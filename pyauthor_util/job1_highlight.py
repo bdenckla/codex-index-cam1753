@@ -7,6 +7,13 @@ __all__ = ["highlight", "color"]
 
 
 def highlight(quirkrec, key):
+    """Highlight Hebrew text clusters based on quirkrec settings.
+
+    Args:
+        quirkrec: enriched quirkrec dict.
+        key: field name to highlight (e.g. "qr-lc-proposed" or
+            "qr-consensus").
+    """
     zbhls = _zb_highlights(quirkrec, key)  # zero-based highlights
     rk = quirkrec[key]
     clusters = re.findall(r"[א-ת־ ][^א-ת־ ]*", rk)

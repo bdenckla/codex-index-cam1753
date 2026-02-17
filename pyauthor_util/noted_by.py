@@ -20,6 +20,16 @@ _EDITIONS = tuple(_DEFAULT)
 
 
 def nb_dict(quirkrec):
+    """Build the noted-by dict for a quirkrec.
+
+    Args:
+        quirkrec: dict with a qr-noted-by field (hyphen-separated
+            string like "nBHQ-nDM" or empty string).
+
+    Returns:
+        Dict mapping edition keys (e.g. "e:BHQ") to notation strings
+        (e.g. "nBHQ", "xBHQ", "tBHQ").
+    """
     nb_str = quirkrec["qr-noted-by"]
     parts = nb_str.split("-") if nb_str else []
     pairs = sl_map(_nb_pair, parts)

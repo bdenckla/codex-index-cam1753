@@ -16,6 +16,17 @@ from pycmn.my_utils import sl_map
 
 
 def get_enriched_quirkrecs(jobn_rel_top, json_outdir):
+    """Run the full raw → enriched quirkrec pipeline and write outputs.
+
+    Args:
+        jobn_rel_top: path to the jobn directory, relative to repo root
+            (used to locate image files on disk).
+        json_outdir: directory path for writing enriched-quirkrecs.json
+            and field-stats JSON files.
+
+    Returns:
+        List of fully-enriched quirkrec dicts.
+    """
     eqrs = _enrich_quirkrecs(jobn_rel_top)
     write_qr_field_stats_json(
         eqrs,
@@ -56,14 +67,22 @@ def _do_pointwise_enrichments_of_one_qr(jobn_rel_top, pe_quirkrec):
 
 
 def _enrich_one_qr_by_adding_nbd(quirkrec):
+    """Add the noted-by dict (nbd) to a quirkrec."""
     return {**quirkrec, "nbd": nb_dict(quirkrec)}
 
 
 def _enrich_one_qr_by_adding_pgroup(quirkrec):
+    """Add the presentation group key to a quirkrec."""
     return {**quirkrec, "pgroup": get_pgroup(quirkrec)}
 
 
 def _enrich_one_qr_by_adding_auto_imgs(jobn_rel_top, quirkrec):
+    """Add auto-detected image fields and assert all required images exist.
+
+    Args:
+        jobn_rel_top: path to the jobn directory, relative to repo root.
+        quirkrec: partially-enriched quirkrec dict.
+    """
     out = {**quirkrec, **get_auto_imgs(jobn_rel_top, quirkrec)}
     #
     lc_img_name = out["qr-lc-img"]
@@ -83,6 +102,15 @@ def _assert_lc_img_fields_filled(qr):
 
 
 def _enrich_quirkrecs_by_adding_word_ids(raw_quirkrecs):
+    """Add qr-word-id to quirkrecs that share a verse with another quirkrec.
+
+    Args:
+        raw_quirkrecs: list of raw quirkrec dicts (no enrichments yet).
+
+    Returns:
+        New list of quirkrec dicts, where same-verse quirkrecs gain a
+        qr-word-id field derived from their consensus string.
+    """
     by_cv = {}
     for qr in raw_quirkrecs:
         by_cv.setdefault(qr["qr-cv"], []).append(qr)

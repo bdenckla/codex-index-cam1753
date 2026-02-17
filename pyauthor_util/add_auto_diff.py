@@ -5,6 +5,12 @@ from pyauthor_util.proposed import proposed
 
 
 def _enrich_one_qr_by_adding_auto_diff(quirkrec):
+    """Add qr-auto-diff field describing how proposed differs from consensus.
+
+    Args:
+        quirkrec: partially-enriched quirkrec dict (must have
+            qr-consensus or qr-intermediate, and a proposed field).
+    """
     pro = proposed(quirkrec).replace(_CGJ, "")
     con_key, con_or_int = _con_or_int(quirkrec)
     if _ignore_g3yh_diff(quirkrec, con_key):

@@ -49,7 +49,7 @@ def write_qr_field_stats_json(quirkrecs, out_path_by_count, out_path_by_name):
     json_dump_to_file_path(output_by_name, out_path_by_name)
 
 
-def write_quirkrecs_json(quirkrecs, out_path):
+def write_enriched_quirkrecs_json(quirkrecs, out_path):
     """
     Write a JSON file containing all quirkrecs data.
 

@@ -53,7 +53,7 @@ python main_gen_word_crop_editor.py --all              # all missing
 ```
 
 The script:
-1. Loads each quirkrec from `pyauthor_util/job_quirkrecs.py`
+1. Loads each enriched quirkrec from `out/enriched-quirkrecs.json`
 2. Locates the consensus word in the line-break data via
    `py_ac_word_image_helper/linebreak_search.py`
 3. Computes pixel coordinates from column-coordinate data

@@ -17,7 +17,7 @@ gh issue view <number> --json title,body
 
 ## 2. Look up the quirkrec
 
-Search `out/quirkrecs.json` for the verse (e.g. `"qr-cv": "6:17"`). Note:
+Search `out/enriched-quirkrecs.json` for the verse (e.g. `"qr-cv": "6:17"`). Note:
 - **`qr-consensus`**: the consensus reading (what Aleppo is expected to match)
 - **`qr-lc-proposed`**: what μL (Leningrad Codex) has instead
 - **`qr-what-is-weird`**: short description of the difference

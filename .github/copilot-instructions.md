@@ -52,7 +52,7 @@ When reading or modifying Python source files in this project:
 from pyauthor_qr.qr_0119 import RECORD_0119
 ```
 
-**Reading quirkrecs data:** Prefer loading `out/quirkrecs.json` over importing the Python constant `QUIRKRECS` from `pyauthor_util.job_quirkrecs`. The JSON has enriched fields like `qr-word-id` (which disambiguates multiple quirkrecs in the same verse) and `qr-aleppo-img`. The Python constant lacks these.
+**Reading quirkrecs data:** Prefer loading `out/enriched-quirkrecs.json` over importing `RAW_QUIRKRECS` from `pyauthor_util.job_quirkrecs`. The JSON has enriched fields like `qr-word-id` (which disambiguates multiple quirkrecs in the same verse) and `qr-aleppo-img`. `RAW_QUIRKRECS` lacks these. When iterating enriched quirkrecs, use `eqr` as the loop variable (not `qr`) to make the distinction clear.
 
 **Writing/modifying Python (preserving comments):** Use **LibCST** when comments must be preserved:
 
@@ -83,7 +83,7 @@ LibCST preserves comments, whitespace, and formatting. Install with `pip install
 
 Both approaches guarantee syntactically valid output. Avoid fragile regex-based or string-based text replacements.
 
-**Output JSON:** `out/quirkrecs.json` contains all quirkrecs as JSON. Regenerate with:
+**Output JSON:** `out/enriched-quirkrecs.json` contains all enriched quirkrecs as JSON. Regenerate with:
 ```
 python main_gen_misc_authored_english_documents.py
 ```

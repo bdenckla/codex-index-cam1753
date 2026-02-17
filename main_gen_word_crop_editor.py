@@ -41,8 +41,8 @@ from py_ac_word_image_helper.hebrew_metrics import (
 from py_ac_word_image_helper.linebreak_search import find_word_in_linebreaks
 from pyauthor_util.short_id_etc import short_id
 
-with open(ROOT / "out" / "quirkrecs.json", encoding="utf-8") as _f:
-    QUIRKRECS = json.load(_f)
+with open(ROOT / "out" / "enriched-quirkrecs.json", encoding="utf-8") as _f:
+    EQRS = json.load(_f)
 
 
 # ── Process a single quirkrec ──────────────────────────────────────────
@@ -664,32 +664,32 @@ def main():
     examples = []
     if use_all:
         # Every quirkrec missing an aleppo image
-        for qr in QUIRKRECS:
-            sid = short_id(qr)
+        for eqr in EQRS:
+            sid = short_id(eqr)
             img_path = ROOT / "docs" / "jobn" / "img" / f"Aleppo-{sid}.png"
             if not os.path.exists(img_path):
-                examples.append(qr)
+                examples.append(eqr)
     elif cli_sids:
         # Use SIDs from command line
-        for qr in QUIRKRECS:
-            sid = short_id(qr)
+        for eqr in EQRS:
+            sid = short_id(eqr)
             if sid in cli_sids:
-                examples.append(qr)
+                examples.append(eqr)
     else:
         target_sids = {
             "0119", "0303", "0701", "1503", "2001", "3001", "3820", "4003",
         }
-        for qr in QUIRKRECS:
-            sid = short_id(qr)
+        for eqr in EQRS:
+            sid = short_id(eqr)
             if sid in target_sids:
-                examples.append(qr)
+                examples.append(eqr)
         # Pad to at least 4 if some targets were not found
         if len(examples) < 4:
-            for qr in QUIRKRECS:
-                sid = short_id(qr)
+            for eqr in EQRS:
+                sid = short_id(eqr)
                 img_path = ROOT / "docs" / "jobn" / "img" / f"Aleppo-{sid}.png"
-                if not os.path.exists(img_path) and qr not in examples:
-                    examples.append(qr)
+                if not os.path.exists(img_path) and eqr not in examples:
+                    examples.append(eqr)
                     if len(examples) >= 6:
                         break
 

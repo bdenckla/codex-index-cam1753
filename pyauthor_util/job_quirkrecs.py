@@ -159,7 +159,7 @@ from pyauthor_qr.qr_4125 import RECORD_4125
 from pyauthor_qr.qr_4210 import RECORD_4210
 from pyauthor_qr.qr_4213 import RECORD_4213
 
-QUIRKRECS = [
+RAW_QUIRKRECS = [
     RECORD_0119,
     RECORD_0121,
     RECORD_0303,

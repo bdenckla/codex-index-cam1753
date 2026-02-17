@@ -7,24 +7,29 @@ from pyauthor_util.short_id_etc import short_id
 from pyauthor_util.noted_by import nb_dict
 from pyauthor_util.flatten_qrs import flatten_strings_in_one_qr
 from pyauthor_util.get_qr_groups import get_pgroup
-from pyauthor_util.job_quirkrecs import QUIRKRECS
+from pyauthor_util.job_quirkrecs import RAW_QUIRKRECS
 from pyauthor_util.qr_make_json_outputs import (
     write_qr_field_stats_json,
-    write_quirkrecs_json,
+    write_enriched_quirkrecs_json,
 )
 from pycmn.my_utils import sl_map
 
 
 def prep_quirkrecs(jobn_rel_top, json_outdir):
-    qrs_4 = _add_word_ids(QUIRKRECS)
-    qrs_5 = sorted(qrs_4, key=_sort_key)
-    qrs_6 = sl_map((_prep_one_quirkrec, jobn_rel_top), qrs_5)
+    eqrs = _enrich_quirkrecs(jobn_rel_top)
     write_qr_field_stats_json(
-        qrs_6,
+        eqrs,
         f"{json_outdir}/qr-field-stats-ordered-by-count.json",
         f"{json_outdir}/qr-field-stats-ordered-by-field-name.json",
     )
-    write_quirkrecs_json(qrs_6, f"{json_outdir}/quirkrecs.json")
+    write_enriched_quirkrecs_json(eqrs, f"{json_outdir}/enriched-quirkrecs.json")
+    return eqrs
+
+
+def _enrich_quirkrecs(jobn_rel_top):
+    qrs_4 = _add_word_ids(RAW_QUIRKRECS)
+    qrs_5 = sorted(qrs_4, key=_sort_key)
+    qrs_6 = sl_map((_prep_one_quirkrec, jobn_rel_top), qrs_5)
     return qrs_6
 
 

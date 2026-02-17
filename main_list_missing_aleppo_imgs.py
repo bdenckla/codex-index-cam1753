@@ -19,23 +19,23 @@ import sys
 from pyauthor_util.short_id_etc import short_id
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-with open(os.path.join(ROOT, "out", "quirkrecs.json"), encoding="utf-8") as _f:
-    QUIRKRECS = json.load(_f)
+with open(os.path.join(ROOT, "out", "enriched-quirkrecs.json"), encoding="utf-8") as _f:
+    EQRS = json.load(_f)
 IMG_DIR = os.path.join(ROOT, "docs", "jobn", "img")
 
 
 def get_done_and_missing():
     done = []
     missing = []
-    for qr in QUIRKRECS:
-        sid = short_id(qr)
+    for eqr in EQRS:
+        sid = short_id(eqr)
         img_path = os.path.join(IMG_DIR, f"Aleppo-{sid}.png")
-        has_aleppo_key = bool(qr.get("qr-aleppo-img"))
+        has_aleppo_key = bool(eqr.get("qr-aleppo-img"))
         if os.path.exists(img_path) or has_aleppo_key:
             done.append(sid)
         else:
-            cv = qr.get("qr-cv", "?")
-            consensus = qr.get("qr-consensus", "?")
+            cv = eqr.get("qr-cv", "?")
+            consensus = eqr.get("qr-consensus", "?")
             missing.append((sid, cv, consensus))
     return done, missing
 

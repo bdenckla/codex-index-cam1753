@@ -165,14 +165,7 @@ def find_and_preview(word, cv, pages, scale=2):
     overlay_arr[:, :, 1] = fade_color[1]
     overlay_arr[:, :, 2] = fade_color[2]
     overlay_arr[:, :, 3] = alpha_arr
-    overlay = Image.fromarray(overlay_arr, "RGBA")
-
-    crop = Image.alpha_composite(crop, overlay)
-
-    # Save version without red lines
-    label = f"Job_{cv.replace(':', '_')}"
-    out_path = OUT_DIR / f"preview_{label}.png"
-    crop.save(out_path)
+    yellow_overlay = Image.fromarray(overlay_arr, "RGBA")
 
     # Build red-lines overlay: fading top/bottom lines with center tick marks
     red_overlay = Image.new("RGBA", crop.size, (0, 0, 0, 0))
@@ -193,11 +186,26 @@ def find_and_preview(word, cv, pages, scale=2):
     tick = min(12, (box_bot - box_top) // 4)
     draw.line([(cx, box_top), (cx, box_top + tick)], fill=(255, 0, 0, 255), width=2)
     draw.line([(cx, box_bot - tick), (cx, box_bot)], fill=(255, 0, 0, 255), width=2)
-    crop_red = Image.alpha_composite(crop, red_overlay)
-    out_path_red = OUT_DIR / f"preview_{label}_red.png"
-    crop_red.save(out_path_red)
 
-    print(f"  Saved: {out_path.name} + {out_path_red.name} ({crop.width}x{crop.height})")
+    # Save 4 image variants (all combinations of yellow/red)
+    label = f"Job_{cv.replace(':', '_')}"
+    # 1. Raw (no overlays)
+    raw_path = OUT_DIR / f"preview_{label}_raw.png"
+    crop.save(raw_path)
+    # 2. Yellow only
+    crop_y = Image.alpha_composite(crop, yellow_overlay)
+    y_path = OUT_DIR / f"preview_{label}.png"
+    crop_y.save(y_path)
+    # 3. Red only
+    crop_r = Image.alpha_composite(crop, red_overlay)
+    r_path = OUT_DIR / f"preview_{label}_red.png"
+    crop_r.save(r_path)
+    # 4. Yellow + red
+    crop_yr = Image.alpha_composite(crop_y, red_overlay)
+    yr_path = OUT_DIR / f"preview_{label}_yr.png"
+    crop_yr.save(yr_path)
+
+    print(f"  Saved: 4 variants as preview_{label}_*.png ({crop.width}x{crop.height})")
 
     # Word context from the manuscript line
     before = line_words[:word_idx]
@@ -256,15 +264,26 @@ body {{ background: #222; color: #eee; font-family: sans-serif; padding: 20px; }
 <body>
 <h1>Aleppo Codex Word Preview</h1>
 <p>Yellow fade marks surrounding lines; clear band = target line.</p>
-<p><button id="toggle-red" onclick="toggleRed()">Hide red position lines</button></p>
+<p>
+<button id="toggle-yellow" onclick="toggleYellow()">Hide yellow fade</button>
+<button id="toggle-red" onclick="toggleRed()">Hide red position lines</button>
+</p>
 <script>
+let showYellow = true;
 let showRed = true;
+function pickSrc(img) {{
+  const key = (showYellow ? 'y' : '') + (showRed ? 'r' : '');
+  img.src = img.dataset[key || 'raw'];
+}}
+function toggleYellow() {{
+  showYellow = !showYellow;
+  document.getElementById('toggle-yellow').textContent = showYellow ? 'Hide yellow fade' : 'Show yellow fade';
+  document.querySelectorAll('.crop-img').forEach(pickSrc);
+}}
 function toggleRed() {{
   showRed = !showRed;
   document.getElementById('toggle-red').textContent = showRed ? 'Hide red position lines' : 'Show red position lines';
-  document.querySelectorAll('.crop-img').forEach(img => {{
-    img.src = img.dataset[showRed ? 'red' : 'plain'];
-  }});
+  document.querySelectorAll('.crop-img').forEach(pickSrc);
 }}
 </script>
 <div class="preview">
@@ -272,7 +291,7 @@ function toggleRed() {{
 <p class="meta">Page {r["page"]}, col {r["col"]}, line {r["line_num"]}, word {r["word_idx"] + 1}</p>
 <div class="crop-box">
 <p class="context"><span class="before">{before_html}</span> <span class="target">{target_display}</span> <span class="after">{after_html}</span></p>
-<img class="crop-img" src="preview_{label}_red.png" data-plain="preview_{label}.png" data-red="preview_{label}_red.png">
+<img class="crop-img" src="preview_{label}_yr.png" data-raw="preview_{label}_raw.png" data-y="preview_{label}.png" data-r="preview_{label}_red.png" data-yr="preview_{label}_yr.png">
 </div>
 </div>
 </body></html>

@@ -35,6 +35,7 @@ def find_word_in_linebreaks(page_id, ch, v, consensus):
     # First pass: find which col+line the word is on.
     target_col = None
     target_line = None
+    match_count = 0  # count matches to detect ambiguity
     # For maqaf-joined consensus, track the index of the first part
     recent_words = []  # buffer of recent words for maqaf joining
     for item in stream:
@@ -60,8 +61,10 @@ def find_word_in_linebreaks(page_id, ch, v, consensus):
                 or (consensus.endswith(MAQAF) and item_stripped == strip_heb(consensus[:-1]))
             )
             if matched:
-                target_col, target_line = cur_col, cur_line
-                break
+                match_count += 1
+                if match_count == 1:
+                    target_col, target_line = cur_col, cur_line
+                continue
 
             # Try joining recent maqaf-ending words with the current word
             if consensus_has_maqaf:
@@ -70,11 +73,19 @@ def find_word_in_linebreaks(page_id, ch, v, consensus):
                 joined = "".join(recent_words)
                 joined_stripped = strip_heb(joined)
                 if joined_stripped == consensus_stripped or joined == consensus:
-                    target_col, target_line = cur_col, cur_line
-                    break
+                    match_count += 1
+                    if match_count == 1:
+                        target_col, target_line = cur_col, cur_line
+                    continue
                 # If joined doesn't start the consensus, trim from the left
                 while recent_words and not consensus_stripped.startswith(strip_heb("".join(recent_words))):
                     recent_words.pop(0)
+
+    if match_count > 1:
+        raise ValueError(
+            f"Ambiguous: {match_count} matches for {consensus!r} "
+            f"(stripped: {consensus_stripped!r}) in {verse_label} on page {page_id}"
+        )
 
     if target_col is None:
         return None, None, None, []

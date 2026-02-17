@@ -47,6 +47,7 @@ def process_quirkrec(qr, pages, scale=2):
     sid = short_id(qr)
     cv = qr["qr-cv"]
     consensus = qr["qr-consensus"]
+    lb_word = qr.get("qr-consensus-ketiv", consensus)
     ch, v = (int(x) for x in cv.split(":"))
 
     print(f"\n=== {sid} (Job {cv}): {consensus} ===")
@@ -57,7 +58,7 @@ def process_quirkrec(qr, pages, scale=2):
         return
     print(f"  Page: {page_id}")
 
-    col, line_num, word_idx, line_words = find_word_in_linebreaks(page_id, ch, v, consensus)
+    col, line_num, word_idx, line_words = find_word_in_linebreaks(page_id, ch, v, lb_word)
     if col is None:
         print(f"  ERROR: Could not find word in line-break data")
         return

@@ -5,12 +5,13 @@ import unicodedata
 
 
 def strip_heb(s):
-    """Strip cantillation marks and vowels from Hebrew text for matching."""
+    """Strip cantillation marks, vowels, and format chars from Hebrew text for matching."""
     out = []
     for ch in s:
         cat = unicodedata.category(ch)
-        # Keep letters (Lo) and punctuation (Po for maqaf etc.), skip Mn (marks)
-        if cat != "Mn":
+        # Keep letters (Lo) and punctuation (Po for maqaf etc.),
+        # skip Mn (marks) and Cf (format chars like ZWJ U+200D)
+        if cat not in ("Mn", "Cf"):
             out.append(ch)
     return "".join(out)
 

@@ -45,8 +45,9 @@ Place any temporary generated files (scripts, HTML reports, debugging output, et
 
 **Running Black:** From the repo top directory, run:
 ```
-.venv\Scripts\python.exe -m black **/*.py
+.venv\Scripts\python.exe -m black .
 ```
+Black respects `.gitignore` by default, so this covers all tracked Python files without needing an explicit glob.
 
 ## Installing Python Packages
 

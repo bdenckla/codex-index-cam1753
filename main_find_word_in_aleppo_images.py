@@ -68,7 +68,7 @@ def find_and_preview(word, cv, pages, scale=2):
     if col is None:
         print(f"  ERROR: Could not find word in line-break data")
         return None
-    print(f"  Location: col {col}, line {line_num}, word {word_idx}")
+    print(f"  Location: col {col}, line {line_num}, word {word_idx + 1}")
     print(f"  Line: {' '.join(line_words)}")
 
     # Get crop coordinates (at full image size)
@@ -269,7 +269,7 @@ function toggleRed() {{
 </script>
 <div class="preview">
 <h2>Job {r["cv"]} \u2014 {r["word"]}</h2>
-<p class="meta">Page {r["page"]}, col {r["col"]}, line {r["line_num"]}, word {r["word_idx"]}</p>
+<p class="meta">Page {r["page"]}, col {r["col"]}, line {r["line_num"]}, word {r["word_idx"] + 1}</p>
 <div class="crop-box">
 <p class="context"><span class="before">{before_html}</span> <span class="target">{target_display}</span> <span class="after">{after_html}</span></p>
 <img class="crop-img" src="preview_{label}_red.png" data-plain="preview_{label}.png" data-red="preview_{label}_red.png">

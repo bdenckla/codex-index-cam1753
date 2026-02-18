@@ -175,6 +175,11 @@ see `.github/copilot-instructions-aleppo-word-crops.md`.
 To add or modify comments on quirkrec entries (e.g., noting μA/μL observations),
 see `.github/copilot-instructions-quirkrec-comments.md`.
 
+## μL (Leningrad) Cropping Help
+
+When the user needs to crop a word from the Leningrad Codex (μL) Sefaria image,
+see `.github/copilot-instructions-leningrad-crops.md`.
+
 ## Opening HTML Files
 
 When displaying an HTML file that only uses local/relative resources (images, CSS, etc.), open it directly as a file (`Start-Process "path/to/file.html"`) rather than starting a local HTTP server. Only use a server when the page requires it (e.g., fetching from external APIs with CORS restrictions, or serving content that browsers block via `file://`).

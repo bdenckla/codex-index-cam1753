@@ -421,6 +421,8 @@ function toggleCol() {{
     const labels = {{1: '1 (right)', 2: '2 (left)'}};
     document.getElementById('colLabel').textContent = labels[currentColNum];
     document.getElementById('colBtnNum').textContent = currentColNum === 1 ? 2 : 1;
+    // Scroll image panel to top on column switch
+    document.getElementById('imagePanel').scrollTop = 0;
 }}
 
 function toggleCropMode() {{
@@ -554,6 +556,14 @@ function toggleLineEnd(idx) {{
     }}
     recalcLineNums();
     render();
+
+    // Auto-switch to col 2 when col 1 reaches 26 line-ends
+    if (currentColNum === 1) {{
+        const col1Count = [...lineEndMap.values()].filter(v => v.col === 1).length;
+        if (col1Count >= 26) {{
+            toggleCol();
+        }}
+    }}
 }}
 
 function addBlankLine(wordIdx) {{

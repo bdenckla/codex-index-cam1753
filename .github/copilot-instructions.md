@@ -135,6 +135,10 @@ To add line-break markers for an Aleppo Codex page:
 
 **Do NOT** paste the exported JSON into the chat window — that causes Unicode NFC normalization of Hebrew text. Pasting directly into the file preserves the original byte sequences and avoids the need for `merge_line_markers.py`.
 
+## MAM with Doc URLs
+
+See [copilot-instructions-mam-with-doc.md](.github/copilot-instructions-mam-with-doc.md) for how to construct URLs to the MAM with Doc online Hebrew Bible viewer (book codes, verse fragments, examples).
+
 ## Opening HTML Files
 
 When displaying an HTML file that only uses local/relative resources (images, CSS, etc.), open it directly as a file (`Start-Process "path/to/file.html"`) rather than starting a local HTTP server. Only use a server when the page requires it (e.g., fetching from external APIs with CORS restrictions, or serving content that browsers block via `file://`).

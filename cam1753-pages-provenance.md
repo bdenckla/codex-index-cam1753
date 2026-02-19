@@ -14,3 +14,24 @@ Source: Cambridge University Library and the "Ktiv" Project, The National Librar
 The manuscript may be publicised for educational and research purposes.
 Attribution of the manuscript's source is required in any use of the item.
 The item may not be used for commercial purposes.
+
+## Page-split naming convention
+
+The archive.org images are two-page spreads (the codex photographed while
+open). Each spread shows the verso (B side) of one leaf on the right and
+the recto (A side) of the next leaf on the left — as if the codex is
+actually spread open.
+
+The split files in `cam1753-page-splits/` are named `{leaf:04d}{side}.jpg`
+where side is `A` (recto) or `B` (verso). The leaf number is derived from
+the numbering visible on the left page of each spread:
+
+- The left page of archive page N bears leaf number N − 4.
+- The right page is the verso of the preceding leaf, i.e. leaf N − 5.
+
+For example, archive page 0077 yields `0072B.jpg` (right) and `0073A.jpg`
+(left).
+
+The leaf numbers on the manuscript pages appear both in Western Arabic
+numerals written in pencil (e.g. "73") and in Hebrew numerals
+(e.g. "עג").

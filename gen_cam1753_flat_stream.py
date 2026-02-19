@@ -89,14 +89,26 @@ def find_prev_page_endpoint(prev_page_path):
     """
     data = json.loads(Path(prev_page_path).read_text("utf-8"))
 
-    # Walk backwards to find last word and its verse context
-    last_word_idx = None
+    # Find the boundary of actual page content: last line-end marker.
+    # The flat stream may include lead-out words beyond the page, so we
+    # must restrict our search to words within the line-break region.
+    last_line_end_idx = None
     for i in range(len(data) - 1, -1, -1):
+        if isinstance(data[i], dict) and "line-end" in data[i]:
+            last_line_end_idx = i
+            break
+
+    if last_line_end_idx is None:
+        raise ValueError(f"No line-end markers found in {prev_page_path}")
+
+    # Walk backwards from the last line-end to find the last word on the page
+    last_word_idx = None
+    for i in range(last_line_end_idx, -1, -1):
         if isinstance(data[i], str):
             last_word_idx = i
             break
     if last_word_idx is None:
-        raise ValueError(f"No words found in {prev_page_path}")
+        raise ValueError(f"No words found before last line-end in {prev_page_path}")
 
     # Find the verse this word belongs to (look backwards for verse-start
     # or verse-fragment-start)
@@ -215,6 +227,11 @@ def next_verse(book, cv):
 
 
 def main():
+    # Check for --force flag anywhere in args
+    force = "--force" in sys.argv
+    if force:
+        sys.argv = [a for a in sys.argv if a != "--force"]
+
     # --chain mode: read previous page, auto-determine start
     if len(sys.argv) >= 4 and sys.argv[2] == "--chain":
         page_id = sys.argv[1]
@@ -279,13 +296,33 @@ def main():
 
     OUT_DIR.mkdir(exist_ok=True)
     out_path = OUT_DIR / f"{page_id}.json"
+
+    if out_path.exists() and not force:
+        print(f"ERROR: {out_path} already exists. Use --force to overwrite.")
+        sys.exit(1)
+
+    word_count = sum(1 for x in stream if isinstance(x, str))
+    verse_count = sum(1 for x in stream if isinstance(x, dict) and "verse-start" in x)
+
+    # Sanity check: a full cam1753 page needs at least ~300 words (the
+    # smallest completed page, 0072B, has 303 and that is a partial page).
+    # Full pages have at least 306.  Require 300 as a floor.
+    MIN_WORDS = 300
+    if word_count < MIN_WORDS:
+        print(
+            f"  WARNING: only {word_count} words generated (minimum {MIN_WORDS}).\n"
+            f"  The end-point verse is probably too close to the start.\n"
+            f"  Try a later end verse (e.g. +3 chapters)."
+        )
+        if out_path.exists():
+            out_path.unlink()
+            print(f"  Removed {out_path} — re-run with a later end verse.")
+        sys.exit(1)
+
     out_path.write_text(
         json.dumps(stream, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-
-    word_count = sum(1 for x in stream if isinstance(x, str))
-    verse_count = sum(1 for x in stream if isinstance(x, dict) and "verse-start" in x)
     print(f"  -> {out_path.name}: {verse_count} verses, {word_count} words")
 
 

@@ -320,6 +320,39 @@ h1 button:hover {{ background: #1177bb; }}
     color: #c44;
     background: #3a2020;
 }}
+#syncIndicator {{
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    font-family: monospace;
+    padding: 2px 8px;
+    border-radius: 3px;
+    vertical-align: middle;
+}}
+#syncIndicator.on {{
+    background: #264f2a;
+    color: #4ec94e;
+}}
+#syncIndicator.off {{
+    background: #3a2a2a;
+    color: #666;
+}}
+.sync-fade-top {{
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+    left: 0;
+    right: 0;
+}}
+.sync-fade-bottom {{
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+    left: 0;
+    right: 0;
+}}
 
 </style>
 </head>
@@ -329,12 +362,15 @@ h1 button:hover {{ background: #1177bb; }}
     <button onclick="exportJSON()">Export</button>
     <button id="colBtn" onclick="toggleCol()">Go to col <span id="colBtnNum">{other_col}</span></button>
     <button id="cropBtn" onclick="toggleCropMode()">Full page</button>
+    <span id="syncIndicator" class="on">sync: ON [s]</span>
     <span id="status"></span>
 </h1>
 <div class="container" id="container">
     <div class="col-words" id="wordsPanel"></div>
     <div class="divider" id="divider"></div>
     <div class="col-image" id="imagePanel">
+        <div id="fadeTop" class="sync-fade-top"></div>
+        <div id="fadeBottom" class="sync-fade-bottom"></div>
         <img id="pageImg" src="{image_url}" alt="cam1753 {page_id}">
     </div>
 </div>
@@ -345,6 +381,7 @@ const MAQAF = '\\u05BE';
 const quadData = {quad_json};
 
 let cropMode = 'col';  // 'col' (cropped to column) or 'full' (full page)
+let syncMode = true;
 
 const allWords = {words_json};
 const preExistingLineEnds = {line_ends_json};
@@ -421,8 +458,134 @@ function toggleCol() {{
     const labels = {{1: '1 (right)', 2: '2 (left)'}};
     document.getElementById('colLabel').textContent = labels[currentColNum];
     document.getElementById('colBtnNum').textContent = currentColNum === 1 ? 2 : 1;
-    // Scroll image panel to top on column switch
-    document.getElementById('imagePanel').scrollTop = 0;
+    if (syncMode) {{
+        applySyncScroll();
+    }} else {{
+        document.getElementById('imagePanel').scrollTop = 0;
+    }}
+}}
+
+function toggleSyncMode() {{
+    syncMode = !syncMode;
+    const ind = document.getElementById('syncIndicator');
+    ind.className = syncMode ? 'on' : 'off';
+    ind.textContent = syncMode ? 'sync: ON [s]' : 'sync: off [s]';
+    if (syncMode) {{
+        applySyncScroll();
+    }} else {{
+        document.getElementById('fadeTop').style.display = 'none';
+        document.getElementById('fadeBottom').style.display = 'none';
+    }}
+}}
+
+function getNextLineNum(col) {{
+    // Count line-ends for the given column (including blank lines)
+    const colEnds = [...lineEndMap.values()].filter(v => v.col === col);
+    if (colEnds.length === 0) return 1;
+    const maxLine = Math.max(...colEnds.map(v => v.lineNum));
+    // Add blank lines after the last line-end
+    const lastEndIdx = [...lineEndMap.entries()]
+        .filter(([_, v]) => v.col === col && v.lineNum === maxLine)
+        .map(([k, _]) => k)[0];
+    const blanksAfterLast = blankLinesAfter.get(lastEndIdx) || 0;
+    return maxLine + blanksAfterLast + 1;
+}}
+
+function getLineYRange(col, lineNum) {{
+    // Interpolate the Y range for a line within the column quad.
+    // 26 lines span from top to bottom of the column.
+    const q = getColQuad(col);
+    const topY = (q.tl[1] + q.tr[1]) / 2;
+    const botY = (q.bl[1] + q.br[1]) / 2;
+    const lineH = (botY - topY) / 26;
+    const y0 = topY + (lineNum - 1) * lineH;
+    const y1 = topY + lineNum * lineH;
+    return {{ y0, y1, topY, botY, lineH }};
+}}
+
+function applySyncScroll() {{
+    if (!syncMode) return;
+    const col = currentColNum;
+    const nextLine = getNextLineNum(col);
+    const fadeTop = document.getElementById('fadeTop');
+    const fadeBot = document.getElementById('fadeBottom');
+
+    if (nextLine > 26) {{
+        // Column is done
+        fadeTop.style.display = 'none';
+        fadeBot.style.display = 'none';
+        return;
+    }}
+
+    const {{ y0, y1, lineH }} = getLineYRange(col, nextLine);
+    const img = document.getElementById('pageImg');
+    const panel = document.getElementById('imagePanel');
+
+    // Position the fade overlays around the target line.
+    // Buffer of 0.25 line-heights above and below the line.
+    requestAnimationFrame(() => {{
+        const imgRect = img.getBoundingClientRect();
+        const panelRect = panel.getBoundingClientRect();
+        const imgNatH = img.naturalHeight || 3072;
+        const imgNatW = img.naturalWidth || 2200;
+        const imgAR = imgNatH / imgNatW;
+
+        const imgDispW = imgRect.width;
+        const imgDispH = imgDispW * imgAR;
+
+        // Clear zone: line ± 0.25 line-height buffer
+        const buf = lineH * 0.25;
+        const clearTop = (y0 - buf) * imgDispH;
+        const clearBot = (y1 + buf) * imgDispH;
+        const lineHpx = lineH * imgDispH;
+
+        const imgTopInPanel = imgRect.top - panelRect.top + panel.scrollTop;
+
+        // Build a gradient that goes from transparent (at the clear-zone
+        // edge) to full darkness in ~1 line-height, matching the power-
+        // curve fade from the Aleppo word finder: (dist/range)^0.6
+        // Approximate with 4 stops over 1 line-height.
+        const dk = 'rgba(0,0,0,0.6)';
+        const makeGrad = (dir, totalH) => {{
+            if (totalH <= 0) return dk;
+            // stops at 0%, 25%, 50%, 75%, 100% of 1 lineH from the
+            // transparent edge, expressed as px from that edge
+            const s = Math.min(lineHpx, totalH);  // fade span
+            const p = (frac) => {{
+                const alpha = Math.pow(frac, 0.6) * 0.6;
+                return `rgba(0,0,0,${{alpha.toFixed(3)}})`;
+            }};
+            // Stops from opaque end to transparent end
+            const pcts = [
+                `${{dk}} 0px`,
+                `${{dk}} ${{Math.max(0, totalH - s).toFixed(1)}}px`,
+                `${{p(0.75)}} ${{(totalH - s * 0.25).toFixed(1)}}px`,
+                `${{p(0.5)}} ${{(totalH - s * 0.5).toFixed(1)}}px`,  // was unused
+                `rgba(0,0,0,0) ${{totalH.toFixed(1)}}px`,
+            ];
+            return `linear-gradient(${{dir}}, ${{pcts.join(', ')}})`;
+        }};
+
+        // Top fade: from image top to clear zone top
+        const topH = Math.max(0, clearTop);
+        fadeTop.style.display = 'block';
+        fadeTop.style.top = imgTopInPanel + 'px';
+        fadeTop.style.height = topH + 'px';
+        fadeTop.style.background = makeGrad('to bottom', topH);
+
+        // Bottom fade: from clear zone bottom to image bottom
+        const botH = Math.max(0, imgDispH - clearBot);
+        fadeBot.style.display = 'block';
+        fadeBot.style.top = (imgTopInPanel + clearBot) + 'px';
+        fadeBot.style.height = botH + 'px';
+        fadeBot.style.background = makeGrad('to top', botH);
+
+        // Scroll panel to center the clear zone
+        const clearMid = imgTopInPanel + (clearTop + clearBot) / 2;
+        const panelH = panelRect.height;
+        const targetScroll = clearMid - panelH / 2;
+        panel.scrollTop = Math.max(0, targetScroll);
+    }});
 }}
 
 function toggleCropMode() {{
@@ -433,22 +596,21 @@ function toggleCropMode() {{
 }}
 
 function recalcLineNums() {{
-    const byCols = {{}};
+    // Sort all line-ends by word index (flat order).
+    // First 26 (accounting for blank lines) → col 1, rest → col 2.
     const sorted = [...lineEndMap.entries()].sort((a, b) => a[0] - b[0]);
-    sorted.forEach(([idx, info]) => {{
-        if (!byCols[info.col]) byCols[info.col] = [];
-        byCols[info.col].push(idx);
+    let flatLine = 1;  // 1-based flat line counter across both columns
+    sorted.forEach(([idx, _]) => {{
+        const col = flatLine <= 26 ? 1 : 2;
+        const lineNum = flatLine <= 26 ? flatLine : flatLine - 26;
+        const entry = lineEndMap.get(idx);
+        entry.col = col;
+        entry.lineNum = lineNum;
+        flatLine++;
+        // Account for blank lines after this line-end
+        const blanks = blankLinesAfter.get(idx) || 0;
+        flatLine += blanks;
     }});
-    for (const col in byCols) {{
-        let lineNum = 1;
-        byCols[col].forEach((idx) => {{
-            lineEndMap.get(idx).lineNum = lineNum;
-            lineNum++;
-            // Account for blank lines after this line-end
-            const blanks = blankLinesAfter.get(idx) || 0;
-            lineNum += blanks;
-        }});
-    }}
 }}
 
 function render() {{
@@ -551,19 +713,24 @@ function toggleLineEnd(idx) {{
         blankLinesAfter.delete(idx);  // remove any blank lines too
         lineEndMap.delete(idx);
     }} else {{
-        const col = currentCol();
-        lineEndMap.set(idx, {{col: col, lineNum: 0}});
+        // Col and lineNum will be assigned by recalcLineNums
+        lineEndMap.set(idx, {{col: 0, lineNum: 0}});
     }}
     recalcLineNums();
     render();
 
-    // Auto-switch to col 2 when col 1 reaches 26 line-ends
+    // Auto-switch to col 2 when col 1 has 26 lines filled
     if (currentColNum === 1) {{
         const col1Count = [...lineEndMap.values()].filter(v => v.col === 1).length;
-        if (col1Count >= 26) {{
+        const col1Blanks = [...lineEndMap.entries()]
+            .filter(([_, v]) => v.col === 1)
+            .reduce((sum, [k, _]) => sum + (blankLinesAfter.get(k) || 0), 0);
+        if (col1Count + col1Blanks >= 26) {{
             toggleCol();
+            return;  // toggleCol calls applySyncScroll
         }}
     }}
+    applySyncScroll();
 }}
 
 function addBlankLine(wordIdx) {{
@@ -766,6 +933,7 @@ function exportJSON() {{
 
 render();
 applyImageCrop();
+applySyncScroll();
 
 // Auto-scroll: if editing col 2 and col 1 markers exist, scroll to
 // show the last col 1 line-end
@@ -782,6 +950,15 @@ if (currentColNum === 2) {{
         }}
     }}
 }}
+
+// Keyboard shortcut: 's' to toggle sync mode
+document.addEventListener('keydown', (e) => {{
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 's' || e.key === 'S') {{
+        e.preventDefault();
+        toggleSyncMode();
+    }}
+}});
 
 // --- Resizable divider ---
 (function() {{

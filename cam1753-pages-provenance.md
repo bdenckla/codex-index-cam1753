@@ -22,7 +22,7 @@ open). Each spread shows the verso (B side) of one leaf on the right and
 the recto (A side) of the next leaf on the left — as if the codex is
 actually spread open.
 
-The split files in `cam1753-page-splits/` are named `{leaf:04d}{side}.jpg`
+The split files in `cam1753-pages/` are named `{leaf:04d}{side}.jpg`
 where side is `A` (recto) or `B` (verso). The leaf number is derived from
 the numbering visible on the left page of each spread:
 

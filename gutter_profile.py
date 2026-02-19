@@ -10,7 +10,7 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-IMG_DIR = "cam1753-pages"
+IMG_DIR = "cam1753-spreads"
 files = sorted(f for f in os.listdir(IMG_DIR) if f.endswith(".jpg"))
 
 fig, axes = plt.subplots(len(files), 1, figsize=(14, 2.2 * len(files)),

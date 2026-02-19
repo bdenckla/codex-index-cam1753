@@ -12,8 +12,8 @@ import os
 import numpy as np
 from PIL import Image
 
-SPREAD_DIR = "cam1753-pages"
-OUT_DIR = "cam1753-page-splits"
+SPREAD_DIR = "cam1753-spreads"
+OUT_DIR = "cam1753-pages"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Offset: archive page number minus left-page leaf number

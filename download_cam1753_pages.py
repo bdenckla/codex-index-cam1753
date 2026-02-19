@@ -2,7 +2,7 @@
 import os
 from urllib.request import urlopen, Request
 
-OUT_DIR = os.path.join(os.path.dirname(__file__), "cam1753-pages")
+OUT_DIR = os.path.join(os.path.dirname(__file__), "cam1753-spreads")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 BASE_URL = (

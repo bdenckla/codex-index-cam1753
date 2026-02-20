@@ -585,7 +585,32 @@ function applySyncScroll() {{
         const panelH = panelRect.height;
         const targetScroll = clearMid - panelH / 2;
         panel.scrollTop = Math.max(0, targetScroll);
+
+        // Scroll the words panel to center on the next line's start word
+        syncWordsPanel(col);
     }});
+}}
+
+function syncWordsPanel(col) {{
+    // Find the first word of the next unmarked line: it's the word
+    // right after the last line-end in flat order for this column.
+    const sorted = [...lineEndMap.entries()]
+        .filter(([_, v]) => v.col === col)
+        .sort((a, b) => a[0] - b[0]);
+    let targetIdx;
+    if (sorted.length === 0) {{
+        // No line-ends yet — target is the first word (or pageStartIdx)
+        targetIdx = pageStartIdx !== null ? pageStartIdx : 0;
+    }} else {{
+        const lastEndIdx = sorted[sorted.length - 1][0];
+        targetIdx = lastEndIdx + 1;
+    }}
+    const el = document.querySelector(`.word[data-idx="${{targetIdx}}"]`);
+    if (!el) return;
+    const wp = document.getElementById('wordsPanel');
+    const wpH = wp.clientHeight;
+    // Scroll so the target word is vertically centered
+    wp.scrollTop = el.offsetTop - wpH / 2;
 }}
 
 function toggleCropMode() {{

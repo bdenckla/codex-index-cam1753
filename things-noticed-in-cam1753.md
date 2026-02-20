@@ -4,3 +4,4 @@
 - Job 10:14: לא has מונח in MAM; has מקף rather than מונח in cam1753.
 - Job 19:21: כי has מקף in cam1753.
 - Job 21:28: אהל no פסק.
+- Job 32:11: last word seems to end in a final mem not a final nun, i.e. seems to be מלים in cam1753.

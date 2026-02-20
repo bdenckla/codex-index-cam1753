@@ -599,8 +599,20 @@ function syncWordsPanel(col) {{
         .sort((a, b) => a[0] - b[0]);
     let targetIdx;
     if (sorted.length === 0) {{
-        // No line-ends yet — target is the first word (or pageStartIdx)
-        targetIdx = pageStartIdx !== null ? pageStartIdx : 0;
+        if (col > 1) {{
+            // Starting a new column: target the word after the last
+            // line-end of any earlier column.
+            const prevEnds = [...lineEndMap.entries()]
+                .filter(([_, v]) => v.col < col)
+                .sort((a, b) => a[0] - b[0]);
+            if (prevEnds.length > 0) {{
+                targetIdx = prevEnds[prevEnds.length - 1][0] + 1;
+            }} else {{
+                targetIdx = pageStartIdx !== null ? pageStartIdx : 0;
+            }}
+        }} else {{
+            targetIdx = pageStartIdx !== null ? pageStartIdx : 0;
+        }}
     }} else {{
         const lastEndIdx = sorted[sorted.length - 1][0];
         targetIdx = lastEndIdx + 1;
@@ -608,9 +620,13 @@ function syncWordsPanel(col) {{
     const el = document.querySelector(`.word[data-idx="${{targetIdx}}"]`);
     if (!el) return;
     const wp = document.getElementById('wordsPanel');
-    const wpH = wp.clientHeight;
-    // Scroll so the target word is vertically centered
-    wp.scrollTop = el.offsetTop - wpH / 2;
+    // Use getBoundingClientRect to correctly compute position within
+    // the scrollable panel (offsetTop is relative to offsetParent,
+    // which may be <body> rather than the words panel).
+    const elRect = el.getBoundingClientRect();
+    const wpRect = wp.getBoundingClientRect();
+    const elTopInWp = elRect.top - wpRect.top + wp.scrollTop;
+    wp.scrollTop = elTopInWp - wp.clientHeight / 2;
 }}
 
 function toggleCropMode() {{
@@ -971,7 +987,10 @@ if (currentColNum === 2) {{
         const el = document.querySelector(`.word[data-idx="${{lastCol1Idx}}"]`);
         if (el) {{
             const panel = document.getElementById('wordsPanel');
-            panel.scrollTop = el.offsetTop - 40;
+            const elRect = el.getBoundingClientRect();
+            const wpRect = panel.getBoundingClientRect();
+            const elTopInWp = elRect.top - wpRect.top + panel.scrollTop;
+            panel.scrollTop = elTopInWp - 40;
         }}
     }}
 }}

@@ -4,17 +4,25 @@
 Uses the column-mean brightness profile to find the gutter (darkest
 vertical stripe in the central 20% of the image), then splits there.
 
-Naming convention (see cam1753-pages-provenance.md):
+Naming convention (see cam1753-spreads-provenance.md):
   archive page 0077  →  right half = 0072B,  left half = 0073A
   i.e. left_leaf = archive_page − 4;  right_leaf = left_leaf − 1
+
+Produces per-spread documentation JSON files in cam1753-spread-splits-doc/
+recording the detected gutter position, spread dimensions, and output page
+names so the split can be reproduced or audited without re-running the
+gutter finder.
 """
+import json
 import os
 import numpy as np
 from PIL import Image
 
 SPREAD_DIR = "cam1753-spreads"
 OUT_DIR = "cam1753-pages"
+DOC_DIR = "cam1753-spread-splits-doc"
 os.makedirs(OUT_DIR, exist_ok=True)
+os.makedirs(DOC_DIR, exist_ok=True)
 
 # Offset: archive page number minus left-page leaf number
 ARCHIVE_TO_LEFT_LEAF_OFFSET = 4
@@ -31,6 +39,7 @@ def find_gutter(img_gray):
 
 
 files = sorted(f for f in os.listdir(SPREAD_DIR) if f.endswith(".jpg"))
+all_splits = []
 
 for fname in files:
     # Extract archive page number from filename like "cam1753-page-0077.jpg"
@@ -56,7 +65,46 @@ for fname in files:
     left_half.save(left_path, quality=95)
     right_half.save(right_path, quality=95)
 
+    # Record split documentation
+    split_record = {
+        "spread_file": fname,
+        "archive_page": archive_page,
+        "spread_width": img.width,
+        "spread_height": img.height,
+        "gutter_x": gutter_x,
+        "left_page": {
+            "file": left_name,
+            "leaf": left_leaf,
+            "side": "A",
+            "width": left_half.size[0],
+            "height": left_half.size[1],
+        },
+        "right_page": {
+            "file": right_name,
+            "leaf": right_leaf,
+            "side": "B",
+            "width": right_half.size[0],
+            "height": right_half.size[1],
+        },
+    }
+    all_splits.append(split_record)
+
+    # Write per-spread JSON
+    doc_path = os.path.join(
+        DOC_DIR, fname.replace(".jpg", ".json")
+    )
+    with open(doc_path, "w", encoding="utf-8") as f:
+        json.dump(split_record, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
     print(f"{fname}  gutter@{gutter_x}  →  {left_name} ({left_half.size[0]}x{left_half.size[1]})"
           f"  +  {right_name} ({right_half.size[0]}x{right_half.size[1]})")
 
+# Write combined summary
+summary_path = os.path.join(DOC_DIR, "_all-splits.json")
+with open(summary_path, "w", encoding="utf-8") as f:
+    json.dump(all_splits, f, indent=2, ensure_ascii=False)
+    f.write("\n")
+
 print(f"\nDone. {len(files)} spreads → {len(files) * 2} pages in {OUT_DIR}/")
+print(f"Split docs written to {DOC_DIR}/ ({len(all_splits)} per-spread + 1 summary)")

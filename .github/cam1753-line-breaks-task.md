@@ -51,7 +51,21 @@ Run in background. Required because browsers block `file://` cross-origin image 
 | Page   | Start verse       | End verse (fragment) |
 |--------|-------------------|----------------------|
 | 0072B  | Ps 149:7          | Job 1:16 (mid)       |
-| 0073A  | (in progress)     |                      |
+| 0073A  | Job 1:16 (mid)    | Job 3:19 (mid)       |
+| 0073B  | Job 3:19 (mid)    | Job 5:16 (mid)       |
+| 0074A  | Job 5:16 (mid)    | Job 6:29 (mid)       |
+| 0074B  | Job 6:29 (mid)    | Job 8:6 (mid)        |
+| 0075A  | Job 8:6 (mid)     | Job 9:31 (mid)       |
+| 0075B  | Job 9:31 (mid)    | Job 11:19 (mid)      |
+| 0076A  | Job 11:19 (mid)   | Job 13:18 (mid)      |
+| 0076B  | Job 13:18 (mid)   | Job 15:10 (mid)      |
+| 0077A  | Job 15:10 (mid)   | Job 16:16 (mid)      |
+| 0077B  | Job 16:16 (mid)   | Job 19:3 (mid)       |
+| 0078A  | Job 19:3 (mid)    | Job 20:18 (mid)      |
+| 0078B  | Job 20:18 (mid)   | Job 21:32 (mid)      |
+| 0079A  | Job 21:32 (mid)   | Job 23:14 (mid)      |
+| 0079B  | Job 23:14 (mid)   | Job 25:6 (mid)       |
+| 0080A  | Job 26:10 (mid)   | Job 28:17 (mid)      |
 
 ## Procedure: Marking Line Breaks Page by Page
 
@@ -65,8 +79,8 @@ Run in background. Required because browsers block `file://` cross-origin image 
 3. Generate and open the editor (always start with col 1):
    ```
    .venv\Scripts\python.exe gen_cam1753_line_break_editor.py 0072B 1
-   Start-Process ".novc\cam1753_lb_editor_0072B_col1.html"
    ```
+   The script writes the HTML and opens it in the browser automatically.
 4. In the editor: right-click the actual first word on the page to set page-start (if the flat stream includes earlier words from the same verse). Click the last word of each line to mark line-ends. Click line numbers to add blank lines (for masorah notes, inter-book gaps, etc. — any line without verse content). Use the col toggle to switch between columns.
 5. Click **Export** → paste directly into `cam1753-line-breaks/<page_id>.json`.
 6. **Do NOT** paste the exported JSON into the chat window — that causes Unicode NFC normalization of Hebrew text.
@@ -81,18 +95,26 @@ Run in background. Required because browsers block `file://` cross-origin image 
 2. Generate and open the editor:
    ```
    .venv\Scripts\python.exe gen_cam1753_line_break_editor.py 0073A 1
-   Start-Process ".novc\cam1753_lb_editor_0073A_col1.html"
    ```
 3. Mark line breaks, export, paste into file (same as bootstrapping steps 4-6).
 
 ### Important notes
 
-- **Never overwrite a line-breaks JSON file** that already has marked data without backing it up first. The flat stream generator writes to the same file.
+- **The flat stream generator refuses to overwrite** existing files. Use `--force` to overwrite deliberately.
+- **Minimum word count**: The generator requires at least 300 words. If it rejects, use a later end verse.
 - **Always use `.venv\Scripts\python.exe`** — never bare `python`.
 - **Never use `python -c "..."`** one-liners — always create a script in `.novc/` per the general copilot instructions.
 - The editor loads images from `http://localhost:8119/cam1753-pages/` — the local HTTP server must be running.
 - Col 1 = right column (read first), Col 2 = left column. The editor has a toggle button to switch.
-- "Blank lines" are lines without verse content (masorah notes, decorations between books, etc.), not necessarily visually empty.
+- “Blank lines” are lines without verse content (masorah notes, decorations between books, etc.), not necessarily visually empty.
+
+### Editor features
+
+- **Sync mode** (on by default, toggle with `s` key): highlights the next line to mark in the image panel using a reverse-highlight fade, and scrolls both image and words panels to track progress.
+- **Auto-switch**: when col 1 reaches 26 line-ends, automatically switches to col 2.
+- **Flat-order line numbering**: line numbers are assigned from a single flat counter across both columns (1–26 = col 1, 27–52 = col 2). Inserting or removing a line-end in col 1 correctly shifts col 2 numbering.
+- **Crop toggle**: switch between column-cropped and full-page image view.
+- **Resizable divider**: drag the divider between words and image panels.
 
 ## Key Files
 

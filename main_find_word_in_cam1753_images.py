@@ -19,270 +19,28 @@ Example:
 
 import json
 import sys
-import unicodedata
 import webbrowser
 from pathlib import Path
 
-import numpy as np
 from PIL import Image, ImageDraw
+
+from py_cam1753_word_image.crop import compute_fade_overlay, estimate_word_position
+from py_cam1753_word_image.hebrew_metrics import SPACE_WIDTH, join_maqaf
+from py_cam1753_word_image.linebreak_search import (
+    find_word_in_linebreaks as _find_word_in_linebreaks,
+)
+from py_cam1753_word_image.page import (
+    LB_DIR,
+    find_page_for_verse,
+    get_line_bbox,
+    load_page_image,
+)
 
 ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / ".novc"
-LB_DIR = ROOT / "cam1753-line-breaks"
-QUAD_DIR = ROOT / "cam1753-col-quads"
-IMG_DIR = ROOT / "cam1753-pages"
+SERVER_PORT = 8753  # assumed to be running: python -m http.server 8753 -d .novc
 
 MAQAF = "\u05be"
-LINES_PER_COL = 26
-
-
-# ---------------------------------------------------------------------------
-# Hebrew text helpers (inlined from py_ac_word_image_helper)
-# ---------------------------------------------------------------------------
-
-
-def strip_heb(s):
-    """Strip cantillation marks, vowels, and format chars for matching."""
-    return "".join(
-        ch for ch in s if unicodedata.category(ch) not in ("Mn", "Cf")
-    )
-
-
-def join_maqaf(words):
-    """Join maqaf-ending words with the following word. Returns new list."""
-    result = []
-    for w in words:
-        if result and result[-1].endswith(MAQAF):
-            result[-1] = result[-1] + w
-        else:
-            result.append(w)
-    return result
-
-
-# Proportional Hebrew character widths (relative to average = 1.0).
-_HEB_W = {
-    "\u05d9": 0.4, "\u05d5": 0.5, "\u05df": 0.5,
-    "\u05d6": 0.6, "\u05d2": 0.7, "\u05e8": 0.7, "\u05da": 0.7, "\u05e3": 0.7,
-    "\u05d1": 0.85, "\u05d3": 0.85, "\u05d4": 0.9, "\u05db": 0.85,
-    "\u05dc": 0.7, "\u05e0": 0.7, "\u05e2": 0.9, "\u05e4": 0.9,
-    "\u05e5": 0.8, "\u05e6": 0.8, "\u05e7": 0.9, "\u05ea": 0.9,
-    "\u05d0": 1.0, "\u05d7": 1.0, "\u05d8": 1.0, "\u05de": 1.0,
-    "\u05e1": 1.0, "\u05e9": 1.1, "\u05dd": 1.1,
-    "\u05be": 0.6, "\u05c0": 0.3, "\u05c3": 0.3, ":": 0.3,
-}
-SPACE_WIDTH = 0.5
-
-
-def _word_width(word):
-    w = 0.0
-    for ch in word:
-        if unicodedata.category(ch) == "Mn":
-            continue
-        w += _HEB_W.get(ch, 0.85)
-    return w
-
-
-def _line_widths(words):
-    ws = [_word_width(w) for w in words]
-    return ws, sum(ws) + SPACE_WIDTH * max(0, len(words) - 1)
-
-
-# ---------------------------------------------------------------------------
-# Page and verse lookup
-# ---------------------------------------------------------------------------
-
-
-def find_page_for_verse(book, ch, v):
-    """Scan cam1753-line-breaks/ to find the page containing
-    <book> <ch>:<v>.  Returns page_id or None."""
-    target = f"{book} {ch}:{v}"
-    for path in sorted(LB_DIR.glob("*.json")):
-        stream = json.loads(path.read_text("utf-8"))
-        # Check if this page has the verse with actual words inside
-        # line-start/line-end regions (not just empty verse markers).
-        in_verse = False
-        in_lb = False
-        has_words_in_lb = False
-        for item in stream:
-            if isinstance(item, dict):
-                if "line-start" in item:
-                    in_lb = True
-                if "line-end" in item:
-                    in_lb = False
-                vs = item.get("verse-start") or item.get("verse-fragment-start")
-                ve = item.get("verse-end") or item.get("verse-fragment-end")
-                if vs == target:
-                    in_verse = True
-                if ve == target:
-                    in_verse = False
-            elif isinstance(item, str) and in_verse and in_lb:
-                has_words_in_lb = True
-                break
-        if has_words_in_lb:
-            return path.stem
-    return None
-
-
-def find_word_in_linebreaks(page_id, book, ch, v, consensus):
-    """Find a word in cam1753 line-break data.
-
-    Returns (col, line_num, word_index_in_line, line_words).
-    """
-    lb_path = LB_DIR / f"{page_id}.json"
-    stream = json.loads(lb_path.read_text("utf-8"))
-
-    verse_label = f"{book} {ch}:{v}"
-    in_verse = False
-    cur_col = cur_line = None
-    consensus_stripped = strip_heb(consensus)
-    consensus_has_maqaf = MAQAF in consensus
-
-    target_col = target_line = None
-    match_count = 0
-    recent_words = []
-
-    for item in stream:
-        if isinstance(item, dict):
-            if item.get("verse-start") == verse_label or \
-               item.get("verse-fragment-start") == verse_label:
-                in_verse = True
-                recent_words = []
-                continue
-            if item.get("verse-end") == verse_label or \
-               item.get("verse-fragment-end") == verse_label:
-                in_verse = False
-                continue
-            if "line-start" in item:
-                cur_col = item["line-start"]["col"]
-                cur_line = item["line-start"]["line-num"]
-                continue
-        elif isinstance(item, str) and in_verse:
-            item_stripped = strip_heb(item)
-            matched = (
-                item == consensus
-                or item_stripped == consensus_stripped
-                or (consensus.endswith(MAQAF)
-                    and item_stripped == strip_heb(consensus[:-1]))
-            )
-            if matched:
-                match_count += 1
-                if match_count == 1:
-                    target_col, target_line = cur_col, cur_line
-                continue
-            if consensus_has_maqaf:
-                recent_words.append(item)
-                joined = "".join(recent_words)
-                if strip_heb(joined) == consensus_stripped or joined == consensus:
-                    match_count += 1
-                    if match_count == 1:
-                        target_col, target_line = cur_col, cur_line
-                    continue
-                while recent_words and not consensus_stripped.startswith(
-                    strip_heb("".join(recent_words))
-                ):
-                    recent_words.pop(0)
-
-    if match_count > 1:
-        raise ValueError(
-            f"Ambiguous: {match_count} matches for {consensus!r} in "
-            f"{verse_label} on page {page_id}"
-        )
-    if target_col is None:
-        return None, None, None, []
-
-    # Collect all words on the target line
-    in_target = False
-    line_words = []
-    for item in stream:
-        if isinstance(item, dict):
-            if "line-start" in item:
-                ls = item["line-start"]
-                if ls["col"] == target_col and ls["line-num"] == target_line:
-                    in_target = True
-                    line_words = []
-                continue
-            if "line-end" in item and in_target:
-                break
-        elif isinstance(item, str) and in_target:
-            line_words.append(item)
-
-    # Find word index within the line
-    target_idx = None
-    for i, w in enumerate(line_words):
-        if (w == consensus or strip_heb(w) == consensus_stripped
-                or (consensus.endswith(MAQAF)
-                    and strip_heb(w) == strip_heb(consensus[:-1]))):
-            target_idx = i
-            break
-        if consensus_has_maqaf and w.endswith(MAQAF):
-            joined = w
-            for j in range(i + 1, len(line_words)):
-                joined += line_words[j]
-                if strip_heb(joined) == consensus_stripped or joined == consensus:
-                    target_idx = i
-                    break
-                if not line_words[j].endswith(MAQAF):
-                    break
-            if target_idx is not None:
-                break
-
-    return target_col, target_line, target_idx, line_words
-
-
-# ---------------------------------------------------------------------------
-# Quad-based geometry
-# ---------------------------------------------------------------------------
-
-
-def get_line_bbox(page_id, col, line_num, buffer_lines=2):
-    """Get pixel bounding box for a line using quad coordinates.
-
-    Returns (crop_left, crop_top, crop_right, crop_bot,
-             target_offset_from_crop_top, line_spacing_px).
-    """
-    qpath = QUAD_DIR / f"{page_id}.json"
-    qdata = json.loads(qpath.read_text("utf-8"))
-    img_w, img_h = qdata["image_size"]
-
-    col_key = f"col{col}"
-    px = qdata["columns"][col_key]["px"]
-    tl, tr, bl, br = px["tl"], px["tr"], px["bl"], px["br"]
-
-    # Line spacing: average height of column / 26 lines
-    col_h = ((bl[1] + br[1]) - (tl[1] + tr[1])) / 2
-    ls = col_h / LINES_PER_COL
-
-    # Interpolate top-left/right of the target line
-    frac = (line_num - 1) / LINES_PER_COL
-    frac_bot = line_num / LINES_PER_COL
-    line_top_l = tl[1] + (bl[1] - tl[1]) * frac
-    line_top_r = tr[1] + (br[1] - tr[1]) * frac
-    line_bot_l = tl[1] + (bl[1] - tl[1]) * frac_bot
-    line_bot_r = tr[1] + (br[1] - tr[1]) * frac_bot
-    line_top = min(line_top_l, line_top_r)
-    line_bot = max(line_bot_l, line_bot_r)
-
-    # Column x extents (with margin)
-    col_left = min(tl[0], bl[0])
-    col_right = max(tr[0], br[0])
-    margin_x = int((col_right - col_left) * 0.05)
-
-    crop_top = max(0, int(line_top - buffer_lines * ls))
-    crop_bot = min(img_h, int(line_bot + buffer_lines * ls))
-    crop_left = max(0, col_left - margin_x)
-    crop_right = min(img_w, col_right + margin_x)
-
-    target_offset = int(line_top - crop_top)
-    return crop_left, crop_top, crop_right, crop_bot, target_offset, int(ls)
-
-
-def load_page_image(page_id):
-    """Load a cam1753 page image from the local cam1753-pages/ directory."""
-    path = IMG_DIR / f"{page_id}.jpg"
-    if not path.exists():
-        print(f"  ERROR: image not found: {path}")
-        sys.exit(1)
-    return Image.open(path)
 
 
 # ---------------------------------------------------------------------------
@@ -305,8 +63,8 @@ def find_and_preview(word, book, cv):
         return None
     print(f"  Page: {page_id}")
 
-    col, line_num, word_idx, line_words = find_word_in_linebreaks(
-        page_id, book, ch, v, word
+    col, line_num, word_idx, line_words = _find_word_in_linebreaks(
+        LB_DIR, page_id, book, ch, v, word
     )
     if col is None:
         print(f"  ERROR: Could not find word in line-break data")
@@ -326,54 +84,20 @@ def find_and_preview(word, book, cv):
     highlight_top = target_offset
     highlight_bot = target_offset + ls
 
-    # Estimate horizontal word position (RTL: word 0 is at right edge)
-    word_ws, total_width = _line_widths(line_words)
-    if total_width > 0:
-        width_before = sum(word_ws[:word_idx]) + SPACE_WIDTH * word_idx
-        width_target = word_ws[word_idx] if word_idx < len(word_ws) else 0
-        frac_start = width_before / total_width
-        frac_end = (width_before + width_target) / total_width
-        buffer = 0.15
-        frac_left = max(0, frac_start - buffer)
-        frac_right = min(1, frac_end + buffer)
-        highlight_right = int(crop.width * (1 - frac_left))
-        highlight_left = int(crop.width * (1 - frac_right))
-    else:
-        highlight_left = 0
-        highlight_right = crop.width
+    # Estimate horizontal word position
+    highlight_left, highlight_right = estimate_word_position(
+        line_words, word_idx, crop.width
+    )
 
     # 2D fade overlay
-    h, w = crop.height, crop.width
-    fade_color = (200, 180, 60)
-    max_alpha = 200
-
-    vert_fade = np.zeros(h, dtype=np.float64)
-    for y in range(h):
-        if y < highlight_top:
-            vert_fade[y] = ((highlight_top - y) / max(highlight_top, 1)) ** 0.6
-        elif y > highlight_bot:
-            vert_fade[y] = ((y - highlight_bot) / max(h - highlight_bot, 1)) ** 0.6
-
-    horiz_fade = np.zeros(w, dtype=np.float64)
-    for x in range(w):
-        if x < highlight_left:
-            horiz_fade[x] = ((highlight_left - x) / max(highlight_left, 1)) ** 0.6
-        elif x > highlight_right:
-            horiz_fade[x] = ((x - highlight_right) / max(w - highlight_right, 1)) ** 0.6
-
-    combined = np.maximum(
-        vert_fade[:, np.newaxis], horiz_fade[np.newaxis, :]
+    yellow_overlay = compute_fade_overlay(
+        crop.width, crop.height,
+        highlight_left, highlight_right,
+        highlight_top, highlight_bot,
     )
-    alpha_arr = (combined * max_alpha).clip(0, 255).astype(np.uint8)
-
-    overlay_arr = np.zeros((h, w, 4), dtype=np.uint8)
-    overlay_arr[:, :, 0] = fade_color[0]
-    overlay_arr[:, :, 1] = fade_color[1]
-    overlay_arr[:, :, 2] = fade_color[2]
-    overlay_arr[:, :, 3] = alpha_arr
-    yellow_overlay = Image.fromarray(overlay_arr, "RGBA")
 
     # Red position lines
+    h, w = crop.height, crop.width
     red_overlay = Image.new("RGBA", crop.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(red_overlay)
     half_ls = ls // 2
@@ -413,7 +137,7 @@ def find_and_preview(word, book, cv):
     after = line_words[word_idx + 1:] if word_idx + 1 < len(line_words) else []
     print(f"  Context: {' '.join(before)} [{matched_word}] {' '.join(after)}")
 
-    # Initial bounding box in relative (0–1) coords for the crop editor
+    # Initial bounding box in relative (0\u20131) coords for the crop editor
     half_ls_box = ls // 2
     init_box_top = max(0, highlight_top - half_ls_box)
     init_box_bot = min(h - 1, highlight_bot + half_ls_box)
@@ -994,7 +718,9 @@ async function downloadCrop() {{
 </body></html>
 """)
     print(f"\nHTML: {html_path}")
-    webbrowser.open(str(html_path))
+    url = f"http://127.0.0.1:{SERVER_PORT}/{html_path.name}"
+    print(f"Opening {url}")
+    webbrowser.open(url)
 
 
 def main():

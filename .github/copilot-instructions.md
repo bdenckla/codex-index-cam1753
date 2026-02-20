@@ -141,7 +141,11 @@ See [copilot-instructions-mam-with-doc.md](.github/copilot-instructions-mam-with
 
 ## Opening HTML Files
 
-When displaying an HTML file that only uses local/relative resources (images, CSS, etc.), open it directly as a file (`Start-Process "path/to/file.html"`) rather than starting a local HTTP server. Only use a server when the page requires it (e.g., fetching from external APIs with CORS restrictions, or serving content that browsers block via `file://`).
+For the **interactive crop/preview editors** (`main_find_word_in_cam1753_images.py` and the cam1753 crop editor in book-of-job), always serve over HTTP via the built-in `serve_and_open()` helper. These editors use `navigator.clipboard`, `canvas.toBlob()`, and cross-origin image access, all of which require a secure context and fail under `file://`. Plain `http://127.0.0.1` is treated as a secure context by all major browsers, so TLS is not needed.
+
+For editors that only use JSON-to-clipboard export (no canvas/download), opening directly as a `file://` URL is acceptable.
+
+For simple, read-only HTML files that only display static content (no clipboard API, no canvas export), opening directly as a file (`Start-Process "path/to/file.html"`) is fine.
 
 ## Authorship Marking
 

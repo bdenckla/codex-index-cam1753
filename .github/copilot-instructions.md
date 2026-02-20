@@ -155,6 +155,7 @@ This does not apply to throwaway files in `.novc/`.
 ## Git Discipline
 
 - **Never auto-commit.** Only commit when the user explicitly asks.
+- **Always use fresh commits.** Never use `git commit --amend` unless the user explicitly requests it.
 - **Before discarding work** (`git reset`, `git checkout -- .`, `git stash drop`, etc.): always run `git status` and `git diff --stat` first. If there are uncommitted changes beyond the current experiment, alert the user and ask them to commit or stash before proceeding.
 - **Before a series of experiments** that might need to be thrown away: ask the user to commit the current clean state first, so there is a safe baseline to return to.
 

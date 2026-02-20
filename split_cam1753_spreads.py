@@ -18,6 +18,9 @@ import os
 import numpy as np
 from PIL import Image
 
+# EXIF tag number for ImageDescription
+_EXIF_IMAGE_DESCRIPTION = 0x010E
+
 SPREAD_DIR = "cam1753-spreads"
 OUT_DIR = "cam1753-pages"
 DOC_DIR = "cam1753-spread-splits-doc"
@@ -36,6 +39,13 @@ def find_gutter(img_gray):
     lo = int(w * 0.4)
     hi = int(w * 0.6)
     return lo + int(np.argmin(profile[lo:hi]))
+
+
+def _make_exif(description_str):
+    """Return EXIF bytes with ImageDescription set to the given string."""
+    exif = Image.Exif()
+    exif[_EXIF_IMAGE_DESCRIPTION] = description_str
+    return exif.tobytes()
 
 
 files = sorted(f for f in os.listdir(SPREAD_DIR) if f.endswith(".jpg"))
@@ -62,8 +72,28 @@ for fname in files:
     left_path = os.path.join(OUT_DIR, left_name)
     right_path = os.path.join(OUT_DIR, right_name)
 
-    left_half.save(left_path, quality=95)
-    right_half.save(right_path, quality=95)
+    # Build per-page EXIF metadata describing the split provenance
+    left_meta = json.dumps({
+        "source_spread": fname,
+        "archive_page": archive_page,
+        "spread_width": img.width,
+        "spread_height": img.height,
+        "gutter_x": gutter_x,
+        "crop": "left",
+        "crop_box": [0, 0, gutter_x, img.height],
+    })
+    right_meta = json.dumps({
+        "source_spread": fname,
+        "archive_page": archive_page,
+        "spread_width": img.width,
+        "spread_height": img.height,
+        "gutter_x": gutter_x,
+        "crop": "right",
+        "crop_box": [gutter_x, 0, img.width, img.height],
+    })
+
+    left_half.save(left_path, quality=95, exif=_make_exif(left_meta))
+    right_half.save(right_path, quality=95, exif=_make_exif(right_meta))
 
     # Record split documentation
     split_record = {

@@ -37,6 +37,18 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
         is the 0-based word position; ``line_words`` lists every word on
         that line. All four are ``None``/empty on failure.
     """
+    # Handle space-separated multi-word consensus (no maqaf):
+    # fall back to searching for each individual word in order.
+    if " " in consensus and MAQAF not in consensus:
+        words = consensus.split(" ")
+        for i, word in enumerate(words):
+            ordinal = ["first", "second", "third"][min(i, 2)]
+            print(f"  Fallback: multi-word consensus, trying {ordinal} word: {word}")
+            result = find_word_in_linebreaks(lb_dir, page_id, book, ch, v, word)
+            if result[0] is not None:
+                return result
+        return None, None, None, []
+
     lb_path = Path(lb_dir) / f"{page_id}.json"
     stream = json.loads(lb_path.read_text("utf-8"))
 

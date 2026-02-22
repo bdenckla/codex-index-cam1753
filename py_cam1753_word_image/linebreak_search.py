@@ -32,38 +32,11 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
 
     Returns
     -------
-    tuple (col, line_num, word_index_in_line, line_words, split_info)
+    tuple (col, line_num, word_index_in_line, line_words)
         ``col`` and ``line_num`` identify the line; ``word_index_in_line``
         is the 0-based word position; ``line_words`` lists every word on
-        that line.  All four are ``None``/empty on failure.
-
-        ``split_info`` is ``None`` for normal (non-split) words.  For
-        maqaf-hyphenated words that span a line break it is a dict::
-
-            {
-                "prev_col": int,
-                "prev_line": int,
-                "prev_word_idx": int,
-                "prev_line_words": list[str],
-                "prev_fragment": str,   # e.g. "מַה־"
-                "curr_fragment": str,   # e.g. "שַּׁדַּ֥י"
-            }
-
-        In the split case the main return values (col, line_num, …)
-        refer to the *second* line (the one with the trailing fragment).
+        that line. All four are ``None``/empty on failure.
     """
-    # Handle space-separated multi-word consensus:
-    # fall back to searching for each individual word in order.
-    if " " in consensus:
-        words = consensus.split(" ")
-        for i, word in enumerate(words):
-            ordinal = ["first", "second", "third"][min(i, 2)]
-            print(f"  Fallback: multi-word consensus, trying {ordinal} word: {word}")
-            result = find_word_in_linebreaks(lb_dir, page_id, book, ch, v, word)
-            if result[0] is not None:
-                return result
-        return None, None, None, [], None
-
     lb_path = Path(lb_dir) / f"{page_id}.json"
     stream = json.loads(lb_path.read_text("utf-8"))
 
@@ -76,8 +49,6 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     target_col = target_line = None
     match_count = 0
     recent_words = []
-    recent_locs = []       # parallel to recent_words: (col, line) per word
-    split_info = None
 
     for item in stream:
         if isinstance(item, dict):
@@ -85,7 +56,6 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
                item.get("verse-fragment-start") == verse_label:
                 in_verse = True
                 recent_words = []
-                recent_locs = []
                 continue
             if item.get("verse-end") == verse_label or \
                item.get("verse-fragment-end") == verse_label:
@@ -107,33 +77,19 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
                 match_count += 1
                 if match_count == 1:
                     target_col, target_line = cur_col, cur_line
-                recent_words = []
-                recent_locs = []
                 continue
             if consensus_has_maqaf:
                 recent_words.append(item)
-                recent_locs.append((cur_col, cur_line))
                 joined = "".join(recent_words)
                 if strip_heb(joined) == consensus_stripped or joined == consensus:
                     match_count += 1
                     if match_count == 1:
                         target_col, target_line = cur_col, cur_line
-                        # Detect cross-line split
-                        if recent_locs[0] != (cur_col, cur_line):
-                            split_info = {
-                                "prev_col": recent_locs[0][0],
-                                "prev_line": recent_locs[0][1],
-                                "prev_fragment": "".join(recent_words[:-1]),
-                                "curr_fragment": recent_words[-1],
-                            }
-                    recent_words = []
-                    recent_locs = []
                     continue
                 while recent_words and not consensus_stripped.startswith(
                     strip_heb("".join(recent_words))
                 ):
                     recent_words.pop(0)
-                    recent_locs.pop(0)
 
     if match_count > 1:
         raise ValueError(
@@ -141,7 +97,7 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
             f"{verse_label} on page {page_id}"
         )
     if target_col is None:
-        return None, None, None, [], None
+        return None, None, None, []
 
     # Second pass: collect all words on the target line
     in_target = False
@@ -159,111 +115,24 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
         elif isinstance(item, str) and in_target:
             line_words.append(item)
 
-    # Find word index within the line.
-    # Strategy: try exact (with-diacritics) match first; only fall back
-    # to stripped matching if that fails — and require the stripped
-    # fallback to be unambiguous.
+    # Find word index within the line
     target_idx = None
-
-    # 1. Exact single-word match
     for i, w in enumerate(line_words):
-        if w == consensus or (
-            consensus.endswith(MAQAF) and w == consensus[:-1]
-        ):
+        if (w == consensus or strip_heb(w) == consensus_stripped
+                or (consensus.endswith(MAQAF)
+                    and strip_heb(w) == strip_heb(consensus[:-1]))):
             target_idx = i
             break
-
-    # 2. Exact maqaf-joined match
-    if target_idx is None and consensus_has_maqaf:
-        for i, w in enumerate(line_words):
-            if w.endswith(MAQAF):
-                joined = w
-                for j in range(i + 1, len(line_words)):
-                    joined += line_words[j]
-                    if joined == consensus:
-                        target_idx = i
-                        break
-                    if not line_words[j].endswith(MAQAF):
-                        break
-                if target_idx is not None:
+        if consensus_has_maqaf and w.endswith(MAQAF):
+            joined = w
+            for j in range(i + 1, len(line_words)):
+                joined += line_words[j]
+                if strip_heb(joined) == consensus_stripped or joined == consensus:
+                    target_idx = i
                     break
-
-    # 3. Stripped single-word fallback (must be unambiguous)
-    if target_idx is None:
-        stripped_matches = []
-        for i, w in enumerate(line_words):
-            if strip_heb(w) == consensus_stripped or (
-                consensus.endswith(MAQAF)
-                and strip_heb(w) == strip_heb(consensus[:-1])
-            ):
-                stripped_matches.append(i)
-        if len(stripped_matches) == 1:
-            target_idx = stripped_matches[0]
-        elif len(stripped_matches) > 1:
-            raise ValueError(
-                f"Ambiguous: {len(stripped_matches)} stripped matches for "
-                f"{consensus!r} on line {target_line} of page {page_id}"
-            )
-
-    # 4. Stripped maqaf-joined fallback
-    if target_idx is None and consensus_has_maqaf:
-        for i, w in enumerate(line_words):
-            if w.endswith(MAQAF):
-                joined = w
-                for j in range(i + 1, len(line_words)):
-                    joined += line_words[j]
-                    if strip_heb(joined) == consensus_stripped:
-                        target_idx = i
-                        break
-                    if not line_words[j].endswith(MAQAF):
-                        break
-                if target_idx is not None:
+                if not line_words[j].endswith(MAQAF):
                     break
-
-    # Cross-line maqaf split: the leading part of the consensus may be
-    # on the previous line (e.g. "מַה־" ends line N, "שַּׁדַּ֥י" starts
-    # line N+1).  Match the trailing segment against the first word.
-    if target_idx is None and consensus_has_maqaf and line_words:
-        parts = consensus.split(MAQAF)
-        tail = parts[-1]  # last segment after final maqaf
-        if strip_heb(line_words[0]) == strip_heb(tail):
-            target_idx = 0
-
-    # Third pass: if a cross-line split was detected, collect the
-    # previous line's words and locate the fragment on that line.
-    if split_info is not None:
-        prev_line_words = []
-        in_prev = False
-        for item in stream:
-            if isinstance(item, dict):
-                if "line-start" in item:
-                    ls = item["line-start"]
-                    if (ls["col"] == split_info["prev_col"]
-                            and ls["line-num"] == split_info["prev_line"]):
-                        in_prev = True
-                        prev_line_words = []
-                    continue
-                if "line-end" in item and in_prev:
-                    break
-            elif isinstance(item, str) and in_prev:
-                prev_line_words.append(item)
-
-        # Find the maqaf-ending word on the previous line
-        prev_frag = split_info["prev_fragment"]
-        prev_frag_stripped = strip_heb(prev_frag)
-        prev_word_idx = None
-        for i, w in enumerate(prev_line_words):
-            if strip_heb(w) == prev_frag_stripped:
-                prev_word_idx = i
+            if target_idx is not None:
                 break
-        # Fallback: last maqaf-ending word on the line
-        if prev_word_idx is None:
-            for i in range(len(prev_line_words) - 1, -1, -1):
-                if prev_line_words[i].endswith(MAQAF):
-                    prev_word_idx = i
-                    break
 
-        split_info["prev_word_idx"] = prev_word_idx
-        split_info["prev_line_words"] = prev_line_words
-
-    return target_col, target_line, target_idx, line_words, split_info
+    return target_col, target_line, target_idx, line_words

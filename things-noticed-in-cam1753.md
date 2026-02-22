@@ -5,5 +5,5 @@
 - Job 19:21: כי has מקף in cam1753.
 - Job 21:28: אהל no פסק.
 - Job 32:11: last word seems to end in a final mem not a final nun, i.e. seems to be מלים in cam1753.
-- Job 39:18: followed by a kind of extraordinary pair of horizontal lines, the top one being squiggly.
+- Job 39:18: followed by a kind of extraordinary pair of horizontal lines, the top one being squiggly. See also Page 0084A, col 2, line 16.
 - Job 40:21: first word תחת seems to be missing end-of-line מקף.

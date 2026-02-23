@@ -209,7 +209,7 @@ def build_flat_stream(page_id, verses):
         for word in v["words"]:
             _assert_standard_order(word, label)
             # Split at maqaf (U+05BE) keeping the maqaf attached
-            # to the preceding fragment: "אֽוֹ־מֹשְׁכ֖וֹת" → ["אֽוֹ־", "מֹשְׁכ֖וֹת"]
+            # to the preceding fragment: "אֽוֹ־מֹשְׁכ֖וֹת" → ["אֽוֹ־", "מֹשְׁכ֖וֹת"]
             parts = word.split("\u05be")
             for k, part in enumerate(parts):
                 if k < len(parts) - 1:

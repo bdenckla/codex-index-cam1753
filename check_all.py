@@ -15,6 +15,7 @@ Usage:
 
 import sys
 
+import check_mark_order
 import check_word_finding
 
 _SEPARATOR = "\u2500" * 60
@@ -23,6 +24,7 @@ _SEPARATOR = "\u2500" * 60
 def main():
     checks = [
         ("Word finding (book-of-job quirkrecs)", check_word_finding.main),
+        ("Hebrew mark order (SBL2)", check_mark_order.main),
     ]
 
     failures = []

@@ -24,6 +24,7 @@ from .page import (
     QUAD_DIR,
     ROOT,
     find_page_for_verse,
+    find_pages_for_verse,
     get_line_bbox,
     load_page_image,
 )

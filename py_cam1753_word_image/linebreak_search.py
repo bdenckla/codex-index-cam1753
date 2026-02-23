@@ -21,8 +21,11 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     ----------
     lb_dir : Path
         Directory containing ``<page_id>.json`` line-break files.
-    page_id : str
-        Page identifier (e.g. ``"0073A"``).
+    page_id : str or list[str]
+        Page identifier (e.g. ``"0073A"``) or a list of page
+        identifiers to search.  When a list is given, pages are tried
+        in order and the first successful match is returned.  This
+        handles verses that span a page boundary.
     book : str
         Book name used in verse labels (e.g. ``"Job"``).
     ch, v : int
@@ -36,7 +39,14 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
         ``col`` and ``line_num`` identify the line; ``word_index_in_line``
         is the 0-based word position; ``line_words`` lists every word on
         that line. All four are ``None``/empty on failure.
+
+    When *page_id* is a list, the returned ``col`` / ``line_num`` are
+    relative to whichever page contained the match.  The caller can
+    determine the winning page from the return of
+    :func:`find_pages_for_verse`.
     """
+    if isinstance(page_id, (list, tuple)):
+        return _find_word_multi_page(lb_dir, page_id, book, ch, v, consensus)
     lb_path = Path(lb_dir) / f"{page_id}.json"
     stream = json.loads(lb_path.read_text("utf-8"))
 
@@ -136,3 +146,14 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
                 break
 
     return target_col, target_line, target_idx, line_words
+
+
+def _find_word_multi_page(lb_dir, page_ids, book, ch, v, consensus):
+    """Try *find_word_in_linebreaks* on each page until the word is found."""
+    for pid in page_ids:
+        col, line_num, word_idx, line_words = find_word_in_linebreaks(
+            lb_dir, pid, book, ch, v, consensus
+        )
+        if col is not None:
+            return col, line_num, word_idx, line_words
+    return None, None, None, []

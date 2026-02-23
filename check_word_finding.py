@@ -24,6 +24,8 @@ def main():
     pass_count = 0
     fail_count = 0
     failures = []
+    method_counts = {}  # match_method -> count
+    stripped_records = []  # (cv, consensus) for non-exact matches
 
     for rec in data:
         cv = rec["qr-cv"]
@@ -50,13 +52,13 @@ def main():
 
         # Try finding the word on the expected page first, then all pages
         try:
-            col, line_num, word_idx, line_words = find_word_in_linebreaks(
+            col, line_num, word_idx, line_words, match_method = find_word_in_linebreaks(
                 LB_DIR, expected_page, "Job", ch, v, lb_word
             )
         except ValueError as e:
             # Ambiguous match - try multi-page
             try:
-                col, line_num, word_idx, line_words = find_word_in_linebreaks(
+                col, line_num, word_idx, line_words, match_method = find_word_in_linebreaks(
                     LB_DIR, pages, "Job", ch, v, lb_word
                 )
             except ValueError as e2:
@@ -69,7 +71,7 @@ def main():
         if col is None:
             # Also try all pages
             try:
-                col, line_num, word_idx, line_words = find_word_in_linebreaks(
+                col, line_num, word_idx, line_words, match_method = find_word_in_linebreaks(
                     LB_DIR, pages, "Job", ch, v, lb_word
                 )
             except ValueError as e:
@@ -125,11 +127,22 @@ def main():
             fail_count += 1
         else:
             pass_count += 1
+            method_counts[match_method] = method_counts.get(match_method, 0) + 1
+            if match_method != "exact":
+                stripped_records.append((cv, consensus, match_method))
 
     print(f"\n{'=' * 60}")
     print(f"PASS: {pass_count}")
     print(f"FAIL: {fail_count}")
     print(f"TOTAL: {pass_count + fail_count}")
+    if method_counts:
+        print(f"\nMatch methods (passing records):")
+        for method, count in sorted(method_counts.items()):
+            print(f"  {method}: {count}")
+    if stripped_records:
+        print(f"\nRecords requiring non-exact (stripped) match ({len(stripped_records)}):")
+        for cv, word, method in stripped_records:
+            print(f"  {cv} {word!r}  [{method}]")
     if failures:
         print(f"\nFailures:")
         for f in failures:

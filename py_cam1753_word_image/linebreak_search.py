@@ -38,10 +38,13 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
 
     Returns
     -------
-    tuple (col, line_num, word_index_in_line, line_words)
+    tuple (col, line_num, word_index_in_line, line_words, match_method)
         ``col`` and ``line_num`` identify the line; ``word_index_in_line``
         is the 0-based word position; ``line_words`` lists every word on
-        that line. All four are ``None``/empty on failure.
+        that line.  ``match_method`` is a string describing how the match
+        was made: ``"exact"``, ``"stripped"``, ``"maqaf-tail-stripped"``,
+        ``"maqaf-joined-exact"``, or ``"maqaf-joined-stripped"``.
+        All five are ``None``/empty on failure.
 
     When *page_id* is a list, the returned ``col`` / ``line_num`` are
     relative to whichever page contained the match.  The caller can
@@ -60,6 +63,17 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
             lb_dir, page_id, book, ch, v, consensus_parts,
         )
 
+    # --- match_method tracking helpers ---
+    def _classify_single(item_text, item_stripped, cons, cons_stripped, cons_ends_maqaf):
+        """Return match_method string or None if no match."""
+        if item_text == cons:
+            return "exact"
+        if item_stripped == cons_stripped:
+            return "stripped"
+        if cons_ends_maqaf and item_stripped == strip_heb(cons[:-1]):
+            return "maqaf-tail-stripped"
+        return None
+
     lb_path = Path(lb_dir) / f"{page_id}.json"
     stream = json.loads(lb_path.read_text("utf-8"))
 
@@ -72,6 +86,7 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     target_col = target_line = None
     target_stream_idx = None  # index into *stream* of the matched word
     match_count = 0
+    match_method = None
     recent_words = []
 
     for si, item in enumerate(stream):
@@ -93,29 +108,35 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
                 continue
         elif isinstance(item, str) and in_verse:
             item_stripped = strip_heb(item)
-            matched = (
-                item == consensus
-                or item_stripped == consensus_stripped
-                or (consensus.endswith(MAQAF)
-                    and item_stripped == strip_heb(consensus[:-1]))
+            method = _classify_single(
+                item, item_stripped, consensus,
+                consensus_stripped, consensus_has_maqaf,
             )
-            if matched:
+            if method is not None:
                 match_count += 1
                 if match_count == 1:
                     target_col, target_line = cur_col, cur_line
                     target_stream_idx = si
+                    match_method = method
                 recent_words = []
                 continue
             if consensus_has_maqaf:
                 recent_words.append((item, cur_col, cur_line, si))
                 joined = "".join(w for w, _, _, _ in recent_words)
-                if strip_heb(joined) == consensus_stripped or joined == consensus:
+                if joined == consensus:
+                    mj_method = "maqaf-joined-exact"
+                elif strip_heb(joined) == consensus_stripped:
+                    mj_method = "maqaf-joined-stripped"
+                else:
+                    mj_method = None
+                if mj_method is not None:
                     match_count += 1
                     if match_count == 1:
                         # Use the location of the first word in the group
                         target_col = recent_words[0][1]
                         target_line = recent_words[0][2]
                         target_stream_idx = recent_words[0][3]
+                        match_method = mj_method
                     recent_words = []
                     continue
                 while recent_words and not consensus_stripped.startswith(
@@ -129,7 +150,7 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
             f"{verse_label} on page {page_id}"
         )
     if target_col is None:
-        return None, None, None, []
+        return None, None, None, [], None
 
     # Second pass: collect all words on the target line and identify the
     # target word by its stream index (which is unambiguous, unlike
@@ -152,7 +173,7 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
                 target_idx = len(line_words)
             line_words.append(item)
 
-    return target_col, target_line, target_idx, line_words
+    return target_col, target_line, target_idx, line_words, match_method
 
 
 def _find_word_index_in_line(line_words, consensus, consensus_stripped, has_maqaf):
@@ -206,17 +227,29 @@ def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
     if not verse_items:
         return None, None, None, []
 
+    # Match-method priority for reporting the "worst" method used.
+    _METHOD_RANK = {
+        "exact": 0,
+        "maqaf-joined-exact": 1,
+        "maqaf-tail-stripped": 2,
+        "stripped": 3,
+        "maqaf-joined-stripped": 4,
+    }
+
     match_count = 0
     result = None
 
     for start_i in range(len(verse_items)):
         vi = start_i
         all_matched = True
+        worst_method = "exact"
         for part in parts:
-            consumed = _match_part(verse_items, vi, part)
+            consumed, pm = _match_part(verse_items, vi, part)
             if consumed == 0:
                 all_matched = False
                 break
+            if _METHOD_RANK.get(pm, 99) > _METHOD_RANK.get(worst_method, 0):
+                worst_method = pm
             vi += consumed
         if all_matched:
             match_count += 1
@@ -246,7 +279,7 @@ def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
                                 break
                         if target_idx is not None:
                             break
-                result = (target_col, target_line, target_idx, line_words)
+                result = (target_col, target_line, target_idx, line_words, worst_method)
 
     if match_count > 1:
         phrase = " ".join(parts)
@@ -254,27 +287,29 @@ def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
             f"Ambiguous: {match_count} matches for {phrase!r} in "
             f"{verse_label} on page {page_id}"
         )
-    return result if result else (None, None, None, [])
+    return result if result else (None, None, None, [], None)
 
 
 def _match_part(verse_items, vi, part):
     """Try to match *part* starting at index *vi* in *verse_items*.
 
-    Returns the number of verse_items consumed (0 if no match).
-    A part may match a single word or multiple consecutive maqaf-joined
-    words.
+    Returns (consumed, method) where *consumed* is the number of
+    verse_items consumed (0 if no match) and *method* is a match-method
+    string.
     """
     if vi >= len(verse_items):
-        return 0
+        return 0, None
     word = verse_items[vi][0]
     ps = strip_heb(part)
     ws = strip_heb(word)
     # Direct match
-    if ws == ps or word == part:
-        return 1
+    if word == part:
+        return 1, "exact"
+    if ws == ps:
+        return 1, "stripped"
     # Trailing-maqaf match (part ends with maqaf, stream word doesn't)
     if part.endswith(MAQAF) and ws == strip_heb(part[:-1]):
-        return 1
+        return 1, "maqaf-tail-stripped"
     # Maqaf-joined: part contains maqaf but stream words are split
     if MAQAF in part and word.endswith(MAQAF):
         joined = word
@@ -282,12 +317,14 @@ def _match_part(verse_items, vi, part):
         for j in range(vi + 1, len(verse_items)):
             joined += verse_items[j][0]
             consumed += 1
+            if joined == part:
+                return consumed, "maqaf-joined-exact"
             js = strip_heb(joined)
-            if js == ps or joined == part:
-                return consumed
+            if js == ps:
+                return consumed, "maqaf-joined-stripped"
             if not verse_items[j][0].endswith(MAQAF):
                 break
-    return 0
+    return 0, None
 
 
 def _collect_line_words(stream, col, line_num):
@@ -311,9 +348,9 @@ def _collect_line_words(stream, col, line_num):
 def _find_word_multi_page(lb_dir, page_ids, book, ch, v, consensus):
     """Try *find_word_in_linebreaks* on each page until the word is found."""
     for pid in page_ids:
-        col, line_num, word_idx, line_words = find_word_in_linebreaks(
+        col, line_num, word_idx, line_words, method = find_word_in_linebreaks(
             lb_dir, pid, book, ch, v, consensus
         )
         if col is not None:
-            return col, line_num, word_idx, line_words
-    return None, None, None, []
+            return col, line_num, word_idx, line_words, method
+    return None, None, None, [], None

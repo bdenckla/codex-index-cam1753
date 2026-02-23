@@ -15,16 +15,20 @@ IMG_DIR = ROOT / "cam1753-pages"
 LINES_PER_COL = 26
 
 
+def find_page_for_verse(book, ch, v):
+    """Scan cam1753-line-breaks/ to find the page containing *book* *ch*:*v*.
+
+    Returns the page_id (e.g. ``"0073A"``) or ``None``.
+    """
+    pages = find_pages_for_verse(book, ch, v)
+    return pages[0] if pages else None
+
+
 def find_pages_for_verse(book, ch, v):
-    """Scan cam1753-line-breaks/ to find all pages containing *book* *ch*:*v*.
+    """Scan cam1753-line-breaks/ to find **all** pages containing *book* *ch*:*v*.
 
-    A verse that spans a page boundary will appear on multiple pages
-    (the first page with a ``verse-end`` or ``verse-fragment-end``, and
-    the next page with a ``verse-fragment-start``).  This function
-    returns **every** page that has at least one word of the verse.
-
-    Returns a list of page_id strings (e.g. ``["0085A", "0085B"]``),
-    or an empty list if the verse is not found.
+    Returns a list of page_id strings (e.g. ``["0073A", "0073B"]``),
+    ordered by filename.  An empty list means the verse was not found.
     """
     target = f"{book} {ch}:{v}"
     result = []
@@ -47,27 +51,14 @@ def find_pages_for_verse(book, ch, v):
                     in_verse = False
             elif isinstance(item, str) and in_verse and in_lb:
                 has_words_in_lb = True
+                break
         if has_words_in_lb:
             result.append(path.stem)
     return result
 
 
-def find_page_for_verse(book, ch, v):
-    """Scan cam1753-line-breaks/ to find the first page containing *book* *ch*:*v*.
-
-    Returns the page_id (e.g. ``"0073A"``) or ``None``.
-    For verses that span pages, use :func:`find_pages_for_verse` instead.
-    """
-    pages = find_pages_for_verse(book, ch, v)
-    return pages[0] if pages else None
-
-
-def get_line_bbox(page_id, col, line_num, buffer_lines=2, margin_factor=0.05):
+def get_line_bbox(page_id, col, line_num, buffer_lines=2):
     """Get pixel bounding box for a line using quad column coordinates.
-
-    *margin_factor* controls horizontal padding as a fraction of column
-    width (default 0.05 = 5%).  Use a larger value (e.g. 0.40) to
-    capture masorah parva notes in the page margins.
 
     Returns ``(crop_left, crop_top, crop_right, crop_bot,
     target_offset_from_crop_top, line_spacing_px)``.
@@ -97,7 +88,7 @@ def get_line_bbox(page_id, col, line_num, buffer_lines=2, margin_factor=0.05):
     # Column x extents (with margin)
     col_left = min(tl[0], bl[0])
     col_right = max(tr[0], br[0])
-    margin_x = int((col_right - col_left) * margin_factor)
+    margin_x = int((col_right - col_left) * 0.05)
 
     crop_top = max(0, int(line_top - buffer_lines * ls))
     crop_bot = min(img_h, int(line_bot + buffer_lines * ls))

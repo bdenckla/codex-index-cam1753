@@ -66,7 +66,7 @@ def find_and_preview(word, book, cv, *, wide=False):
         return None
     print(f"  Page: {page_id}")
 
-    col, line_num, word_idx, line_words = _find_word_in_linebreaks(
+    col, line_num, word_idx, line_words, _match_method = _find_word_in_linebreaks(
         LB_DIR, page_id, book, ch, v, word
     )
     if col is None:

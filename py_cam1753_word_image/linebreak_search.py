@@ -31,7 +31,10 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     ch, v : int
         Chapter and verse numbers.
     consensus : str
-        The target word (with or without accents/vowels).
+        The target word (with or without accents/vowels).  May also be
+        a **multi-word phrase** separated by spaces; each component is
+        matched individually in sequence, and the location of the
+        *first* component is returned.
 
     Returns
     -------
@@ -47,6 +50,16 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     """
     if isinstance(page_id, (list, tuple)):
         return _find_word_multi_page(lb_dir, page_id, book, ch, v, consensus)
+
+    # Multi-word consensus: split on spaces and search for the first word.
+    # After finding the first word, verify the remaining words follow in
+    # sequence (possibly spanning maqaf joins or line boundaries).
+    consensus_parts = consensus.split()
+    if len(consensus_parts) > 1:
+        return _find_multi_word(
+            lb_dir, page_id, book, ch, v, consensus_parts,
+        )
+
     lb_path = Path(lb_dir) / f"{page_id}.json"
     stream = json.loads(lb_path.read_text("utf-8"))
 
@@ -57,10 +70,11 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     consensus_has_maqaf = MAQAF in consensus
 
     target_col = target_line = None
+    target_stream_idx = None  # index into *stream* of the matched word
     match_count = 0
     recent_words = []
 
-    for item in stream:
+    for si, item in enumerate(stream):
         if isinstance(item, dict):
             if item.get("verse-start") == verse_label or \
                item.get("verse-fragment-start") == verse_label:
@@ -74,6 +88,8 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
             if "line-start" in item:
                 cur_col = item["line-start"]["col"]
                 cur_line = item["line-start"]["line-num"]
+                # Do NOT reset recent_words here — a maqaf group may
+                # span a line boundary.
                 continue
         elif isinstance(item, str) and in_verse:
             item_stripped = strip_heb(item)
@@ -87,17 +103,23 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
                 match_count += 1
                 if match_count == 1:
                     target_col, target_line = cur_col, cur_line
+                    target_stream_idx = si
+                recent_words = []
                 continue
             if consensus_has_maqaf:
-                recent_words.append(item)
-                joined = "".join(recent_words)
+                recent_words.append((item, cur_col, cur_line, si))
+                joined = "".join(w for w, _, _, _ in recent_words)
                 if strip_heb(joined) == consensus_stripped or joined == consensus:
                     match_count += 1
                     if match_count == 1:
-                        target_col, target_line = cur_col, cur_line
+                        # Use the location of the first word in the group
+                        target_col = recent_words[0][1]
+                        target_line = recent_words[0][2]
+                        target_stream_idx = recent_words[0][3]
+                    recent_words = []
                     continue
                 while recent_words and not consensus_stripped.startswith(
-                    strip_heb("".join(recent_words))
+                    strip_heb("".join(w for w, _, _, _ in recent_words))
                 ):
                     recent_words.pop(0)
 
@@ -109,10 +131,13 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     if target_col is None:
         return None, None, None, []
 
-    # Second pass: collect all words on the target line
+    # Second pass: collect all words on the target line and identify the
+    # target word by its stream index (which is unambiguous, unlike
+    # stripped-form matching which can match the wrong homograph).
     in_target = False
     line_words = []
-    for item in stream:
+    target_idx = None
+    for si, item in enumerate(stream):
         if isinstance(item, dict):
             if "line-start" in item:
                 ls = item["line-start"]
@@ -123,29 +148,164 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
             if "line-end" in item and in_target:
                 break
         elif isinstance(item, str) and in_target:
+            if si == target_stream_idx:
+                target_idx = len(line_words)
             line_words.append(item)
 
-    # Find word index within the line
-    target_idx = None
+    return target_col, target_line, target_idx, line_words
+
+
+def _find_word_index_in_line(line_words, consensus, consensus_stripped, has_maqaf):
+    """Return the 0-based index of *consensus* within *line_words*."""
     for i, w in enumerate(line_words):
         if (w == consensus or strip_heb(w) == consensus_stripped
                 or (consensus.endswith(MAQAF)
                     and strip_heb(w) == strip_heb(consensus[:-1]))):
-            target_idx = i
-            break
-        if consensus_has_maqaf and w.endswith(MAQAF):
+            return i
+        if has_maqaf and w.endswith(MAQAF):
             joined = w
             for j in range(i + 1, len(line_words)):
                 joined += line_words[j]
                 if strip_heb(joined) == consensus_stripped or joined == consensus:
-                    target_idx = i
-                    break
+                    return i
                 if not line_words[j].endswith(MAQAF):
                     break
-            if target_idx is not None:
-                break
+    return None
 
-    return target_col, target_line, target_idx, line_words
+
+def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
+    """Find a multi-word (space-separated) phrase in line-break data.
+
+    Each *part* is matched individually in sequence against the verse
+    words in the stream.  A part that contains a maqaf may match
+    multiple consecutive stream words joined by maqaf.  The returned
+    location corresponds to the first stream word of the first part.
+    """
+    lb_path = Path(lb_dir) / f"{page_id}.json"
+    stream = json.loads(lb_path.read_text("utf-8"))
+    verse_label = f"{book} {ch}:{v}"
+
+    # Collect all (word, col, line) tuples for this verse
+    verse_items = []
+    in_verse = False
+    cur_col = cur_line = None
+    for item in stream:
+        if isinstance(item, dict):
+            vs = item.get("verse-start") or item.get("verse-fragment-start")
+            ve = item.get("verse-end") or item.get("verse-fragment-end")
+            if vs == verse_label:
+                in_verse = True
+            if ve == verse_label:
+                in_verse = False
+            if "line-start" in item:
+                cur_col = item["line-start"]["col"]
+                cur_line = item["line-start"]["line-num"]
+        elif isinstance(item, str) and in_verse:
+            verse_items.append((item, cur_col, cur_line))
+
+    if not verse_items:
+        return None, None, None, []
+
+    match_count = 0
+    result = None
+
+    for start_i in range(len(verse_items)):
+        vi = start_i
+        all_matched = True
+        for part in parts:
+            consumed = _match_part(verse_items, vi, part)
+            if consumed == 0:
+                all_matched = False
+                break
+            vi += consumed
+        if all_matched:
+            match_count += 1
+            if match_count == 1:
+                _, target_col, target_line = verse_items[start_i]
+                line_words = _collect_line_words(
+                    stream, target_col, target_line
+                )
+                # Find word index: match first part on the target line
+                first_part_stripped = strip_heb(parts[0])
+                target_idx = None
+                for li, lw in enumerate(line_words):
+                    lws = strip_heb(lw)
+                    if lws == first_part_stripped or lw == parts[0]:
+                        target_idx = li
+                        break
+                    # Check maqaf-joined group
+                    if lw.endswith(MAQAF) and MAQAF in parts[0]:
+                        joined = lw
+                        for lj in range(li + 1, len(line_words)):
+                            joined += line_words[lj]
+                            js = strip_heb(joined)
+                            if js == first_part_stripped or joined == parts[0]:
+                                target_idx = li
+                                break
+                            if not line_words[lj].endswith(MAQAF):
+                                break
+                        if target_idx is not None:
+                            break
+                result = (target_col, target_line, target_idx, line_words)
+
+    if match_count > 1:
+        phrase = " ".join(parts)
+        raise ValueError(
+            f"Ambiguous: {match_count} matches for {phrase!r} in "
+            f"{verse_label} on page {page_id}"
+        )
+    return result if result else (None, None, None, [])
+
+
+def _match_part(verse_items, vi, part):
+    """Try to match *part* starting at index *vi* in *verse_items*.
+
+    Returns the number of verse_items consumed (0 if no match).
+    A part may match a single word or multiple consecutive maqaf-joined
+    words.
+    """
+    if vi >= len(verse_items):
+        return 0
+    word = verse_items[vi][0]
+    ps = strip_heb(part)
+    ws = strip_heb(word)
+    # Direct match
+    if ws == ps or word == part:
+        return 1
+    # Trailing-maqaf match (part ends with maqaf, stream word doesn't)
+    if part.endswith(MAQAF) and ws == strip_heb(part[:-1]):
+        return 1
+    # Maqaf-joined: part contains maqaf but stream words are split
+    if MAQAF in part and word.endswith(MAQAF):
+        joined = word
+        consumed = 1
+        for j in range(vi + 1, len(verse_items)):
+            joined += verse_items[j][0]
+            consumed += 1
+            js = strip_heb(joined)
+            if js == ps or joined == part:
+                return consumed
+            if not verse_items[j][0].endswith(MAQAF):
+                break
+    return 0
+
+
+def _collect_line_words(stream, col, line_num):
+    """Return all words on the given line from *stream*."""
+    in_target = False
+    line_words = []
+    for item in stream:
+        if isinstance(item, dict):
+            if "line-start" in item:
+                ls = item["line-start"]
+                if ls["col"] == col and ls["line-num"] == line_num:
+                    in_target = True
+                    line_words = []
+            if "line-end" in item and in_target:
+                break
+        elif isinstance(item, str) and in_target:
+            line_words.append(item)
+    return line_words
 
 
 def _find_word_multi_page(lb_dir, page_ids, book, ch, v, consensus):

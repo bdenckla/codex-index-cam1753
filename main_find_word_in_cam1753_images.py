@@ -48,8 +48,11 @@ MAQAF = "\u05be"
 # ---------------------------------------------------------------------------
 
 
-def find_and_preview(word, book, cv):
+def find_and_preview(word, book, cv, *, wide=False):
     """Find *word* in *book* *cv* on cam1753 and generate a preview.
+
+    If *wide* is True, the crop extends well into the page margins so
+    that masorah parva (Mp) notes are visible.
 
     Returns a dict of result metadata, or None on failure.
     """
@@ -72,8 +75,9 @@ def find_and_preview(word, book, cv):
     print(f"  Location: col {col}, line {line_num}, word {word_idx + 1}")
     print(f"  Line: {' '.join(line_words)}")
 
+    margin_factor = 0.40 if wide else 0.05
     crop_left, crop_top, crop_right, crop_bot, target_offset, ls = get_line_bbox(
-        page_id, col, line_num
+        page_id, col, line_num, margin_factor=margin_factor
     )
 
     img = load_page_image(page_id)
@@ -724,22 +728,30 @@ async function downloadCrop() {{
 
 
 def main():
-    if len(sys.argv) != 4:
+    # Parse optional --wide flag
+    args = sys.argv[1:]
+    wide = False
+    if "--wide" in args:
+        wide = True
+        args.remove("--wide")
+
+    if len(args) != 3:
         print(
             "Usage: .venv\\Scripts\\python.exe"
-            " main_find_word_in_cam1753_images.py <book> <c:v> <hebrew_word>"
+            " main_find_word_in_cam1753_images.py [--wide] <book> <c:v> <hebrew_word>"
         )
-        print("Example: ... Job 7:1 \"\u05d5\u05b0\u05db\u05b4\u05d9\u05de\u05b5\u05d9\"")
+        print("Example: ... Job 7:1 \"וְכִימֵי\"")
+        print("  --wide  Extend margins to capture masorah parva (Mp) notes")
         sys.exit(1)
 
-    book = sys.argv[1]
-    cv = sys.argv[2]
-    word = sys.argv[3]
+    book = args[0]
+    cv = args[1]
+    word = args[2]
     if ":" not in cv:
         print(f"ERROR: verse must be in c:v format (e.g. 7:1), got: {cv}")
         sys.exit(1)
 
-    result = find_and_preview(word, book, cv)
+    result = find_and_preview(word, book, cv, wide=wide)
     if result:
         generate_html(result)
     else:

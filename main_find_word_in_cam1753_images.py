@@ -95,9 +95,12 @@ def find_and_preview(word, book, cv, *, wide=False):
 
     # 2D fade overlay
     yellow_overlay = compute_fade_overlay(
-        crop.width, crop.height,
-        highlight_left, highlight_right,
-        highlight_top, highlight_bot,
+        crop.width,
+        crop.height,
+        highlight_left,
+        highlight_right,
+        highlight_top,
+        highlight_bot,
     )
 
     # Red position lines
@@ -138,7 +141,7 @@ def find_and_preview(word, book, cv, *, wide=False):
 
     before = line_words[:word_idx]
     matched_word = line_words[word_idx] if word_idx < len(line_words) else word
-    after = line_words[word_idx + 1:] if word_idx + 1 < len(line_words) else []
+    after = line_words[word_idx + 1 :] if word_idx + 1 < len(line_words) else []
     print(f"  Context: {' '.join(before)} [{matched_word}] {' '.join(after)}")
 
     # Initial bounding box in relative (0–1) coords for the crop editor
@@ -184,24 +187,27 @@ def generate_html(result):
     label = r["label"]
     verse_display = f"{r['book']} {r['cv']}"
 
-    item_json = json.dumps({
-        "label": r["label"],
-        "book": r["book"],
-        "cv": r["cv"],
-        "word": r["word"],
-        "page": r["page"],
-        "col": r["col"],
-        "lineNum": r["line_num"],
-        "wordIdx": r["word_idx"],
-        "cropW": r["crop_w"],
-        "cropH": r["crop_h"],
-        "box": {
-            "left": r["box_left"],
-            "top": r["box_top"],
-            "right": r["box_right"],
-            "bottom": r["box_bot"],
+    item_json = json.dumps(
+        {
+            "label": r["label"],
+            "book": r["book"],
+            "cv": r["cv"],
+            "word": r["word"],
+            "page": r["page"],
+            "col": r["col"],
+            "lineNum": r["line_num"],
+            "wordIdx": r["word_idx"],
+            "cropW": r["crop_w"],
+            "cropH": r["crop_h"],
+            "box": {
+                "left": r["box_left"],
+                "top": r["box_top"],
+                "right": r["box_right"],
+                "bottom": r["box_bot"],
+            },
         },
-    }, ensure_ascii=False)
+        ensure_ascii=False,
+    )
 
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(f"""<!DOCTYPE html>
@@ -740,7 +746,7 @@ def main():
             "Usage: .venv\\Scripts\\python.exe"
             " main_find_word_in_cam1753_images.py [--wide] <book> <c:v> <hebrew_word>"
         )
-        print("Example: ... Job 7:1 \"וְכִימֵי\"")
+        print('Example: ... Job 7:1 "וְכִימֵי"')
         print("  --wide  Extend margins to capture masorah parva (Mp) notes")
         sys.exit(1)
 

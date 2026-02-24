@@ -105,7 +105,7 @@ def _in_raw_string(col, spans):
 def _is_docstring_regex_example(line):
     """Return True if the line is a docstring showing a regex pattern."""
     stripped = line.strip()
-    return stripped.startswith("WORD_RE") and "r\"" in stripped
+    return stripped.startswith("WORD_RE") and 'r"' in stripped
 
 
 # ── file discovery ───────────────────────────────────────────────────
@@ -151,9 +151,7 @@ def _check_file(path, root):
 
             cp = int(m.group(1), 16)
             if _should_be_literal(cp):
-                violations.append(
-                    (str(path.relative_to(root)), line_no, m.group(), cp)
-                )
+                violations.append((str(path.relative_to(root)), line_no, m.group(), cp))
     return violations
 
 
@@ -166,9 +164,7 @@ def main():
         all_violations.extend(_check_file(path, root))
 
     if all_violations:
-        print(
-            f"FAIL: {len(all_violations)} unnecessary \\uXXXX escape(s) found:\n"
-        )
+        print(f"FAIL: {len(all_violations)} unnecessary \\uXXXX escape(s) found:\n")
         for rel, line_no, esc, cp in all_violations:
             import unicodedata
 

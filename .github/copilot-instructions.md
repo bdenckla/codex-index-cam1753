@@ -42,6 +42,32 @@ In practice this means: **base letter → shin/sin dot → dagesh → rafeh → 
 When in doubt, pass the text through `give_std_mark_order` rather than
 hand-ordering codepoints.
 
+## Project Overview
+
+This repo (`codex-index-cam1753`) is a digital scholarship tool for locating
+Hebrew words on photographed pages of Cambridge University Library MS Add. 1753.
+The current focus is on the Book of Job, though the infrastructure supports
+arbitrary biblical books.
+
+### Pipeline stages:
+
+1. **MAM-XML Parsing** — `py_mam_xml/mam_xml_verses.py` extracts word lists from `MAM-XML/`
+2. **Flat Stream** — `gen_cam1753_flat_stream.py` combines explicit verse-range args + MAM-XML into per-page word streams; data in `cam1753-line-breaks/`
+3. **Line-Break Annotation** — human-in-the-loop via `gen_cam1753_line_break_editor.py`; data in `cam1753-line-breaks/`
+4. **Column Coordinates** — `gen_col_quad_editor.py`; data in `cam1753-col-quads/`
+5. **Word Lookup** — `main_find_word_in_cam1753_images.py` ties it all together
+
+### Naming conventions:
+
+- **Page IDs:** `{spread_number}{A|B}` — e.g., `0073A` (spread 73, left page), `0073B` (spread 73, right page)
+- **Column numbering:** col 1 = right column (read first in RTL), col 2 = left column
+- **Lines per column:** 26
+
+### Sibling repo:
+
+`codex-index-aleppo` covers the same biblical text in the Aleppo Codex.
+It uses rectangular (harp/fanout) column geometry instead of this repo’s quadrilateral geometry.
+
 ## Temporary Generated Files
 
 Place any temporary generated files (scripts, HTML reports, debugging output, etc.) into the `.novc/` folder. This folder is excluded from version control.
@@ -63,6 +89,14 @@ Black respects `.gitignore` by default, so this covers all tracked Python files 
 ## Installing Python Packages
 
 **Never install packages to the system Python.** Always install into the project venv using `.venv\Scripts\pip.exe install <package>` (or ensure the venv is activated first). Add new dependencies to `requirements.txt` at the top level.
+
+## Python Package `__init__.py` Style
+
+Keep `__init__.py` files **minimal** — they exist only as package markers so that explicit submodule imports work (e.g. `from py_cam1753_word_image.page import ...`). Do **not** add re-exports to `__init__.py`; always import directly from the submodule that defines the symbol.
+
+## Global Variables
+
+Avoid the `global` keyword and avoid mutating module-level variables. If a function needs shared state, pass it as a parameter or return it. Module-level constants (ALL_CAPS) are fine as long as they remain immutable after definition.
 
 ## Reading and Writing Python Files
 

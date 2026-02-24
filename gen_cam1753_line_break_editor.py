@@ -148,9 +148,7 @@ def generate_editor_html(page_id, col):
     stream_no_lines = [
         item
         for item in stream
-        if not (
-            isinstance(item, dict) and ("line-start" in item or "line-end" in item)
-        )
+        if not (isinstance(item, dict) and ("line-start" in item or "line-end" in item))
     ]
 
     words_json = json.dumps(js_words, ensure_ascii=False, indent=None)

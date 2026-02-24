@@ -47,9 +47,7 @@ def _get_mega_verses(start_ref, end_ref):
     """
     start_book, start_ch, start_vs = start_ref
     end_book, end_ch, end_vs = end_ref
-    return get_page_verses(
-        start_book, (start_ch, start_vs), end_book, (end_ch, end_vs)
-    )
+    return get_page_verses(start_book, (start_ch, start_vs), end_book, (end_ch, end_vs))
 
 
 def load_stream(path):

@@ -58,8 +58,8 @@ def main():
         except ValueError as e:
             # Ambiguous match - try multi-page
             try:
-                col, line_num, word_idx, line_words, match_method = find_word_in_linebreaks(
-                    LB_DIR, pages, "Job", ch, v, lb_word
+                col, line_num, word_idx, line_words, match_method = (
+                    find_word_in_linebreaks(LB_DIR, pages, "Job", ch, v, lb_word)
                 )
             except ValueError as e2:
                 msg = f"FAIL {cv} {consensus!r}: {e2}"
@@ -71,8 +71,8 @@ def main():
         if col is None:
             # Also try all pages
             try:
-                col, line_num, word_idx, line_words, match_method = find_word_in_linebreaks(
-                    LB_DIR, pages, "Job", ch, v, lb_word
+                col, line_num, word_idx, line_words, match_method = (
+                    find_word_in_linebreaks(LB_DIR, pages, "Job", ch, v, lb_word)
                 )
             except ValueError as e:
                 msg = f"FAIL {cv} {consensus!r}: {e}"
@@ -105,9 +105,7 @@ def main():
             if has_line2 and line_num == loc.get("line2"):
                 pass  # acceptable: found on line2
             else:
-                mismatches.append(
-                    f"line: found={line_num} expected={expected_line}"
-                )
+                mismatches.append(f"line: found={line_num} expected={expected_line}")
         if found_word_1based != expected_word:
             if has_line2 and found_word_1based == loc.get("word2"):
                 pass  # acceptable: found as word2
@@ -140,7 +138,9 @@ def main():
         for method, count in sorted(method_counts.items()):
             print(f"  {method}: {count}")
     if stripped_records:
-        print(f"\nRecords requiring non-exact (stripped) match ({len(stripped_records)}):")
+        print(
+            f"\nRecords requiring non-exact (stripped) match ({len(stripped_records)}):"
+        )
         for cv, word, method in stripped_records:
             print(f"  {cv} {word!r}  [{method}]")
     if failures:

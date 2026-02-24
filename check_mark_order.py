@@ -10,7 +10,7 @@ of book-of-job/pycmn).
 
 A “Hebrew word” is any maximal run matched by the regex:
 
-    WORD_RE = r"[\u0590-\u05FF\u034F\uFB1E]+"
+    WORD_RE = r"[\u0590-\u05ff\u034f\ufb1e]+"
 
 i.e. one or more characters from the Hebrew block (U+0590–U+05FF),
 plus Combining Grapheme Joiner (U+034F) and Varika (U+FB1E).  Words that
@@ -69,9 +69,7 @@ def _check_file(path, root):
                 continue
             fixed = give_std_mark_order(word)
             if fixed != word:
-                violations.append(
-                    (str(path.relative_to(root)), line_no, word, fixed)
-                )
+                violations.append((str(path.relative_to(root)), line_no, word, fixed))
     return violations
 
 

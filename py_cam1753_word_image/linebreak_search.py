@@ -60,11 +60,18 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     consensus_parts = consensus.split()
     if len(consensus_parts) > 1:
         return _find_multi_word(
-            lb_dir, page_id, book, ch, v, consensus_parts,
+            lb_dir,
+            page_id,
+            book,
+            ch,
+            v,
+            consensus_parts,
         )
 
     # --- match_method tracking helpers ---
-    def _classify_single(item_text, item_stripped, cons, cons_stripped, cons_ends_maqaf):
+    def _classify_single(
+        item_text, item_stripped, cons, cons_stripped, cons_ends_maqaf
+    ):
         """Return match_method string or None if no match."""
         if item_text == cons:
             return "exact"
@@ -91,13 +98,17 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
 
     for si, item in enumerate(stream):
         if isinstance(item, dict):
-            if item.get("verse-start") == verse_label or \
-               item.get("verse-fragment-start") == verse_label:
+            if (
+                item.get("verse-start") == verse_label
+                or item.get("verse-fragment-start") == verse_label
+            ):
                 in_verse = True
                 recent_words = []
                 continue
-            if item.get("verse-end") == verse_label or \
-               item.get("verse-fragment-end") == verse_label:
+            if (
+                item.get("verse-end") == verse_label
+                or item.get("verse-fragment-end") == verse_label
+            ):
                 in_verse = False
                 continue
             if "line-start" in item:
@@ -109,8 +120,11 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
         elif isinstance(item, str) and in_verse:
             item_stripped = strip_heb(item)
             method = _classify_single(
-                item, item_stripped, consensus,
-                consensus_stripped, consensus_has_maqaf,
+                item,
+                item_stripped,
+                consensus,
+                consensus_stripped,
+                consensus_has_maqaf,
             )
             if method is not None:
                 match_count += 1
@@ -176,24 +190,6 @@ def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):
     return target_col, target_line, target_idx, line_words, match_method
 
 
-def _find_word_index_in_line(line_words, consensus, consensus_stripped, has_maqaf):
-    """Return the 0-based index of *consensus* within *line_words*."""
-    for i, w in enumerate(line_words):
-        if (w == consensus or strip_heb(w) == consensus_stripped
-                or (consensus.endswith(MAQAF)
-                    and strip_heb(w) == strip_heb(consensus[:-1]))):
-            return i
-        if has_maqaf and w.endswith(MAQAF):
-            joined = w
-            for j in range(i + 1, len(line_words)):
-                joined += line_words[j]
-                if strip_heb(joined) == consensus_stripped or joined == consensus:
-                    return i
-                if not line_words[j].endswith(MAQAF):
-                    break
-    return None
-
-
 def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
     """Find a multi-word (space-separated) phrase in line-break data.
 
@@ -255,9 +251,7 @@ def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
             match_count += 1
             if match_count == 1:
                 _, target_col, target_line = verse_items[start_i]
-                line_words = _collect_line_words(
-                    stream, target_col, target_line
-                )
+                line_words = _collect_line_words(stream, target_col, target_line)
                 # Find word index: match first part on the target line
                 first_part_stripped = strip_heb(parts[0])
                 target_idx = None

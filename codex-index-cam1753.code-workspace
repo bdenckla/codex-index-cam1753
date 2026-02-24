@@ -12,6 +12,7 @@
 	],
 	"settings": {
 		"chat.tools.terminal.autoApprove": {
+			".venv\\Scripts\\pip.exe": true,
 			".venv\\Scripts\\python.exe": true,
 			"git add": true,
 			"git commit": true,

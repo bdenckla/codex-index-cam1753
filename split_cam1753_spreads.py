@@ -13,6 +13,7 @@ recording the detected gutter position, spread dimensions, and output page
 names so the split can be reproduced or audited without re-running the
 gutter finder.
 """
+
 import json
 import os
 import numpy as np
@@ -73,24 +74,28 @@ for fname in files:
     right_path = os.path.join(OUT_DIR, right_name)
 
     # Build per-page EXIF metadata describing the split provenance
-    left_meta = json.dumps({
-        "source_spread": fname,
-        "archive_page": archive_page,
-        "spread_width": img.width,
-        "spread_height": img.height,
-        "gutter_x": gutter_x,
-        "crop": "left",
-        "crop_box": [0, 0, gutter_x, img.height],
-    })
-    right_meta = json.dumps({
-        "source_spread": fname,
-        "archive_page": archive_page,
-        "spread_width": img.width,
-        "spread_height": img.height,
-        "gutter_x": gutter_x,
-        "crop": "right",
-        "crop_box": [gutter_x, 0, img.width, img.height],
-    })
+    left_meta = json.dumps(
+        {
+            "source_spread": fname,
+            "archive_page": archive_page,
+            "spread_width": img.width,
+            "spread_height": img.height,
+            "gutter_x": gutter_x,
+            "crop": "left",
+            "crop_box": [0, 0, gutter_x, img.height],
+        }
+    )
+    right_meta = json.dumps(
+        {
+            "source_spread": fname,
+            "archive_page": archive_page,
+            "spread_width": img.width,
+            "spread_height": img.height,
+            "gutter_x": gutter_x,
+            "crop": "right",
+            "crop_box": [gutter_x, 0, img.width, img.height],
+        }
+    )
 
     left_half.save(left_path, quality=95, exif=_make_exif(left_meta))
     right_half.save(right_path, quality=95, exif=_make_exif(right_meta))
@@ -120,15 +125,15 @@ for fname in files:
     all_splits.append(split_record)
 
     # Write per-spread JSON
-    doc_path = os.path.join(
-        DOC_DIR, fname.replace(".jpg", ".json")
-    )
+    doc_path = os.path.join(DOC_DIR, fname.replace(".jpg", ".json"))
     with open(doc_path, "w", encoding="utf-8") as f:
         json.dump(split_record, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
-    print(f"{fname}  gutter@{gutter_x}  →  {left_name} ({left_half.size[0]}x{left_half.size[1]})"
-          f"  +  {right_name} ({right_half.size[0]}x{right_half.size[1]})")
+    print(
+        f"{fname}  gutter@{gutter_x}  →  {left_name} ({left_half.size[0]}x{left_half.size[1]})"
+        f"  +  {right_name} ({right_half.size[0]}x{right_half.size[1]})"
+    )
 
 # Write combined summary
 summary_path = os.path.join(DOC_DIR, "_all-splits.json")

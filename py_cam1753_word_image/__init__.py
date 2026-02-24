@@ -5,26 +5,10 @@ Cambridge MS Add. 1753 word-image utilities.
 Provides functions to locate Hebrew words in cam1753 line-break data,
 compute bounding boxes from quad column-coordinate files, load page
 images, and generate crop overlays for interactive editing.
-"""
 
-from .crop import compute_fade_overlay, estimate_word_position
-from .hebrew_metrics import (
-    HEB_WIDTHS,
-    SPACE_WIDTH,
-    join_maqaf,
-    line_widths,
-    strip_heb,
-    word_width,
-)
-from .linebreak_search import find_word_in_linebreaks
-from .page import (
-    IMG_DIR,
-    LB_DIR,
-    LINES_PER_COL,
-    QUAD_DIR,
-    ROOT,
-    find_page_for_verse,
-    find_pages_for_verse,
-    get_line_bbox,
-    load_page_image,
-)
+Import from submodules directly:
+    from py_cam1753_word_image.page import ...
+    from py_cam1753_word_image.crop import ...
+    from py_cam1753_word_image.hebrew_metrics import ...
+    from py_cam1753_word_image.linebreak_search import ...
+"""

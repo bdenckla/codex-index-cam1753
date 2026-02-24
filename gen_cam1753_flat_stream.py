@@ -124,7 +124,9 @@ def find_prev_page_endpoint(prev_page_path):
                 break
 
     if verse_label is None:
-        raise ValueError(f"Could not find verse context for last word in {prev_page_path}")
+        raise ValueError(
+            f"Could not find verse context for last word in {prev_page_path}"
+        )
 
     # Check if the page ended at a verse boundary (verse-end right after last word)
     at_verse_end = False
@@ -273,14 +275,18 @@ def main():
             # Start at the next verse
             start_book, start_cv = next_verse(book, cv)
             skip_words = 0
-            print(f"{page_id}: chained from {prev_page_id}"
-                  f" (ended at {book} {cv[0]}:{cv[1]} boundary)")
+            print(
+                f"{page_id}: chained from {prev_page_id}"
+                f" (ended at {book} {cv[0]}:{cv[1]} boundary)"
+            )
             print(f"  starting at {start_book} {start_cv[0]}:{start_cv[1]}")
         else:
             start_book = book
             start_cv = cv
-            print(f"{page_id}: chained from {prev_page_id}"
-                  f" (ended mid {book} {cv[0]}:{cv[1]}, skip {skip_words} words)")
+            print(
+                f"{page_id}: chained from {prev_page_id}"
+                f" (ended mid {book} {cv[0]}:{cv[1]}, skip {skip_words} words)"
+            )
 
         verses = get_page_verses(start_book, start_cv, end_book, end_cv)
         stream = build_flat_stream(page_id, verses, skip_first_n_words=skip_words)
@@ -299,8 +305,10 @@ def main():
             print(f"ERROR: unknown book '{end_book}' (known: {list(BOOK_XML)})")
             sys.exit(1)
 
-        print(f"{page_id}: {start_book} {start_cv[0]}:{start_cv[1]}"
-              f" .. {end_book} {end_cv[0]}:{end_cv[1]}")
+        print(
+            f"{page_id}: {start_book} {start_cv[0]}:{start_cv[1]}"
+            f" .. {end_book} {end_cv[0]}:{end_cv[1]}"
+        )
 
         verses = get_page_verses(start_book, start_cv, end_book, end_cv)
         stream = build_flat_stream(page_id, verses)

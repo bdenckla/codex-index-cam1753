@@ -38,9 +38,7 @@ def _average_saved_quads(is_verso):
             for col_key in ("col1", "col2"):
                 src = data["columns"][col_key]
                 rel = src.get("rel", src)
-                cols[col_key] = {
-                    c: rel[c] for c in ("tl", "tr", "bl", "br")
-                }
+                cols[col_key] = {c: rel[c] for c in ("tl", "tr", "bl", "br")}
             matching.append(cols)
     if not matching:
         return None
@@ -140,7 +138,9 @@ def generate_editor(page_id):
     c1 = data["columns"]["col1"]
     c2 = data["columns"]["col2"]
     source_note = (
-        f"cam1753-col-quads/{page_id}.json" if from_file else "averaged from saved pages"
+        f"cam1753-col-quads/{page_id}.json"
+        if from_file
+        else "averaged from saved pages"
     )
 
     is_verso = page_id.endswith("B")

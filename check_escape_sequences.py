@@ -21,7 +21,7 @@ Also exempt:
 
 The "word" regex for this check:
 
-    ESCAPE_RE = r'\\u[0-9A-Fa-f]{4}'
+    ESCAPE_RE = r'\\\\u[0-9A-Fa-f]{4}'
 
 i.e. a literal backslash, letter u, then exactly four hex digits.
 

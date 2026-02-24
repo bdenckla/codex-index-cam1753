@@ -24,8 +24,8 @@ def main():
     pass_count = 0
     fail_count = 0
     failures = []
-    method_counts = {}  # match_method -> count
-    stripped_records = []  # (cv, consensus) for non-exact matches
+    method_counts = {}  # match_method → count
+    stripped_records = []  # (cv, consensus, method) for non-exact matches
 
     for rec in data:
         cv = rec["qr-cv"]
@@ -55,7 +55,7 @@ def main():
             col, line_num, word_idx, line_words, match_method = find_word_in_linebreaks(
                 LB_DIR, expected_page, "Job", ch, v, lb_word
             )
-        except ValueError as e:
+        except ValueError:
             # Ambiguous match - try multi-page
             try:
                 col, line_num, word_idx, line_words, match_method = (

@@ -6,6 +6,7 @@ Checks run:
   1. check_word_finding      (word-finding against book-of-job quirkrecs)
   2. check_mark_order        (Hebrew combining-mark order, SBL2)
   3. check_escape_sequences  (literal chars instead of \\uXXXX escapes)
+  4. check_line_breaks       (line-break JSON consistency)
 
 Exit codes:
   0 - All checks passed
@@ -18,10 +19,24 @@ Usage:
 import sys
 
 import check_escape_sequences
+import check_line_breaks
 import check_mark_order
 import check_word_finding
 
 _SEPARATOR = "─" * 60
+
+
+def _run_line_breaks():
+    """Wrapper for check_line_breaks.main() which calls sys.exit()."""
+    saved_argv = sys.argv
+    sys.argv = [sys.argv[0], "--no-open"]
+    try:
+        check_line_breaks.main()
+        return 0  # main() returned normally (shouldn’t happen, but handle it)
+    except SystemExit as exc:
+        return exc.code if exc.code is not None else 0
+    finally:
+        sys.argv = saved_argv
 
 
 def main():
@@ -29,6 +44,7 @@ def main():
         ("Word finding (book-of-job quirkrecs)", check_word_finding.main),
         ("Hebrew mark order (SBL2)", check_mark_order.main),
         ("Escape sequences (literal chars)", check_escape_sequences.main),
+        ("Line-break JSON consistency", _run_line_breaks),
     ]
 
     failures = []

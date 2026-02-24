@@ -90,8 +90,6 @@ def find_prev_page_endpoint(prev_page_path):
     data = json.loads(Path(prev_page_path).read_text("utf-8"))
 
     # Find the boundary of actual page content: last line-end marker.
-    # The flat stream may include lead-out words beyond the page, so we
-    # must restrict our search to words within the line-break region.
     last_line_end_idx = None
     for i in range(len(data) - 1, -1, -1):
         if isinstance(data[i], dict) and "line-end" in data[i]:

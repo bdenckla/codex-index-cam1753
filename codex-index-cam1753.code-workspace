@@ -10,5 +10,12 @@
 			"path": "../codex-index-aleppo"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			".venv\\Scripts\\python.exe": true,
+			"git add": true,
+			"git commit": true,
+			"git push": true
+		}
+	}
 }

@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from py_mam_xml.mam_xml_verses import get_verses_in_range
+from pycmn.uni_denorm import has_std_mark_order
 
 BASE = Path(__file__).resolve().parent
 MAM_XML_DIR = BASE / "MAM-XML"
@@ -34,6 +35,8 @@ BOOK_XML = {
 BOOK_ORDER = ["Ps", "Job", "Prov"]
 BOOK_END_SENTINEL = (999, 999)
 BOOK_START = (1, 1)
+
+MAQAF = "\N{HEBREW PUNCTUATION MAQAF}"
 
 
 def parse_cv(s):
@@ -158,6 +161,27 @@ def find_prev_page_endpoint(prev_page_path):
         return book, cv, word_count, False
 
 
+def _assert_standard_order(word, verse_label):
+    """Assert combining marks on each base letter follow standard order.
+
+    Uses pycmn.uni_denorm.has_std_mark_order (SBL2 mark order) to check
+    that the word already has the project’s standard mark ordering.
+
+    Args:
+        word: a single Hebrew word string (base letters + combining marks).
+        verse_label: human-readable verse label (e.g. "Job 38:1") for
+            error messages.
+    """
+    if not has_std_mark_order(word):
+        marks_str = " ".join(
+            f"U+{ord(c):04X}" for c in word if ord(c) > 0x0590 and ord(c) < 0x05F5
+        )
+        raise AssertionError(
+            f"Non-standard combining mark order in {verse_label}, "
+            f"word ‘{word}’. Marks: [{marks_str}]"
+        )
+
+
 def build_flat_stream(page_id, verses, skip_first_n_words=0):
     """Build the flat stream array for a cam1753 page.
 
@@ -178,10 +202,11 @@ def build_flat_stream(page_id, verses, skip_first_n_words=0):
         # Expand words with maqaf splitting
         all_words = []
         for word in v["words"]:
-            parts = word.split("־")
+            _assert_standard_order(word, label)
+            parts = word.split(MAQAF)
             for k, part in enumerate(parts):
                 if k < len(parts) - 1:
-                    all_words.append(part + "־")
+                    all_words.append(part + MAQAF)
                 else:
                     all_words.append(part)
 

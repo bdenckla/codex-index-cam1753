@@ -16,7 +16,6 @@ Usage:
 
 import json
 import sys
-import webbrowser
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent

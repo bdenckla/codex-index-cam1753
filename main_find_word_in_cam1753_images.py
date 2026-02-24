@@ -25,7 +25,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 from py_cam1753_word_image.crop import compute_fade_overlay, estimate_word_position
-from py_cam1753_word_image.hebrew_metrics import SPACE_WIDTH, join_maqaf
+from py_cam1753_word_image.hebrew_metrics import join_maqaf
 from py_cam1753_word_image.linebreak_search import (
     find_word_in_linebreaks as _find_word_in_linebreaks,
 )

@@ -19,14 +19,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gen_cam1753_flat_stream import (
     build_flat_stream,
-    BOOK_XML,
-    BOOK_END_SENTINEL,
-    BOOK_START,
-    BOOK_ORDER,
-    MAM_XML_DIR,
     get_page_verses,
 )
-from py_mam_xml.mam_xml_verses import get_verses_in_range
 
 PROJ_DIR = Path(__file__).resolve().parent
 LB_DIR = PROJ_DIR / "cam1753-line-breaks"

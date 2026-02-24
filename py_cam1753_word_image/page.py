@@ -57,8 +57,12 @@ def find_pages_for_verse(book, ch, v):
     return result
 
 
-def get_line_bbox(page_id, col, line_num, buffer_lines=2):
+def get_line_bbox(page_id, col, line_num, buffer_lines=2, margin_factor=0.05):
     """Get pixel bounding box for a line using quad column coordinates.
+
+    *margin_factor* controls horizontal padding as a fraction of column
+    width (default 0.05 = 5%).  Use a larger value (e.g. 0.40) to
+    capture masorah notes in the page margins.
 
     Returns ``(crop_left, crop_top, crop_right, crop_bot,
     target_offset_from_crop_top, line_spacing_px)``.
@@ -88,7 +92,7 @@ def get_line_bbox(page_id, col, line_num, buffer_lines=2):
     # Column x extents (with margin)
     col_left = min(tl[0], bl[0])
     col_right = max(tr[0], br[0])
-    margin_x = int((col_right - col_left) * 0.05)
+    margin_x = int((col_right - col_left) * margin_factor)
 
     crop_top = max(0, int(line_top - buffer_lines * ls))
     crop_bot = min(img_h, int(line_bot + buffer_lines * ls))

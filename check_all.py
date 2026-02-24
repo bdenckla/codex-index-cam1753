@@ -3,7 +3,9 @@
 Run all check scripts for the codex-index-cam1753 project.
 
 Checks run:
-  1. check_word_finding  (word-finding against book-of-job quirkrecs)
+  1. check_word_finding      (word-finding against book-of-job quirkrecs)
+  2. check_mark_order        (Hebrew combining-mark order, SBL2)
+  3. check_escape_sequences  (literal chars instead of \\uXXXX escapes)
 
 Exit codes:
   0 - All checks passed
@@ -15,16 +17,18 @@ Usage:
 
 import sys
 
+import check_escape_sequences
 import check_mark_order
 import check_word_finding
 
-_SEPARATOR = "\u2500" * 60
+_SEPARATOR = "─" * 60
 
 
 def main():
     checks = [
         ("Word finding (book-of-job quirkrecs)", check_word_finding.main),
         ("Hebrew mark order (SBL2)", check_mark_order.main),
+        ("Escape sequences (literal chars)", check_escape_sequences.main),
     ]
 
     failures = []

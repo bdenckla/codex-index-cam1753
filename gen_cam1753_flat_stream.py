@@ -180,10 +180,10 @@ def build_flat_stream(page_id, verses, skip_first_n_words=0):
         # Expand words with maqaf splitting
         all_words = []
         for word in v["words"]:
-            parts = word.split("\u05be")
+            parts = word.split("־")
             for k, part in enumerate(parts):
                 if k < len(parts) - 1:
-                    all_words.append(part + "\u05be")
+                    all_words.append(part + "־")
                 else:
                     all_words.append(part)
 

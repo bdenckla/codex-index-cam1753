@@ -150,7 +150,7 @@ def generate_editor(page_id):
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Column Quad Editor \u2014 {page_id}</title>
+<title>Column Quad Editor — {page_id}</title>
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   body {{
@@ -234,11 +234,11 @@ def generate_editor(page_id):
 <body>
 
 <div id="toolbar">
-  <span><b>Quad Editor</b> \u2014 {page_id}</span>
+  <span><b>Quad Editor</b> — {page_id}</span>
   <button id="fine-btn" onclick="toggleFine()" class="active">Fine: ON</button>
   <button onclick="resetPositions()">Reset</button>
   <button onclick="exportJSON()" style="background:#046;border-color:#08f">Export JSON</button>
-  <span class="info">Source: {source_note} | Image: {img_w}\u00d7{img_h}</span>
+  <span class="info">Source: {source_note} | Image: {img_w}×{img_h}</span>
   <span class="info" id="status" style="margin-left:auto"></span>
 </div>
 

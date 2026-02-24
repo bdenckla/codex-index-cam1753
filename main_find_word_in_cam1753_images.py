@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / ".novc"
 SERVER_PORT = 8753  # assumed to be running: python -m http.server 8753 -d .novc
 
-MAQAF = "\u05be"
+MAQAF = "־"
 
 
 # ---------------------------------------------------------------------------
@@ -141,7 +141,7 @@ def find_and_preview(word, book, cv, *, wide=False):
     after = line_words[word_idx + 1:] if word_idx + 1 < len(line_words) else []
     print(f"  Context: {' '.join(before)} [{matched_word}] {' '.join(after)}")
 
-    # Initial bounding box in relative (0\u20131) coords for the crop editor
+    # Initial bounding box in relative (0–1) coords for the crop editor
     half_ls_box = ls // 2
     init_box_top = max(0, highlight_top - half_ls_box)
     init_box_bot = min(h - 1, highlight_bot + half_ls_box)
@@ -208,7 +208,7 @@ def generate_html(result):
 <html>
 <head>
 <meta charset="utf-8">
-<title>Preview \u2014 {verse_display}: {r["word"]}</title>
+<title>Preview — {verse_display}: {r["word"]}</title>
 <style>
 body {{ background: #222; color: #eee; font-family: sans-serif; padding: 20px; }}
 .preview h2 {{ margin-bottom: 5px; }}
@@ -262,7 +262,7 @@ body {{ background: #222; color: #eee; font-family: sans-serif; padding: 20px; }
 </div>
 
 <div class="preview">
-<h2>{verse_display} \u2014 {r["word"]}</h2>
+<h2>{verse_display} — {r["word"]}</h2>
 <p class="meta">Page {r["page"]}, col {r["col"]}, line {r["line_num"]}, word {r["word_idx"] + 1}</p>
 <div class="crop-box">
 <p class="context"><span class="before">{before_html}</span> <span class="target">{target_display}</span> <span class="after">{after_html}</span></p>
@@ -539,8 +539,8 @@ function updateStatus() {{
   const pxB = Math.round(box.bottom * ITEM.cropH);
   document.getElementById('status').textContent =
     '(' + lastSide + ') ' +
-    pxL + ',' + pxT + ' \u2013 ' + pxR + ',' + pxB +
-    '  [' + (pxR - pxL) + '\u00d7' + (pxB - pxT) + 'px]' + fl;
+    pxL + ',' + pxT + ' – ' + pxR + ',' + pxB +
+    '  [' + (pxR - pxL) + '×' + (pxB - pxT) + 'px]' + fl;
 }}
 
 function resetBox() {{
@@ -679,7 +679,7 @@ function getCropMetadata() {{
   }};
   // iTXt: full UTF-8 (Hebrew word, em dash)
   const itxtMeta = {{
-    'Title': ITEM.book + ' ' + ITEM.cv + ' \u2014 ' + ITEM.word,
+    'Title': ITEM.book + ' ' + ITEM.cv + ' — ' + ITEM.word,
     'Comment': comment,
     'Source': source,
   }};
@@ -700,7 +700,7 @@ async function copyDataURL() {{
   reader.onload = async () => {{
     await navigator.clipboard.writeText(reader.result);
     document.getElementById('status').textContent =
-      'Copied data URL to clipboard (' + cw + '\u00d7' + ch + ', with metadata)';
+      'Copied data URL to clipboard (' + cw + '×' + ch + ', with metadata)';
     setTimeout(updateStatus, 2000);
   }};
   reader.readAsDataURL(metaBlob);
@@ -715,7 +715,7 @@ async function downloadCrop() {{
   a.click();
   URL.revokeObjectURL(a.href);
   document.getElementById('status').textContent =
-    'Downloaded crop_' + ITEM.label + '.png (' + cw + '\u00d7' + ch + ', with metadata)';
+    'Downloaded crop_' + ITEM.label + '.png (' + cw + '×' + ch + ', with metadata)';
   setTimeout(updateStatus, 2000);
 }}
 </script>

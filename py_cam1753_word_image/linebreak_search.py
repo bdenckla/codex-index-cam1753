@@ -11,7 +11,7 @@ from pathlib import Path
 
 from .hebrew_metrics import strip_heb
 
-MAQAF = "\u05be"
+MAQAF = "־"
 
 
 def find_word_in_linebreaks(lb_dir, page_id, book, ch, v, consensus):

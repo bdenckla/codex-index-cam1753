@@ -225,7 +225,7 @@ def _find_multi_word(lb_dir, page_id, book, ch, v, parts):
             verse_items.append((item, cur_col, cur_line))
 
     if not verse_items:
-        return None, None, None, []
+        return None, None, None, [], None
 
     # Match-method priority for reporting the "worst" method used.
     _METHOD_RANK = {

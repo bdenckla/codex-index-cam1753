@@ -1,5 +1,5 @@
 """
-Extract verse words from MAM-XML (xml-vtrad-mam) for Aleppo Codex alignment.
+Extract verse words from MAM-XML (xml-vtrad-mam) for codex alignment.
 
 Handles all special MAM-XML elements:
   - <text>: plain text spans
@@ -12,7 +12,7 @@ Handles all special MAM-XML elements:
   - <spi-samekh2>: setumah (closed paragraph) break — emitted as {"parashah": "spi-samekh2"}
 
 Usage:
-    from py_ac_loc.mam_xml_verses import get_verses_in_range
+    from py_mam_xml.mam_xml_verses import get_verses_in_range
 
     verses = get_verses_in_range(
         r'C:\\path\\to\\MAM-XML\\out\\xml-vtrad-mam\\Job.xml',

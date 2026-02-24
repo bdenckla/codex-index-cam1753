@@ -19,16 +19,6 @@ Cambridge University Library, MS Add. 1753 (Ketuvim). Images downloaded from arc
 - 26 weighted line-boxes per column: top box 1.5x (ascenders), bottom box 1.25x (descenders), 24 normal
 - Generated via `gen_col_quad_editor.py` (interactive HTML editor, serves images via localhost:8119)
 
-## Sibling Aleppo Codex Workflow
-
-The repo already has a line-break workflow for Aleppo Codex pages in `py_ac_loc/`:
-- `gen_lb_flat_stream.py` — generates word-level flat stream JSON for a page
-- `gen_line_break_editor.py` — interactive HTML editor: click last word of each line, export
-- `line-breaks/*.json` — saved line-break data
-- `MAM-XML/*.xml` — text source (Westminster Leningrad / MAM markup)
-
-A similar workflow should be adapted for cam1753, using the quad data for column cropping.
-
 ## Local HTTP Server
 
 HTML editors that load page images need `http://localhost:8119/` serving the repo root. Start with:
@@ -125,5 +115,5 @@ Run in background. Required because browsers block `file://` cross-origin image 
 | `cam1753-line-breaks/*.json` | Line-break data per page (flat stream + markers) |
 | `cam1753-col-quads/*.json` | Column bounding quad data (used by editor for image cropping) |
 | `cam1753-pages/*.jpg` | Individual page images |
-| `py_ac_loc/mam_xml_verses.py` | MAM-XML verse extraction (shared with Aleppo workflow) |
-| `py_ac_loc/MAM-XML/*.xml` | Hebrew Bible text source |
+| `py_mam_xml/mam_xml_verses.py` | MAM-XML verse extraction |
+| `MAM-XML/*.xml` | Hebrew Bible text source |

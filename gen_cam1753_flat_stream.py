@@ -19,10 +19,10 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from py_ac_loc.mam_xml_verses import get_verses_in_range
+from py_mam_xml.mam_xml_verses import get_verses_in_range
 
 BASE = Path(__file__).resolve().parent
-MAM_XML_DIR = BASE / "py_ac_loc" / "MAM-XML"
+MAM_XML_DIR = BASE / "MAM-XML"
 OUT_DIR = BASE / "cam1753-line-breaks"
 
 BOOK_XML = {

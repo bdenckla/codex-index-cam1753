@@ -189,5 +189,5 @@ print(plus_verse_text(chapters['א']['א'][2]))
 - **Plus**: When you want clean verse data with enhanced annotations (special letters, targeted ketiv-qere)
 - **MAM-XML**: When you want simple verse text extraction without template parsing (see `copilot-instructions-mam-xml.md`)
 
-For the Aleppo Codex alignment task, **MAM-XML** is the preferred source
+For the codex alignment task, **MAM-XML** is the preferred source
 since it provides clean verse text directly in the `text` attribute.

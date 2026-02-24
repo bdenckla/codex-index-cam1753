@@ -24,8 +24,8 @@ Usage:
 
 import xml.etree.ElementTree as ET
 
-PASEQ = "׀"
-MAQAF = "־"
+PASEQ = "\N{HEBREW PUNCTUATION PASEQ}"
+MAQAF = "\N{HEBREW PUNCTUATION MAQAF}"
 
 
 def get_verse_words(verse_el):

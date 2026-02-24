@@ -4,8 +4,8 @@ Run all check scripts for the codex-index-cam1753 project.
 
 Checks run:
   1. check_word_finding      (word-finding against book-of-job quirkrecs)
-  2. check_mark_order        (Hebrew combining-mark order, SBL2)
-  3. check_escape_sequences  (literal chars instead of \\uXXXX escapes)
+  2. check_escape_sequences  (literal chars instead of \\uXXXX escapes)
+  3. check_mark_order        (Hebrew combining-mark order, SBL2)
   4. check_line_breaks       (line-break JSON consistency)
 
 Exit codes:
@@ -42,8 +42,8 @@ def _run_line_breaks():
 def main():
     checks = [
         ("Word finding (book-of-job quirkrecs)", check_word_finding.main),
-        ("Hebrew mark order (SBL2)", check_mark_order.main),
         ("Escape sequences (literal chars)", check_escape_sequences.main),
+        ("Hebrew mark order (SBL2)", check_mark_order.main),
         ("Line-break JSON consistency", _run_line_breaks),
     ]
 

@@ -87,12 +87,6 @@ def _should_be_literal(codepoint):
 
 # ── raw-string detection ─────────────────────────────────────────────
 
-# Pattern to find raw string literals (r"..." or r'...' including triple-quoted)
-_RAW_STR_RE = re.compile(
-    r'''r("""|'''  r"""'''"""  r"""|"|')(.*?)(\1)""",
-    re.DOTALL,
-)
-
 
 def _raw_string_spans(source_line):
     """Return list of (start, end) spans that are inside raw strings."""

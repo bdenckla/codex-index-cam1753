@@ -35,3 +35,14 @@ For example, archive page 0077 yields `0072B.jpg` (right) and `0073A.jpg`
 The leaf numbers on the manuscript pages appear both in Western Arabic
 numerals written in pencil (e.g. "73") and in Hebrew numerals
 (e.g. "עג").
+
+## Alternate image set
+
+There appears to be an alternate set of digital images for Cambridge
+Ms. Add. 1753 on the Internet Archive:
+
+<https://archive.org/details/20230306_20230306_1051/mode/1up>
+
+It is not yet known how these images differ from the ones
+we use — e.g. whether they are overall better, worse, or neutral in
+quality.

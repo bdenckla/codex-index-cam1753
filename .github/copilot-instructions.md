@@ -52,8 +52,8 @@ arbitrary biblical books.
 
 ### Pipeline stages:
 
-1. **MAM-XML Parsing** — `py_mam_xml/mam_xml_verses.py` extracts word lists from `MAM-XML/`
-2. **Flat Stream** — `gen_cam1753_flat_stream.py` combines explicit verse-range args + MAM-XML into per-page word streams; data in `cam1753-line-breaks/`
+1. **MAM-simple Parsing** — `py_mam_xml/mam_xml_verses.py` extracts word lists from `MAM-simple/`
+2. **Flat Stream** — `gen_cam1753_flat_stream.py` combines explicit verse-range args + MAM-simple into per-page word streams; data in `cam1753-line-breaks/`
 3. **Line-Break Annotation** — human-in-the-loop via `gen_cam1753_line_break_editor.py`; data in `cam1753-line-breaks/`
 4. **Column Coordinates** — `gen_col_quad_editor.py`; data in `cam1753-col-quads/`
 5. **Word Lookup** — `main_find_word_in_cam1753_images.py` ties it all together

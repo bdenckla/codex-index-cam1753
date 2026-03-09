@@ -115,5 +115,5 @@ Run in background. Required because browsers block `file://` cross-origin image 
 | `cam1753-line-breaks/*.json` | Line-break data per page (flat stream + markers) |
 | `cam1753-col-quads/*.json` | Column bounding quad data (used by editor for image cropping) |
 | `cam1753-pages/*.jpg` | Individual page images |
-| `py_mam_xml/mam_xml_verses.py` | MAM-XML verse extraction |
-| `MAM-XML/*.xml` | Hebrew Bible text source |
+| `py_mam_xml/mam_xml_verses.py` | MAM-simple verse extraction |
+| `MAM-simple/*.xml` | Hebrew Bible text source |

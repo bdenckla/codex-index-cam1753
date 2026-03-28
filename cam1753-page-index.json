@@ -1,0 +1,28 @@
+[
+  {
+    "comment": "Low-resolution page index: what verses are on what pages, for pages outside the high-resolution line-break index (0072B-0085B)."
+  },
+  {
+    "de_leaf": "0041B",
+    "de_archive_spread": 46,
+    "de_spread_side": "right",
+    "de_text_at_end": "אֶת־דִּ֭בְרֵי הַשִּׁירָ֣ה",
+    "de_text_at_end_ref": "Ps 18:1 (mid-verse)"
+  },
+  {
+    "de_leaf": "0042A",
+    "de_archive_spread": 46,
+    "de_spread_side": "left",
+    "de_col": 1,
+    "de_text_at_end": "יִגְמְלֵ֣נִי יְהֹוָ֣ה",
+    "de_text_at_end_ref": "Ps 18:21 (start of verse)"
+  },
+  {
+    "de_leaf": "0042A",
+    "de_archive_spread": 46,
+    "de_spread_side": "left",
+    "de_col": 2,
+    "de_text_at_end": "כְּטִ֖יט חוּצ֣וֹת אֲרִיקֵֽם׃",
+    "de_text_at_end_ref": "Ps 18:43 (end of verse)"
+  }
+]

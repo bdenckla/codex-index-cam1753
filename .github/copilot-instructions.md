@@ -177,6 +177,7 @@ This does not apply to throwaway files in `.novc/`.
 - **Before a series of experiments** that might need to be thrown away: ask the user to commit the current clean state first, so there is a safe baseline to return to.
 - **Commit messages** — write to a uniquely-named `.novc/commit_msg_<slug>.txt` file and commit with `git commit -F .novc/commit_msg_<slug>.txt`. Never pass multi-line or Hebrew-containing messages as a `-m` string. Use a unique slug per commit to avoid stale-file mistakes.
 - **Don't close issues prematurely.** Never close a GitHub issue until work is both committed **and** pushed.
+- **Don't re-assert the repo directory.** Run `git` directly without `cd` or `git -C <this-repo>`. For a sibling repo, use `git -C <path>`.
 
 ## Markdown formatting
 
@@ -206,3 +207,18 @@ When a `.novc/` script becomes part of an ongoing, repeatable workflow, promote 
 ## Do Not Mention Private Repos in Public Repos
 
 Some sibling repositories are private. Never reference a private repo by name in commits, code, documentation, or issue/PR text destined for a public repo. Describe the pattern itself without naming the private source.
+
+## Multi-Line Content — Write to `.novc/` Files
+
+When the payload is inherently multi-line (a commit message, a GitHub issue/PR body, etc.), write it to a file in `.novc/` and reference the file. Do not pass multi-line content as a command argument — the Windows shell mangles it.
+
+- **Git commit messages** — write to `.novc/commit_msg_<slug>.txt`, then `git commit -F .novc/commit_msg_<slug>.txt`
+- **GitHub issue/PR bodies** — write to `.novc/issue_body.md` (or similar), then `gh issue create --body-file .novc/issue_body.md`
+
+## GitHub Repository Owner
+
+The owner is **bdenckla**. Use this for GitHub MCP queries. Confirm via `git remote -v` if unsure.
+
+## Local Sibling Repositories
+
+Most repos are cloned as siblings at `../repo-name`. Use relative paths when referencing other repos — do not hard-code absolute paths.

@@ -43,6 +43,8 @@ In practice this means: **base letter → shin/sin dot → dagesh → rafeh → 
 When in doubt, pass the text through `give_std_mark_order` rather than
 hand-ordering codepoints.
 
+**Never apply Unicode normalization (NFC, NFD, etc.) to Hebrew text.** NFC reorders combining marks, destroying the project's intentional mark order. If strings that should be equal aren't matching, ensure both use the project's standard mark order — do not paper over with `unicodedata.normalize`.
+
 ## Project Overview
 
 This repo (`codex-index-cam1753`) is a digital scholarship tool for locating
@@ -85,7 +87,7 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 ```
-Use `$env:PYTHONIOENCODING="utf-8"` only for `.novc/` throwaway scripts where changing the code is not an option.
+Use `$env:PYTHONUTF8="1"` only for `.novc/` throwaway scripts where changing the code is not an option. (`PYTHONIOENCODING` is deprecated in favor of `PYTHONUTF8`.)
 
 **Running Black:** From the repo top directory, run:
 ```
@@ -173,6 +175,8 @@ This does not apply to throwaway files in `.novc/`.
 - **Always use fresh commits.** Never use `git commit --amend` unless the user explicitly requests it.
 - **Before discarding work** (`git reset`, `git checkout -- .`, `git stash drop`, etc.): always run `git status` and `git diff --stat` first. If there are uncommitted changes beyond the current experiment, alert the user and ask them to commit or stash before proceeding.
 - **Before a series of experiments** that might need to be thrown away: ask the user to commit the current clean state first, so there is a safe baseline to return to.
+- **Commit messages** — write to a uniquely-named `.novc/commit_msg_<slug>.txt` file and commit with `git commit -F .novc/commit_msg_<slug>.txt`. Never pass multi-line or Hebrew-containing messages as a `-m` string. Use a unique slug per commit to avoid stale-file mistakes.
+- **Don't close issues prematurely.** Never close a GitHub issue until work is both committed **and** pushed.
 
 ## Markdown formatting
 
@@ -180,3 +184,25 @@ This does not apply to throwaway files in `.novc/`.
   abbreviation for "approximately." Markdown renderers interpret text
   between two `~` characters as strikethrough. Instead, write out
   "approx." or "approximately," or escape the tilde (`\~`).
+
+## Fail Fast — No Silent Error Smoothing
+
+Do **not** write defensive code that swallows errors or returns `None` on unexpected conditions. Only catch exceptions when there is a concrete recovery strategy. These are batch pipelines; a crash with a clear traceback is the correct response.
+
+## Dict Access Style
+
+- `d[key]` — when the key is **required** (a `KeyError` is a bug you want immediately)
+- `d.get(key)` — when the key is **genuinely optional** and `None` is meaningful
+- `d.get(key, default)` — when the key is optional and there is a natural default
+
+## JSON Lists: Prepend, Don't Append
+
+When adding to a semantically unordered JSON array, **prepend** rather than append. Appending requires a two-line diff; prepending is a clean one-line diff.
+
+## Script Promotion Policy
+
+When a `.novc/` script becomes part of an ongoing, repeatable workflow, promote it to a permanent location immediately. Do not let useful scripts live permanently in `.novc/`.
+
+## Do Not Mention Private Repos in Public Repos
+
+Some sibling repositories are private. Never reference a private repo by name in commits, code, documentation, or issue/PR text destined for a public repo. Describe the pattern itself without naming the private source.

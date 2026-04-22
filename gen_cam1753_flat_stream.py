@@ -18,7 +18,6 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from py_mam_xml.mam_xml_verses import get_verses_in_range
 from pycmn.uni_denorm import has_std_mark_order
 

@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 from py_mam_xml.mam_xml_verses import get_verses_in_range
-from pycmn.uni_denorm import has_std_mark_order
+from mb_cmn.uni_denorm import has_std_mark_order
 
 BASE = Path(__file__).resolve().parent
 MAM_XML_DIR = BASE / "MAM-XML"
@@ -165,7 +165,7 @@ def find_prev_page_endpoint(prev_page_path):
 def _assert_standard_order(word, verse_label):
     """Assert combining marks on each base letter follow standard order.
 
-    Uses pycmn.uni_denorm.has_std_mark_order (SBL2 mark order) to check
+    Uses mb_cmn.uni_denorm.has_std_mark_order (SBL2 mark order) to check
     that the word already has the project’s standard mark ordering.
 
     Args:

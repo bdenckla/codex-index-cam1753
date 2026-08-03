@@ -9,7 +9,7 @@ Cambridge University Library, MS Add. 1753 (Ketuvim). Images downloaded from arc
 - **28 individual pages** in `cam1753-pages/` (0072B.jpg through 0086A.jpg, approx 2200x3040 px)
 - Split from two-page spreads in `cam1753-spreads/` (archive pages 77-90)
 - Naming: archive page N → left=recto(A) of leaf N-4, right=verso(B) of leaf N-5
-- Provenance documented in `cam1753-pages-provenance.md`
+- Provenance documented in `cam1753-spreads-provenance.md`
 
 ## Column Quad Data
 

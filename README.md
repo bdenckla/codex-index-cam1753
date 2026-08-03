@@ -10,11 +10,26 @@ column geometry.
 
 ## Pipeline
 
-1. **MAM-XML parsing** — `py_mam_xml/mam_xml_verses.py` extracts word lists from `MAM-XML/`
-2. **Flat stream** — `gen_cam1753_flat_stream.py` combines explicit verse-range arguments with MAM-XML into per-page word streams; data in `cam1753-line-breaks/`
+1. **XML parsing** — `py_mam_xml/mam_xml_verses.py` extracts word lists from `MAM-XML/` (see [Data](#data))
+2. **Flat stream** — `gen_cam1753_flat_stream.py` combines explicit verse-range arguments with those word lists into per-page word streams; data in `cam1753-line-breaks/`
 3. **Line-break annotation** — human-in-the-loop via `gen_cam1753_line_break_editor.py`; data in `cam1753-line-breaks/`
 4. **Column coordinates** — `gen_col_quad_editor.py`; data in `cam1753-col-quads/`
 5. **Word lookup** — `main_find_word_in_cam1753_images.py` ties it all together
+
+## Data
+
+- **`MAM-XML/`** — a flat copy of the **`xml-vtrad-mam`** output of the sibling
+  [`MAM-simple`](https://github.com/bdenckla/MAM-simple) repo: the mam vtrad, not `xml-vtrad-bhs`
+  or `xml-vtrad-sef`. The directory name is that repo's *former* name, which it was renamed away
+  from in its own `0c2ce6b`; `gen_cam1753_flat_stream.py` still spells it `MAM_XML_DIR`.
+  [`MAM-simple-provenance.md`](MAM-simple-provenance.md) records which commit the copy came
+  from, and records the source path as `MAM-simple/out/xml-vtrad-mam` — also pre-rename, since
+  MAM-simple's `16b63e3` moved the `xml-vtrad-*` directories to that repo's root and turned
+  `out/` into `misc/`.
+- **`cam1753-pages/`**, **`cam1753-spreads/`** — page images and the two-page spreads they were
+  split from; provenance in `cam1753-spreads-provenance.md`.
+- **`cam1753-line-breaks/`**, **`cam1753-col-quads/`** — the generated flat streams with their
+  human-annotated line breaks, and the column quadrilaterals.
 
 ## Conventions
 

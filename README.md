@@ -40,5 +40,5 @@ column geometry.
 ## Docs
 
 - [`doc/cam1753-line-break-task.md`](doc/cam1753-line-break-task.md) — the manuscript, its page images and their provenance, the column-quad data, and the marking task itself
-- [`doc/reading-mam-simple.md`](doc/reading-mam-simple.md) — the MAM-simple XML format, verse extraction, versification traditions
+- [`doc/reading-mam-simple.md`](doc/reading-mam-simple.md) — the vendored `MAM-XML/` snapshot and the reader over it; points at MAM-simple for the format itself
 - [`doc/mam-with-doc-urls.md`](doc/mam-with-doc-urls.md) — how to build a URL into the MAM-with-doc viewer (book codes, verse fragments)

@@ -37,7 +37,11 @@ entirely.
 
 Working backwards from two readings Ben made off the images, both now in
 `../cam1753-page-index.json`: leaf 0107A column 1 opens at Lam 3:55, and leaf 0105B column 2
-has a centered ספר איכה above text from Lam 1:17. The second of those is what suggests the
-heading is a running header rather than a book start — see `../things-noticed-in-cam1753.md`.
-A lines model fitted to both put Lam 2:3 as the last verse of 0105B column 2, which the third
-line up from the bottom bears out.
+opens at Lam 1:17. A lines model fitted to those two put Lam 2:3 as the last verse of 0105B
+column 2, which the third line up from the bottom bears out.
+
+That column also has a centered ספר איכה above it, which first looked like a start-of-book
+heading and is not — the book starts elsewhere, and the annotation appears sporadically
+through the manuscript without taking body-column space. `../things-noticed-in-cam1753.md`
+has what is known about it, which is not much. Landing on the predicted column is weaker
+support for the model than it looks, the model having been fitted to reach that column.

@@ -3,6 +3,15 @@
     "comment": "Low-resolution page index: what verses are on what pages, for pages outside the high-resolution line-break index (0072B-0085B). de_archive_spread is the number in the archive.org BookReader URL .../page/n<N>/mode/1up, and equals the jp2 file number download_cam1753_spreads.py uses. An entry carries de_text_at_end or de_text_at_start depending on which end of the column was read."
   },
   {
+    "de_leaf": "0105A",
+    "de_archive_spread": 109,
+    "de_spread_side": "left",
+    "de_col": 2,
+    "de_text_at_ref": "אֵיכָ֣ה יָשְׁבָ֣ה בָדָ֗ד הָעִיר֙ רַבָּ֣תִי עָ֔ם",
+    "de_text_at_ref_ref": "Lam 1:1, nineteen lines up from the bottom of the column, so line 8 of 26",
+    "de_note": "Read off the images by Ben, 2026-08-04, who counted this as the fourth column of the spread, RTL. Lamentations begins here, with Ecclesiastes ending in the same column above it. A heading reading איכה, with no preceding ספר, sits above Lam 1:1 and does take up body-column space — distinguishing it from the sporadic centered ספר איכה annotation seen on 0105B col 2, which does not. See things-noticed-in-cam1753.md."
+  },
+  {
     "de_leaf": "0105B",
     "de_archive_spread": 110,
     "de_spread_side": "right",

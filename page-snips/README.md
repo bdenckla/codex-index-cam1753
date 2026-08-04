@@ -41,7 +41,10 @@ opens at Lam 1:17. A lines model fitted to those two put Lam 2:3 as the last ver
 column 2, which the third line up from the bottom bears out.
 
 That column also has a centered ספר איכה above it, which first looked like a start-of-book
-heading and is not — the book starts elsewhere, and the annotation appears sporadically
-through the manuscript without taking body-column space. `../things-noticed-in-cam1753.md`
-has what is known about it, which is not much. Landing on the predicted column is weaker
-support for the model than it looks, the model having been fitted to reach that column.
+heading and is not — Lamentations begins back on 0105A col 2, under a different annotation
+reading just איכה. `../things-noticed-in-cam1753.md` has the distinction between the two.
+
+Landing on the predicted column is weaker support for the model than it looks, the model
+having been fitted to reach that column. The independent confirmation came afterwards, at
+the start of the book: the model put Lam 1:1 twenty lines up from the bottom of 0105A col 2
+and Ben counted nineteen.

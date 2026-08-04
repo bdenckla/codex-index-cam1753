@@ -35,16 +35,12 @@ entirely.
 
 ### How the page was found
 
-Working backwards from two readings Ben made off the images, both now in
-`../cam1753-page-index.json`: leaf 0107A column 1 opens at Lam 3:55, and leaf 0105B column 2
-opens at Lam 1:17. A lines model fitted to those two put Lam 2:3 as the last verse of 0105B
-column 2, which the third line up from the bottom bears out.
+By interpolating between column readings Ben made off the images, all now in
+`../cam1753-page-index.json`: Lamentations begins on 0105A col 2, 0105B col 2 opens at
+Lam 1:17, and 0107A col 1 opens at Lam 3:55. Those bracket Lam 2:3 tightly enough that only
+one column is a candidate. The interpolation was originally a fitted lines model, but it
+carries nothing now — the readings on either side do the work.
 
 That column also has a centered ספר איכה above it, which first looked like a start-of-book
-heading and is not — Lamentations begins back on 0105A col 2, under a different annotation
-reading just איכה. `../things-noticed-in-cam1753.md` has the distinction between the two.
-
-Landing on the predicted column is weaker support for the model than it looks, the model
-having been fitted to reach that column. The independent confirmation came afterwards, at
-the start of the book: the model put Lam 1:1 twenty lines up from the bottom of 0105A col 2
-and Ben counted nineteen.
+heading and is not. `../things-noticed-in-cam1753.md` distinguishes it from the איכה that
+marks the actual start of the book on 0105A col 2.

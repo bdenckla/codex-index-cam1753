@@ -93,7 +93,7 @@ Run in background. Required because browsers block `file://` cross-origin image 
 - **The flat stream generator refuses to overwrite** existing files. Use `--force` to overwrite deliberately.
 - **Minimum word count**: The generator requires at least 300 words. If it rejects, use a later end verse.
 - **Always use `.venv\Scripts\python.exe`** — never bare `python`.
-- **Never use `python -c "..."`** one-liners — always create a script in `.novc/` per the general copilot instructions.
+- **Never use `python -c "..."`** one-liners — always create a script in `.novc/`, per the user-level `CLAUDE.md`'s "Running scripts — no inline one-liners" section, whose temp-file-location bullet names a repo's gitignored scratch dir first.
 - The editor loads images from `http://localhost:8119/cam1753-pages/` — the local HTTP server must be running.
 - Col 1 = right column (read first), Col 2 = left column. The editor has a toggle button to switch.
 - “Blank lines” are lines without verse content (masorah notes, decorations between books, etc.), not necessarily visually empty.

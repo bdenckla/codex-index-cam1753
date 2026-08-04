@@ -1,6 +1,24 @@
 [
   {
-    "comment": "Low-resolution page index: what verses are on what pages, for pages outside the high-resolution line-break index (0072B-0085B)."
+    "comment": "Low-resolution page index: what verses are on what pages, for pages outside the high-resolution line-break index (0072B-0085B). de_archive_spread is the number in the archive.org BookReader URL .../page/n<N>/mode/1up, and equals the jp2 file number download_cam1753_spreads.py uses. An entry carries de_text_at_end or de_text_at_start depending on which end of the column was read."
+  },
+  {
+    "de_leaf": "0107A",
+    "de_archive_spread": 111,
+    "de_spread_side": "left",
+    "de_col": 1,
+    "de_text_at_start": "קָרָ֤אתִי שִׁמְךָ֙ יְהֹוָ֔ה מִבּ֖וֹר תַּחְתִּיּֽוֹת׃",
+    "de_text_at_start_ref": "Lam 3:55 (start of verse)",
+    "de_note": "Read off the images by Ben, 2026-08-04. The page is labelled 107 in pencil and קז in Hebrew numerals, which is what pins de_archive_spread to the BookReader n number with no offset."
+  },
+  {
+    "de_leaf": "0107A",
+    "de_archive_spread": 111,
+    "de_spread_side": "left",
+    "de_col": 2,
+    "de_text_at_start": "סַפִּ֖יר גִּזְרָתָֽם׃ חָשַׁ֤ךְ מִשְּׁחוֹר֙ תָּֽאֳרָ֔ם",
+    "de_text_at_start_ref": "Lam 4:7 (last two atoms), then a setumah, then Lam 4:8",
+    "de_note": "Read off the images by Ben, 2026-08-04."
   },
   {
     "de_leaf": "0041B",

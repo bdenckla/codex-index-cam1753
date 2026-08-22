@@ -25,13 +25,13 @@ Usage:
 import json
 import sys
 import webbrowser
-from pathlib import Path
 
-BASE = Path(__file__).resolve().parent
-LB_DIR = BASE / "cam1753-line-breaks"
-QUAD_DIR = BASE / "cam1753-col-quads"
-IMG_DIR = BASE / "cam1753-pages"
-OUT_DIR = BASE / ".novc"
+import cam1753_paths
+
+LB_DIR = cam1753_paths.line_breaks_dir()
+QUAD_DIR = cam1753_paths.col_quads_dir()
+IMG_DIR = cam1753_paths.pages_dir()
+OUT_DIR = cam1753_paths.novc_dir()
 
 LOCAL_IMG_BASE = "http://localhost:8119/cam1753-pages"
 
@@ -173,7 +173,7 @@ def generate_editor_html(page_id, col):
 
     out_path = OUT_DIR / f"cam1753_lb_editor_{page_id}_col{col}.html"
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(html, encoding="utf-8")
+    out_path.write_text(html, encoding="utf-8", newline="")
     print(f"Wrote {out_path}")
     return out_path
 

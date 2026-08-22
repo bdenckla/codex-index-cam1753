@@ -16,12 +16,12 @@ Usage:
 
 import json
 import sys
-from pathlib import Path
 
-BASE = Path(__file__).resolve().parent
-OUT_DIR = BASE / ".novc"
-COORD_DIR = BASE / "cam1753-col-quads"
-IMG_DIR = BASE / "cam1753-pages"
+import cam1753_paths
+
+OUT_DIR = cam1753_paths.novc_dir()
+COORD_DIR = cam1753_paths.col_quads_dir()
+IMG_DIR = cam1753_paths.pages_dir()
 
 LINES_PER_COL = 26
 
@@ -671,7 +671,7 @@ updateStatus();
 
     out_path = OUT_DIR / f"quad-editor-{page_id}.html"
     OUT_DIR.mkdir(exist_ok=True)
-    out_path.write_text(html, encoding="utf-8")
+    out_path.write_text(html, encoding="utf-8", newline="")
     print(f"Editor written to: {out_path}")
 
 

@@ -14,16 +14,14 @@ import json
 import sys
 import webbrowser
 from collections import Counter
-from pathlib import Path
 
+import cam1753_paths
 from gen_cam1753_flat_stream import (
     build_flat_stream,
     get_page_verses,
 )
 
-PROJ_DIR = Path(__file__).resolve().parent
-LB_DIR = PROJ_DIR / "cam1753-line-breaks"
-OUT_DIR = PROJ_DIR
+LB_DIR = cam1753_paths.line_breaks_dir()
 
 EXPECTED_LINES_PER_COL = 26
 
@@ -649,9 +647,15 @@ def main():
 </html>
 """
 
-    OUT_DIR.mkdir(exist_ok=True)
-    out_path = OUT_DIR / "check_line_breaks.html"
-    out_path.write_text(html, encoding="utf-8")
+    out_path = cam1753_paths.check_line_breaks_html_path()
+    out_path.parent.mkdir(exist_ok=True)
+    # newline='' so this writes LF, matching .gitattributes' `* text=auto eol=lf`.
+    # Without it Python's text mode translated \n to CRLF here and every run left
+    # check_line_breaks.html modified in the working tree -- the same one missing
+    # argument the programme's Phase 0 fixed in fix_mark_order.py and
+    # fix_escape_sequences.py on 2026-08-19, in a seventh script that phase did not
+    # review.  codex-index-aleppo's copy of this file has had it all along.
+    out_path.write_text(html, encoding="utf-8", newline="")
     print(f"Report written to {out_path}")
     if not no_open:
         webbrowser.open(out_path.as_uri())

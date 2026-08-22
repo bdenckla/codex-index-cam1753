@@ -20,9 +20,10 @@ Example:
 import json
 import sys
 import webbrowser
-from pathlib import Path
 
 from PIL import Image, ImageDraw
+
+import cam1753_paths
 
 from py_cam1753_word_image.crop import compute_fade_overlay, estimate_word_position
 from py_cam1753_word_image.hebrew_metrics import join_maqaf
@@ -36,8 +37,7 @@ from py_cam1753_word_image.page import (
     load_page_image,
 )
 
-ROOT = Path(__file__).resolve().parent
-OUT_DIR = ROOT / ".novc"
+OUT_DIR = cam1753_paths.novc_dir()
 SERVER_PORT = 8753  # assumed to be running: python -m http.server 8753 -d .novc
 
 MAQAF = "־"
@@ -209,7 +209,7 @@ def generate_html(result):
         ensure_ascii=False,
     )
 
-    with open(html_path, "w", encoding="utf-8") as f:
+    with open(html_path, "w", encoding="utf-8", newline="") as f:
         f.write(f"""<!DOCTYPE html>
 <html>
 <head>

@@ -9,13 +9,12 @@ fields needed for this test.
 
 import json
 import sys
-from pathlib import Path
 
+import cam1753_paths
 from py_cam1753_word_image.linebreak_search import find_word_in_linebreaks
 from py_cam1753_word_image.page import LB_DIR, find_pages_for_verse
 
-ROOT = Path(__file__).resolve().parent
-TEST_DATA = ROOT / "test-data-from-book-of-job.json"
+TEST_DATA = cam1753_paths.word_finding_test_data_path()
 
 
 def main():

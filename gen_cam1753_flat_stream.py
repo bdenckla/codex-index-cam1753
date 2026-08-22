@@ -18,12 +18,12 @@ import json
 import sys
 from pathlib import Path
 
+import cam1753_paths
 from py_mam_xml.mam_xml_verses import get_verses_in_range
 from mb_cmn.uni_denorm import has_std_mark_order
 
-BASE = Path(__file__).resolve().parent
-MAM_XML_DIR = BASE / "MAM-XML"
-OUT_DIR = BASE / "cam1753-line-breaks"
+MAM_XML_DIR = cam1753_paths.mam_xml_dir()
+OUT_DIR = cam1753_paths.line_breaks_dir()
 
 BOOK_XML = {
     "Ps": "Ps.xml",
@@ -352,6 +352,7 @@ def main():
     out_path.write_text(
         json.dumps(stream, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
+        newline="",
     )
     print(f"  -> {out_path.name}: {verse_count} verses, {word_count} words")
 

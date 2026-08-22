@@ -11,7 +11,9 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-IMG_DIR = "cam1753-spreads"
+import cam1753_paths
+
+IMG_DIR = cam1753_paths.spreads_dir()
 files = sorted(f for f in os.listdir(IMG_DIR) if f.endswith(".jpg"))
 
 fig, axes = plt.subplots(len(files), 1, figsize=(14, 2.2 * len(files)), sharex=False)
@@ -50,6 +52,6 @@ fig.suptitle(
     fontsize=11,
 )
 fig.tight_layout()
-out = "cam1753-gutter-profiles.png"
+out = cam1753_paths.gutter_profiles_png_path()
 fig.savefig(out, dpi=120)
 print(f"Saved to {out}")

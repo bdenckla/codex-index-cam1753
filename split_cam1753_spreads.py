@@ -19,12 +19,14 @@ import os
 import numpy as np
 from PIL import Image
 
+import cam1753_paths
+
 # EXIF tag number for ImageDescription
 _EXIF_IMAGE_DESCRIPTION = 0x010E
 
-SPREAD_DIR = "cam1753-spreads"
-OUT_DIR = "cam1753-pages"
-DOC_DIR = "cam1753-spread-splits-doc"
+SPREAD_DIR = cam1753_paths.spreads_dir()
+OUT_DIR = cam1753_paths.pages_dir()
+DOC_DIR = cam1753_paths.spread_splits_doc_dir()
 os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(DOC_DIR, exist_ok=True)
 
@@ -126,7 +128,7 @@ for fname in files:
 
     # Write per-spread JSON
     doc_path = os.path.join(DOC_DIR, fname.replace(".jpg", ".json"))
-    with open(doc_path, "w", encoding="utf-8") as f:
+    with open(doc_path, "w", encoding="utf-8", newline="") as f:
         json.dump(split_record, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
@@ -137,7 +139,7 @@ for fname in files:
 
 # Write combined summary
 summary_path = os.path.join(DOC_DIR, "_all-splits.json")
-with open(summary_path, "w", encoding="utf-8") as f:
+with open(summary_path, "w", encoding="utf-8", newline="") as f:
     json.dump(all_splits, f, indent=2, ensure_ascii=False)
     f.write("\n")
 

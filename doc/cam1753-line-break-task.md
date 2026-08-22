@@ -92,7 +92,7 @@ Run in background. Required because browsers block `file://` cross-origin image 
 
 - **The flat stream generator refuses to overwrite** existing files. Use `--force` to overwrite deliberately.
 - **Minimum word count**: The generator requires at least 300 words. If it rejects, use a later end verse.
-- **Always use MAM-basics' interpreter by absolute path** — never bare `python`, and never this repo's `.venv`, which has no Python of this project's left to run.
+- **Always use MAM-basics' interpreter by absolute path** — never bare `python`. This repo has no `.venv` at all: Phase 7 of `../MAM-basics/doc/PLAN-evacuate-python-from-codex-index-trio.md` deleted it on 2026-08-22, along with codex-index-aleppo's and codex-index-leningrad's, none of the three having any Python left to run. This line read "never this repo's `.venv`" until then, which named something that still existed.
 - **Never use `python -c "..."`** one-liners — always create a script in `.novc/`, per the user-level `CLAUDE.md`'s "Running scripts — no inline one-liners" section, whose temp-file-location bullet names a repo's gitignored scratch dir first.
 - The editor loads images from `http://localhost:8119/cam1753-pages/` — the local HTTP server must be running.
 - Col 1 = right column (read first), Col 2 = left column. The editor has a toggle button to switch.

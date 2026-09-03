@@ -16,7 +16,7 @@ column geometry.
 
 ## Pipeline
 
-Every step runs from `C:\Users\BenDe\GitRepos\MAM-basics` now. The modules kept their
+Every step runs from `C:/Users/BenDe/GitRepos/MAM-basics` now. The modules kept their
 names but dropped a `cam1753` infix that the package name `py_cam1753_loc` already
 carries, and each is reached through a `main_cam1753_` wrapper at MAM-basics' `py/`
 top level rather than being run directly.

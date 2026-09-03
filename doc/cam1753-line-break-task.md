@@ -64,11 +64,11 @@ Run in background. Required because browsers block `file://` cross-origin image 
 1. User identifies the starting verse (e.g. `Ps 149:7`) and a generous ending verse.
 2. Generate the flat stream:
    ```
-   C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_cam1753_gen_flat_stream.py 0072B Ps 149:7 Job 2:10
+   C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_cam1753_gen_flat_stream.py 0072B Ps 149:7 Job 2:10
    ```
 3. Generate and open the editor (always start with col 1):
    ```
-   C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_cam1753_gen_line_break_editor.py 0072B 1
+   C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_cam1753_gen_line_break_editor.py 0072B 1
    ```
    The script writes the HTML and opens it in the browser automatically.
 4. In the editor: right-click the actual first word on the page to set page-start (if the flat stream includes earlier words from the same verse). Click the last word of each line to mark line-ends. Click line numbers to add blank lines (for masorah notes, inter-book gaps, etc. — any line without verse content). Use the col toggle to switch between columns.
@@ -79,12 +79,12 @@ Run in background. Required because browsers block `file://` cross-origin image 
 
 1. Generate the flat stream with `--chain`, which reads the previous page\u2019s JSON and starts at the next word:
    ```
-   C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_cam1753_gen_flat_stream.py 0073A --chain 0072B Job 4:10
+   C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_cam1753_gen_flat_stream.py 0073A --chain 0072B Job 4:10
    ```
    This auto-detects whether the previous page ended mid-verse (generates a `verse-fragment-start`) or at a verse boundary (starts at next full verse). The end verse (`Job 4:10`) should be generous — extra verses at the end are harmless.
 2. Generate and open the editor:
    ```
-   C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_cam1753_gen_line_break_editor.py 0073A 1
+   C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_cam1753_gen_line_break_editor.py 0073A 1
    ```
 3. Mark line breaks, export, paste into file (same as bootstrapping steps 4-6).
 

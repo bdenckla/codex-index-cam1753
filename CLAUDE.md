@@ -66,13 +66,13 @@ Run either from anywhere; each addresses this repo by absolute path, through
 **28 page images and 15 split records**, from the 14 downloaded spreads:
 
 ```powershell
-C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_cam1753_split_spreads.py
+C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_cam1753_split_spreads.py
 ```
 
 **`check_line_breaks.html`**, rewritten by every run of the check register:
 
 ```powershell
-C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\check_cam1753_all.py
+C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/check_cam1753_all.py
 ```
 
 **Those 44 files are the oracle**: run both and all 44 come back byte-identical unless something
